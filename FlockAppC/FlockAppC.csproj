@@ -1,0 +1,1255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AF7078C7-6C8D-409D-83DF-B4BD56878D6A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>FlockAppC</RootNamespace>
+    <AssemblyName>FlockApp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <LangVersion>11.0</LangVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>FlockAppC.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.6.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.102.2.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.102.2\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.20.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.20.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="MailKit, Version=4.4.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.4.4.0\lib\net48\MailKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.3595.46, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.3595.46\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.3595.46, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.3595.46\lib\net462\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.3595.46, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.3595.46\lib\net462\Microsoft.Web.WebView2.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MimeKit, Version=4.14.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.4.14.0\lib\net48\MimeKit.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=9.0.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.9.0.0\lib\net48\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2024.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2024.1.0\lib\net462\Renci.SshNet.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.0\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Configuration.ConfigurationManager.8.0.0\lib\net462\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.8.0.1\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Formats.Asn1, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Formats.Asn1.8.0.1\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=6.0.0.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.6.0.1\lib\net461\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.6.0.0\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.0\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.0\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.0\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.5, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.8.0.5\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="XLParser, Version=1.5.2.0, Culture=neutral, PublicKeyToken=63397e1e46bb91b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\XLParser.1.5.2\lib\net461\XLParser.dll</HintPath>
+    </Reference>
+    <Reference Include="ZstdSharp, Version=0.8.0.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZstdSharp.Port.0.8.0\lib\net462\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmFlockMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFlockMenu.Designer.cs">
+      <DependentUpon>frmFlockMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoginSetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoginSetPassword.Designer.cs">
+      <DependentUpon>frmLoginSetPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IPチェック\frmIPCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IPチェック\frmIPCheck.Designer.cs">
+      <DependentUpon>frmIPCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pubClass\clsClosedExcel.cs" />
+    <Compile Include="pubClass\clsConfig.cs" />
+    <Compile Include="pubClass\clsControll.cs" />
+    <Compile Include="pubClass\clsControllLocation.cs" />
+    <Compile Include="pubClass\clsDbConfig.cs" />
+    <Compile Include="pubClass\clsDbParam.cs" />
+    <Compile Include="pubClass\clsImport.cs" />
+    <Compile Include="pubClass\clsImportProc.cs" />
+    <Compile Include="pubClass\clsLogger.cs" />
+    <Compile Include="pubClass\clsLoginUser.cs" />
+    <Compile Include="pubClass\clsMsExcel.cs" />
+    <Compile Include="pubClass\clsMySqlDb.cs" />
+    <Compile Include="pubClass\clsPreview.cs" />
+    <Compile Include="pubClass\clsPublic.cs" />
+    <Compile Include="pubClass\clsPublicReport.cs" />
+    <Compile Include="pubClass\clsResetBackColor.cs" />
+    <Compile Include="pubClass\clsSqlDb.cs" />
+    <Compile Include="pubClass\clsSsh.cs" />
+    <Compile Include="pubClass\clsXml.cs" />
+    <Compile Include="pubForm\frmDispText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pubForm\frmDispText.Designer.cs">
+      <DependentUpon>frmDispText.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pubForm\frmHelpView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pubForm\frmHelpView.Designer.cs">
+      <DependentUpon>frmHelpView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pubForm\frmMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pubForm\frmMessage.Designer.cs">
+      <DependentUpon>frmMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pubForm\frmMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pubForm\frmMessageBox.Designer.cs">
+      <DependentUpon>frmMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pubForm\frmSelectItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pubForm\frmSelectItem.Designer.cs">
+      <DependentUpon>frmSelectItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ScheduleBoard\frmScheduleBoard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScheduleBoard\frmScheduleBoard.Designer.cs">
+      <DependentUpon>frmScheduleBoard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScheduleBoard\frmScheduleBoardDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScheduleBoard\frmScheduleBoardDetail.Designer.cs">
+      <DependentUpon>frmScheduleBoardDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tblClass\clsMstBasicContractTime.cs" />
+    <Compile Include="tblClass\clsMstBasicContractWeek.cs" />
+    <Compile Include="tblClass\clsMstCar.cs" />
+    <Compile Include="tblClass\clsMstCarOil.cs" />
+    <Compile Include="tblClass\clsMstCompany.cs" />
+    <Compile Include="tblClass\clsMstGroup.cs" />
+    <Compile Include="tblClass\clsMstHoliday.cs" />
+    <Compile Include="tblClass\clsMstKbn.cs" />
+    <Compile Include="tblClass\clsMstLocation.cs" />
+    <Compile Include="tblClass\clsMstLocationCar.cs" />
+    <Compile Include="tblClass\clsMstLocationCarContract.cs" />
+    <Compile Include="tblClass\clsMstLocationCarStaff.cs" />
+    <Compile Include="tblClass\clsMstLocationUser.cs" />
+    <Compile Include="tblClass\clsMstOffice.cs" />
+    <Compile Include="tblClass\clsMstStaff.cs" />
+    <Compile Include="tblClass\clsMstStaffDetail.cs" />
+    <Compile Include="tblClass\clsTrnReport.cs" />
+    <Compile Include="tblClass\clsTrnScheduleChangeHistory.cs" />
+    <Compile Include="tblClass\clsShiftImport.cs" />
+    <Compile Include="tblClass\clsTrnSchedule.cs" />
+    <Compile Include="tblClass\clsTrnScheduleChange.cs" />
+    <Compile Include="tblClass\clsTrnScheduleEntry.cs" />
+    <Compile Include="tblClass\clsTrnScheduleUpdateDate.cs" />
+    <Compile Include="tblClass\clsTrnCarRun.cs" />
+    <Compile Include="システムメニュー\frmSysMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="システムメニュー\frmSysMenu.Designer.cs">
+      <DependentUpon>frmSysMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="システムリリース情報\frmSystemRelease.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="システムリリース情報\frmSystemRelease.Designer.cs">
+      <DependentUpon>frmSystemRelease.cs</DependentUpon>
+    </Compile>
+    <Compile Include="システムリリース情報\frmSystemReleaseDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="システムリリース情報\frmSystemReleaseDetail.Designer.cs">
+      <DependentUpon>frmSystemReleaseDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="データ同期\fmrDeleteXData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="データ同期\fmrDeleteXData.Designer.cs">
+      <DependentUpon>fmrDeleteXData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="データ同期\frmCarRun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="データ同期\frmCarRun.Designer.cs">
+      <DependentUpon>frmCarRun.cs</DependentUpon>
+    </Compile>
+    <Compile Include="データ同期\frmContemporaryMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="データ同期\frmContemporaryMenu.Designer.cs">
+      <DependentUpon>frmContemporaryMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="データ同期\frmExportMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="データ同期\frmExportMaster.Designer.cs">
+      <DependentUpon>frmExportMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="データ同期\frmExportReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="データ同期\frmExportReport.Designer.cs">
+      <DependentUpon>frmExportReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="データ同期\frmImportReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="データ同期\frmImportReport.Designer.cs">
+      <DependentUpon>frmImportReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstBasicContractTime.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstBasicContractTime.Designer.cs">
+      <DependentUpon>frmMstBasicContractTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstLocationCarStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstLocationCarStaff.Designer.cs">
+      <DependentUpon>frmMstLocationCarStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmLocationStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmLocationStaff.Designer.cs">
+      <DependentUpon>frmLocationStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstCar.Designer.cs">
+      <DependentUpon>frmMstCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstCompany.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstCompany.Designer.cs">
+      <DependentUpon>frmMstCompany.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstGroup.Designer.cs">
+      <DependentUpon>frmMstGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstHoliday.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstHoliday.Designer.cs">
+      <DependentUpon>frmMstHoliday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstKbn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstKbn.Designer.cs">
+      <DependentUpon>frmMstKbn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstLocation.Designer.cs">
+      <DependentUpon>frmMstLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstLocationCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstLocationCar.Designer.cs">
+      <DependentUpon>frmMstLocationCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstLocationUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstLocationUser.Designer.cs">
+      <DependentUpon>frmMstLocationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstMenu.Designer.cs">
+      <DependentUpon>frmMstMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstOffice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstOffice.Designer.cs">
+      <DependentUpon>frmMstOffice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstProcess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstProcess.Designer.cs">
+      <DependentUpon>frmMstProcess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstStaff.Designer.cs">
+      <DependentUpon>frmMstStaff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstStaffDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstStaffDetail.Designer.cs">
+      <DependentUpon>frmMstStaffDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstStaffList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="マスターメンテ\frmMstStaffList.Designer.cs">
+      <DependentUpon>frmMstStaffList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="勤務表\frmDisplayShiftExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="勤務表\frmDisplayShiftExcel.Designer.cs">
+      <DependentUpon>frmDisplayShiftExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="勤務表\frmRegContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="勤務表\frmRegContact.Designer.cs">
+      <DependentUpon>frmRegContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="勤務表\frmRegMemo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="勤務表\frmRegMemo.Designer.cs">
+      <DependentUpon>frmRegMemo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="勤務表\frmScheduleComment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="勤務表\frmScheduleComment.Designer.cs">
+      <DependentUpon>frmScheduleComment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="勤務表\frmScheduleEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="勤務表\frmScheduleEdit.Designer.cs">
+      <DependentUpon>frmScheduleEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="勤務表\frmShiftConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="勤務表\frmShiftConfig.Designer.cs">
+      <DependentUpon>frmShiftConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="勤務表\frmShiftHelpMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="勤務表\frmShiftHelpMenu.Designer.cs">
+      <DependentUpon>frmShiftHelpMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="勤務表\frmShiftHistory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="勤務表\frmShiftHistory.Designer.cs">
+      <DependentUpon>frmShiftHistory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="勤務表\frmShiftPDF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="勤務表\frmShiftPDF.Designer.cs">
+      <DependentUpon>frmShiftPDF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="勤務表\frmShiftSchedulePreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="勤務表\frmShiftSchedulePreview.Designer.cs">
+      <DependentUpon>frmShiftSchedulePreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="勤務表\frmShiftMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="勤務表\frmShiftMenu.Designer.cs">
+      <DependentUpon>frmShiftMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="日報関連\frmEditTrnReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="日報関連\frmEditTrnReport.Designer.cs">
+      <DependentUpon>frmEditTrnReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="日報関連\frmReportMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="日報関連\frmReportMenu.Designer.cs">
+      <DependentUpon>frmReportMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="日報関連\frmResultCarCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="日報関連\frmResultCarCheck.Designer.cs">
+      <DependentUpon>frmResultCarCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="日報関連\frmTrnReportList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="日報関連\frmTrnReportList.Designer.cs">
+      <DependentUpon>frmTrnReportList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="求人関連\frmPublishList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="求人関連\frmPublishList.Designer.cs">
+      <DependentUpon>frmPublishList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="求人関連\frmRecruitApply.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="求人関連\frmRecruitApply.Designer.cs">
+      <DependentUpon>frmRecruitApply.cs</DependentUpon>
+    </Compile>
+    <Compile Include="求人関連\frmRecruitMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="求人関連\frmRecruitMain.Designer.cs">
+      <DependentUpon>frmRecruitMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="求人関連\frmRecruitPublish.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="求人関連\frmRecruitPublish.Designer.cs">
+      <DependentUpon>frmRecruitPublish.cs</DependentUpon>
+    </Compile>
+    <Compile Include="社用車関連\frmCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="社用車関連\frmCar.Designer.cs">
+      <DependentUpon>frmCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="社用車関連\frmCarEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="社用車関連\frmCarEdit.Designer.cs">
+      <DependentUpon>frmCarEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="社用車関連\frmCarMsg.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="社用車関連\frmCarMsg.Designer.cs">
+      <DependentUpon>frmCarMsg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="選択画面\frmSelectCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="選択画面\frmSelectCar.Designer.cs">
+      <DependentUpon>frmSelectCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="選択画面\frmSelectItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="選択画面\frmSelectItem.Designer.cs">
+      <DependentUpon>frmSelectItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="選択画面\frmSelectLocation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="選択画面\frmSelectLocation.Designer.cs">
+      <DependentUpon>frmSelectLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="選択画面\frmSelectStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="選択画面\frmSelectStaff.Designer.cs">
+      <DependentUpon>frmSelectStaff.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmFlockMenu.resx">
+      <DependentUpon>frmFlockMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoginSetPassword.resx">
+      <DependentUpon>frmLoginSetPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IPチェック\frmIPCheck.resx">
+      <DependentUpon>frmIPCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pubForm\frmDispText.resx">
+      <DependentUpon>frmDispText.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pubForm\frmHelpView.resx">
+      <DependentUpon>frmHelpView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pubForm\frmMessage.resx">
+      <DependentUpon>frmMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pubForm\frmMessageBox.resx">
+      <DependentUpon>frmMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pubForm\frmSelectItem.resx">
+      <DependentUpon>frmSelectItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleBoard\frmScheduleBoard.resx">
+      <DependentUpon>frmScheduleBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ScheduleBoard\frmScheduleBoardDetail.resx">
+      <DependentUpon>frmScheduleBoardDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="システムメニュー\frmSysMenu.resx">
+      <DependentUpon>frmSysMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="システムリリース情報\frmSystemRelease.resx">
+      <DependentUpon>frmSystemRelease.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="システムリリース情報\frmSystemReleaseDetail.resx">
+      <DependentUpon>frmSystemReleaseDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="データ同期\fmrDeleteXData.resx">
+      <DependentUpon>fmrDeleteXData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="データ同期\frmCarRun.resx">
+      <DependentUpon>frmCarRun.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="データ同期\frmContemporaryMenu.resx">
+      <DependentUpon>frmContemporaryMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="データ同期\frmExportMaster.resx">
+      <DependentUpon>frmExportMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="データ同期\frmExportReport.resx">
+      <DependentUpon>frmExportReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="データ同期\frmImportReport.resx">
+      <DependentUpon>frmImportReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstBasicContractTime.resx">
+      <DependentUpon>frmMstBasicContractTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstLocationCarStaff.resx">
+      <DependentUpon>frmMstLocationCarStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmLocationStaff.resx">
+      <DependentUpon>frmLocationStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstCar.resx">
+      <DependentUpon>frmMstCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstCompany.resx">
+      <DependentUpon>frmMstCompany.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstGroup.resx">
+      <DependentUpon>frmMstGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstHoliday.resx">
+      <DependentUpon>frmMstHoliday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstKbn.resx">
+      <DependentUpon>frmMstKbn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstLocation.resx">
+      <DependentUpon>frmMstLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstLocationCar.resx">
+      <DependentUpon>frmMstLocationCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstLocationUser.resx">
+      <DependentUpon>frmMstLocationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstMenu.resx">
+      <DependentUpon>frmMstMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstOffice.resx">
+      <DependentUpon>frmMstOffice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstProcess.resx">
+      <DependentUpon>frmMstProcess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstStaff.resx">
+      <DependentUpon>frmMstStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstStaffDetail.resx">
+      <DependentUpon>frmMstStaffDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="マスターメンテ\frmMstStaffList.resx">
+      <DependentUpon>frmMstStaffList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="勤務表\frmDisplayShiftExcel.resx">
+      <DependentUpon>frmDisplayShiftExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="勤務表\frmRegContact.resx">
+      <DependentUpon>frmRegContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="勤務表\frmRegMemo.resx">
+      <DependentUpon>frmRegMemo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="勤務表\frmScheduleComment.resx">
+      <DependentUpon>frmScheduleComment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="勤務表\frmScheduleEdit.resx">
+      <DependentUpon>frmScheduleEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="勤務表\frmShiftConfig.resx">
+      <DependentUpon>frmShiftConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="勤務表\frmShiftHelpMenu.resx">
+      <DependentUpon>frmShiftHelpMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="勤務表\frmShiftHistory.resx">
+      <DependentUpon>frmShiftHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="勤務表\frmShiftPDF.resx">
+      <DependentUpon>frmShiftPDF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="勤務表\frmShiftSchedulePreview.resx">
+      <DependentUpon>frmShiftSchedulePreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="勤務表\frmShiftMenu.resx">
+      <DependentUpon>frmShiftMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="日報関連\frmEditTrnReport.resx">
+      <DependentUpon>frmEditTrnReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="日報関連\frmReportMenu.resx">
+      <DependentUpon>frmReportMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="日報関連\frmResultCarCheck.resx">
+      <DependentUpon>frmResultCarCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="日報関連\frmTrnReportList.resx">
+      <DependentUpon>frmTrnReportList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="求人関連\frmPublishList.resx">
+      <DependentUpon>frmPublishList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="求人関連\frmRecruitApply.resx">
+      <DependentUpon>frmRecruitApply.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="求人関連\frmRecruitMain.resx">
+      <DependentUpon>frmRecruitMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="求人関連\frmRecruitPublish.resx">
+      <DependentUpon>frmRecruitPublish.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="社用車関連\frmCar.resx">
+      <DependentUpon>frmCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="社用車関連\frmCarEdit.resx">
+      <DependentUpon>frmCarEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="社用車関連\frmCarMsg.resx">
+      <DependentUpon>frmCarMsg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="選択画面\frmSelectCar.resx">
+      <DependentUpon>frmSelectCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="選択画面\frmSelectItem.resx">
+      <DependentUpon>frmSelectItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="選択画面\frmSelectLocation.resx">
+      <DependentUpon>frmSelectLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="選択画面\frmSelectStaff.resx">
+      <DependentUpon>frmSelectStaff.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FD_1_小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FD_1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FD_1_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FD_1_大.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FD_4_大.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\エクセル_3_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ゴミ箱_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ゴミ箱_小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\承認_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\選択_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\選択_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\選択_小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\閉じる_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\予約.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\クリア_1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\削除_1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\削除_1_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\表示_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\閉じる.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\閉じる_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\編集.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\検索_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\時間_小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\検索_小1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\更新1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\削除_1_小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\送信1_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\閉じる_小小1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\矢印下_小小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\矢印上_小小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\クリア_1_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\追加_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\矢印右小小2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\表_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\編集_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\エクセル_3_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\分類_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\チェックマーク_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\エクスポート小1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\インポート1_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\車と人.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\表1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\表1_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ダウンロード.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\社員1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\専従先1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ハイエース1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\エクスポート1_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\閉じるA_10p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\閉じるA_8p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\削除1_4p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\削除2_16p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\削除3_13p.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\編集_小1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\モニター_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\募集中01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\社用車1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HD_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\日報_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\勤怠1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\予定_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\off01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HELP_02.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\日報01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\コピー_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\コピー_01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\黄色1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\黄色2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\承認1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\承認1_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\解除_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\連絡_1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\解除_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\編集1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\保存1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\メモ7_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\メモ4_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\メモ4_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\メモ4_小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\承認5_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ファイル選択１.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ファイル選択２_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FD_4_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PDF_1_小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\シフト３_２.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\シフト３_３.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\シフト２_１.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\エクセルA_１.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PDF_A_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PDF_A_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\表_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\連絡５_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\連絡４_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\連絡４_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\インポート小2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\設定_小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flock-512x512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\自社1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\営業所1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\部署1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\社用車１_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\休日1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\定義1_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\プロセス_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ツール１_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\日報011.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\データ同期1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\マスターメンテ１_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ログイン３_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\キャンセル１_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ログイン３_小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\キャンセル１_小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\キャンセル１_小小小1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HELP_1_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\パスワード_小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ログイン５_小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\キャンセル１_小小小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ログイン６_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\保存6_小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\追加_小2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ホワイトボード１小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ETC小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ETC小小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\勤怠１小.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 および x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="favicon.ico" />
+    <None Include="Resources\印刷2_小.png" />
+    <None Include="Resources\CSV_1.png" />
+    <None Include="Resources\CSV_1-1.png" />
+    <None Include="Resources\車と時計.png" />
+    <None Include="Resources\msg1_小.png" />
+    <None Include="Resources\病院3.png" />
+    <None Include="Resources\病院2.png" />
+    <None Include="Resources\病院1.png" />
+    <None Include="Resources\病院5.png" />
+    <None Include="Resources\ハイエース5.png" />
+    <None Include="Resources\ハイエース1小.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Web.WebView2.1.0.3595.46\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.3595.46\build\Microsoft.Web.WebView2.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>このプロジェクトは、このコンピューター上にない NuGet パッケージを参照しています。それらのパッケージをダウンロードするには、[NuGet パッケージの復元] を使用します。詳細については、http://go.microsoft.com/fwlink/?LinkID=322105 を参照してください。見つからないファイルは {0} です。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Web.WebView2.1.0.3595.46\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.WebView2.1.0.3595.46\build\Microsoft.Web.WebView2.targets'))" />
+  </Target>
+</Project>
