@@ -210,8 +210,8 @@ namespace FlockAppC.マスターメンテ
                 {
                     sb.Clear();
                     sb.AppendLine("SELECT");
-                    sb.AppendLine(" Mst_社員.id");
-                    sb.AppendLine(",Mst_社員.staff_id");
+                    // sb.AppendLine(" Mst_社員.id");          2025/12/24 DEL
+                    sb.AppendLine(" Mst_社員.staff_id");
                     sb.AppendLine(",Mst_社員.fullname");
                     sb.AppendLine(",Mst_社員.name1");
                     sb.AppendLine(",Mst_社員.name2");
@@ -318,7 +318,8 @@ namespace FlockAppC.マスターメンテ
                             sb.AppendLine(" Mst_社員.kana2 ASC");
                             break;
                         case 2:
-                            sb.AppendLine(" Mst_社員.id ASC");
+                            // sb.AppendLine(" Mst_社員.id ASC");         2025/12/24 UPD
+                            sb.AppendLine(" Mst_社員.staff_id ASC");
                             break;
                     }
 
@@ -338,7 +339,6 @@ namespace FlockAppC.マスターメンテ
                         foreach (DataRow dr in dt_val.Rows)
                         {
                             this.dgvList.Rows.Add();
-                            // this.dgvList.Rows[i].Cells["id"].Value = dr["id"].ToString();
                             this.dgvList.Rows[i].Cells["id"].Value = dr["staff_id"].ToString();
                             this.dgvList.Rows[i].Cells["name"].Value = dr["fullname"].ToString();
                             this.dgvList.Rows[i].Cells["kana"].Value = dr["kana1"].ToString();

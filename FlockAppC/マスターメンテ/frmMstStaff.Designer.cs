@@ -1237,28 +1237,30 @@
             // chkTask
             // 
             this.chkTask.AutoSize = true;
-            this.chkTask.Location = new System.Drawing.Point(228, 67);
+            this.chkTask.Location = new System.Drawing.Point(206, 136);
             this.chkTask.Name = "chkTask";
             this.chkTask.Size = new System.Drawing.Size(193, 21);
             this.chkTask.TabIndex = 100;
             this.chkTask.Text = "作業タスク表示対象(未使用)";
             this.chkTask.UseVisualStyleBackColor = true;
+            this.chkTask.Visible = false;
             // 
             // chkAttSubjectFlag
             // 
             this.chkAttSubjectFlag.AutoSize = true;
-            this.chkAttSubjectFlag.Location = new System.Drawing.Point(33, 67);
+            this.chkAttSubjectFlag.Location = new System.Drawing.Point(11, 136);
             this.chkAttSubjectFlag.Name = "chkAttSubjectFlag";
             this.chkAttSubjectFlag.Size = new System.Drawing.Size(167, 21);
             this.chkAttSubjectFlag.TabIndex = 99;
             this.chkAttSubjectFlag.Text = "勤怠表集計対象(未使用)";
             this.chkAttSubjectFlag.UseVisualStyleBackColor = true;
+            this.chkAttSubjectFlag.Visible = false;
             // 
             // txtSort
             // 
             this.txtSort.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.txtSort.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.txtSort.Location = new System.Drawing.Point(118, 102);
+            this.txtSort.Location = new System.Drawing.Point(118, 57);
             this.txtSort.MaxLength = 3;
             this.txtSort.Name = "txtSort";
             this.txtSort.Size = new System.Drawing.Size(36, 28);
@@ -1269,7 +1271,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(30, 109);
+            this.label28.Location = new System.Drawing.Point(30, 64);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(86, 17);
             this.label28.TabIndex = 95;
@@ -1279,7 +1281,7 @@
             // 
             this.txtLoginSort.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.txtLoginSort.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.txtLoginSort.Location = new System.Drawing.Point(484, 133);
+            this.txtLoginSort.Location = new System.Drawing.Point(472, 110);
             this.txtLoginSort.MaxLength = 3;
             this.txtLoginSort.Name = "txtLoginSort";
             this.txtLoginSort.Size = new System.Drawing.Size(36, 28);
@@ -1301,7 +1303,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(380, 136);
+            this.label26.Location = new System.Drawing.Point(368, 113);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(98, 17);
             this.label26.TabIndex = 92;
@@ -1519,9 +1521,9 @@
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(35, 106);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(86, 17);
+            this.label33.Size = new System.Drawing.Size(135, 17);
             this.label33.TabIndex = 96;
-            this.label33.Text = "勤怠管理権限";
+            this.label33.Text = "勤怠管理権限(未使用)";
             // 
             // label32
             // 

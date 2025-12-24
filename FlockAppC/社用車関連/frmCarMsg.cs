@@ -463,15 +463,6 @@ namespace FlockAppC.社用車関連
                 this.Id = id;
                 this.Row_id = e.RowIndex;
                 ShowLabel();
-
-                //// 編集画面に遷移
-                //frmCarEdit cls = new frmCarEdit();
-                //cls.id = id;
-                //cls.ShowDialog();
-
-                //// 再表示
-                //DisplayList();
-
             }
         }
         /// <summary>

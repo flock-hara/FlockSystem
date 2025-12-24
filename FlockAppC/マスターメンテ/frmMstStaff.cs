@@ -192,8 +192,8 @@ namespace FlockAppC.マスターメンテ
             this.txtPassword.Text = "";
             this.txtLoginSort.Text = "";
             this.txtSort.Text = "";
-            this.chkAttSubjectFlag.Checked = false;
-            this.chkTask.Checked = false;
+            // this.chkAttSubjectFlag.Checked = false;      2025/12/24 DEL
+            // this.chkTask.Checked = false;                2025/12/24 DEL
             this.lblCarNo.Text = "";
             this.lblCarName.Text = "";
             this.lblRegNo.Text = "";
@@ -201,7 +201,7 @@ namespace FlockAppC.マスターメンテ
             this.chkConfirm.Checked = false;
             this.chkMaster.Checked = false;
             this.chkCarManage.Checked = false;
-            this.chkAttendance.Checked = false;
+            // this.chkAttendance.Checked = false;                  // 2025/12/24 DEL
             this.chkSystemControll.Checked = false;
             this.chkReportManage.Checked = false;                   // 2024/12/16 ADD
             this.chkRecruitManage.Checked = false;                  // 2024/12/16 ADD
@@ -299,12 +299,12 @@ namespace FlockAppC.マスターメンテ
             this.txtLoginSort.Text = cMstStaff.RegSort.ToString();
             this.txtSort.Text = cMstStaff.Sort.ToString();
 
-            // 勤怠表対象フラグ、タスク表示対象フラグ
-            if (cMstStaff.AttSubjectFlag == ClsPublic.FLAG_ON) { this.chkAttSubjectFlag.Checked = true; }
-            else { this.chkAttSubjectFlag.Checked = false; }
+            // 勤怠表対象フラグ、タスク表示対象フラグ  2025/12/24 DEL
+            // if (cMstStaff.AttSubjectFlag == ClsPublic.FLAG_ON) { this.chkAttSubjectFlag.Checked = true; }
+            // else { this.chkAttSubjectFlag.Checked = false; }
 
-            if (cMstStaff.TaskFlag == ClsPublic.FLAG_ON) { this.chkTask.Checked = true; }
-            else { this.chkTask.Checked = false; }
+            // if (cMstStaff.TaskFlag == ClsPublic.FLAG_ON) { this.chkTask.Checked = true; }
+            // else { this.chkTask.Checked = false; }
 
             // 社用車
             this.Car_Id = cMstStaff.CarID;
@@ -323,8 +323,9 @@ namespace FlockAppC.マスターメンテ
             if (cMstStaff.CarManageFlag == ClsPublic.FLAG_ON) { this.chkCarManage.Checked = true; }
             else { this.chkCarManage.Checked = false; }
 
-            if (cMstStaff.AttendanceFlag == ClsPublic.FLAG_ON) { this.chkAttendance.Checked = true; }
-            else { this.chkAttendance.Checked = false; }
+            // 2025/12/24 DEL
+            // if (cMstStaff.AttendanceFlag == ClsPublic.FLAG_ON) { this.chkAttendance.Checked = true; }
+            // else { this.chkAttendance.Checked = false; }
 
             if (cMstStaff.SystemControlFlag == ClsPublic.FLAG_ON) { this.chkSystemControll.Checked = true; }
             else { this.chkSystemControll.Checked = false; }
@@ -1387,16 +1388,19 @@ namespace FlockAppC.マスターメンテ
                 cstf.CarManageFlag = ClsPublic.FLAG_OFF;
                 ClsLoginUser.CarManageFlag = ClsPublic.FLAG_OFF;
             }
-            if (this.chkAttendance.Checked == true) 
-            { 
-                cstf.AttendanceFlag = ClsPublic.FLAG_ON; 
-                ClsLoginUser.AttendanceFlag = ClsPublic.FLAG_ON;
-            }
-            else 
-            { 
-                cstf.AttendanceFlag = ClsPublic.FLAG_OFF;
-                ClsLoginUser.AttendanceFlag = ClsPublic.FLAG_OFF;
-            }
+
+            // 2025/12/24 DEL
+            //if (this.chkAttendance.Checked == true) 
+            //{ 
+            //    cstf.AttendanceFlag = ClsPublic.FLAG_ON; 
+            //    ClsLoginUser.AttendanceFlag = ClsPublic.FLAG_ON;
+            //}
+            //else 
+            //{ 
+            //    cstf.AttendanceFlag = ClsPublic.FLAG_OFF;
+            //    ClsLoginUser.AttendanceFlag = ClsPublic.FLAG_OFF;
+            //}
+
             if (this.chkSystemControll.Checked == true) 
             { 
                 cstf.SystemControlFlag = ClsPublic.FLAG_ON;
@@ -1513,10 +1517,11 @@ namespace FlockAppC.マスターメンテ
             //cstf.SheetName = "";
             //cstf.Comment2 = "";
             cstf.CarID = this.Car_Id;
-            if (this.chkAttSubjectFlag.Checked == true) { cstf.AttSubjectFlag = ClsPublic.FLAG_ON; }
-            else { cstf.AttSubjectFlag = ClsPublic.FLAG_OFF; }
-            if (this.chkTask.Checked == true) { cstf.TaskFlag = ClsPublic.FLAG_ON; }
-            else { cstf.TaskFlag = ClsPublic.FLAG_OFF; }
+            // 2025/12/24 DEL
+            //if (this.chkAttSubjectFlag.Checked == true) { cstf.AttSubjectFlag = ClsPublic.FLAG_ON; }
+            //else { cstf.AttSubjectFlag = ClsPublic.FLAG_OFF; }
+            //if (this.chkTask.Checked == true) { cstf.TaskFlag = ClsPublic.FLAG_ON; }
+            //else { cstf.TaskFlag = ClsPublic.FLAG_OFF; }
         }
         /// <summary>
         /// 削除ボタン
