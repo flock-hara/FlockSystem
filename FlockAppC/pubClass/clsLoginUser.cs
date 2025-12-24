@@ -8,7 +8,8 @@ namespace FlockAppC.pubClass
     {
         #region "プロパティ"
         public static int StaffID { get; set; }
-        public static int ID { get; set; }
+        // 2025/12/24 DEL
+        // public static int ID { get; set; }
         public static string Name1 {  get; set; }
         public static string Name2 { get; set; }
         public static string FullName { get; set; }
@@ -22,7 +23,8 @@ namespace FlockAppC.pubClass
         public static int ProxyFlag { get; set; }
         public static int ConfirmFlag { get; set; }
         public static int CarManageFlag { get; set; }
-        public static int AttendanceFlag { get; set; }
+        // 2025/12/24 DEL
+        // public static int AttendanceFlag { get; set; }
         public static int MasterMenteFlag { get; set; }
         public static int ReportManageFlag { get; set; }
         public static int RecruitManageFlag { get; set; }
@@ -37,7 +39,8 @@ namespace FlockAppC.pubClass
         public static int ZaiFlag { get; set; }
         public static string Comment { get; set; }
         public static int CarID { get; set; }
-        public static int TaskFlag { get; set; }
+        // 2025/12/24 DEL
+        // public static int TaskFlag { get; set; }
         public static int Col { get; set; }
 
         private static readonly StringBuilder sb = new();
@@ -49,7 +52,8 @@ namespace FlockAppC.pubClass
         public static void InitializeData()
         {
             StaffID = 0;
-            ID = 0;
+            // 2025/12/24 DEL
+            // ID = 0;
             Name1 = "";
             Name2 = "";
             FullName = "";
@@ -63,7 +67,8 @@ namespace FlockAppC.pubClass
             ProxyFlag = 0;
             ConfirmFlag = 0;
             CarManageFlag = 0;
-            AttendanceFlag = 0;
+            // 2025/12/24 DEL
+            // AttendanceFlag = 0;
             MasterMenteFlag = 0;
             ReportManageFlag = 0;
             RecruitManageFlag = 0;
@@ -78,7 +83,8 @@ namespace FlockAppC.pubClass
             ZaiFlag = 0;
             Comment = "";
             CarID = 0;
-            TaskFlag = 0;
+            // 2025/12/24 DEL
+            // TaskFlag = 0;
             Col = 0;
         }
 
@@ -138,7 +144,8 @@ namespace FlockAppC.pubClass
                     sb.Clear();
                     sb.AppendLine("SELECT");
                     sb.AppendLine(" staff_id");
-                    sb.AppendLine(",id");
+                    // 2025/12/24 DEL
+                    // sb.AppendLine(",id");
                     sb.AppendLine(",name1");
                     sb.AppendLine(",name2");
                     sb.AppendLine(",fullname");
@@ -150,7 +157,8 @@ namespace FlockAppC.pubClass
                     sb.AppendLine(",proxy_flag");
                     sb.AppendLine(",confirm_flag");
                     sb.AppendLine(",car_manage_flag");
-                    sb.AppendLine(",attendance_flag");
+                    // 2025/12/24 DEL
+                    // sb.AppendLine(",attendance_flag");
                     sb.AppendLine(",master_mente_flag");
                     sb.AppendLine(",report_manage_flag");
                     sb.AppendLine(",recruit_manage_flag");
@@ -165,7 +173,8 @@ namespace FlockAppC.pubClass
                     sb.AppendLine(",zai_flag");
                     sb.AppendLine(",comment");
                     sb.AppendLine(",car_id");
-                    sb.AppendLine(",task_flag");
+                    // 2025/12/24 DEL
+                    // sb.AppendLine(",task_flag");
                     sb.AppendLine(",col");
                     sb.AppendLine("FROM");
                     sb.AppendLine("Mst_社員");
@@ -177,7 +186,8 @@ namespace FlockAppC.pubClass
                         foreach (DataRow dr in dt_val.Rows)
                         {
                             StaffID = int.Parse(dr["staff_id"].ToString());
-                            ID = int.Parse(dr["staff_id"].ToString());
+                            // 2025/12/24 DEL
+                            // ID = int.Parse(dr["staff_id"].ToString());
                             Name1 = dr["name1"].ToString();
                             Name2 = dr["name2"].ToString();
                             FullName = dr["fullname"].ToString();
@@ -187,47 +197,38 @@ namespace FlockAppC.pubClass
 
                             if (dr.IsNull("office_id") != true) { OfficeID = int.Parse(dr["office_id"].ToString()); }
                             else { OfficeID = ClsPublic.OFFICE_HONSHA; }         // 未設定→本社
-                            // else { OfficeID = 51; }         // 未設定→本社
 
                             if (dr.IsNull("group_id") != true) { GroupID = int.Parse(dr["group_id"].ToString()); }
                             else { GroupID = ClsPublic.PARTSTAFF; }       // 未設定→専従
-                            // else { GroupID = 4; }       // 未設定→専従
 
                             if (dr.IsNull("proxy_flag") != true) { ProxyFlag = int.Parse(dr["proxy_flag"].ToString()); }
                             else { ProxyFlag = ClsPublic.FLAG_OFF; }
-                            // else { ProxyFlag = 0; }
+
 
                             if (dr.IsNull("confirm_flag") != true) { ConfirmFlag = int.Parse(dr["confirm_flag"].ToString()); }
                             else { ConfirmFlag = ClsPublic.FLAG_OFF; }
-                            // else { ConfirmFlag = 0; }
 
                             if (dr.IsNull("car_manage_flag") != true) { CarManageFlag = int.Parse(dr["car_manage_flag"].ToString()); }
                             else { CarManageFlag = ClsPublic.FLAG_OFF; }
-                            // else { CarManageFlag = 0; }
 
-                            if (dr.IsNull("attendance_flag") != true) { AttendanceFlag = int.Parse(dr["attendance_flag"].ToString()); }
-                            else { AttendanceFlag = ClsPublic.FLAG_OFF; }
-                            // else { AttendanceFlag = 0; }
+                            // 2025/12/24 DEL
+                            // if (dr.IsNull("attendance_flag") != true) { AttendanceFlag = int.Parse(dr["attendance_flag"].ToString()); }
+                            // else { AttendanceFlag = ClsPublic.FLAG_OFF; }
 
                             if (dr.IsNull("master_mente_flag") != true) { MasterMenteFlag = int.Parse(dr["master_mente_flag"].ToString()); }
                             else { MasterMenteFlag = ClsPublic.FLAG_OFF; }
-                            // else { MasterMenteFlag = 0; }
 
                             if (dr.IsNull("report_manage_flag") != true) { ReportManageFlag = int.Parse(dr["report_manage_flag"].ToString()); }
                             else { ReportManageFlag = ClsPublic.FLAG_OFF; }
-                            // else { ReportManageFlag = 0; }
 
                             if (dr.IsNull("recruit_manage_flag") != true) { RecruitManageFlag = int.Parse(dr["recruit_manage_flag"].ToString()); }
                             else { RecruitManageFlag = ClsPublic.FLAG_OFF; }
-                            // else { RecruitManageFlag = 0; }
 
                             if (dr.IsNull("report_confirm_flag") != true) { ReportConfirmFlag = int.Parse(dr["report_confirm_flag"].ToString()); }
                             else { ReportConfirmFlag = ClsPublic.FLAG_OFF; }
-                            // else { ReportConfirmFlag = 0; }
 
                             if (dr.IsNull("system_control_flag") != true) { SystemControlFlag = int.Parse(dr["system_control_flag"].ToString()); }
                             else { SystemControlFlag = ClsPublic.FLAG_OFF; }
-                            // else { SystemControlFlag = 0; }
 
                             ConfirmPass = dr["confirm_password"].ToString();
 
@@ -248,17 +249,15 @@ namespace FlockAppC.pubClass
 
                             if (dr.IsNull("zai_flag") != true) { ZaiFlag = int.Parse(dr["zai_flag"].ToString()); }
                             else { ZaiFlag = ClsPublic.FLAG_ON; }
-                            // else { ZaiFlag = 1; }
 
                             Comment = dr["comment"].ToString();
 
-                            if (dr.IsNull("task_flag") != true) { TaskFlag = int.Parse(dr["task_flag"].ToString()); }
-                            else { TaskFlag = ClsPublic.FLAG_OFF; }
-                            // else { TaskFlag = 0; }
+                            // 2025/12/24 DEL
+                            // if (dr.IsNull("task_flag") != true) { TaskFlag = int.Parse(dr["task_flag"].ToString()); }
+                            // else { TaskFlag = ClsPublic.FLAG_OFF; }
 
                             if (dr.IsNull("car_id") != true) { CarID = int.Parse(dr["car_id"].ToString()); }
                             else { CarID = ClsPublic.FLAG_OFF; }
-                            // else { CarID = 0; }
 
                             // 未設定の場合は0
                             if (dr["col"].ToString() != "") { Col = int.Parse(dr["col"].ToString()); }

@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Office2010.Excel;
-using FlockAppC.pubClass;
+﻿using FlockAppC.pubClass;
 using FlockAppC.tblClass;
 using FlockAppC.選択画面;
 using System;
@@ -150,13 +149,6 @@ namespace FlockAppC.マスターメンテ
         private void InitializeDgvLocationCar()
         {
 
-            //col00.Name = "add";
-            //col00.HeaderText = " ";
-            //col00.Text = "追加";
-            //col00.Width = 50;
-            //col00.UseColumnTextForButtonValue = true;
-            //col00.Visible = true;
-
             DataGridViewButtonColumn col01 = new()
             {
                 Name = "delete",
@@ -233,13 +225,6 @@ namespace FlockAppC.マスターメンテ
         /// </summary>
         private void InitializeDgvLocationStaff()
         {
-
-            //col00.Name = "add";
-            //col00.HeaderText = " ";
-            //col00.Text = "追加";
-            //col00.Width = 50;
-            //col00.UseColumnTextForButtonValue = true;
-            //col00.Visible = true;
 
             DataGridViewButtonColumn col01 = new()
             {

@@ -60,7 +60,7 @@ namespace FlockAppC
                     sb.AppendLine("SET");
                     sb.AppendLine("confirm_password = '" + this.txtChangePassword.Text + "'");
                     sb.AppendLine("WHERE");
-                    sb.AppendLine("staff_id = " + ClsLoginUser.ID);
+                    sb.AppendLine("staff_id = " + ClsLoginUser.StaffID);
                     clsSqlDb.DMLUpdate(sb.ToString());
                 }
                 this.Close();

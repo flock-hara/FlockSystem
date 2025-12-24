@@ -8,8 +8,6 @@
         // =======================================================================
         public static int SQLServerNo = 0;                          // SQL SERVER接続先（本番:0/テスト:1）
         public static int MySQLNo = 0;                              // MySQL接続先（本番:0/テスト:1）         
-        //public const int ACT = 0;                                 // 本番
-        //public const int TST = 1;                                 // テスト 
 
         public static ClsDbParam[] sqlParam = new ClsDbParam[2];    // SQL Server接続情報 [0]:本番/[1]:テスト
         public static ClsDbParam[] mysqlParam = new ClsDbParam[2];  // MySQL接続情報 [0]:本番/[1]:テスト
@@ -32,11 +30,6 @@
                     Database = "",
                     Instance = ""
                 };
-                //sqlParam[i] = new ClsDbParam();
-                //sqlParam[i].UserID = "";
-                //sqlParam[i].Password = "";
-                //sqlParam[i].Database = "";
-                //sqlParam[i].Instance = "";
             }
             for (int i = 0; i < mysqlParam.Length; i++)
             {
@@ -56,15 +49,12 @@
             #endregion
 
             #region 接続情報読み込み
-            // Read Connection Data
-            // string strCon;   未使用
             string strWork;
             string[] arr;
 
             // =======================================
             // SQL Server 本番 : DBConnectString
             // =======================================
-            // Connection Strinng
             // サーバー名をIPアドレスに変換 2025/08/26 ADD
             strWork = System.Configuration.ConfigurationManager.AppSettings["DBConnectString"];
             strWork = strWork.Replace(ClsPublic.pubServerName, ClsPublic.pubServerIP);
@@ -118,7 +108,6 @@
                 strWork = strWork.Replace("InitialCatalog=", "");
                 sqlParam[1].Database = strWork;
             }
-
 
             // =======================================
             // MySQL 本番 : DBConnectString_MySQL

@@ -1550,7 +1550,7 @@ namespace FlockAppC.勤務表
             ClsTrnScheduleChange clsc = new()
             {
                 RegDate = DateTime.Now,
-                RegUserID = ClsLoginUser.ID,
+                RegUserID = ClsLoginUser.StaffID,
                 RegUserName = ClsLoginUser.Name1,
                 TantoID = cls.TantoID,
                 TantoName = cls.TantoName,
@@ -1643,7 +1643,7 @@ namespace FlockAppC.勤務表
             ClsTrnScheduleChange cls = new()
             {
                 RegDate = DateTime.Now,
-                RegUserID = ClsLoginUser.ID,
+                RegUserID = ClsLoginUser.StaffID,
                 RegUserName = ClsLoginUser.Name1,
                 AfterContent = this.txtShiftEntry.Text,
                 AfterBackColor = this.cmbBackColor.Text,
@@ -1683,7 +1683,7 @@ namespace FlockAppC.勤務表
             ClsTrnScheduleChangeHistory clsh = new()
             {
                 RegDate = DateTime.Now,
-                RegUserID = ClsLoginUser.ID,
+                RegUserID = ClsLoginUser.StaffID,
                 RegUserName = ClsLoginUser.Name1,
                 TantoID = int.Parse(this.dgvShiftEntryList.Rows[this.dgvShiftEntryList.SelectedCells[0].RowIndex].Cells["userid"].Value.ToString()),
                 TantoName = this.dgvShiftEntryList.Rows[this.dgvShiftEntryList.SelectedCells[0].RowIndex].Cells["username"].Value.ToString(),
@@ -2034,7 +2034,7 @@ namespace FlockAppC.勤務表
                         // 変更履歴登録
                         // ------------------------------------------------------------
                         clsh.RegDate = DateTime.Now;
-                        clsh.RegUserID = ClsLoginUser.ID;
+                        clsh.RegUserID = ClsLoginUser.StaffID;
                         clsh.RegUserName = ClsLoginUser.Name1;
                         clsh.TantoID = int.Parse(this.dgvShiftEntryList.Rows[row].Cells["userid"].Value.ToString());
                         clsh.TantoName = this.dgvShiftEntryList.Rows[row].Cells["username"].Value.ToString();
@@ -2321,7 +2321,7 @@ namespace FlockAppC.勤務表
                         // 変更履歴登録
                         // ------------------------------------------------------------
                         clsh.RegDate = DateTime.Now;
-                        clsh.RegUserID = ClsLoginUser.ID;
+                        clsh.RegUserID = ClsLoginUser.StaffID;
                         clsh.RegUserName = ClsLoginUser.Name1;
                         clsh.TantoID = int.Parse(this.dgvShiftEntryList.Rows[row].Cells["userid"].Value.ToString());
                         clsh.TantoName = this.dgvShiftEntryList.Rows[row].Cells["username"].Value.ToString();
@@ -2449,7 +2449,7 @@ namespace FlockAppC.勤務表
                         // 気歴登録
                         // ---------------------------------------------------------
                         clshty.RegDate = DateTime.Now;
-                        clshty.RegUserID = ClsLoginUser.ID;
+                        clshty.RegUserID = ClsLoginUser.StaffID;
                         clshty.RegUserName = ClsLoginUser.Name1;
                         clshty.TantoID = user_id;
                         clshty.TantoName = user_name;

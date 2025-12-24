@@ -23,8 +23,6 @@ namespace FlockAppC
         /// <param name="e"></param>
         private void FrmLogin_Load(object sender, EventArgs e)
         {
-            // var userID = 0;
-
             // ドロップダウンスタイル
             this.cmbUser.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -84,7 +82,7 @@ namespace FlockAppC
             this.AcceptButton = btnLogin;
         }
         /// <summary>
-        /// ｆ－む表示
+        /// フォーム表示
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -111,8 +109,6 @@ namespace FlockAppC
             sb.Clear();
             sb.AppendLine("office_id IN(" + ClsPublic.OFFICE_HONSHA + "," + ClsPublic.OFFICE_SAITAMA + "," + ClsPublic.OFFICE_YOKOHAMA + ")");
             sb.AppendLine("AND");
-            // 2025/09/03 const化
-            // sb.AppendLine("GroupID IN(1,2,3,9,10,11)");
             sb.AppendLine("group_id IN(" + ClsPublic.SALES + "," + ClsPublic.AFFAIRS + "," + ClsPublic.PROXY + "," + ClsPublic.OFFICER + "," + ClsPublic.GUEST +")");
             sb.AppendLine("AND");
             sb.AppendLine("zai_flag = 1");

@@ -68,11 +68,6 @@ namespace FlockAppC.pubForm
             L_font_italic = l_f_italic;
             L_fore_color = l_f_color;
             L_alignment = "MiddleCenter";
-            // MiddleLeft
-            // MiddleRight
-            // TopCenter
-            // TopLeft
-            // TopRight
         }
 
         private void frmMessageBox_Load(object sender, EventArgs e)

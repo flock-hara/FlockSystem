@@ -278,7 +278,7 @@ namespace FlockAppC.勤務表
                     ClsTrnScheduleChange cls2 = new()
                     {
                         RegDate = DateTime.Now,
-                        RegUserID = ClsLoginUser.ID,
+                        RegUserID = ClsLoginUser.StaffID,
                         RegUserName = ClsLoginUser.Name1,
                         TantoID = 0,
                         TantoName = "ｺﾒﾝﾄ",
@@ -313,7 +313,7 @@ namespace FlockAppC.勤務表
                     ClsTrnScheduleChangeHistory cls3 = new()
                     {
                         RegDate = DateTime.Now,
-                        RegUserID = ClsLoginUser.ID,
+                        RegUserID = ClsLoginUser.StaffID,
                         RegUserName = ClsLoginUser.Name1,
                         TantoID = 0,
                         TantoName = "ｺﾒﾝﾄ",

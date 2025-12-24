@@ -34,7 +34,8 @@ namespace FlockAppC
             // メニュー制御
             // =============================================================
             // 勤怠メニューボタン
-            if (ClsLoginUser.AttendanceFlag != 1) { this.btnMnu05.Enabled = false; }
+            // 2025/12/24 DEL
+            // if (ClsLoginUser.AttendanceFlag != 1) { this.btnMnu05.Enabled = false; }
             // 日報メニューボタン
             if (ClsLoginUser.ReportManageFlag != 1) { this.btnMnu06.Enabled = false; }
             // マスターメンテボタン
@@ -68,15 +69,8 @@ namespace FlockAppC
             // senderがButtonか判定
             if (sender is Button clickedButton)
             {
-                // controlName = clickedButton.Text;
                 controlName = clickedButton.Name;
             }
-            // Button clickedButton = sender as Button;
-            //// null チェックを行い、コントロール名を取得
-            // if (clickedButton != null)
-            // {
-            //     controlName = clickedButton.Name;
-            // }
 
             // タイマー開始
             timer1.Enabled = false;
@@ -146,11 +140,13 @@ namespace FlockAppC
                     break;
 
                 case "btnMnu01_1":
+                    // 勤務表モニター表示
                     // フラグ更新 1:終了 2:起動
                     ClsPublic.SetControllFlagOnOff(ClsPublic.PRC02, ClsPublic.DISP_ON);
                     break;
 
                 case "btnMnu01_2":
+                    // 勤務表モニター非表示
                     // フラグ更新 1:終了 2:起動
                     ClsPublic.SetControllFlagOnOff(ClsPublic.PRC02, ClsPublic.DISP_OFF);
                     break;
@@ -179,11 +175,13 @@ namespace FlockAppC
                     break;
 
                 case "btnMnu02_1":
+                    // モニター表示
                     // フラグ更新 1:終了 2:起動
                     ClsPublic.SetControllFlagOnOff(ClsPublic.PRC03, ClsPublic.DISP_ON);
                     break;
 
                 case "btnMnu02_2":
+                    // モニター非表示
                     // フラグ更新 1:終了 2:起動
                     ClsPublic.SetControllFlagOnOff(ClsPublic.PRC03, ClsPublic.DISP_OFF);
                     break;
@@ -199,11 +197,13 @@ namespace FlockAppC
                     break;
 
                 case "btnMnu03_1":
+                    // モニター表示
                     // フラグ更新 1:終了 2:起動
                     ClsPublic.SetControllFlagOnOff(ClsPublic.PRC04, ClsPublic.DISP_ON);
                     break;
 
                 case "btnMnu03_2":
+                    // モニター非表示
                     // フラグ更新 1:終了 2:起動
                     ClsPublic.SetControllFlagOnOff(ClsPublic.PRC04, ClsPublic.DISP_OFF);
                     break;
