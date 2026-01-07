@@ -195,6 +195,7 @@
             // rdoKbn2
             // 
             this.rdoKbn2.AutoSize = true;
+            this.rdoKbn2.Enabled = false;
             this.rdoKbn2.Location = new System.Drawing.Point(105, 18);
             this.rdoKbn2.Name = "rdoKbn2";
             this.rdoKbn2.Size = new System.Drawing.Size(129, 21);
@@ -206,6 +207,7 @@
             // rdoKbn1
             // 
             this.rdoKbn1.AutoSize = true;
+            this.rdoKbn1.Enabled = false;
             this.rdoKbn1.Location = new System.Drawing.Point(32, 18);
             this.rdoKbn1.Name = "rdoKbn1";
             this.rdoKbn1.Size = new System.Drawing.Size(52, 21);

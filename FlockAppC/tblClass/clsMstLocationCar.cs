@@ -13,7 +13,8 @@ namespace FlockAppC.tblClass
         public string Name { get; set; }
         public string CarName { get; set; }
         public string No { get; set; }
-        public int Kbn { get; set; }             // 2024/12/17 ADD
+        public int Kbn { get; set; }                    // 2024/12/17 ADD
+        public int Identification { get; set; }      // 2024/12/17 ADD
 
         private readonly StringBuilder sb = new();
 
@@ -38,6 +39,8 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",car_name");
                     sb.AppendLine(",location_id");
                     sb.AppendLine(",kbn");
+                    // 2026/01/07 ADD
+                    sb.AppendLine(",identification");
                     // 2025/11/10↓
                     sb.AppendLine(",ins_user_id");
                     sb.AppendLine(",ins_date");
@@ -50,6 +53,8 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",'" + CarName + "'");
                     sb.AppendLine("," + Location_Id);
                     sb.AppendLine("," + Kbn);
+                    // 2026/01/07 ADD
+                    sb.AppendLine("," + Identification);
                     // 2025/11/10↓
                     sb.AppendLine("," + ClsLoginUser.StaffID);
                     sb.AppendLine(",'" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
@@ -113,6 +118,8 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",car_name = '" + CarName + "'");
                     sb.AppendLine(",location_id = " + Location_Id);
                     sb.AppendLine(",kbn = " + Kbn);
+                    // 2026/01/07 ADD
+                    sb.AppendLine(",identification = " + Identification);
                     // 2025/11/10↓
                     sb.AppendLine(",upd_user_id = " + ClsLoginUser.StaffID);
                     sb.AppendLine(",upd_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
@@ -200,6 +207,8 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(",car_name");
                         sb.AppendLine(",location_id");
                         sb.AppendLine(",kbn");
+                        // 2026/01/07 ADD
+                        sb.AppendLine(",identification");
                         // 2025/11/10↓
                         sb.AppendLine(",ins_user_id");
                         sb.AppendLine(",ins_date");
@@ -233,6 +242,8 @@ namespace FlockAppC.tblClass
                                 sb.AppendLine(",car_name");
                                 sb.AppendLine(",location_id");
                                 sb.AppendLine(",kbn");
+                                // 2026/01/07 ADD
+                                sb.AppendLine(",identification");
                                 // 2025/11/10↓
                                 sb.AppendLine(",ins_user_id");
                                 sb.AppendLine(",ins_date");
@@ -248,6 +259,8 @@ namespace FlockAppC.tblClass
                                 sb.AppendLine(",'" + dr["car_name"].ToString() + "'");
                                 sb.AppendLine("," + dr["location_id"].ToString());
                                 sb.AppendLine("," + dr["kbn"].ToString());
+                                // 2026/01/07 ADD
+                                sb.AppendLine("," + dr["identification"].ToString());
                                 // 2025/11/10↓
                                 if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
                                 else { sb.AppendLine(",0"); }
@@ -307,6 +320,8 @@ namespace FlockAppC.tblClass
                 sb.AppendLine(",car_name");
                 sb.AppendLine(",location_id");
                 sb.AppendLine(",kbn");
+                // 2026/01/07 ADD
+                sb.AppendLine(",identification");
                 sb.AppendLine(",ins_user_id");
                 sb.AppendLine(",ins_date");
                 sb.AppendLine(",upd_user_id");
@@ -333,6 +348,8 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(",car_name");
                         sb.AppendLine(",location_id");
                         sb.AppendLine(",kbn");
+                        // 2026/01/07 ADD
+                        sb.AppendLine(",identification");
                         sb.AppendLine(",ins_user_id");
                         sb.AppendLine(",ins_date");
                         sb.AppendLine(",upd_user_id");
@@ -346,6 +363,8 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(",'" + dr["car_name"].ToString() + "'");
                         sb.AppendLine("," + dr["location_id"].ToString());
                         sb.AppendLine("," + dr["kbn"].ToString());
+                        // 2026/01/07 ADD
+                        sb.AppendLine("," + dr["identification"].ToString());
                         if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
                         else { sb.AppendLine(",0"); }
                         if (dr.IsNull("ins_date") != true) { sb.AppendLine(",'" + dr["ins_date"].ToString() + "'"); }
@@ -402,6 +421,8 @@ namespace FlockAppC.tblClass
                 sb.AppendLine(",car_name");
                 sb.AppendLine(",location_id");
                 sb.AppendLine(",kbn");
+                // 2026/01/07 ADD
+                sb.AppendLine(",identification");
                 sb.AppendLine(",ins_user_id");
                 sb.AppendLine(",ins_date");
                 sb.AppendLine(",upd_user_id");
@@ -426,6 +447,8 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(",car_name");
                         sb.AppendLine(",location_id");
                         sb.AppendLine(",kbn");
+                        // 2026/01/07 ADD
+                        sb.AppendLine(",identification");
                         sb.AppendLine(",ins_user_id");
                         sb.AppendLine(",ins_date");
                         sb.AppendLine(",upd_user_id");
@@ -439,6 +462,8 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(",'" + dr["car_name"].ToString() + "'");
                         sb.AppendLine("," + dr["location_id"].ToString());
                         sb.AppendLine("," + dr["kbn"].ToString());
+                        // 2026/01/07 ADD
+                        sb.AppendLine("," + dr["identification"].ToString());
                         if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
                         else { sb.AppendLine(",0"); }
                         if (dr.IsNull("ins_date") != true) { sb.AppendLine(",'" + dr["ins_date"].ToString() + "'"); }

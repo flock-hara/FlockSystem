@@ -318,7 +318,8 @@ namespace FlockAppC.マスターメンテ
 
             DataGridViewTextBoxColumn col06 = new()
             {
-                Name = "kbn",
+                // Name = "kbn",                     2016/01/07 UPD   
+                Name = "identification",
                 HeaderText = "区分ID",            // 1:透析 or 2:ﾊﾞｽ・ﾃﾞｲ・配送
                 Width = 100,
                 Visible = false
@@ -720,7 +721,8 @@ namespace FlockAppC.マスターメンテ
                     sb.AppendLine("SELECT");
                     sb.AppendLine(" Mst_基本契約時間.id");
                     sb.AppendLine(",Mst_基本契約時間.location_id");
-                    sb.AppendLine(",Mst_基本契約時間.kbn");
+                    // 2026/01/07 DEL
+                    // sb.AppendLine(",Mst_基本契約時間.kbn");
                     sb.AppendLine(",Mst_基本契約時間.car_id");
                     sb.AppendLine(",Mst_基本契約時間.start_time1");
                     sb.AppendLine(",Mst_基本契約時間.end_time1");
@@ -737,6 +739,8 @@ namespace FlockAppC.マスターメンテ
                     sb.AppendLine(",Mst_専従先車両.fullname");
                     sb.AppendLine(",Mst_専従先車両.name");
                     sb.AppendLine(",Mst_専従先車両.car_name");
+                    // 2026/01/07 ADD
+                    sb.AppendLine(",Mst_専従先車両.identification");
                     sb.AppendLine("FROM");
                     sb.AppendLine(" Mst_基本契約時間");
                     sb.AppendLine("LEFT JOIN");
@@ -748,7 +752,9 @@ namespace FlockAppC.マスターメンテ
                     sb.AppendLine("WHERE");
                     sb.AppendLine(" Mst_基本契約時間.location_id = " + p_location_id);
                     sb.AppendLine("ORDER BY");
-                    sb.AppendLine(" kbn");
+                    // 2026/01/07 UPD
+                    // sb.AppendLine(" kbn");
+                    sb.AppendLine(" identification");
                     sb.AppendLine(",name");
                     sb.AppendLine(",start_time1");
                     sb.AppendLine(",id");
@@ -785,10 +791,23 @@ namespace FlockAppC.マスターメンテ
                             this.dgvContractList.Rows[row].Cells["no"].Value = dr["no"].ToString();
                             this.dgvContractList.Rows[row].Cells["name"].Value = dr["name"].ToString();
                             this.dgvContractList.Rows[row].Cells["car_name"].Value = dr["car_name"].ToString();
-                            if (dr.IsNull("kbn") != true)
+                            // 2026/01/07 UPD (S)
+                            //if (dr.IsNull("kbn") != true)
+                            //{
+                            //    this.dgvContractList.Rows[row].Cells["kbn"].Value = dr["kbn"].ToString();
+                            //    if (dr["kbn"].ToString() == "1")
+                            //    {
+                            //        this.dgvContractList.Rows[row].Cells["kbn_name"].Value = "透析";
+                            //    }
+                            //    else
+                            //    {
+                            //        this.dgvContractList.Rows[row].Cells["kbn_name"].Value = "ﾊﾞｽ･ﾃﾞｲ･配送";
+                            //    }
+                            //}
+                            if (dr.IsNull("identification") != true)
                             {
-                                this.dgvContractList.Rows[row].Cells["kbn"].Value = dr["kbn"].ToString();
-                                if (dr["kbn"].ToString() == "1")
+                                this.dgvContractList.Rows[row].Cells["identification"].Value = dr["identification"].ToString();
+                                if (dr["identification"].ToString() == "1")
                                 {
                                     this.dgvContractList.Rows[row].Cells["kbn_name"].Value = "透析";
                                 }
@@ -797,6 +816,8 @@ namespace FlockAppC.マスターメンテ
                                     this.dgvContractList.Rows[row].Cells["kbn_name"].Value = "ﾊﾞｽ･ﾃﾞｲ･配送";
                                 }
                             }
+                            // 2026/01/07 UPD (E)
+
                             this.dgvContractList.Rows[row].Cells["week"].Value = week;
 
                             // 2025/07/28 null判定に変更
@@ -1076,9 +1097,11 @@ namespace FlockAppC.マスターメンテ
 
             // 画面入力データセット
             cMstBasicContractTime.Location_id = this.Location_id;
-            if (this.rdoKbn1.Checked == true) { cMstBasicContractTime.Kbn = 1; }
-            else if (this.rdoKbn2.Checked == true) { cMstBasicContractTime.Kbn = 2; }
-            else { cMstBasicContractTime.Kbn = 0; }
+            // 2026/01/07 DEL (S)
+            //if (this.rdoKbn1.Checked == true) { cMstBasicContractTime.Kbn = 1; }
+            //else if (this.rdoKbn2.Checked == true) { cMstBasicContractTime.Kbn = 2; }
+            //else { cMstBasicContractTime.Kbn = 0; }
+            // 2026/01/07 DEL (E)
             cMstBasicContractTime.Car_id = this.Car_id;
             cMstBasicContractTime.Start_time1 = this.dtpStart_Time1.Value;
             cMstBasicContractTime.End_time1 = this.dtpEnd_Time1.Value;
@@ -1284,11 +1307,25 @@ namespace FlockAppC.マスターメンテ
             this.lblCarNo.Text = this.dgvContractList.Rows[row].Cells["no"].Value.ToString();
             this.lblCarIdent.Text = this.dgvContractList.Rows[row].Cells["name"].Value.ToString();
             this.lblCarName.Text = this.dgvContractList.Rows[row].Cells["car_name"].Value.ToString();
-            if (this.dgvContractList.Rows[row].Cells["kbn"].Value.ToString() == "1")
+            // 2026/01/07 UPD (S)
+            //if (this.dgvContractList.Rows[row].Cells["kbn"].Value.ToString() == "1")
+            //{
+            //    this.rdoKbn1.Checked = true;
+            //}
+            //else if (this.dgvContractList.Rows[row].Cells["kbn"].Value.ToString() == "2")
+            //{
+            //    this.rdoKbn2.Checked = true;
+            //}
+            //else
+            //{
+            //    this.rdoKbn1.Checked = false;
+            //    this.rdoKbn2.Checked = false;
+            //}
+            if (this.dgvContractList.Rows[row].Cells["identification"].Value.ToString() == "1")
             {
                 this.rdoKbn1.Checked = true;
             }
-            else if (this.dgvContractList.Rows[row].Cells["kbn"].Value.ToString() == "2")
+            else if (this.dgvContractList.Rows[row].Cells["identification"].Value.ToString() == "2")
             {
                 this.rdoKbn2.Checked = true;
             }
@@ -1297,6 +1334,8 @@ namespace FlockAppC.マスターメンテ
                 this.rdoKbn1.Checked = false;
                 this.rdoKbn2.Checked = false;
             }
+            // 2026/01/07 UPD (E)
+
             if (this.dgvContractList.Rows[row].Cells["start_time1"].Value != null) { this.dtpStart_Time1.Value = DateTime.Parse("1900-01-01 " + this.dgvContractList.Rows[row].Cells["start_time1"].Value.ToString()); }
             else { this.dtpStart_Time1.Value = DateTime.Parse("1900-01-01 00:00:00"); }
             if (this.dgvContractList.Rows[row].Cells["end_time1"].Value != null) { this.dtpEnd_Time1.Value = DateTime.Parse("1900-01-01 " + this.dgvContractList.Rows[row].Cells["end_time1"].Value.ToString()); }

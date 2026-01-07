@@ -9,7 +9,8 @@ namespace FlockAppC.tblClass
     {
         public int Id {  get; set; }
         public int Location_id {  get; set; }
-        public int Kbn {  get; set; }
+        // 2026/01/07 DEL
+        // public int Kbn {  get; set; }
         public int Car_id {  get; set; }
         public DateTime Start_time1 {  get; set; }
         public DateTime End_time1 { get; set; }
@@ -50,7 +51,8 @@ namespace FlockAppC.tblClass
                     sb.Clear();
                     sb.AppendLine("SELECT");
                     sb.AppendLine(" location_id");
-                    sb.AppendLine(",kbn");
+                    // 2026/01/07 DEL
+                    // sb.AppendLine(",kbn");
                     sb.AppendLine(",car_id");
                     sb.AppendLine(",start_time1");
                     sb.AppendLine(",end_time1");
@@ -106,7 +108,8 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(" Mst_基本契約時間");
                     sb.AppendLine("(");
                     sb.AppendLine(" location_id");
-                    sb.AppendLine(",kbn");
+                    // 2026/01/07 DEL
+                    // sb.AppendLine(",kbn");
                     sb.AppendLine(",car_id");
                     sb.AppendLine(",start_time1");
                     sb.AppendLine(",end_time1");
@@ -120,11 +123,12 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",break_time");
                     sb.AppendLine(",comment1");
                     sb.AppendLine(",ins_user_id");                  // 2025/11/10
-                    sb.AppendLine(",ins_date");                     // 2025/11/10
+                    sb.AppendLine(",ins_date");                      // 2025/11/10
                     sb.AppendLine(",delete_flag");                  // 2025/11/10
                     sb.AppendLine(") VALUES (");
                     sb.AppendLine(Location_id.ToString());
-                    sb.AppendLine("," + Kbn);
+                    // 2026/01/07 DEL
+                    // sb.AppendLine("," + Kbn);
                     sb.AppendLine("," + Car_id);
 
                     // 1900-01-01 00:00:00 の場合は nullを設定する
@@ -255,7 +259,8 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(" Mst_基本契約時間");
                     sb.AppendLine("(");
                     sb.AppendLine(" location_id");
-                    sb.AppendLine(",kbn");
+                    // 2026/01/07 DEL
+                    // sb.AppendLine(",kbn");
                     sb.AppendLine(",car_id");
                     sb.AppendLine(",start_time1");
                     sb.AppendLine(",end_time1");
@@ -269,11 +274,12 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",break_time");
                     sb.AppendLine(",comment1");
                     sb.AppendLine(",ins_user_id");                  // 2025/11/10
-                    sb.AppendLine(",ins_date");                     // 2025/11/10
+                    sb.AppendLine(",ins_date");                      // 2025/11/10
                     sb.AppendLine(",delete_flag");                  // 2025/11/10
                     sb.AppendLine(") VALUES (");
                     sb.AppendLine(Location_id.ToString());
-                    sb.AppendLine("," + Kbn);
+                    // 2026/01/07 DEL
+                    // sb.AppendLine("," + Kbn);
                     sb.AppendLine("," + Car_id);
 
                     // 1900-01-01 00:00:00 の場合は nullを設定する
@@ -405,7 +411,8 @@ namespace FlockAppC.tblClass
                     sb.AppendLine("Mst_基本契約時間");
                     sb.AppendLine("SET");
                     sb.AppendLine(" location_id = " + this.Location_id);
-                    sb.AppendLine(",kbn = " + this.Kbn);
+                    // 2026/01/07 DEL
+                    // sb.AppendLine(",kbn = " + this.Kbn);
                     sb.AppendLine(",car_id = " + this.Car_id);
 
                     // 1900-01-01 00:00:00 の場合は nullを設定する
@@ -569,7 +576,8 @@ namespace FlockAppC.tblClass
                         sb.AppendLine("SELECT");
                         sb.AppendLine(" id");
                         sb.AppendLine(",location_id");
-                        sb.AppendLine(",kbn");
+                        // 2026/01/07 DEL
+                        // sb.AppendLine(",kbn");
                         sb.AppendLine(",car_id");
                         sb.AppendLine(",start_time1");
                         sb.AppendLine(",end_time1");
@@ -611,7 +619,8 @@ namespace FlockAppC.tblClass
                                 sb.AppendLine("INSERT INTO Mst_基本契約時間 (");
                                 sb.AppendLine(" id");
                                 sb.AppendLine(",location_id");
-                                sb.AppendLine(",kbn");
+                                // 2026/01/07 DEL
+                                // sb.AppendLine(",kbn");
                                 sb.AppendLine(",car_id");
                                 sb.AppendLine(",start_time1");
                                 sb.AppendLine(",end_time1");
@@ -638,7 +647,8 @@ namespace FlockAppC.tblClass
                                 sb.AppendLine(") VALUES (");
                                 sb.AppendLine(dr["id"].ToString());
                                 sb.AppendLine("," + dr["location_id"].ToString());
-                                sb.AppendLine("," + dr["kbn"].ToString());
+                                // 2026/01/07 DEL
+                                // sb.AppendLine("," + dr["kbn"].ToString());
                                 sb.AppendLine("," + dr["car_id"].ToString());
 
                                 // 2025/07/28 未設定時はnullセットに変更
@@ -773,7 +783,8 @@ namespace FlockAppC.tblClass
                 sb.AppendLine("SELECT");
                 sb.AppendLine(" id");
                 sb.AppendLine(",location_id");
-                sb.AppendLine(",kbn");
+                // 2026/01/07 DEL
+                // sb.AppendLine(",kbn");
                 sb.AppendLine(",car_id");
                 sb.AppendLine(",start_time1");
                 sb.AppendLine(",end_time1");
@@ -809,7 +820,8 @@ namespace FlockAppC.tblClass
                         sb.AppendLine("INSERT INTO Mst_基本契約時間 (");
                         sb.AppendLine(" id");
                         sb.AppendLine(",location_id");
-                        sb.AppendLine(",kbn");
+                        // 2026/01/07 DEL
+                        // sb.AppendLine(",kbn");
                         sb.AppendLine(",car_id");
                         sb.AppendLine(",start_time1");
                         sb.AppendLine(",end_time1");
@@ -834,7 +846,8 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(") VALUES (");
                         sb.AppendLine(dr["id"].ToString());
                         sb.AppendLine("," + dr["location_id"].ToString());
-                        sb.AppendLine("," + dr["kbn"].ToString());
+                        // 2026/01/07 DEL
+                        // sb.AppendLine("," + dr["kbn"].ToString());
                         sb.AppendLine("," + dr["car_id"].ToString());
                         if (dr.IsNull("start_time1") != true) { sb.AppendLine(",'" + dr["start_time1"].ToString() + "'"); }
                         else { sb.AppendLine(",null"); }

@@ -66,11 +66,16 @@
             this.lblClosingDate = new System.Windows.Forms.Label();
             this.lblContract = new System.Windows.Forms.Label();
             this.lblConnect = new System.Windows.Forms.Label();
+            this.gbox1 = new System.Windows.Forms.GroupBox();
+            this.rdoKbn2 = new System.Windows.Forms.RadioButton();
+            this.rdoKbn1 = new System.Windows.Forms.RadioButton();
+            this.label11 = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.gbox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel1
@@ -151,7 +156,7 @@
             // dgvList
             // 
             this.dgvList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvList.Location = new System.Drawing.Point(16, 203);
+            this.dgvList.Location = new System.Drawing.Point(16, 243);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 21;
             this.dgvList.Size = new System.Drawing.Size(1066, 320);
@@ -285,7 +290,7 @@
             this.groupBox2.Controls.Add(this.txtFuelCost);
             this.groupBox2.Controls.Add(this.txtContractKm);
             this.groupBox2.Controls.Add(this.txtUnitPrice);
-            this.groupBox2.Location = new System.Drawing.Point(16, 139);
+            this.groupBox2.Location = new System.Drawing.Point(16, 179);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(792, 58);
             this.groupBox2.TabIndex = 133;
@@ -386,7 +391,7 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じるA_8p;
-            this.btnClose.Location = new System.Drawing.Point(1002, 530);
+            this.btnClose.Location = new System.Drawing.Point(1002, 570);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(80, 37);
             this.btnClose.TabIndex = 131;
@@ -399,7 +404,7 @@
             // 
             this.btnDelete.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnDelete.Image = global::FlockAppC.Properties.Resources.削除1_4p;
-            this.btnDelete.Location = new System.Drawing.Point(187, 529);
+            this.btnDelete.Location = new System.Drawing.Point(187, 569);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(80, 37);
             this.btnDelete.TabIndex = 130;
@@ -412,7 +417,7 @@
             // 
             this.btnNew.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnNew.Image = global::FlockAppC.Properties.Resources.追加_小小;
-            this.btnNew.Location = new System.Drawing.Point(101, 529);
+            this.btnNew.Location = new System.Drawing.Point(101, 569);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(80, 37);
             this.btnNew.TabIndex = 129;
@@ -425,7 +430,7 @@
             // 
             this.btnReg.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnReg.Image = global::FlockAppC.Properties.Resources.FD_1_小小;
-            this.btnReg.Location = new System.Drawing.Point(15, 529);
+            this.btnReg.Location = new System.Drawing.Point(15, 569);
             this.btnReg.Name = "btnReg";
             this.btnReg.Size = new System.Drawing.Size(80, 37);
             this.btnReg.TabIndex = 128;
@@ -466,18 +471,60 @@
             this.lblConnect.AutoSize = true;
             this.lblConnect.Font = new System.Drawing.Font("游ゴシック Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lblConnect.ForeColor = System.Drawing.Color.Blue;
-            this.lblConnect.Location = new System.Drawing.Point(286, 541);
+            this.lblConnect.Location = new System.Drawing.Point(286, 581);
             this.lblConnect.Name = "lblConnect";
             this.lblConnect.Size = new System.Drawing.Size(136, 16);
             this.lblConnect.TabIndex = 155;
             this.lblConnect.Text = "データベース接続中...";
             this.lblConnect.Visible = false;
             // 
+            // gbox1
+            // 
+            this.gbox1.Controls.Add(this.label11);
+            this.gbox1.Controls.Add(this.rdoKbn2);
+            this.gbox1.Controls.Add(this.rdoKbn1);
+            this.gbox1.Location = new System.Drawing.Point(506, 135);
+            this.gbox1.Name = "gbox1";
+            this.gbox1.Size = new System.Drawing.Size(302, 44);
+            this.gbox1.TabIndex = 158;
+            this.gbox1.TabStop = false;
+            // 
+            // rdoKbn2
+            // 
+            this.rdoKbn2.AutoSize = true;
+            this.rdoKbn2.Location = new System.Drawing.Point(160, 16);
+            this.rdoKbn2.Name = "rdoKbn2";
+            this.rdoKbn2.Size = new System.Drawing.Size(129, 21);
+            this.rdoKbn2.TabIndex = 1;
+            this.rdoKbn2.TabStop = true;
+            this.rdoKbn2.Text = "バス・デイ・配送";
+            this.rdoKbn2.UseVisualStyleBackColor = true;
+            // 
+            // rdoKbn1
+            // 
+            this.rdoKbn1.AutoSize = true;
+            this.rdoKbn1.Location = new System.Drawing.Point(94, 16);
+            this.rdoKbn1.Name = "rdoKbn1";
+            this.rdoKbn1.Size = new System.Drawing.Size(52, 21);
+            this.rdoKbn1.TabIndex = 0;
+            this.rdoKbn1.TabStop = true;
+            this.rdoKbn1.Text = "透析";
+            this.rdoKbn1.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(18, 18);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 17);
+            this.label11.TabIndex = 158;
+            this.label11.Text = "車両識別";
+            // 
             // frmMstLocationCar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1094, 574);
+            this.ClientSize = new System.Drawing.Size(1094, 614);
             this.Controls.Add(this.lblConnect);
             this.Controls.Add(this.lblContract);
             this.Controls.Add(this.lblClosingDate);
@@ -496,6 +543,7 @@
             this.Controls.Add(this.btnSelectLocation);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.Panel1);
+            this.Controls.Add(this.gbox1);
             this.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -511,6 +559,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.gbox1.ResumeLayout(false);
+            this.gbox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -555,5 +605,9 @@
         private System.Windows.Forms.Label lblContract;
         private System.Windows.Forms.CheckBox chkKbn;
         private System.Windows.Forms.Label lblConnect;
+        private System.Windows.Forms.GroupBox gbox1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.RadioButton rdoKbn2;
+        private System.Windows.Forms.RadioButton rdoKbn1;
     }
 }

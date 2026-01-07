@@ -153,6 +153,14 @@ namespace FlockAppC.マスターメンテ
                 Width = 60,
                 Visible = true
             };
+            // 2026/1/7 ADD 車両識別
+            DataGridViewTextBoxColumn col11 = new()
+            {
+                Name = "identification",
+                HeaderText = "識別",
+                Width = 1,
+                Visible = false
+            };
 
             //DataGridViewTextBoxColumn col01 = new DataGridViewTextBoxColumn();
             //DataGridViewTextBoxColumn col02 = new DataGridViewTextBoxColumn();
@@ -215,6 +223,8 @@ namespace FlockAppC.マスターメンテ
             this.dgvList.Columns.Add(col08);
             this.dgvList.Columns.Add(col09);
             this.dgvList.Columns.Add(col10);
+            // 2026/1/7 ADD
+            this.dgvList.Columns.Add(col11);
 
             //===========================================================================================
             // 列ヘッダー
@@ -295,6 +305,8 @@ namespace FlockAppC.マスターメンテ
             this.txtBurdenFee.Text = "";
             this.chkKbn.Checked = false;        // 2024/12/17 ADD
             this.lblNew.Visible = flg;
+            this.rdoKbn1.Checked = false;       // 2026/1/7 ADD
+            this.rdoKbn2.Checked = false;       // 2026/1/7 ADD
         }
         /// <summary>
         /// 専従先選択ボタン
@@ -336,8 +348,10 @@ namespace FlockAppC.マスターメンテ
             this.txtContractKm.Text = "";
             this.txtBurdenFee.Text = "";
             this.lblLocation.Text = "";
-            this.chkKbn.Checked = false;            // 2024/12/17 ADD
+            this.chkKbn.Checked = false;             // 2024/12/17 ADD
             this.lblNew.Visible = true;
+            this.rdoKbn1.Checked = false;           // 2026/1/7 ADD
+            this.rdoKbn2.Checked = false;           // 2026/1/7 ADD
             this.dgvList.Rows.Clear();
         }
         /// <summary>
@@ -369,7 +383,8 @@ namespace FlockAppC.マスターメンテ
                     sb.AppendLine(",Mst_専従先車両.name");
                     sb.AppendLine(",Mst_専従先車両.car_name");
                     sb.AppendLine(",Mst_専従先車両.location_id");
-                    sb.AppendLine(",Mst_専従先車両.kbn");           // 2024/12/17 ADD
+                    sb.AppendLine(",Mst_専従先車両.kbn");                        // 2024/12/17 ADD   車両区分
+                    sb.AppendLine(",Mst_専従先車両.identification");          // 2025/1/7 ADD      車両識別 
                     sb.AppendLine(",Mst_専従先車両走行契約情報.unit_price");
                     sb.AppendLine(",Mst_専従先車両走行契約情報.fuel_cost");
                     sb.AppendLine(",Mst_専従先車両走行契約情報.contract_km");
@@ -420,8 +435,15 @@ namespace FlockAppC.マスターメンテ
                             else { this.dgvList.Rows[i].Cells["contract_km"].Value = ""; }
                             if (dr["burden_fee"].ToString() != "0") { this.dgvList.Rows[i].Cells["burden_fee"].Value = dr["burden_fee"].ToString(); }
                             else { this.dgvList.Rows[i].Cells["burden_fee"].Value = ""; }
-                            // 2024/12/17 ADD
-                            if (dr["kbn"].ToString() != ClsPublic.FLAG_ON.ToString()) { this.dgvList.Rows[i].Cells["kbn"].Value = "〇"; }
+                            // 2024/12/17 ADD (S)
+                            if (dr["kbn"].ToString() == ClsPublic.FLAG_ON.ToString()) { this.dgvList.Rows[i].Cells["kbn"].Value = "〇"; }
+                            else { this.dgvList.Rows[i].Cells["kbn"].Value = ""; }
+                            // 2024/12/17 ADD (E)
+                            // 2026/1/7 ADD (S)
+                            if (dr.IsNull("identification") != true) { this.dgvList.Rows[i].Cells["identification"].Value = dr["identification"].ToString(); }
+                            else { this.dgvList.Rows[i].Cells["identification"].Value = ""; }
+                            // 2026/1/7 ADD (E)
+
                             i++;
                         }
                     }
@@ -464,6 +486,15 @@ namespace FlockAppC.マスターメンテ
             {
                 if (this.dgvList.Rows[e.RowIndex].Cells["kbn"].Value.ToString() == "〇") { this.chkKbn.Checked = true; }
             }
+            // 2026/1/7 ADD (S)
+            if (this.dgvList.Rows[e.RowIndex].Cells["identification"].Value != null)
+            {
+                string iden = this.dgvList.Rows[e.RowIndex].Cells["identification"].Value.ToString();
+                if (iden == "1") { this.rdoKbn1.Checked = true; }               // 透析
+                else if (iden == "2") { this.rdoKbn2.Checked = true; }        // バス・デイ・配送  
+            }
+            // 2026/1/7 ADD (E)
+
 
             // 画面表示：契約
             this.txtUnitPrice.Text = this.dgvList.Rows[e.RowIndex].Cells[5].Value.ToString();
@@ -487,7 +518,9 @@ namespace FlockAppC.マスターメンテ
             this.txtFuelCost.Text = "";
             this.txtContractKm.Text = "";
             this.txtBurdenFee.Text = "";
-            this.chkKbn.Checked = false;        // 2024/12/17 ADD
+            this.chkKbn.Checked = false;         // 2024/12/17 ADD
+            this.rdoKbn1.Checked = false;       // 2026/1/7 ADD
+            this.rdoKbn2.Checked = false;       // 2026/1/7 ADD
             this.lblNew.Visible = true;
             this.txtNo.Focus();
         }
@@ -516,6 +549,8 @@ namespace FlockAppC.マスターメンテ
             this.txtName.Text = "";
             this.txtCarName.Text = "";
             this.chkKbn.Checked = false;        // 2024/12/17 ADD
+            this.rdoKbn1.Checked = false;       // 2026/1/7 ADD
+            this.rdoKbn2.Checked = false;       // 2026/1/7 ADD
             this.lblNew.Visible = true;
             this.txtNo.Focus();
             DisplayList();
@@ -547,6 +582,12 @@ namespace FlockAppC.マスターメンテ
             // 2024/12/17 ADD
             if (this.chkKbn.Checked == false) { cls.Kbn = 0; }
             else { cls.Kbn = 1; }
+
+            // 2026/1/7 ADD (S)
+            if (this.rdoKbn1.Checked == true) { cls.Identification = 1; }            // 透析
+            else if (this.rdoKbn2.Checked == true) { cls.Identification = 2; }     // バス・デイ・配送
+            else { cls.Identification = 0; }
+            // 2026/1/7 ADD (E)
 
             if (this.Id == 0)
             {
@@ -606,6 +647,8 @@ namespace FlockAppC.マスターメンテ
                 this.txtContractKm.Text = "";
                 this.txtBurdenFee.Text = "";
                 this.chkKbn.Checked = false;            // 2024/12/17 ADD
+                this.rdoKbn1.Checked = false;          // 2026/1/7 ADD
+                this.rdoKbn2.Checked = false;          // 2026/1/7 ADD
                 this.lblNew.Visible = true;
                 this.txtNo.Focus();
                 DisplayList();
@@ -642,6 +685,8 @@ namespace FlockAppC.マスターメンテ
                 this.txtContractKm.Text = "";
                 this.txtBurdenFee.Text = "";
                 this.chkKbn.Checked = false;            // 2024/12/17 ADD
+                this.rdoKbn1.Checked = false;          // 2026/1/7 ADD
+                this.rdoKbn2.Checked = false;          // 2026/1/7 ADD
                 this.lblNew.Visible = true;
                 this.txtNo.Focus();
                 DisplayList();

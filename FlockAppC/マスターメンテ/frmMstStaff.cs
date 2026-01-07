@@ -1371,22 +1371,26 @@ namespace FlockAppC.マスターメンテ
             if (this.chkMaster.Checked == true)
             { 
                 cstf.MasterMenteFlag = ClsPublic.FLAG_ON;
-                ClsLoginUser.MasterMenteFlag = ClsPublic.FLAG_ON;
+                // 2026/01/07 DEL
+                // ClsLoginUser.MasterMenteFlag = ClsPublic.FLAG_ON;
             }
             else 
             { 
                 cstf.MasterMenteFlag = ClsPublic.FLAG_OFF;
-                ClsLoginUser.MasterMenteFlag = ClsPublic.FLAG_OFF;
+                // 2026/01/07 DEL
+                // ClsLoginUser.MasterMenteFlag = ClsPublic.FLAG_OFF;
             }
             if (this.chkCarManage.Checked == true) 
             { 
-                cstf.CarManageFlag = ClsPublic.FLAG_ON; 
-                ClsLoginUser.CarManageFlag = ClsPublic.FLAG_ON;
+                cstf.CarManageFlag = ClsPublic.FLAG_ON;
+                // 2026/01/07 DEL
+                // ClsLoginUser.CarManageFlag = ClsPublic.FLAG_ON;
             }
             else 
             { 
                 cstf.CarManageFlag = ClsPublic.FLAG_OFF;
-                ClsLoginUser.CarManageFlag = ClsPublic.FLAG_OFF;
+                // 2026/01/07 DEL
+                // ClsLoginUser.CarManageFlag = ClsPublic.FLAG_OFF;
             }
 
             // 2025/12/24 DEL
