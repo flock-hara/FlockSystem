@@ -111,7 +111,8 @@ namespace FlockAppC
             sb.AppendLine("AND");
             sb.AppendLine("group_id IN(" + ClsPublic.SALES + "," + ClsPublic.AFFAIRS + "," + ClsPublic.PROXY + "," + ClsPublic.OFFICER + "," + ClsPublic.GUEST +")");
             sb.AppendLine("AND");
-            sb.AppendLine("zai_flag = 1");
+            // sb.AppendLine("zai_flag = 1");       2026/01/08 UPD
+            sb.AppendLine("delete_flag != " + ClsPublic.FLAG_ON);
             // コンボボックス設定
             cls.SetTantoCmb4(this.cmbUser, p_userID, sb.ToString(), "reg_sort");
         }

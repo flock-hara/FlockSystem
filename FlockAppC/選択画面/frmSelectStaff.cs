@@ -474,7 +474,10 @@ namespace FlockAppC.選択画面
                     if (this.chkZai.Checked == false)
                     {
                         sb.AppendLine("AND");
-                        sb.AppendLine("zai_flag = 1");
+                        // 2026/01/08 UPD (S)
+                        // sb.AppendLine("zai_flag = 1");
+                        sb.AppendLine("delete_flag != " + ClsPublic.FLAG_ON);
+                        // 2026/01/08 UPD (E)
                     }
 
                     if (this.rdo1.Checked == true)

@@ -33,21 +33,21 @@
             this.Panel1 = new System.Windows.Forms.Panel();
             this.Label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbSort = new System.Windows.Forms.ComboBox();
+            this.chkZaiFlag = new System.Windows.Forms.CheckBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
             this.lblEmployment = new System.Windows.Forms.Label();
+            this.btnDisplay = new System.Windows.Forms.Button();
             this.btnSelectEmployment = new System.Windows.Forms.Button();
             this.chkProxy = new System.Windows.Forms.CheckBox();
             this.btnSelectOffice = new System.Windows.Forms.Button();
             this.lblOffice = new System.Windows.Forms.Label();
             this.btnSelectGroup = new System.Windows.Forms.Button();
             this.lblGroup = new System.Windows.Forms.Label();
-            this.btnDisplay = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.chkZaiFlag = new System.Windows.Forms.CheckBox();
-            this.cmbSort = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.Panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -106,6 +106,64 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "表示条件";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(325, 53);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 17);
+            this.label1.TabIndex = 110;
+            this.label1.Text = "並べ替え";
+            // 
+            // cmbSort
+            // 
+            this.cmbSort.FormattingEnabled = true;
+            this.cmbSort.Location = new System.Drawing.Point(388, 51);
+            this.cmbSort.Name = "cmbSort";
+            this.cmbSort.Size = new System.Drawing.Size(60, 25);
+            this.cmbSort.TabIndex = 104;
+            // 
+            // chkZaiFlag
+            // 
+            this.chkZaiFlag.AutoSize = true;
+            this.chkZaiFlag.Location = new System.Drawing.Point(218, 52);
+            this.chkZaiFlag.Name = "chkZaiFlag";
+            this.chkZaiFlag.Size = new System.Drawing.Size(66, 21);
+            this.chkZaiFlag.TabIndex = 109;
+            this.chkZaiFlag.Text = "退職者";
+            this.chkZaiFlag.UseVisualStyleBackColor = true;
+            // 
+            // txtName
+            // 
+            this.txtName.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtName.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.txtName.Location = new System.Drawing.Point(113, 48);
+            this.txtName.MaxLength = 20;
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(95, 28);
+            this.txtName.TabIndex = 108;
+            this.txtName.Text = "従業員氏名";
+            // 
+            // btnClear
+            // 
+            this.btnClear.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btnClear.Location = new System.Drawing.Point(718, 49);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(69, 30);
+            this.btnClear.TabIndex = 103;
+            this.btnClear.Text = "条件ｸﾘｱ";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(11, 53);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(96, 17);
+            this.label15.TabIndex = 107;
+            this.label15.Text = "名前(あいまい)";
+            // 
             // lblEmployment
             // 
             this.lblEmployment.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -115,6 +173,17 @@
             this.lblEmployment.TabIndex = 94;
             this.lblEmployment.Text = "9999";
             this.lblEmployment.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnDisplay
+            // 
+            this.btnDisplay.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btnDisplay.Location = new System.Drawing.Point(658, 49);
+            this.btnDisplay.Name = "btnDisplay";
+            this.btnDisplay.Size = new System.Drawing.Size(60, 30);
+            this.btnDisplay.TabIndex = 100;
+            this.btnDisplay.Text = "表示";
+            this.btnDisplay.UseVisualStyleBackColor = true;
+            this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
             // 
             // btnSelectEmployment
             // 
@@ -180,17 +249,6 @@
             this.lblGroup.Text = "9999";
             this.lblGroup.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnDisplay
-            // 
-            this.btnDisplay.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnDisplay.Location = new System.Drawing.Point(658, 49);
-            this.btnDisplay.Name = "btnDisplay";
-            this.btnDisplay.Size = new System.Drawing.Size(60, 30);
-            this.btnDisplay.TabIndex = 100;
-            this.btnDisplay.Text = "表示";
-            this.btnDisplay.UseVisualStyleBackColor = true;
-            this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
-            // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -203,64 +261,6 @@
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnClear.Location = new System.Drawing.Point(718, 49);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(69, 30);
-            this.btnClear.TabIndex = 103;
-            this.btnClear.Text = "条件ｸﾘｱ";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(11, 53);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(96, 17);
-            this.label15.TabIndex = 107;
-            this.label15.Text = "名前(あいまい)";
-            // 
-            // txtName
-            // 
-            this.txtName.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtName.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.txtName.Location = new System.Drawing.Point(113, 48);
-            this.txtName.MaxLength = 20;
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(95, 28);
-            this.txtName.TabIndex = 108;
-            this.txtName.Text = "従業員氏名";
-            // 
-            // chkZaiFlag
-            // 
-            this.chkZaiFlag.AutoSize = true;
-            this.chkZaiFlag.Location = new System.Drawing.Point(218, 52);
-            this.chkZaiFlag.Name = "chkZaiFlag";
-            this.chkZaiFlag.Size = new System.Drawing.Size(66, 21);
-            this.chkZaiFlag.TabIndex = 109;
-            this.chkZaiFlag.Text = "退職者";
-            this.chkZaiFlag.UseVisualStyleBackColor = true;
-            // 
-            // cmbSort
-            // 
-            this.cmbSort.FormattingEnabled = true;
-            this.cmbSort.Location = new System.Drawing.Point(388, 51);
-            this.cmbSort.Name = "cmbSort";
-            this.cmbSort.Size = new System.Drawing.Size(60, 25);
-            this.cmbSort.TabIndex = 104;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(325, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 17);
-            this.label1.TabIndex = 110;
-            this.label1.Text = "並べ替え";
             // 
             // frmMstStaffList
             // 

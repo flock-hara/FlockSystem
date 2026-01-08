@@ -446,5 +446,62 @@ namespace FlockAppC.tblClass
                 throw;
             }
         }
+        /// <summary>
+        /// 使用者ID更新
+        ///  社員マスターメンテナンスで社員が退職した場合等に、社用車の使用者IDを更新する
+        /// </summary>
+        /// <param name="p_car_id"></param>
+        /// <param name="p_staff_id"></param>
+        public void UpdateUsedUserId(int p_car_id, int p_staff_id)
+        {
+            // 処理内容：
+            // １．使用者IDにp_staff_idを持つレコードを0に更新する
+            // ２．p_car_idが0より大きい場合、指定された社用車IDの使用者IDをp_staff_idに更新する
+
+            // １．使用者IDにp_staff_idを持つレコードを0に更新する
+            try
+            {
+                using (ClsSqlDb clsSqlDb = new(ClsDbConfig.SQLServerNo))
+                {
+                    sb.Clear();
+                    sb.AppendLine("UPDATE");
+                    sb.AppendLine("Mst_社用車");
+                    sb.AppendLine("SET");
+                    sb.AppendLine(" used_user_id = 0");
+                    sb.AppendLine("WHERE");
+                    sb.AppendLine(" used_user_id = " + p_staff_id);
+                    clsSqlDb.DMLUpdate(sb.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                ClsLogger.Log(ex.Message);
+                throw;
+            }
+            // ２．p_car_idが0より大きい場合、指定された社用車IDの使用者IDをp_staff_idに更新する
+            if (p_car_id <= 0)
+            {
+                return;
+            }
+            try
+            {
+                using (ClsSqlDb clsSqlDb = new(ClsDbConfig.SQLServerNo))
+                {
+                    sb.Clear();
+                    sb.AppendLine("UPDATE");
+                    sb.AppendLine("Mst_社用車");
+                    sb.AppendLine("SET");
+                    sb.AppendLine(" used_user_id = " + p_staff_id);
+                    sb.AppendLine("WHERE");
+                    sb.AppendLine("id = " + p_car_id);
+                    clsSqlDb.DMLUpdate(sb.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                ClsLogger.Log(ex.Message);
+                throw;
+            }
+         }
     }
 }

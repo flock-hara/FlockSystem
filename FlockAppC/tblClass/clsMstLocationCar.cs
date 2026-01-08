@@ -150,10 +150,47 @@ namespace FlockAppC.tblClass
                     sb.AppendLine("UPDATE");
                     sb.AppendLine("Mst_専従先車両");
                     sb.AppendLine("SET");
-                    sb.AppendLine("delete_flag = 1");
+                    sb.AppendLine("delete_flag = " + ClsPublic.FLAG_ON);
                     sb.AppendLine("WHERE");
                     sb.AppendLine("id = " + Id);
+                    clsSqlDb.DMLUpdate(sb.ToString());
 
+                    // 基本契約時間
+                    // 削除対象の基本契約時間のIDを取得
+                    var contract_time_id  = 0;
+                    sb.Clear();
+                    sb.AppendLine("SELECT");
+                    sb.AppendLine("id");
+                    sb.AppendLine("FROM");
+                    sb.AppendLine("Mst_基本契約時間");
+                    sb.AppendLine("WHERE");
+                    sb.AppendLine("car_id = " + Id);
+                    using (DataTable dt_val = clsSqlDb.DMLSelect(sb.ToString()))
+                    {
+                        foreach (DataRow dr in dt_val.Rows)
+                        {
+                            contract_time_id = int.Parse(dr["id"].ToString());
+                        }
+                    }
+                    // 取得したIDの基本契約時間を削除
+                    sb.Clear();
+                    sb.AppendLine("DELETE FROM");
+                    sb.AppendLine("Mst_基本契約時間");
+                    sb.AppendLine("WHERE");
+                    sb.AppendLine("car_id = " + Id);
+                    clsSqlDb.DMLUpdate(sb.ToString());
+
+                    // 基本契約時間のIDが0の場合は処理しない
+                    if (contract_time_id <= 0)
+                    {
+                        return;
+                    }
+                    // 基本契約曜日を削除
+                    sb.Clear();
+                    sb.AppendLine("DELETE FROM");
+                    sb.AppendLine("Mst_基本契約曜日");
+                    sb.AppendLine("WHERE");
+                    sb.AppendLine("contract_time_id = " + contract_time_id);
                     clsSqlDb.DMLUpdate(sb.ToString());
                 }
             }
@@ -219,7 +256,7 @@ namespace FlockAppC.tblClass
                         sb.AppendLine("FROM");
                         sb.AppendLine("Mst_専従先車両");
                         sb.AppendLine("WHERE");
-                        sb.AppendLine("delete_flag = 0");
+                        sb.AppendLine("delete_flag != " + ClsPublic.FLAG_ON);
                         sb.AppendLine("ORDER BY");
                         sb.AppendLine("id");
 

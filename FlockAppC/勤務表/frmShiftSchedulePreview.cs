@@ -235,7 +235,10 @@ namespace FlockAppC.勤務表
                     sb.AppendLine("AND");
                     sb.AppendLine("Mst_社員.proxy_flag = " + ClsPublic.FLAG_ON);
                     sb.AppendLine("AND");
-                    sb.AppendLine("Mst_社員.zai_flag = " + ClsPublic.FLAG_ON);
+                    // 2026/01/08 UPD (S)
+                    // sb.AppendLine("Mst_社員.zai_flag = " + ClsPublic.FLAG_ON);
+                    sb.AppendLine("Mst_社員.delete_flag != " + ClsPublic.FLAG_ON);
+                    // 2026/01/08 UPD (E)
                     sb.AppendLine("AND");
                     sb.AppendLine("year = " + ClsPublic.stcConfig[0].Year);
                     sb.AppendLine("AND");
@@ -269,7 +272,10 @@ namespace FlockAppC.勤務表
                     sb.AppendLine("AND");
                     sb.AppendLine("Mst_社員.proxy_flag = " + ClsPublic.FLAG_ON);
                     sb.AppendLine("AND");
-                    sb.AppendLine("Mst_社員.zai_flag = " + ClsPublic.FLAG_ON);
+                    // 2026/01/08 UPD (S)
+                    // sb.AppendLine("Mst_社員.zai_flag = " + ClsPublic.FLAG_ON);
+                    sb.AppendLine("Mst_社員.delete_flag != " + ClsPublic.FLAG_ON);
+                    // 2026/01/08 UPD (E)
                     sb.AppendLine("AND");
                     sb.AppendLine("Year = " + ClsPublic.stcConfig[1].Year);
                     sb.AppendLine("AND");
@@ -643,7 +649,10 @@ namespace FlockAppC.勤務表
             sb.AppendLine("AND");
             sb.AppendLine("(Mst_社員.proxy_flag = 1 Or Trn_勤務表シフト情報.tanto_id = 0)");
             sb.AppendLine("AND");
-            sb.AppendLine("Mst_社員.zai_flag = " + ClsPublic.FLAG_ON);
+            // 2026/01/08 UPD (S)
+            // sb.AppendLine("Mst_社員.zai_flag = " + ClsPublic.FLAG_ON);
+            sb.AppendLine("Mst_社員.delete_flag != " + ClsPublic.FLAG_ON);
+            // 2026/01/08 UPD (E)
             sb.AppendLine("OR");
             sb.AppendLine("(");
             sb.AppendLine("Trn_勤務表シフト情報.tanto_id = 0");
@@ -970,7 +979,10 @@ namespace FlockAppC.勤務表
                     sb.AppendLine("FROM");
                     sb.AppendLine("Mst_社員");
                     sb.AppendLine("WHERE");
-                    sb.AppendLine("zai_flag = " + ClsPublic.FLAG_ON);
+                    // 2026/01/08 UPD (S)
+                    // sb.AppendLine("zai_flag = " + ClsPublic.FLAG_ON);
+                    sb.AppendLine("delete_flag != " + ClsPublic.FLAG_ON);
+                    // 2026/01/08 UPD (E)
                     sb.AppendLine("AND");
                     sb.AppendLine("proxy_flag = " + ClsPublic.FLAG_ON);
                     sb.AppendLine("AND");

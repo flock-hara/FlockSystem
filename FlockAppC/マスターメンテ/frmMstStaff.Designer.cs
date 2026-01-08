@@ -380,6 +380,7 @@
             this.chkZai.TabIndex = 95;
             this.chkZai.Text = "在席";
             this.chkZai.UseVisualStyleBackColor = true;
+            this.chkZai.Visible = false;
             // 
             // txtComment
             // 

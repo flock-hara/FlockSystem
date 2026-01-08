@@ -552,11 +552,13 @@ namespace FlockAppC.マスターメンテ
 
             // if (this.mtxtGetDate.Text == "    /") { clsMstCar.get_date = DateTime.Parse("1900/01/01"); }
             if (this.mtxtGetDate.Text == "    /  /" || this.mtxtGetDate.Text == "    /") { clsMstCar.get_date = DateTime.Parse("1900/01/01"); }
-            else { clsMstCar.get_date = DateTime.Parse(this.mtxtGetDate.Text + "/01"); }
+            else { clsMstCar.get_date = DateTime.Parse(this.mtxtGetDate.Text ); }
+            // else { clsMstCar.get_date = DateTime.Parse(this.mtxtGetDate.Text + "/01"); }
 
             // if (this.mtxtFullDate.Text == "    /") { clsMstCar.full_date = DateTime.Parse("1900/01/01"); }
             if (this.mtxtFullDate.Text == "    /  /" || this.mtxtFullDate.Text == "    /") { clsMstCar.full_date = DateTime.Parse("1900/01/01"); }
-            else { clsMstCar.full_date = DateTime.Parse(this.mtxtFullDate.Text + "/01"); }
+            else { clsMstCar.full_date = DateTime.Parse(this.mtxtFullDate.Text); }
+            // else { clsMstCar.full_date = DateTime.Parse(this.mtxtFullDate.Text + "/01"); }
 
             clsMstCar.etc = this.txtEtc.Text;
             if (this.lblStaffId.Text == "") { clsMstCar.used_user_id = 0; }
@@ -629,13 +631,25 @@ namespace FlockAppC.マスターメンテ
             {
                 using (ClsSqlDb clsSqlDb = new(ClsDbConfig.SQLServerNo))
                 {
+                    // ========================================================
+                    // 社用車マスター
+                    // ========================================================
                     sb.Clear();
-                    sb.AppendLine("DELETE FROM");
+                    sb.AppendLine("UPDATE");
                     sb.AppendLine("Mst_社用車");
+                    sb.AppendLine("SET");
+                    sb.AppendLine(",upd_user_id = " + ClsLoginUser.StaffID);
+                    sb.AppendLine(",upd_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
+                    sb.AppendLine(",delete_flag = " + ClsPublic.FLAG_ON);
                     sb.AppendLine("WHERE");
-                    sb.AppendLine("id = " + Id);
-
+                    sb.AppendLine("car_id = " + Id);
                     clsSqlDb.DMLUpdate(sb.ToString());
+                    //sb.Clear();
+                    //sb.AppendLine("DELETE FROM");
+                    //sb.AppendLine("Mst_社用車");
+                    //sb.AppendLine("WHERE");
+                    //sb.AppendLine("id = " + Id);
+                    //clsSqlDb.DMLUpdate(sb.ToString());
 
                     // オイル交換履歴
                     sb.Clear();
@@ -643,7 +657,20 @@ namespace FlockAppC.マスターメンテ
                     sb.AppendLine("Trn_社用車オイル交換履歴");
                     sb.AppendLine("WHERE");
                     sb.AppendLine("car_id = " + Id);
+                    clsSqlDb.DMLUpdate(sb.ToString());
 
+                    // ========================================================
+                    // 社員マスター
+                    // ========================================================
+                    sb.Clear();
+                    sb.AppendLine("UPDATE");
+                    sb.AppendLine("Mst_社員");
+                    sb.AppendLine("SET");
+                    sb.AppendLine(" car_id = 0");
+                    sb.AppendLine(",upd_user_id = " + ClsLoginUser.StaffID);
+                    sb.AppendLine(",upd_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
+                    sb.AppendLine("WHERE");
+                    sb.AppendLine("car_id = " + Id);
                     clsSqlDb.DMLUpdate(sb.ToString());
                 }
 

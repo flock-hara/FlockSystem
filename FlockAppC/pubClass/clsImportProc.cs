@@ -246,9 +246,10 @@ namespace FlockAppC.pubClass
                             sb.AppendLine("FROM");
                             sb.AppendLine("Mst_社員");
                             sb.AppendLine("WHERE");
-                            sb.AppendLine("zai_flag = 1");                  // 在席
+                            // sb.AppendLine("zai_flag = 1");                  2026/01/08 UPD
+                            sb.AppendLine("delete_flag != " + ClsPublic.FLAG_ON);
                             sb.AppendLine("AND");
-                            sb.AppendLine("proxy_flag = 1");                // 代務
+                            sb.AppendLine("proxy_flag = " + ClsPublic.FLAG_ON);                // 代務
                             sb.AppendLine("AND");
                             sb.AppendLine("name1 = '" + cEx.Value + "'");  // 氏名（苗字）
 

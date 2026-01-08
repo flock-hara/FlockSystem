@@ -37,7 +37,7 @@ namespace FlockAppC.tblClass
         public int Kbn { get; set; }
         public int PositionFlag { get; set; }
         public string KbnName { get; set; }
-        public int ZaiFlag { get; set; }
+        // public int ZaiFlag { get; set; }             2026/01/08 DEL
         public int CarID { get; set; }
         public string CarNo { get; set; }
         public string CarName { get; set; }
@@ -162,7 +162,7 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",Mst_社員.sort");
                     sb.AppendLine(",Mst_社員.kbn");
                     sb.AppendLine(",Mst_社員.position_flag");
-                    sb.AppendLine(",Mst_社員.zai_flag");
+                    // sb.AppendLine(",Mst_社員.zai_flag");       2026/01/08 DEL
                     sb.AppendLine(",Mst_社員.comment");
                     sb.AppendLine(",Mst_社員.car_id");
                     // sb.AppendLine(",Mst_社員.task_flag");      2025/12/24 DEL
@@ -217,20 +217,17 @@ namespace FlockAppC.tblClass
                             if (dr.IsNull("kbn") != true) { Kbn = int.Parse(dr["kbn"].ToString()); }
                             if (dr.IsNull("kbn_name") != true) { KbnName = dr["kbn_name"].ToString(); }
                             if (dr.IsNull("position_flag") != true) { PositionFlag = int.Parse(dr["position_flag"].ToString()); }
-                            if (dr.IsNull("zai_flag") != true) { ZaiFlag = int.Parse(dr["zai_flag"].ToString()); }
+                            // if (dr.IsNull("zai_flag") != true) { ZaiFlag = int.Parse(dr["zai_flag"].ToString()); }       2026/01/08 DEL
                             if (dr.IsNull("car_manage_flag") != true) { CarManageFlag = int.Parse(dr["car_manage_flag"].ToString()); }
-                            // 2025/12/24 DEL
-                            // if (dr.IsNull("attendance_flag") != true) { AttendanceFlag = int.Parse(dr["attendance_flag"].ToString()); }
+                            // if (dr.IsNull("attendance_flag") != true) { AttendanceFlag = int.Parse(dr["attendance_flag"].ToString()); }          2025/12/24 DEL
                             if (dr.IsNull("master_mente_flag") != true) { MasterMenteFlag = int.Parse(dr["master_mente_flag"].ToString()); }
                             if (dr.IsNull("report_manage_flag") != true) { ReportManageFlag = int.Parse(dr["report_manage_flag"].ToString()); }
                             if (dr.IsNull("recruit_manage_flag") != true) { RecruitManageFlag = int.Parse(dr["recruit_manage_flag"].ToString()); }
                             if (dr.IsNull("report_confirm_flag") != true) { ReportConfirmFlag = int.Parse(dr["report_confirm_flag"].ToString()); }
                             if (dr.IsNull("system_control_flag") != true) { SystemControlFlag = int.Parse(dr["system_control_flag"].ToString()); }
-                            // 2025/12/24 DEL
-                            // if (dr.IsNull("task_flag") != true) { TaskFlag = int.Parse(dr["task_flag"].ToString()); }
+                            // if (dr.IsNull("task_flag") != true) { TaskFlag = int.Parse(dr["task_flag"].ToString()); }            2025/12/24 DEL
                             if (dr.IsNull("upd_date") != true) { UpdDate = DateTime.Parse(dr["upd_date"].ToString()); }
-                            // 2025/12/24 DEL
-                            // if (dr.IsNull("attsubject_flag") != true) { AttSubjectFlag = int.Parse(dr["attsubject_flag"].ToString()); }
+                            // if (dr.IsNull("attsubject_flag") != true) { AttSubjectFlag = int.Parse(dr["attsubject_flag"].ToString()); }          2025/12/24 DEL
                             if (dr.IsNull("car_id") != true) { CarID = int.Parse(dr["car_id"].ToString()); }
                             if (dr.IsNull("car_no") != true) { CarNo = dr["car_no"].ToString(); }
                             if (dr.IsNull("car_name") != true) { CarName = dr["car_name"].ToString(); }
@@ -279,7 +276,7 @@ namespace FlockAppC.tblClass
             Sort = 0;
             Kbn = 1;
             PositionFlag = 0;
-            ZaiFlag = 1;
+            // ZaiFlag = 1;             2026/01/08 DEL 
             Comment = "";
             CarID = 0;
             CarName = "";
@@ -327,13 +324,14 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",sort = " + Sort);
                     sb.AppendLine(",kbn = " + Kbn);
                     sb.AppendLine(",position_flag = " + PositionFlag);
-                    sb.AppendLine(",zai_flag = " + ZaiFlag);
+                    // sb.AppendLine(",zai_flag = " + ZaiFlag);                2026/01/08 DEL
                     sb.AppendLine(",comment = '" + Comment + "'");
                     sb.AppendLine(",car_id = " + CarID);
-                    // 2025/12/24 DEL
+                    // 2025/12/24 DEL (S)
                     // sb.AppendLine(",attsubject_flag = " + AttSubjectFlag);
                     // sb.AppendLine(",task_flag = " + TaskFlag);
-                    
+                    // 2025/12/24 DEL (E)
+
                     // 2025/11/10↓
                     sb.AppendLine(",upd_user_id = " + ClsLoginUser.StaffID);
                     sb.AppendLine(",upd_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
@@ -387,19 +385,18 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",sort");
                     sb.AppendLine(",kbn");
                     sb.AppendLine(",position_flag");
-                    sb.AppendLine(",zai_flag");
+                    // sb.AppendLine(",zai_flag");              2026/01/08 DEL
                     sb.AppendLine(",comment");
                     sb.AppendLine(",car_id");
-
-                    // 2025/12/24 DEL
+                    // 2025/12/24 DEL (S)
                     //sb.AppendLine(",attsubject_flag");
                     //sb.AppendLine(",task_flag");
-
-                    // 2025/11/10↓
+                    // 2025/12/24 DEL (E)
+                    // 2025/11/10 (S)
                     sb.AppendLine(",ins_user_id");
                     sb.AppendLine(",ins_date");
                     sb.AppendLine(",delete_flag");
-                    // 2025/11/10↑
+                    // 2025/11/10 (E)
                     sb.AppendLine(") VALUES (");
                     sb.AppendLine(Id.ToString());
                     sb.AppendLine(",'" + Name1 + "'");
@@ -426,7 +423,7 @@ namespace FlockAppC.tblClass
                     sb.AppendLine("," + Sort);
                     sb.AppendLine("," + Kbn);
                     sb.AppendLine("," + PositionFlag);
-                    sb.AppendLine("," + ZaiFlag);
+                    // sb.AppendLine("," + ZaiFlag);            2026/01/08 DEL
                     sb.AppendLine(",'" + Comment + "'");
                     sb.AppendLine("," + CarID);
                     // 2025/12/24 DEL
@@ -449,7 +446,9 @@ namespace FlockAppC.tblClass
                 throw;
             }
         }
-
+        /// <summary>
+        /// 削除フラグONの社員を物理削除する
+        /// </summary>
         public void DeleteStaff()
         {
             try
@@ -720,12 +719,13 @@ namespace FlockAppC.tblClass
                 sb.AppendLine(",sort");
                 sb.AppendLine(",kbn");
                 sb.AppendLine(",position_flag");
-                sb.AppendLine(",zai_flag");
+                // sb.AppendLine(",zai_flag");          2026/01/08 DEL
                 sb.AppendLine(",comment");
                 sb.AppendLine(",car_id");
-                // 2025/12/24 DEL
+                // 2025/12/24 DEL (S)
                 // sb.AppendLine(",attsubject_flag");
                 // sb.AppendLine(",task_flag");
+                // 2025/12/24 DEL (E)
                 sb.AppendLine(",col");
                 sb.AppendLine(",ins_user_id");
                 sb.AppendLine(",ins_date");
@@ -818,20 +818,21 @@ namespace FlockAppC.tblClass
                             sb.AppendLine(",sort");
                             sb.AppendLine(",kbn");
                             sb.AppendLine(",position_flag");
-                            sb.AppendLine(",zai_flag");
+                            // sb.AppendLine(",zai_flag");          2026/01/08 DEL
                             sb.AppendLine(",comment");
                             sb.AppendLine(",car_id");
-                            // 2025/12/24 DEL
+                            // 2025/12/24 DEL (S)
                             // sb.AppendLine(",attSubject_flag");
                             // sb.AppendLine(",task_flag");
+                            // 2025/12/24 DEL (E)
                             sb.AppendLine(",col");
-                            // 2025/11/10↓
+                            // 2025/11/10 (S)
                             sb.AppendLine(",ins_user_id");
                             sb.AppendLine(",ins_date");
                             sb.AppendLine(",upd_user_id");
                             sb.AppendLine(",upd_date");
                             sb.AppendLine(",delete_flag");
-                            // 2025/11/10↑
+                            // 2025/11/10 (E)
                             sb.AppendLine(") VALUES (");
                             sb.AppendLine(p_staff.ToString());
                             sb.AppendLine("," + dr["id"].ToString());
@@ -859,15 +860,16 @@ namespace FlockAppC.tblClass
                             sb.AppendLine("," + dr["sort"].ToString());
                             sb.AppendLine("," + dr["kbn"].ToString());
                             sb.AppendLine("," + dr["position_flag"].ToString());
-                            sb.AppendLine("," + dr["zai_flag"].ToString());
+                            // sb.AppendLine("," + dr["zai_flag"].ToString());          2026/01/08 DEL
                             sb.AppendLine(",'" + dr["comment"].ToString() + "'");
                             sb.AppendLine("," + dr["car_id"].ToString());
-                            // 2025/12/24 DEL
+                            // 2025/12/24 DEL (S)
                             // sb.AppendLine("," + dr["attsubject_flag"].ToString());
                             // sb.AppendLine("," + dr["task_flag"].ToString());
+                            // 2025/12/24 DEL (E)
                             if (dr["col"].ToString() != "") { sb.AppendLine("," + dr["col"].ToString()); }
                             else { sb.AppendLine(",NULL"); }
-                            // 2025/11/10↓
+                            // 2025/11/10 ADD (S)
                             if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
                             else { sb.AppendLine(",0"); }
                             if (dr.IsNull("ins_date") != true) { sb.AppendLine(",'" + dr["ins_date"].ToString() + "'"); }
@@ -878,7 +880,7 @@ namespace FlockAppC.tblClass
                             else { sb.AppendLine(",null"); }
                             if (dr.IsNull("delete_flag") != true) { sb.AppendLine("," + dr["delete_flag"].ToString()); }
                             else { sb.AppendLine("," + ClsPublic.FLAG_OFF); }
-                            // 2025/11/10↑
+                            // 2025/11/10 ADD (E)
                             sb.AppendLine(")");
                         }
                         else if (upd_flag == 0)
@@ -910,14 +912,15 @@ namespace FlockAppC.tblClass
                             sb.AppendLine(",sort = " + dr["sort"].ToString());
                             sb.AppendLine(",kbn = " + dr["kbn"].ToString());
                             sb.AppendLine(",position_flag = " + dr["position_flag"].ToString());
-                            sb.AppendLine(",zai_flag = " + dr["zai_flag"].ToString());
+                            // sb.AppendLine(",zai_flag = " + dr["zai_flag"].ToString());           2026/01/08 DEL
                             sb.AppendLine(",comment = '" + dr["comment"].ToString() + "'");
                             sb.AppendLine(",car_id = " + dr["car_id"].ToString());
-                            // 2025/12/24 DEL
+                            // 2025/12/24 DEL (S)
                             // sb.AppendLine(",attsubject_flag = " + dr["attsubject_flag"].ToString());
                             // sb.AppendLine(",task_flag = " + dr["task_flag"].ToString());
+                            // 2025/12/24 DEL (E)
 
-                            // 2025/11/10↓
+                            // 2025/11/10 ADD (S)
                             if (dr.IsNull("ins_user_id") != true) { sb.AppendLine(",ins_user_id = " + dr["ins_user_id"].ToString()); }
                             else { sb.AppendLine(",ins_user_id = 0"); }
                             if (dr["ins_date"].ToString() != "") { sb.AppendLine(",ins_date = '" + dr["ins_date"].ToString() + "'"); }
@@ -927,7 +930,7 @@ namespace FlockAppC.tblClass
                             if (dr["upd_date"].ToString() != "") { sb.AppendLine(",upd_date = '" + dr["upd_date"].ToString() + "'"); }
                             else { sb.AppendLine(",upd_date = NULL"); }
                             sb.AppendLine(",delete_flag = " + dr["delete_flag"].ToString());
-                            // 2025/11/10↑
+                            // 2025/11/10 ADD (E)
 
 
                             sb.AppendLine(" WHERE staff_id = " + p_staff);
@@ -958,14 +961,14 @@ namespace FlockAppC.tblClass
         /// </summary>
         public void ExportStaffData(ref System.Windows.Forms.ProgressBar p_pgb)
         {
-            int rec_cnt;
-            int importCnt = 0;
+            int rec_cnt;                        // レコード件数
+            int importCnt = 0;              // インポート件数
 
-            int upd_flag = 0; // 0:UPDATE/1:INSERT/2:DELETE
-            DateTime sql_date;
-            DateTime mysql_date;
-            string sql_str = "";
-            string mysql_str = "";
+            int upd_flag = 0;               // 0:UPDATE/1:INSERT/2:DELETE
+            DateTime sql_date;          // SQL Server更新日時
+            DateTime mysql_date;      // MySQL更新日時  
+            string sql_str = "";            // SQL Server更新日時文字列
+            string mysql_str = "";        // MySQL更新日時文字列  
 
             // =============================================================================
             // 更新日付を参照し、エクスポート対象のデータのみエクスポートする
@@ -1023,20 +1026,21 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(",sort");
                         sb.AppendLine(",kbn");
                         sb.AppendLine(",position_flag");
-                        sb.AppendLine(",zai_flag");
+                        // sb.AppendLine(",zai_flag");          2026/01/08 DEL
                         sb.AppendLine(",comment");
                         sb.AppendLine(",car_id");
-                        // 2025/12/24 DEL
+                        // 2025/12/24 DEL (S)
                         // sb.AppendLine(",attsubject_flag");
                         // sb.AppendLine(",task_flag");
+                        // 2025/12/24 DEL (E)
                         sb.AppendLine(",col");
-                        // 2025/11/10↓
+                        // 2025/11/10 ADD (S)
                         sb.AppendLine(",ins_user_id");
                         sb.AppendLine(",ins_date");
                         sb.AppendLine(",upd_user_id");
                         sb.AppendLine(",upd_date");
                         sb.AppendLine(",delete_flag");
-                        // 2025/11/10↑
+                        // 2025/11/10 ADD (E)
                         sb.AppendLine("FROM");
                         sb.AppendLine("Mst_社員");
                         // sb.AppendLine("WHERE");
@@ -1134,20 +1138,21 @@ namespace FlockAppC.tblClass
                                     sb.AppendLine(",sort");
                                     sb.AppendLine(",kbn");
                                     sb.AppendLine(",position_flag");
-                                    sb.AppendLine(",zai_flag");
+                                    // sb.AppendLine(",zai_flag");          2026/01/08 DEL
                                     sb.AppendLine(",comment");
                                     sb.AppendLine(",car_id");
-                                    // 2025/12/24 DEL
+                                    // 2025/12/24 DEL (S)
                                     // sb.AppendLine(",attSubject_flag");
                                     // sb.AppendLine(",task_flag");
+                                    // 2025/12/24 DEL (E)
                                     sb.AppendLine(",col");
-                                    // 2025/11/10↓
+                                    // 2025/11/10 ADD (S)
                                     sb.AppendLine(",ins_user_id");
                                     sb.AppendLine(",ins_date");
                                     sb.AppendLine(",upd_user_id");
                                     sb.AppendLine(",upd_date");
                                     sb.AppendLine(",delete_flag");
-                                    // 2025/11/10↑
+                                    // 2025/11/10 ADD (E)
                                     sb.AppendLine(") VALUES (");
                                     sb.AppendLine(dr["staff_id"].ToString());
                                     sb.AppendLine("," + dr["id"].ToString());
@@ -1175,15 +1180,16 @@ namespace FlockAppC.tblClass
                                     sb.AppendLine("," + dr["sort"].ToString());
                                     sb.AppendLine("," + dr["kbn"].ToString());
                                     sb.AppendLine("," + dr["position_flag"].ToString());
-                                    sb.AppendLine("," + dr["zai_flag"].ToString());
+                                    // sb.AppendLine("," + dr["zai_flag"].ToString());          2026/01/08 DEL
                                     sb.AppendLine(",'" + dr["comment"].ToString() + "'");
                                     sb.AppendLine("," + dr["car_id"].ToString());
-                                    // 2025/12/24 DEL
+                                    // 2025/12/24 DEL (S)
                                     // sb.AppendLine("," + dr["attsubject_flag"].ToString());
                                     // sb.AppendLine("," + dr["task_flag"].ToString());
+                                    // 2025/12/24 DEL (E)
                                     if (dr["col"].ToString() != "") { sb.AppendLine("," + dr["col"].ToString()); }
                                     else { sb.AppendLine(",NULL"); }
-                                    // 2025/11/10↓
+                                    // 2025/11/10 ADD (S)
                                     if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
                                     else { sb.AppendLine(",0"); }
                                     if (dr.IsNull("ins_date") != true) { sb.AppendLine(",'" + dr["ins_date"].ToString() + "'"); }
@@ -1194,7 +1200,7 @@ namespace FlockAppC.tblClass
                                     else { sb.AppendLine(",null"); }
                                     if (dr.IsNull("delete_flag") != true) { sb.AppendLine("," + dr["delete_flag"].ToString()); }
                                     else { sb.AppendLine("," + ClsPublic.FLAG_OFF); }
-                                    // 2025/11/10↑
+                                    // 2025/11/10 ADD (E)
                                     sb.AppendLine(")");
                                 }
                                 else if(upd_flag == 0)
@@ -1226,14 +1232,14 @@ namespace FlockAppC.tblClass
                                     sb.AppendLine(",sort = " + dr["sort"].ToString());
                                     sb.AppendLine(",kbn = " + dr["kbn"].ToString());
                                     sb.AppendLine(",position_flag = " + dr["position_flag"].ToString());
-                                    sb.AppendLine(",zai_flag = " + dr["zai_flag"].ToString());
+                                    // sb.AppendLine(",zai_flag = " + dr["zai_flag"].ToString());           2026/01/08 DEL
                                     sb.AppendLine(",comment = '" + dr["comment"].ToString() + "'");
                                     sb.AppendLine(",car_id = " + dr["car_id"].ToString());
-                                    // 2025/12/24 DEL
+                                    // 2025/12/24 DEL (S)
                                     // sb.AppendLine(",attsubject_flag = " + dr["attsubject_flag"].ToString());
                                     // sb.AppendLine(",task_flag = " + dr["task_flag"].ToString());
-
-                                    // 2025/11/10↓
+                                    // 2025/12/24 DEL (E)
+                                    // 2025/11/10 ADD (S)
                                     if (dr.IsNull("ins_user_id") != true) { sb.AppendLine(",ins_user_id = " + dr["ins_user_id"].ToString()); }
                                     else { sb.AppendLine(",ins_user_id = 0"); }
                                     if (dr["ins_date"].ToString() != "") { sb.AppendLine(",ins_date = '" + dr["ins_date"].ToString() + "'"); }
@@ -1243,8 +1249,7 @@ namespace FlockAppC.tblClass
                                     if (dr["upd_date"].ToString() != "") { sb.AppendLine(",upd_date = '" + dr["upd_date"].ToString() + "'"); }
                                     else { sb.AppendLine(",upd_date = NULL"); }
                                     sb.AppendLine(",delete_flag = " + dr["delete_flag"].ToString());
-                                    // 2025/11/10↑
-
+                                    // 2025/11/10 ADD (E)
 
                                     sb.AppendLine(" WHERE staff_id = " + dr["staff_id"].ToString());
                                 }

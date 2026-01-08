@@ -388,7 +388,10 @@ namespace FlockAppC.社用車関連
                     sb.AppendLine("FROM");
                     sb.AppendLine(" Mst_社員");
                     sb.AppendLine("WHERE");
-                    sb.AppendLine(" zai_flag = " + ClsPublic.FLAG_ON);
+                    // 2026/01/08 UPD (S)
+                    // sb.AppendLine(" zai_flag = " + ClsPublic.FLAG_ON);
+                    sb.AppendLine(" delete_flag != " + ClsPublic.FLAG_ON);
+                    // 2026/01/08 UPD (E)
                     sb.AppendLine("AND");
                     sb.AppendLine(" proxy_flag = " + ClsPublic.FLAG_ON);
                     sb.AppendLine("ORDER BY");

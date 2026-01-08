@@ -44,8 +44,8 @@ namespace FlockAppC.pubClass
                     // 所属（暫定処理：追々はSELECTして編集する形にする）
                     sb.AppendLine("office_id IN(" + ClsPublic.OFFICE_HONSHA + "," + ClsPublic.OFFICE_SAITAMA + "," + ClsPublic.OFFICE_YOKOHAMA +")");
                     sb.AppendLine("AND");
-                    sb.AppendLine("zai_flag = " + ClsPublic.FLAG_ON);
-                    // sb.AppendLine("zai_flag = 1");
+                    // sb.AppendLine("zai_flag = " + ClsPublic.FLAG_ON);        2026/01/08 UPD
+                    sb.AppendLine("delete_flag != " + ClsPublic.FLAG_ON);
                     sb.AppendLine("ORDER BY");
                     // 並び順：「Sort」
                     sb.AppendLine("sort");
@@ -107,8 +107,8 @@ namespace FlockAppC.pubClass
                     sb.AppendLine("FROM");
                     sb.AppendLine("Mst_社員");
                     sb.AppendLine("WHERE");
-                    sb.AppendLine("zai_flag = " + ClsPublic.FLAG_ON);
-                    // sb.AppendLine("zai_flag = 1");
+                    // sb.AppendLine("zai_flag = " + ClsPublic.FLAG_ON);        2026/01/08 UPD
+                    sb.AppendLine("delete_flag != " + ClsPublic.FLAG_ON);
                     sb.AppendLine("ORDER BY");
                     // 並び順：「TantoSort」
                     sb.AppendLine("tanto_sort");

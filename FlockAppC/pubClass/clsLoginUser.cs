@@ -36,11 +36,10 @@ namespace FlockAppC.pubClass
         public static int Sort { get; set; }
         public static int Kbn { get; set; }
         public static int PositionFlag { get; set; }
-        public static int ZaiFlag { get; set; }
+        // public static int ZaiFlag { get; set; }          2026/01/08 DEL         
         public static string Comment { get; set; }
         public static int CarID { get; set; }
-        // 2025/12/24 DEL
-        // public static int TaskFlag { get; set; }
+        // public static int TaskFlag { get; set; }     2025/12/24 DEL
         public static int Col { get; set; }
 
         private static readonly StringBuilder sb = new();
@@ -80,11 +79,10 @@ namespace FlockAppC.pubClass
             Sort = 0;
             Kbn = 0;
             PositionFlag = 0;
-            ZaiFlag = 0;
+            // ZaiFlag = 0;         2026/01/08 DEL            
             Comment = "";
             CarID = 0;
-            // 2025/12/24 DEL
-            // TaskFlag = 0;
+            // TaskFlag = 0;        2025/12/24 DEL
             Col = 0;
         }
 
@@ -144,8 +142,7 @@ namespace FlockAppC.pubClass
                     sb.Clear();
                     sb.AppendLine("SELECT");
                     sb.AppendLine(" staff_id");
-                    // 2025/12/24 DEL
-                    // sb.AppendLine(",id");
+                    // sb.AppendLine(",id");            2025/12/24 DEL
                     sb.AppendLine(",name1");
                     sb.AppendLine(",name2");
                     sb.AppendLine(",fullname");
@@ -157,8 +154,7 @@ namespace FlockAppC.pubClass
                     sb.AppendLine(",proxy_flag");
                     sb.AppendLine(",confirm_flag");
                     sb.AppendLine(",car_manage_flag");
-                    // 2025/12/24 DEL
-                    // sb.AppendLine(",attendance_flag");
+                    // sb.AppendLine(",attendance_flag");           2025/12/24 DEL
                     sb.AppendLine(",master_mente_flag");
                     sb.AppendLine(",report_manage_flag");
                     sb.AppendLine(",recruit_manage_flag");
@@ -170,16 +166,19 @@ namespace FlockAppC.pubClass
                     sb.AppendLine(",sort");
                     sb.AppendLine(",kbn");
                     sb.AppendLine(",position_flag");
-                    sb.AppendLine(",zai_flag");
+                    // sb.AppendLine(",zai_flag");          2026/01/08 DEL
                     sb.AppendLine(",comment");
                     sb.AppendLine(",car_id");
-                    // 2025/12/24 DEL
-                    // sb.AppendLine(",task_flag");
+                    // sb.AppendLine(",task_flag");        2025/12/24 DEL
                     sb.AppendLine(",col");
                     sb.AppendLine("FROM");
                     sb.AppendLine("Mst_社員");
                     sb.AppendLine("WHERE");
                     sb.AppendLine("staff_id = " + p_id);
+                    // 2026/01/08 ADD (S)
+                    sb.AppendLine("AND");
+                    sb.AppendLine("delete_flag != " + ClsPublic.FLAG_ON);
+                    // 2026/01/08 ADD (E)
 
                     using (DataTable dt_val = clsSqlDb.DMLSelect(sb.ToString()))
                     {
@@ -247,8 +246,10 @@ namespace FlockAppC.pubClass
                             if (dr.IsNull("position_flag") != true) { PositionFlag = int.Parse(dr["position_flag"].ToString()); }
                             else { PositionFlag = 0; }
 
-                            if (dr.IsNull("zai_flag") != true) { ZaiFlag = int.Parse(dr["zai_flag"].ToString()); }
-                            else { ZaiFlag = ClsPublic.FLAG_ON; }
+                            // 2026/01/08 DEL (S)
+                            // if (dr.IsNull("zai_flag") != true) { ZaiFlag = int.Parse(dr["zai_flag"].ToString()); }
+                            // else { ZaiFlag = ClsPublic.FLAG_ON; }
+                            // 2026/01/08 DEL (E)
 
                             Comment = dr["comment"].ToString();
 

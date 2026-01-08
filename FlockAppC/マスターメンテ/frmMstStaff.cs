@@ -250,8 +250,10 @@ namespace FlockAppC.マスターメンテ
             // this.txtKana2.Text = cMstStaff.FullKana;                                    // 従業員氏名（ｶﾅ　フルネーム）
 
             // 在席フラグ
-            if (cMstStaff.ZaiFlag == ClsPublic.FLAG_ON) { this.chkZai.Checked = true; }
-            else { this.chkZai.Checked = false; }
+            // 2026/01/08 DEL (S)
+            //if (cMstStaff.ZaiFlag == ClsPublic.FLAG_ON) { this.chkZai.Checked = true; }
+            //else { this.chkZai.Checked = false; }
+            // 2026/01/08 DEL (E)
 
             // 2025/08/13 DELETE
             // 入社日
@@ -1092,6 +1094,10 @@ namespace FlockAppC.マスターメンテ
                 // this.Close();
             }
 
+            // 社用車更新（使用する社用車が設定されている場合→使用者ID更新、設定されていない場合→社員IDで社用車検索し、使用者IDをクリア）
+            ClsMstCar cMstCar = new();
+            cMstCar.UpdateUsedUserId(this.Car_Id, this.Staff_Id);
+
             // location_id, staff_id格納用（宣言と同時に全て0で初期化される）
             int[] ints = new int[15];      // Mst_専従先用
             Boolean delete_flag = false;
@@ -1254,33 +1260,36 @@ namespace FlockAppC.マスターメンテ
                 }
             }
 
+            // 以下の処理はここでは行わない。削除（不在）の場合は転送（同期）時に処理する。(S)
             // 専従先専従者
             // 在席フラグOFF時、専従先専従者情報から削除
-            if (cMstStaff.ZaiFlag != 1)
-            {
-                try
-                {
-                    using (ClsSqlDb clsSqlDb = new(ClsDbConfig.SQLServerNo))
-                    {
-                        sb.Clear();
-                        sb.AppendLine("DELETE FROM");
-                        sb.AppendLine("Mst_専従先専従者");
-                        sb.AppendLine("WHERE");
-                        sb.AppendLine("staff_id = " + this.Staff_Id);
+            // if (cMstStaff.ZaiFlag != 1)
+            //if (cMstStaff.Delete_Flag == ClsPublic.FLAG_ON)
+            //{
+            //    try
+            //    {
+            //        using (ClsSqlDb clsSqlDb = new(ClsDbConfig.SQLServerNo))
+            //        {
+            //            sb.Clear();
+            //            sb.AppendLine("DELETE FROM");
+            //            sb.AppendLine("Mst_専従先専従者");
+            //            sb.AppendLine("WHERE");
+            //            sb.AppendLine("staff_id = " + this.Staff_Id);
                         
-                        clsSqlDb.DMLUpdate(sb.ToString());
-                    }
+            //            clsSqlDb.DMLUpdate(sb.ToString());
+            //        }
 
-                    delete_flag = true;
+            //        delete_flag = true;
 
-                    // MessageBox.Show("削除しました。", "結果", MessageBoxButtons.OK);
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    throw;
-                }
-            }
+            //        // MessageBox.Show("削除しました。", "結果", MessageBoxButtons.OK);
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        Console.WriteLine(ex.Message);
+            //        throw;
+            //    }
+            //}
+            // 以下の処理はここでは行わない。削除（不在）の場合は転送（同期）時に処理する。(E)
 
             // 転送確認
             if (MessageBox.Show("登録しました。続けてサーバーに転送（同期）しますか？" + Environment.NewLine + "転送先 [" + ClsDbConfig.mysqlParam[ClsDbConfig.MySQLNo].Instance + "\\" + ClsDbConfig.mysqlParam[ClsDbConfig.MySQLNo].Database + "]", "確認", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
@@ -1305,16 +1314,18 @@ namespace FlockAppC.マスターメンテ
                     // Mst_社員詳細（現時点では転送不要）
                     // 専従先専従者から対象の従業員を一旦削除
                     clsMstStaff.ClearLocationStaffMySQL(this.Staff_Id, clsMySqlDb);
-                    // 削除（不在）の場合は処理なし
-                    if (delete_flag != true)
-                    {
-                        // 専従先専従者
-                        clsMstStaff.ExportLocationOneStaffData(this.Staff_Id, clsSqlDb, clsMySqlDb);
-                    }
 
-                    // ===========================================================
-                    // 削除（不在）の場合を考慮した処理に変える必要あり
-                    // ===========================================================
+                    // 不在フラグは未使用の為、判定は不要 (S)
+                    // 削除（不在）の場合は処理なし
+                    //if (delete_flag != true)
+                    //{
+                    //    // 専従先専従者
+                    //    clsMstStaff.ExportLocationOneStaffData(this.Staff_Id, clsSqlDb, clsMySqlDb);
+                    //}
+                    // 専従先専従者
+                    clsMstStaff.ExportLocationOneStaffData(this.Staff_Id, clsSqlDb, clsMySqlDb);
+                    // 不在フラグは未使用の為、判定は不要 (E)
+
                     ClsMstLocation clsMstLocation = new();
                     // 専従先専従者
                     for (int i = 0; i < ints.GetLength(0); i++)      // 行数（2）
@@ -1504,13 +1515,15 @@ namespace FlockAppC.マスターメンテ
 
             cstf.TantoSort = 0;
             cstf.Kbn = this.Employment_Id;
-            if (this.chkZai.Checked == true) {
-                cstf.ZaiFlag = ClsPublic.FLAG_ON;
-            }
-            else 
-            { 
-                cstf.ZaiFlag = ClsPublic.FLAG_OFF;
-            }
+            // 2026/01/08 DEL (S)
+            //if (this.chkZai.Checked == true) {
+            //    cstf.ZaiFlag = ClsPublic.FLAG_ON;
+            //}
+            //else 
+            //{ 
+            //    cstf.ZaiFlag = ClsPublic.FLAG_OFF;
+            //}
+            // 2026/01/08 DEL (E)
             cstf.Comment = this.txtComment.Text;
 
             // 勤怠関連
@@ -1543,21 +1556,27 @@ namespace FlockAppC.マスターメンテ
                 // 削除→削除フラグON
                 using (ClsSqlDb clsSqlDb = new(ClsDbConfig.SQLServerNo))
                 {
+                    // ========================================================
+                    // 社員マスター
+                    // ========================================================
                     sb.Clear();
                     // sb.AppendLine("DELETE FROM");
                     sb.AppendLine("UPDATE");
                     sb.AppendLine("Mst_社員");
                     sb.AppendLine("SET");
-                    sb.AppendLine(" zai_flag = " + ClsPublic.FLAG_OFF);             // 未使用
-                    // 2025/11/12↓
+                    // sb.AppendLine(" zai_flag = " + ClsPublic.FLAG_OFF);          2026/01/06 DEL
+                    // 2025/11/12 (S)
                     sb.AppendLine(",upd_user_id = " + ClsLoginUser.StaffID);
                     sb.AppendLine(",upd_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
-                    // 2025/11/12↑
+                    // 2025/11/12 (E)
                     sb.AppendLine(",delete_flag = " + ClsPublic.FLAG_ON);
                     sb.AppendLine("WHERE");
                     sb.AppendLine("staff_id = " + Staff_Id);
                     clsSqlDb.DMLUpdate(sb.ToString());
 
+                    // ========================================================
+                    // 社員詳細マスター
+                    // ========================================================
                     sb.Clear();
                     sb.AppendLine("UPDATE");
                     sb.AppendLine("Mst_社員詳細");
@@ -1571,6 +1590,9 @@ namespace FlockAppC.マスターメンテ
                     sb.AppendLine("id = " + Staff_Id);
                     clsSqlDb.DMLUpdate(sb.ToString());
 
+                    // ========================================================
+                    // 専従先専従者マスター
+                    // ========================================================
                     sb.Clear();
                     sb.AppendLine("DELETE FROM");
                     // sb.AppendLine("UPDATE");
@@ -1581,6 +1603,9 @@ namespace FlockAppC.マスターメンテ
                     sb.AppendLine("staff_id = " + Staff_Id);
                     clsSqlDb.DMLUpdate(sb.ToString());
 
+                    // ========================================================
+                    // 専従先マスター
+                    // ========================================================
                     sb.Clear();
                     sb.AppendLine("UPDATE");
                     sb.AppendLine("Mst_専従先");
@@ -1592,6 +1617,22 @@ namespace FlockAppC.マスターメンテ
                     // 2025/11/12↑
                     sb.AppendLine("WHERE");
                     sb.AppendLine("instructor_id = " + Staff_Id);
+                    clsSqlDb.DMLUpdate(sb.ToString());
+
+                    // ========================================================
+                    // 社用車マスター
+                    // ========================================================
+                    sb.Clear();
+                    sb.AppendLine("UPDATE");
+                    sb.AppendLine("Mst_社用車");
+                    sb.AppendLine("SET");
+                    sb.AppendLine("used_user_id = 0");
+                    // 2025/11/12↓
+                    sb.AppendLine(",upd_user_id = " + ClsLoginUser.StaffID);
+                    sb.AppendLine(",upd_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
+                    // 2025/11/12↑
+                    sb.AppendLine("WHERE");
+                    sb.AppendLine("used_user_id = " + Staff_Id);
                     clsSqlDb.DMLUpdate(sb.ToString());
                 }
 

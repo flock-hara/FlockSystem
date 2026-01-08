@@ -231,7 +231,7 @@ namespace FlockAppC.マスターメンテ
                     sb.AppendLine(",Mst_所属.name AS office_name");
                     sb.AppendLine(",Mst_社員.kbn");
                     sb.AppendLine(",Mst_区分.strval AS kbn_name");
-                    sb.AppendLine(",Mst_社員.zai_flag");
+                    // sb.AppendLine(",Mst_社員.zai_flag");               2026/01/08 DEL
                     sb.AppendLine(",Mst_社員.car_manage_flag");
                     sb.AppendLine(",Mst_社員.attendance_flag");
                     sb.AppendLine(",Mst_社員.master_mente_flag");
@@ -257,16 +257,21 @@ namespace FlockAppC.マスターメンテ
                     // 表示条件
                     sb.AppendLine("WHERE");
 
+                    // 2026/01/08 UPD (S)
+                    // zai_flagは未使用にする為、削除フラグで判定
                     // 2025/08/13 退職者指定
                     // 在席／退職
                     if (this.chkZaiFlag.Checked == false)
                     {
-                        sb.AppendLine("zai_flag = " + ClsPublic.FLAG_ON);
+                        // sb.AppendLine("zai_flag = " + ClsPublic.FLAG_ON);
+                        sb.AppendLine("Mst_社員.delete_flag <> " + ClsPublic.FLAG_ON);
                     }
                     else
                     {
-                        sb.AppendLine("zai_flag <> " + ClsPublic.FLAG_ON);
+                        // sb.AppendLine("zai_flag <> " + ClsPublic.FLAG_ON);
+                        sb.AppendLine("Mst_社員.delete_flag = " + ClsPublic.FLAG_ON);
                     }
+                    // 2026/01/08 UPD (E)
 
                     // 所属
                     if (Office_Id > 0)
