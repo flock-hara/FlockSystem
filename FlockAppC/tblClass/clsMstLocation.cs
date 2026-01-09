@@ -230,31 +230,6 @@ namespace FlockAppC.tblClass
 
                     new_id = clsSqlDb.DMLUpdateScalar(sb.ToString());
 
-                    //// InsertしたレコードIDを取得
-                    //sb.Clear();
-                    //sb.AppendLine("SELECT");
-                    //sb.AppendLine("id");
-                    //sb.AppendLine("FROM");
-                    //sb.AppendLine("Mst_専従先");
-                    //sb.AppendLine("WHERE");
-                    //sb.AppendLine("name = '" + Ryaku + "'");
-                    //sb.AppendLine("AND");
-                    //sb.AppendLine("fullname = '" + Name + "'");
-                    //sb.AppendLine("AND");
-                    //sb.AppendLine("kana1 = '" + Kana + "'");
-                    //sb.AppendLine("AND");
-                    //sb.AppendLine("instructor_id = " + Instructor_Id);
-                    //sb.AppendLine("AND");
-                    //sb.AppendLine("sort = " + Sort);
-
-                    //using (DataTable dt_val = clsSqlDb.DMLSelect(sb.ToString()))
-                    //{
-                    //    foreach (DataRow dr in dt_val.Rows)
-                    //    {
-                    //        ID = int.Parse(dr["id"].ToString());
-                    //    }
-                    //}
-
                     // Insertしたレコードのlocation_idを書き換える
                     sb.Clear();
                     sb.AppendLine("UPDATE");
@@ -351,34 +326,28 @@ namespace FlockAppC.tblClass
         {
             int rec_cnt;
             int importCnt = 0;
-            
-            // =============================================================================
-            // 更新日付を参照し、エクスポート対象のデータのみエクスポートする
-            // 追々対応予定
-            // 専従先マスターには更新日付項目は追加済み
-            // =============================================================================
 
+            // =============================================================================
+            // １．MySQLに作業用テーブルを作成
+            // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
+            // ３．SQL Serverテーブルと作業用テーブルを比較
+            // ４．本番テーブルをリネーム
+            // ５．作業用テーブルを本番テーブルにリネーム
+            // ６．不要となった旧本番テーブルを削除
+            // =============================================================================
             try
             {
                 using (ClsMySqlDb clsMySqlDb = new(ClsDbConfig.MySQLNo))
                 {
-                    /////////////////////////////////////////////////////////////////////////
-                    // TRUNCATE TABLE (MySQL)
-                    // XServer側専従先テーブルをクリア
-                    /////////////////////////////////////////////////////////////////////////
+                    // １．MySQLに作業用テーブルを作成
                     sb.Clear();
-                    sb.AppendLine("TRUNCATE TABLE");
-                    sb.AppendLine("Mst_専従先");
-                    
+                    sb.AppendLine("CREATE TABLE Mst_専従先_work LIKE Mst_専従先");
                     clsMySqlDb.DMLUpdate(sb.ToString());
 
-                    /////////////////////////////////////////////////////////////////////////
-                    // SQL Server → MySQL
-                    /////////////////////////////////////////////////////////////////////////
+                    // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
                     using (ClsSqlDb clsSqlDb = new(ClsDbConfig.SQLServerNo))
                     {
                         // SQL Server SELECT ALL
-                        // SQL Serverデータを読み込み、MySQLへ書き込む
                         sb.Clear();
                         sb.AppendLine("SELECT");
                         sb.AppendLine(" id");
@@ -397,13 +366,11 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(",emergency_memo");
                         sb.AppendLine(",closing_date");
                         sb.AppendLine(",constract_flag");
-                        // 2025/11/10↓
                         sb.AppendLine(",ins_user_id");
                         sb.AppendLine(",ins_date");
                         sb.AppendLine(",upd_user_id");
                         sb.AppendLine(",upd_date");
                         sb.AppendLine(",delete_flag");
-                        // 2025/11/10↑
                         sb.AppendLine("FROM");
                         sb.AppendLine("Mst_専従先");
                         sb.AppendLine("ORDER BY");
@@ -412,15 +379,15 @@ namespace FlockAppC.tblClass
                         using (DataTable dt_val = clsSqlDb.DMLSelect(sb.ToString()))
                         {
                             // ProgressBar設定
-                            rec_cnt = dt_val.Rows.Count;            // 抽出件数
-                            p_pgb.Visible = true;                   // ProgressBar表示
+                            rec_cnt = dt_val.Rows.Count;             // 抽出件数
+                            p_pgb.Visible = true;                           // ProgressBar表示
                             p_pgb.Maximum = rec_cnt;                // 件数を最大値に設定
 
                             // MySQL INSERT
                             foreach (DataRow dr in dt_val.Rows)
                             {
                                 sb.Length = 0;
-                                sb.AppendLine("INSERT INTO Mst_専従先 (");
+                                sb.AppendLine("INSERT INTO Mst_専従先_work (");
                                 sb.AppendLine(" id");
                                 sb.AppendLine(",location_id");
                                 sb.AppendLine(",name");
@@ -437,13 +404,11 @@ namespace FlockAppC.tblClass
                                 sb.AppendLine(",emergency_memo");
                                 sb.AppendLine(",closing_date");
                                 sb.AppendLine(",constract_flag");
-                                // 2025/11/10↓
                                 sb.AppendLine(",ins_user_id");
                                 sb.AppendLine(",ins_date");
                                 sb.AppendLine(",upd_user_id");
                                 sb.AppendLine(",upd_date");
                                 sb.AppendLine(",delete_flag");
-                                // 2025/11/10↑
                                 sb.AppendLine(") VALUES (");
                                 sb.AppendLine(dr["id"].ToString());
                                 sb.AppendLine("," + dr["location_id"].ToString());
@@ -459,7 +424,6 @@ namespace FlockAppC.tblClass
                                 sb.AppendLine(",'" + dr["mailaddress"].ToString() + "'");
                                 sb.AppendLine(",'" + dr["emergency_tel_no"].ToString() + "'");
                                 sb.AppendLine(",'" + dr["emergency_memo"].ToString() + "'");
-
                                 if (dr["closing_date"].ToString().Length != 0)
                                 {
                                     sb.AppendLine("," + dr["closing_date"].ToString());
@@ -468,7 +432,6 @@ namespace FlockAppC.tblClass
                                 {
                                     sb.AppendLine(",31");
                                 }
-
                                 if (dr["constract_flag"].ToString().Length != 0)
                                 {
                                     sb.AppendLine("," + dr["constract_flag"].ToString());
@@ -477,7 +440,6 @@ namespace FlockAppC.tblClass
                                 {
                                     sb.AppendLine("," + ClsPublic.FLAG_OFF);
                                 }
-                                // 2025/11/10↓
                                 if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
                                 else { sb.AppendLine(",0"); }
                                 if (dr.IsNull("ins_date") != true) { sb.AppendLine(",'" + dr["ins_date"].ToString() + "'"); }
@@ -488,7 +450,6 @@ namespace FlockAppC.tblClass
                                 else { sb.AppendLine(",null"); }
                                 if (dr.IsNull("delete_flag") != true) { sb.AppendLine("," + dr["delete_flag"].ToString()); }
                                 else { sb.AppendLine("," + ClsPublic.FLAG_OFF); }
-                                // 2025/11/10↑
                                 sb.AppendLine(")");
 
                                 clsMySqlDb.DMLUpdate(sb.ToString());
@@ -500,6 +461,32 @@ namespace FlockAppC.tblClass
                                 p_pgb.Refresh();
                             }
                         }
+                        // ３．SQL Serverテーブルと作業用テーブルを比較
+                        int cnt;
+                        sb.Clear();
+                        sb.AppendLine("SELECT COUNT(*) AS rec_cnt2 FROM Mst_専従先_work");         // MySQL側
+                        using (DataTable dt_val = clsMySqlDb.DMLSelect(sb.ToString()))
+                        {
+                            cnt = int.Parse(dt_val.Rows[0]["rec_cnt2"].ToString());
+                        }
+                        if (rec_cnt != cnt)
+                        {
+                            // レコード件数不一致エラー
+                            throw new Exception("専従先マスターのエクスポートでレコード件数不一致エラーが発生しました。");
+                        }
+
+                        // ４．本番テーブルをリネーム
+                        // ５．作業用テーブルを本番テーブルにリネーム
+                        sb.Clear();
+                        sb.AppendLine("RENAME TABLE");
+                        sb.AppendLine("Mst_専従先 TO Mst_専従先_old,");
+                        sb.AppendLine("Mst_専従先_work TO Mst_専従先;");
+                        clsMySqlDb.DMLUpdate(sb.ToString());
+
+                        // ６．不要となった旧本番テーブルを削除
+                        sb.Clear();
+                        sb.AppendLine("DROP TABLE Mst_専従先_old;");
+                        clsMySqlDb.DMLUpdate(sb.ToString());
                     }
                 }
             }
@@ -510,23 +497,20 @@ namespace FlockAppC.tblClass
             }
         }
         /// <summary>
-        /// 専従先テーブルの値をXServerのmySQLに登録
+        /// 専従先テーブルの値をXServerのmySQLに登録（ProgressBar無し）
         /// </summary>
         public void ExportLocationAllData(ClsSqlDb clsSqlDb, ClsMySqlDb clsMySqlDb)
         {
+            int rec_cnt;
+
             try
             {
-                /////////////////////////////////////////////////////////////////////////
-                // TRUNCATE TABLE (MySQL)
-                // XServer側専従先テーブルをクリア
-                /////////////////////////////////////////////////////////////////////////
+                // １．MySQLに作業用テーブルを作成
                 sb.Clear();
-                sb.AppendLine("TRUNCATE TABLE");
-                sb.AppendLine("Mst_専従先");
+                sb.AppendLine("CREATE TABLE Mst_専従先_work LIKE Mst_専従先");
                 clsMySqlDb.DMLUpdate(sb.ToString());
 
-                // SQL Server SELECT ALL
-                // SQL Serverデータを読み込み、MySQLへ書き込む
+                // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
                 sb.Clear();
                 sb.AppendLine("SELECT");
                 sb.AppendLine(" id");
@@ -557,11 +541,14 @@ namespace FlockAppC.tblClass
 
                 using (DataTable dt_val = clsSqlDb.DMLSelect(sb.ToString()))
                 {
+                    // ProgressBar設定
+                    rec_cnt = dt_val.Rows.Count;             // 抽出件数
+
                     // MySQL INSERT
                     foreach (DataRow dr in dt_val.Rows)
                     {
-                        sb.Clear();
-                        sb.AppendLine("INSERT INTO Mst_専従先 (");
+                        sb.Length = 0;
+                        sb.AppendLine("INSERT INTO Mst_専従先_work (");
                         sb.AppendLine(" id");
                         sb.AppendLine(",location_id");
                         sb.AppendLine(",name");
@@ -598,7 +585,6 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(",'" + dr["mailaddress"].ToString() + "'");
                         sb.AppendLine(",'" + dr["emergency_tel_no"].ToString() + "'");
                         sb.AppendLine(",'" + dr["emergency_memo"].ToString() + "'");
-
                         if (dr["closing_date"].ToString().Length != 0)
                         {
                             sb.AppendLine("," + dr["closing_date"].ToString());
@@ -607,14 +593,13 @@ namespace FlockAppC.tblClass
                         {
                             sb.AppendLine(",31");
                         }
-
                         if (dr["constract_flag"].ToString().Length != 0)
                         {
                             sb.AppendLine("," + dr["constract_flag"].ToString());
                         }
                         else
                         {
-                            sb.AppendLine(",0");
+                            sb.AppendLine("," + ClsPublic.FLAG_OFF);
                         }
                         if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
                         else { sb.AppendLine(",0"); }
@@ -630,6 +615,32 @@ namespace FlockAppC.tblClass
                         clsMySqlDb.DMLUpdate(sb.ToString());
                     }
                 }
+                // ３．SQL Serverテーブルと作業用テーブルを比較
+                int cnt;
+                sb.Clear();
+                sb.AppendLine("SELECT COUNT(*) AS rec_cnt2 FROM Mst_専従先_work");         // MySQL側
+                using (DataTable dt_val = clsMySqlDb.DMLSelect(sb.ToString()))
+                {
+                    cnt = int.Parse(dt_val.Rows[0]["rec_cnt2"].ToString());
+                }
+                if (rec_cnt != cnt)
+                {
+                    // レコード件数不一致エラー
+                    throw new Exception("専従先マスターのエクスポートでレコード件数不一致エラーが発生しました。");
+                }
+
+                // ４．本番テーブルをリネーム
+                // ５．作業用テーブルを本番テーブルにリネーム
+                sb.Clear();
+                sb.AppendLine("RENAME TABLE");
+                sb.AppendLine("Mst_専従先 TO Mst_専従先_old,");
+                sb.AppendLine("Mst_専従先_work TO Mst_専従先;");
+                clsMySqlDb.DMLUpdate(sb.ToString());
+
+                // ６．不要となった旧本番テーブルを削除
+                sb.Clear();
+                sb.AppendLine("DROP TABLE Mst_専従先_old;");
+                clsMySqlDb.DMLUpdate(sb.ToString());
             }
             catch (Exception ex)
             {

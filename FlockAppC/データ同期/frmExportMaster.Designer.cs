@@ -32,6 +32,13 @@
             this.Panel1 = new System.Windows.Forms.Panel();
             this.Label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
             this.btnUnCheck = new System.Windows.Forms.Button();
             this.lblCheck15 = new System.Windows.Forms.Label();
@@ -67,6 +74,7 @@
             this.lblMessage = new System.Windows.Forms.Label();
             this.lblConnect = new System.Windows.Forms.Label();
             this.pgb = new System.Windows.Forms.ProgressBar();
+            this.label9 = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -77,7 +85,7 @@
             this.Panel1.Controls.Add(this.Label4);
             this.Panel1.Location = new System.Drawing.Point(0, 0);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(840, 37);
+            this.Panel1.Size = new System.Drawing.Size(838, 37);
             this.Panel1.TabIndex = 78;
             // 
             // Label4
@@ -93,6 +101,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnCheck);
             this.groupBox1.Controls.Add(this.btnUnCheck);
             this.groupBox1.Controls.Add(this.lblCheck15);
@@ -126,38 +142,103 @@
             this.groupBox1.Controls.Add(this.lblCheck1);
             this.groupBox1.Location = new System.Drawing.Point(17, 52);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(811, 189);
+            this.groupBox1.Size = new System.Drawing.Size(803, 111);
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "マスターデータ";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(725, 31);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(34, 17);
+            this.label8.TabIndex = 145;
+            this.label8.Text = "区分";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(489, 31);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(60, 17);
+            this.label7.TabIndex = 144;
+            this.label7.Text = "契約時間";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(368, 31);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(86, 17);
+            this.label6.TabIndex = 143;
+            this.label6.Text = "専従先専従者";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(264, 31);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 17);
+            this.label5.TabIndex = 142;
+            this.label5.Text = "専従先車両";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(105, 31);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 17);
+            this.label3.TabIndex = 141;
+            this.label3.Text = "社用車";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(184, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 17);
+            this.label2.TabIndex = 140;
+            this.label2.Text = "専従先";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(47, 17);
+            this.label1.TabIndex = 139;
+            this.label1.Text = "従業員";
+            // 
             // btnCheck
             // 
-            this.btnCheck.Location = new System.Drawing.Point(529, 141);
+            this.btnCheck.Location = new System.Drawing.Point(541, 63);
             this.btnCheck.Name = "btnCheck";
             this.btnCheck.Size = new System.Drawing.Size(80, 37);
             this.btnCheck.TabIndex = 138;
             this.btnCheck.Text = "全てﾁｪｯｸ";
             this.btnCheck.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnCheck.UseVisualStyleBackColor = true;
+            this.btnCheck.Visible = false;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // btnUnCheck
             // 
-            this.btnUnCheck.Location = new System.Drawing.Point(615, 141);
+            this.btnUnCheck.Location = new System.Drawing.Point(627, 63);
             this.btnUnCheck.Name = "btnUnCheck";
             this.btnUnCheck.Size = new System.Drawing.Size(80, 37);
             this.btnUnCheck.TabIndex = 137;
             this.btnUnCheck.Text = "全て解除";
             this.btnUnCheck.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnUnCheck.UseVisualStyleBackColor = true;
+            this.btnUnCheck.Visible = false;
             this.btnUnCheck.Click += new System.EventHandler(this.btnUnCheck_Click);
             // 
             // lblCheck15
             // 
             this.lblCheck15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck15.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck15.Location = new System.Drawing.Point(764, 27);
+            this.lblCheck15.Location = new System.Drawing.Point(686, 26);
             this.lblCheck15.Name = "lblCheck15";
             this.lblCheck15.Size = new System.Drawing.Size(25, 27);
             this.lblCheck15.TabIndex = 136;
@@ -166,18 +247,19 @@
             // chkLocationUser
             // 
             this.chkLocationUser.AutoSize = true;
-            this.chkLocationUser.Location = new System.Drawing.Point(645, 30);
+            this.chkLocationUser.Location = new System.Drawing.Point(259, 56);
             this.chkLocationUser.Name = "chkLocationUser";
             this.chkLocationUser.Size = new System.Drawing.Size(118, 21);
             this.chkLocationUser.TabIndex = 135;
             this.chkLocationUser.Text = "専従先ご担当者";
             this.chkLocationUser.UseVisualStyleBackColor = true;
+            this.chkLocationUser.Visible = false;
             // 
             // lblCheck14
             // 
             this.lblCheck14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck14.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck14.Location = new System.Drawing.Point(179, 105);
+            this.lblCheck14.Location = new System.Drawing.Point(352, 56);
             this.lblCheck14.Name = "lblCheck14";
             this.lblCheck14.Size = new System.Drawing.Size(25, 27);
             this.lblCheck14.TabIndex = 134;
@@ -187,7 +269,7 @@
             // chkLocationCarContract
             // 
             this.chkLocationCarContract.AutoSize = true;
-            this.chkLocationCarContract.Location = new System.Drawing.Point(20, 109);
+            this.chkLocationCarContract.Location = new System.Drawing.Point(184, 56);
             this.chkLocationCarContract.Name = "chkLocationCarContract";
             this.chkLocationCarContract.Size = new System.Drawing.Size(144, 21);
             this.chkLocationCarContract.TabIndex = 119;
@@ -198,18 +280,19 @@
             // chkBasicContractTime
             // 
             this.chkBasicContractTime.AutoSize = true;
-            this.chkBasicContractTime.Location = new System.Drawing.Point(516, 30);
+            this.chkBasicContractTime.Location = new System.Drawing.Point(73, 56);
             this.chkBasicContractTime.Name = "chkBasicContractTime";
             this.chkBasicContractTime.Size = new System.Drawing.Size(79, 21);
             this.chkBasicContractTime.TabIndex = 118;
             this.chkBasicContractTime.Text = "契約時間";
             this.chkBasicContractTime.UseVisualStyleBackColor = true;
+            this.chkBasicContractTime.Visible = false;
             // 
             // lblCheck13
             // 
             this.lblCheck13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck13.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck13.Location = new System.Drawing.Point(599, 26);
+            this.lblCheck13.Location = new System.Drawing.Point(555, 26);
             this.lblCheck13.Name = "lblCheck13";
             this.lblCheck13.Size = new System.Drawing.Size(25, 27);
             this.lblCheck13.TabIndex = 131;
@@ -218,7 +301,7 @@
             // chkLocationCarStaff
             // 
             this.chkLocationCarStaff.AutoSize = true;
-            this.chkLocationCarStaff.Location = new System.Drawing.Point(249, 105);
+            this.chkLocationCarStaff.Location = new System.Drawing.Point(21, 56);
             this.chkLocationCarStaff.Name = "chkLocationCarStaff";
             this.chkLocationCarStaff.Size = new System.Drawing.Size(131, 21);
             this.chkLocationCarStaff.TabIndex = 117;
@@ -230,7 +313,7 @@
             // 
             this.lblCheck12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck12.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck12.Location = new System.Drawing.Point(382, 100);
+            this.lblCheck12.Location = new System.Drawing.Point(343, 53);
             this.lblCheck12.Name = "lblCheck12";
             this.lblCheck12.Size = new System.Drawing.Size(25, 27);
             this.lblCheck12.TabIndex = 129;
@@ -241,7 +324,7 @@
             // 
             this.lblCheck10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck10.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck10.Location = new System.Drawing.Point(547, 151);
+            this.lblCheck10.Location = new System.Drawing.Point(352, 56);
             this.lblCheck10.Name = "lblCheck10";
             this.lblCheck10.Size = new System.Drawing.Size(25, 27);
             this.lblCheck10.TabIndex = 128;
@@ -252,7 +335,7 @@
             // 
             this.lblCheck9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck9.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck9.Location = new System.Drawing.Point(197, 67);
+            this.lblCheck9.Location = new System.Drawing.Point(765, 26);
             this.lblCheck9.Name = "lblCheck9";
             this.lblCheck9.Size = new System.Drawing.Size(25, 27);
             this.lblCheck9.TabIndex = 127;
@@ -262,7 +345,7 @@
             // 
             this.lblCheck8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck8.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck8.Location = new System.Drawing.Point(88, 67);
+            this.lblCheck8.Location = new System.Drawing.Point(154, 26);
             this.lblCheck8.Name = "lblCheck8";
             this.lblCheck8.Size = new System.Drawing.Size(25, 27);
             this.lblCheck8.TabIndex = 126;
@@ -271,7 +354,7 @@
             // btnExportExec
             // 
             this.btnExportExec.Image = global::FlockAppC.Properties.Resources.エクスポート1_小小;
-            this.btnExportExec.Location = new System.Drawing.Point(709, 141);
+            this.btnExportExec.Location = new System.Drawing.Point(713, 63);
             this.btnExportExec.Name = "btnExportExec";
             this.btnExportExec.Size = new System.Drawing.Size(80, 37);
             this.btnExportExec.TabIndex = 85;
@@ -284,7 +367,7 @@
             // 
             this.lblCheck7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck7.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck7.Location = new System.Drawing.Point(88, 150);
+            this.lblCheck7.Location = new System.Drawing.Point(352, 56);
             this.lblCheck7.Name = "lblCheck7";
             this.lblCheck7.Size = new System.Drawing.Size(25, 27);
             this.lblCheck7.TabIndex = 125;
@@ -295,7 +378,7 @@
             // 
             this.lblCheck6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck6.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck6.Location = new System.Drawing.Point(321, 150);
+            this.lblCheck6.Location = new System.Drawing.Point(371, 56);
             this.lblCheck6.Name = "lblCheck6";
             this.lblCheck6.Size = new System.Drawing.Size(25, 27);
             this.lblCheck6.TabIndex = 124;
@@ -306,7 +389,7 @@
             // 
             this.lblCheck5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck5.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck5.Location = new System.Drawing.Point(207, 148);
+            this.lblCheck5.Location = new System.Drawing.Point(371, 56);
             this.lblCheck5.Name = "lblCheck5";
             this.lblCheck5.Size = new System.Drawing.Size(25, 27);
             this.lblCheck5.TabIndex = 123;
@@ -316,7 +399,7 @@
             // chkHoliday
             // 
             this.chkHoliday.AutoSize = true;
-            this.chkHoliday.Location = new System.Drawing.Point(480, 155);
+            this.chkHoliday.Location = new System.Drawing.Point(254, 56);
             this.chkHoliday.Name = "chkHoliday";
             this.chkHoliday.Size = new System.Drawing.Size(92, 21);
             this.chkHoliday.TabIndex = 122;
@@ -327,27 +410,29 @@
             // chkKbn
             // 
             this.chkKbn.AutoSize = true;
-            this.chkKbn.Location = new System.Drawing.Point(130, 71);
+            this.chkKbn.Location = new System.Drawing.Point(240, 56);
             this.chkKbn.Name = "chkKbn";
             this.chkKbn.Size = new System.Drawing.Size(53, 21);
             this.chkKbn.TabIndex = 121;
             this.chkKbn.Text = "区分";
             this.chkKbn.UseVisualStyleBackColor = true;
+            this.chkKbn.Visible = false;
             // 
             // chkCar
             // 
             this.chkCar.AutoSize = true;
-            this.chkCar.Location = new System.Drawing.Point(21, 71);
+            this.chkCar.Location = new System.Drawing.Point(112, 56);
             this.chkCar.Name = "chkCar";
             this.chkCar.Size = new System.Drawing.Size(66, 21);
             this.chkCar.TabIndex = 120;
             this.chkCar.Text = "社用車";
             this.chkCar.UseVisualStyleBackColor = true;
+            this.chkCar.Visible = false;
             // 
             // chkCompany
             // 
             this.chkCompany.AutoSize = true;
-            this.chkCompany.Location = new System.Drawing.Point(16, 154);
+            this.chkCompany.Location = new System.Drawing.Point(228, 56);
             this.chkCompany.Name = "chkCompany";
             this.chkCompany.Size = new System.Drawing.Size(118, 21);
             this.chkCompany.TabIndex = 119;
@@ -358,7 +443,7 @@
             // chkGroup
             // 
             this.chkGroup.AutoSize = true;
-            this.chkGroup.Location = new System.Drawing.Point(260, 154);
+            this.chkGroup.Location = new System.Drawing.Point(245, 56);
             this.chkGroup.Name = "chkGroup";
             this.chkGroup.Size = new System.Drawing.Size(92, 21);
             this.chkGroup.TabIndex = 118;
@@ -369,7 +454,7 @@
             // chkOffice
             // 
             this.chkOffice.AutoSize = true;
-            this.chkOffice.Location = new System.Drawing.Point(140, 154);
+            this.chkOffice.Location = new System.Drawing.Point(245, 56);
             this.chkOffice.Name = "chkOffice";
             this.chkOffice.Size = new System.Drawing.Size(92, 21);
             this.chkOffice.TabIndex = 117;
@@ -380,48 +465,52 @@
             // chkLocationStaff
             // 
             this.chkLocationStaff.AutoSize = true;
-            this.chkLocationStaff.Location = new System.Drawing.Point(369, 30);
+            this.chkLocationStaff.Location = new System.Drawing.Point(129, 56);
             this.chkLocationStaff.Name = "chkLocationStaff";
             this.chkLocationStaff.Size = new System.Drawing.Size(105, 21);
             this.chkLocationStaff.TabIndex = 116;
             this.chkLocationStaff.Text = "専従先専従者";
             this.chkLocationStaff.UseVisualStyleBackColor = true;
+            this.chkLocationStaff.Visible = false;
             // 
             // chkLocationCar
             // 
             this.chkLocationCar.AutoSize = true;
-            this.chkLocationCar.Location = new System.Drawing.Point(235, 30);
+            this.chkLocationCar.Location = new System.Drawing.Point(69, 56);
             this.chkLocationCar.Name = "chkLocationCar";
             this.chkLocationCar.Size = new System.Drawing.Size(92, 21);
             this.chkLocationCar.TabIndex = 115;
             this.chkLocationCar.Text = "専従先車両";
             this.chkLocationCar.UseVisualStyleBackColor = true;
+            this.chkLocationCar.Visible = false;
             // 
             // chkLocation
             // 
             this.chkLocation.AutoSize = true;
-            this.chkLocation.Location = new System.Drawing.Point(130, 30);
+            this.chkLocation.Location = new System.Drawing.Point(57, 56);
             this.chkLocation.Name = "chkLocation";
             this.chkLocation.Size = new System.Drawing.Size(66, 21);
             this.chkLocation.TabIndex = 114;
             this.chkLocation.Text = "専従先";
             this.chkLocation.UseVisualStyleBackColor = true;
+            this.chkLocation.Visible = false;
             // 
             // chkStaff
             // 
             this.chkStaff.AutoSize = true;
-            this.chkStaff.Location = new System.Drawing.Point(21, 30);
+            this.chkStaff.Location = new System.Drawing.Point(40, 56);
             this.chkStaff.Name = "chkStaff";
             this.chkStaff.Size = new System.Drawing.Size(66, 21);
             this.chkStaff.TabIndex = 113;
             this.chkStaff.Text = "従業員";
             this.chkStaff.UseVisualStyleBackColor = true;
+            this.chkStaff.Visible = false;
             // 
             // lblCheck4
             // 
             this.lblCheck4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck4.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck4.Location = new System.Drawing.Point(477, 26);
+            this.lblCheck4.Location = new System.Drawing.Point(457, 26);
             this.lblCheck4.Name = "lblCheck4";
             this.lblCheck4.Size = new System.Drawing.Size(25, 27);
             this.lblCheck4.TabIndex = 112;
@@ -431,7 +520,7 @@
             // 
             this.lblCheck3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck3.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck3.Location = new System.Drawing.Point(328, 26);
+            this.lblCheck3.Location = new System.Drawing.Point(338, 26);
             this.lblCheck3.Name = "lblCheck3";
             this.lblCheck3.Size = new System.Drawing.Size(25, 27);
             this.lblCheck3.TabIndex = 110;
@@ -441,7 +530,7 @@
             // 
             this.lblCheck2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck2.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck2.Location = new System.Drawing.Point(197, 26);
+            this.lblCheck2.Location = new System.Drawing.Point(233, 26);
             this.lblCheck2.Name = "lblCheck2";
             this.lblCheck2.Size = new System.Drawing.Size(25, 27);
             this.lblCheck2.TabIndex = 108;
@@ -451,7 +540,7 @@
             // 
             this.lblCheck1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblCheck1.Image = global::FlockAppC.Properties.Resources.チェックマーク_小;
-            this.lblCheck1.Location = new System.Drawing.Point(88, 26);
+            this.lblCheck1.Location = new System.Drawing.Point(69, 26);
             this.lblCheck1.Name = "lblCheck1";
             this.lblCheck1.Size = new System.Drawing.Size(25, 27);
             this.lblCheck1.TabIndex = 106;
@@ -461,7 +550,7 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("メイリオ", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じるA_8p;
-            this.btnClose.Location = new System.Drawing.Point(748, 259);
+            this.btnClose.Location = new System.Drawing.Point(740, 168);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(80, 37);
@@ -474,7 +563,7 @@
             // lblMessage
             // 
             this.lblMessage.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblMessage.Location = new System.Drawing.Point(242, 265);
+            this.lblMessage.Location = new System.Drawing.Point(339, 188);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(227, 36);
             this.lblMessage.TabIndex = 86;
@@ -486,7 +575,7 @@
             this.lblConnect.AutoSize = true;
             this.lblConnect.Font = new System.Drawing.Font("游ゴシック Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lblConnect.ForeColor = System.Drawing.Color.Blue;
-            this.lblConnect.Location = new System.Drawing.Point(15, 250);
+            this.lblConnect.Location = new System.Drawing.Point(15, 175);
             this.lblConnect.Name = "lblConnect";
             this.lblConnect.Size = new System.Drawing.Size(136, 16);
             this.lblConnect.TabIndex = 152;
@@ -495,16 +584,25 @@
             // 
             // pgb
             // 
-            this.pgb.Location = new System.Drawing.Point(174, 250);
+            this.pgb.Location = new System.Drawing.Point(174, 175);
             this.pgb.Name = "pgb";
-            this.pgb.Size = new System.Drawing.Size(400, 14);
+            this.pgb.Size = new System.Drawing.Size(550, 14);
             this.pgb.TabIndex = 170;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(586, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(99, 17);
+            this.label9.TabIndex = 146;
+            this.label9.Text = "専従先ご担当者";
             // 
             // frmExportMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 307);
+            this.ClientSize = new System.Drawing.Size(838, 219);
             this.Controls.Add(this.pgb);
             this.Controls.Add(this.lblConnect);
             this.Controls.Add(this.lblMessage);
@@ -566,5 +664,13 @@
         private System.Windows.Forms.CheckBox chkLocationUser;
         internal System.Windows.Forms.Button btnCheck;
         internal System.Windows.Forms.Button btnUnCheck;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

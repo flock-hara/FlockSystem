@@ -86,44 +86,38 @@ namespace FlockAppC.tblClass
             int importCnt = 0;
 
             // =============================================================================
-            // 更新日付を参照し、エクスポート対象のデータのみエクスポートする
-            // 追々対応予定
-            // 基本契約曜日マスターには更新日付項目は追加済み
+            // １．MySQLに作業用テーブルを作成
+            // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
+            // ３．SQL Serverテーブルと作業用テーブルを比較
+            // ４．本番テーブルをリネーム
+            // ５．作業用テーブルを本番テーブルにリネーム
+            // ６．不要となった旧本番テーブルを削除
             // =============================================================================
 
             try
             {
+                // xserver(mySQL)接続
                 using (ClsMySqlDb clsMySqlDb = new(ClsDbConfig.MySQLNo))
                 {
-                    /////////////////////////////////////////////////////////////////////////
-                    // TRUNCATE TABLE
-                    // テーブルをクリア
-                    /////////////////////////////////////////////////////////////////////////
+                    // １．MySQLに作業用テーブルを作成
                     sb.Clear();
-                    sb.AppendLine("TRUNCATE TABLE");
-                    sb.AppendLine("Mst_基本契約曜日");
-
+                    sb.AppendLine("CREATE TABLE Mst_基本契約曜日_work LIKE Mst_基本契約曜日");
                     clsMySqlDb.DMLUpdate(sb.ToString());
 
-                    /////////////////////////////////////////////////////////////////////////
-                    // SQL Server → MySQL
-                    /////////////////////////////////////////////////////////////////////////
+                    // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
                     using (ClsSqlDb clsSqlDb = new(ClsDbConfig.SQLServerNo))
                     {
                         // SQL Server SELECT ALL
-                        // SQL Serverデータを読み込み、MySQLへ書き込む
                         sb.Clear();
                         sb.AppendLine("SELECT");
                         sb.AppendLine(" contract_time_id");
                         sb.AppendLine(",sort");
                         sb.AppendLine(",week");
-                        // 2025/11/10↓
                         sb.AppendLine(",ins_user_id");
                         sb.AppendLine(",ins_date");
                         sb.AppendLine(",upd_user_id");
                         sb.AppendLine(",upd_date");
                         sb.AppendLine(",delete_flag");
-                        // 2025/11/10↑
                         sb.AppendLine("FROM");
                         sb.AppendLine("Mst_基本契約曜日");
 
@@ -138,24 +132,20 @@ namespace FlockAppC.tblClass
                             foreach (DataRow dr in dt_val.Rows)
                             {
                                 sb.Clear();
-                                sb.AppendLine("INSERT INTO Mst_基本契約曜日 (");
+                                sb.AppendLine("INSERT INTO Mst_基本契約曜日_work (");
                                 sb.AppendLine(" contract_time_id");
                                 sb.AppendLine(",sort");
                                 sb.AppendLine(",week");
-                                // 2025/11/10↓
                                 sb.AppendLine(",ins_user_id");
                                 sb.AppendLine(",ins_date");
                                 sb.AppendLine(",upd_user_id");
                                 sb.AppendLine(",upd_date");
                                 sb.AppendLine(",delete_flag");
-                                // 2025/11/10↑
                                 sb.AppendLine(") VALUES (");
                                 sb.AppendLine(dr["contract_time_id"].ToString());
                                 sb.AppendLine("," + dr["sort"].ToString());
                                 if (dr.IsNull("week") != true) { sb.AppendLine(",'" + dr["week"].ToString() + "'"); }
                                 else { sb.AppendLine(",''"); }
-
-                                // 2025/11/10↓
                                 if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
                                 else { sb.AppendLine(",0"); }
                                 if (dr.IsNull("ins_date") != true) { sb.AppendLine(",'" + dr["ins_date"].ToString() + "'"); }
@@ -166,10 +156,7 @@ namespace FlockAppC.tblClass
                                 else { sb.AppendLine(",null"); }
                                 if (dr.IsNull("delete_flag") != true) { sb.AppendLine("," + dr["delete_flag"].ToString()); }
                                 else { sb.AppendLine("," + ClsPublic.FLAG_OFF); }
-                                // 2025/11/10↑
-
                                 sb.AppendLine(")");
-
                                 clsMySqlDb.DMLUpdate(sb.ToString());
 
                                 importCnt++;
@@ -179,6 +166,31 @@ namespace FlockAppC.tblClass
                                 p_pgb.Refresh();
                             }
                         }
+                        // ３．SQL Serverテーブルと作業用テーブルを比較
+                        int cnt;
+                        sb.Clear();
+                        sb.AppendLine("SELECT COUNT(*) AS rec_cnt2 FROM Mst_基本契約曜日_work");         // MySQL側
+                        using (DataTable dt_val = clsMySqlDb.DMLSelect(sb.ToString()))
+                        {
+                            cnt = int.Parse(dt_val.Rows[0]["rec_cnt2"].ToString());
+                        }
+                        if (rec_cnt != cnt)
+                        {
+                            // レコード件数不一致エラー
+                            throw new Exception("基本契約曜日マスターのエクスポートでレコード件数不一致エラーが発生しました。");
+                        }
+                        // ４．本番テーブルをリネーム
+                        // ５．作業用テーブルを本番テーブルにリネーム
+                        sb.Clear();
+                        sb.AppendLine("RENAME TABLE");
+                        sb.AppendLine("Mst_基本契約曜日 TO Mst_基本契約曜日_old,");
+                        sb.AppendLine("Mst_基本契約曜日_work TO Mst_基本契約曜日;");
+                        clsMySqlDb.DMLUpdate(sb.ToString());
+
+                        // ６．不要となった旧本番テーブルを削除
+                        sb.Clear();
+                        sb.AppendLine("DROP TABLE Mst_基本契約曜日_old;");
+                        clsMySqlDb.DMLUpdate(sb.ToString());
                     }
                 }
             }

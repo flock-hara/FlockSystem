@@ -1100,7 +1100,7 @@ namespace FlockAppC.マスターメンテ
 
             // location_id, staff_id格納用（宣言と同時に全て0で初期化される）
             int[] ints = new int[15];      // Mst_専従先用
-            Boolean delete_flag = false;
+            // Boolean delete_flag = false;         2026/01/08 DEL
 
             // 専従先
             cMstStaff.ClearLocationStaff();

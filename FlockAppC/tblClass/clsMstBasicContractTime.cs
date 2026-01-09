@@ -544,40 +544,32 @@ namespace FlockAppC.tblClass
             int importCnt = 0;
 
             // =============================================================================
-            // 更新日付を参照し、エクスポート対象のデータのみエクスポートする
-            // 追々対応予定
-            // 基本契約時間マスターには更新日付項目は追加済み
+            // １．MySQLに作業用テーブルを作成
+            // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
+            // ３．SQL Serverテーブルと作業用テーブルを比較
+            // ４．本番テーブルをリネーム
+            // ５．作業用テーブルを本番テーブルにリネーム
+            // ６．不要となった旧本番テーブルを削除
             // =============================================================================
 
             try
             {
-                // 2025/08/27 UPD
                 // MySQL接続(XServer)
                 using (ClsMySqlDb clsMySqlDb = new(ClsDbConfig.MySQLNo))
                 {
-                    /////////////////////////////////////////////////////////////////////////
-                    // TRUNCATE TABLE (MySQL)
-                    // テーブルをクリア
-                    /////////////////////////////////////////////////////////////////////////
+                    // １．MySQLに作業用テーブルを作成
                     sb.Clear();
-                    sb.AppendLine("TRUNCATE TABLE");
-                    sb.AppendLine("Mst_基本契約時間");
-
+                    sb.AppendLine("CREATE TABLE Mst_基本契約時間_work LIKE Mst_基本契約時間");
                     clsMySqlDb.DMLUpdate(sb.ToString());
 
-                    /////////////////////////////////////////////////////////////////////////
-                    // SQL Server → MySQL
-                    /////////////////////////////////////////////////////////////////////////
+                    // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
                     using (ClsSqlDb clsSqlDb = new(ClsDbConfig.SQLServerNo))
                     {
                         // SQL Server SELECT ALL
-                        // SQL Serverデータを読み込み、MySQLへ書き込む
                         sb.Clear();
                         sb.AppendLine("SELECT");
                         sb.AppendLine(" id");
                         sb.AppendLine(",location_id");
-                        // 2026/01/07 DEL
-                        // sb.AppendLine(",kbn");
                         sb.AppendLine(",car_id");
                         sb.AppendLine(",start_time1");
                         sb.AppendLine(",end_time1");
@@ -594,20 +586,17 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(",comment3");
                         sb.AppendLine(",comment4");
                         sb.AppendLine(",comment5");
-                        // 2025/11/10↓
                         sb.AppendLine(",ins_user_id");
                         sb.AppendLine(",ins_date");
                         sb.AppendLine(",upd_user_id");
                         sb.AppendLine(",upd_date");
                         sb.AppendLine(",delete_flag");
-                        // 2025/11/10↑
                         sb.AppendLine("FROM");
                         sb.AppendLine("Mst_基本契約時間");
 
                         using (DataTable dt_val = clsSqlDb.DMLSelect(sb.ToString()))
                         {
                             // ProgressBar設定
-                            // rec_cnt = clsSql.dt.Rows.Count;
                             rec_cnt = dt_val.Rows.Count;
                             p_pgb.Visible = true;
                             p_pgb.Maximum = rec_cnt;
@@ -616,11 +605,9 @@ namespace FlockAppC.tblClass
                             foreach (DataRow dr in dt_val.Rows)
                             {
                                 sb.Clear();
-                                sb.AppendLine("INSERT INTO Mst_基本契約時間 (");
+                                sb.AppendLine("INSERT INTO Mst_基本契約時間_work (");
                                 sb.AppendLine(" id");
                                 sb.AppendLine(",location_id");
-                                // 2026/01/07 DEL
-                                // sb.AppendLine(",kbn");
                                 sb.AppendLine(",car_id");
                                 sb.AppendLine(",start_time1");
                                 sb.AppendLine(",end_time1");
@@ -637,18 +624,14 @@ namespace FlockAppC.tblClass
                                 sb.AppendLine(",comment3");
                                 sb.AppendLine(",comment4");
                                 sb.AppendLine(",comment5");
-                                // 2025/11/10↓
                                 sb.AppendLine(",ins_user_id");
                                 sb.AppendLine(",ins_date");
                                 sb.AppendLine(",upd_user_id");
                                 sb.AppendLine(",upd_date");
                                 sb.AppendLine(",delete_flag");
-                                // 2025/11/10↑
                                 sb.AppendLine(") VALUES (");
                                 sb.AppendLine(dr["id"].ToString());
                                 sb.AppendLine("," + dr["location_id"].ToString());
-                                // 2026/01/07 DEL
-                                // sb.AppendLine("," + dr["kbn"].ToString());
                                 sb.AppendLine("," + dr["car_id"].ToString());
 
                                 // 2025/07/28 未設定時はnullセットに変更
@@ -676,32 +659,6 @@ namespace FlockAppC.tblClass
                                 if (dr.IsNull("end_break_time") != true) { sb.AppendLine(",'" + dr["end_break_time"].ToString() + "'"); }
                                 else { sb.AppendLine(",null"); }
 
-                                /*
-                                if (dr.IsNull("start_time1") != true) { st.AppendLine(",'" + dr["start_time1"].ToString() + "'"); }
-                                else { st.AppendLine(",'1900/01/01 00:00:00'"); }
-                                if (dr.IsNull("end_time1") != true) { st.AppendLine(",'" + dr["end_time1"].ToString() + "'"); }
-                                else { st.AppendLine(",'1900/01/01 00:00:00'"); }
-
-                                if (dr.IsNull("start_time2") != true) { st.AppendLine(",'" + dr["start_time2"].ToString() + "'"); }
-                                else { st.AppendLine(",'1900/01/01 00:00:00'"); }
-                                if (dr.IsNull("end_time2") != true) { st.AppendLine(",'" + dr["end_time2"].ToString() + "'"); }
-                                else { st.AppendLine(",'1900/01/01 00:00:00'"); }
-
-                                if (dr.IsNull("start_time3") != true) { st.AppendLine(",'" + dr["start_time3"].ToString() + "'"); }
-                                else { st.AppendLine(",'1900/01/01 00:00:00'"); }
-                                if (dr.IsNull("end_time3") != true) { st.AppendLine(",'" + dr["end_time3"].ToString() + "'"); }
-                                else { st.AppendLine(",'1900/01/01 00:00:00'"); }
-
-                                if (dr.IsNull("work_time") != true) { st.AppendLine("," + dr["work_time"].ToString()); }
-                                else { st.AppendLine(",0"); }
-
-                                if (dr.IsNull("start_break_time") != true) { st.AppendLine(",'" + dr["start_break_time"].ToString() + "'"); }
-                                else { st.AppendLine(",'1900/01/01 00:00:00'"); }
-
-                                if (dr.IsNull("end_break_time") != true) { st.AppendLine(",'" + dr["end_break_time"].ToString() + "'"); }
-                                else { st.AppendLine(",'1900/01/01 00:00:00'"); }
-                                */
-
                                 if (dr.IsNull("break_time") != true) { sb.AppendLine("," + dr["break_time"].ToString()); }
                                 else { sb.AppendLine(",0"); }
 
@@ -720,7 +677,6 @@ namespace FlockAppC.tblClass
                                 if (dr.IsNull("comment5") != true) { sb.AppendLine(",'" + dr["Comment5"].ToString() + "'"); }
                                 else { sb.AppendLine(",''"); }
 
-                                // 2025/11/10↓
                                 if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
                                 else { sb.AppendLine(",0"); }
                                 if (dr.IsNull("ins_date") != true) { sb.AppendLine(",'" + dr["ins_date"].ToString() + "'"); }
@@ -731,10 +687,7 @@ namespace FlockAppC.tblClass
                                 else { sb.AppendLine(",null"); }
                                 if (dr.IsNull("delete_flag") != true) { sb.AppendLine("," + dr["delete_flag"].ToString()); }
                                 else { sb.AppendLine(",0"); }
-                                // 2025/11/10↑
-
                                 sb.AppendLine(")");
-
                                 clsMySqlDb.DMLUpdate(sb.ToString());
 
                                 importCnt++;
@@ -744,6 +697,31 @@ namespace FlockAppC.tblClass
                                 p_pgb.Refresh();
                             }
                         }
+                        // ３．SQL Serverテーブルと作業用テーブルを比較
+                        int cnt;
+                        sb.Clear();
+                        sb.AppendLine("SELECT COUNT(*) AS rec_cnt2 FROM Mst_基本契約時間_work");         // MySQL側
+                        using (DataTable dt_val = clsMySqlDb.DMLSelect(sb.ToString()))
+                        {
+                            cnt = int.Parse(dt_val.Rows[0]["rec_cnt2"].ToString());
+                        }
+                        if (rec_cnt != cnt)
+                        {
+                            // レコード件数不一致エラー
+                            throw new Exception("基本契約時間マスターのエクスポートでレコード件数不一致エラーが発生しました。");
+                        }
+                        // ４．本番テーブルをリネーム
+                        // ５．作業用テーブルを本番テーブルにリネーム
+                        sb.Clear();
+                        sb.AppendLine("RENAME TABLE");
+                        sb.AppendLine("Mst_基本契約時間 TO Mst_基本契約時間_old,");
+                        sb.AppendLine("Mst_基本契約時間_work TO Mst_基本契約時間;");
+                        clsMySqlDb.DMLUpdate(sb.ToString());
+
+                        // ６．不要となった旧本番テーブルを削除
+                        sb.Clear();
+                        sb.AppendLine("DROP TABLE Mst_基本契約時間_old;");
+                        clsMySqlDb.DMLUpdate(sb.ToString());
                     }
                 }
             }
@@ -754,22 +732,12 @@ namespace FlockAppC.tblClass
             }
         }
         /// <summary>
-        /// SQL Serverテーブル値をXServerのmySQLに登録
+        /// SQL Serverテーブル値をXServerのmySQLに登録（ProgressBar無し、一件のみ）
         /// </summary>
         public void ExportBasicContractOneTimeData(int p_id, ClsSqlDb clsSqlDb, ClsMySqlDb clsMySqlDb)
         {
-            // =============================================================================
-            // 更新日付を参照し、エクスポート対象のデータのみエクスポートする
-            // 追々対応予定
-            // 基本契約時間マスターには更新日付項目は追加済み
-            // =============================================================================
-
             try
             {
-                /////////////////////////////////////////////////////////////////////////
-                // TRUNCATE TABLE (MySQL)
-                // テーブルをクリア
-                /////////////////////////////////////////////////////////////////////////
                 sb.Clear();
                 sb.AppendLine("DELETE FROM");
                 sb.AppendLine("Mst_基本契約時間");
@@ -778,13 +746,10 @@ namespace FlockAppC.tblClass
                 clsMySqlDb.DMLUpdate(sb.ToString());
 
                 // SQL Server SELECT ALL
-                // SQL Serverデータを読み込み、MySQLへ書き込む
                 sb.Clear();
                 sb.AppendLine("SELECT");
                 sb.AppendLine(" id");
                 sb.AppendLine(",location_id");
-                // 2026/01/07 DEL
-                // sb.AppendLine(",kbn");
                 sb.AppendLine(",car_id");
                 sb.AppendLine(",start_time1");
                 sb.AppendLine(",end_time1");
@@ -820,8 +785,6 @@ namespace FlockAppC.tblClass
                         sb.AppendLine("INSERT INTO Mst_基本契約時間 (");
                         sb.AppendLine(" id");
                         sb.AppendLine(",location_id");
-                        // 2026/01/07 DEL
-                        // sb.AppendLine(",kbn");
                         sb.AppendLine(",car_id");
                         sb.AppendLine(",start_time1");
                         sb.AppendLine(",end_time1");
@@ -846,8 +809,6 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(") VALUES (");
                         sb.AppendLine(dr["id"].ToString());
                         sb.AppendLine("," + dr["location_id"].ToString());
-                        // 2026/01/07 DEL
-                        // sb.AppendLine("," + dr["kbn"].ToString());
                         sb.AppendLine("," + dr["car_id"].ToString());
                         if (dr.IsNull("start_time1") != true) { sb.AppendLine(",'" + dr["start_time1"].ToString() + "'"); }
                         else { sb.AppendLine(",null"); }
@@ -910,10 +871,6 @@ namespace FlockAppC.tblClass
         {
             try
             {
-                /////////////////////////////////////////////////////////////////////////
-                // TRUNCATE TABLE (MySQL)
-                // テーブルをクリア
-                /////////////////////////////////////////////////////////////////////////
                 sb.Clear();
                 sb.AppendLine("DELETE FROM");
                 sb.AppendLine("Mst_基本契約曜日");

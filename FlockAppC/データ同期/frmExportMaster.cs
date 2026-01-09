@@ -1,6 +1,7 @@
 ﻿using FlockAppC.pubClass;
 using FlockAppC.tblClass;
 using System;
+using System.CodeDom;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -136,6 +137,15 @@ namespace FlockAppC.データ同期
                 this.lblCheck1.Image = Properties.Resources.チェックマーク_小;
                 this.Refresh();
             }
+            if (this.chkCar.Checked)
+            {
+                // =====================================================================
+                // 社用車マスター
+                // =====================================================================
+                ExportMstCar();
+                this.lblCheck8.Image = Properties.Resources.チェックマーク_小;
+                this.Refresh();
+            }
             if (this.chkLocation.Checked)
             {
                 // =====================================================================
@@ -166,11 +176,11 @@ namespace FlockAppC.データ同期
             if (this.chkLocationCarStaff.Checked)
             {
                 // =====================================================================
-                // 専従先車両運転者定義マスター
+                // 専従先車両運転者定義マスター　2026/1/9 時点で未使用。エクスポート処理も変更前のまま。
                 // =====================================================================
-                ExportMstLocationCarStaff();
-                this.lblCheck12.Image = Properties.Resources.チェックマーク_小;
-                this.Refresh();
+                //ExportMstLocationCarStaff();
+                //this.lblCheck12.Image = Properties.Resources.チェックマーク_小;
+                //this.Refresh();
             }
             if (this.chkBasicContractTime.Checked)
             {
@@ -227,15 +237,6 @@ namespace FlockAppC.データ同期
             //    this.lblCheck7.Image = FlockAppC.Properties.Resources.チェックマーク_小;
             //    this.Refresh();
             //}
-            if (this.chkCar.Checked)
-            {
-                // =====================================================================
-                // 社用車マスター
-                // =====================================================================
-                ExportMstCar();
-                this.lblCheck8.Image = Properties.Resources.チェックマーク_小;
-                this.Refresh();
-            }
             if (this.chkKbn.Checked)
             {
                 // =====================================================================
@@ -276,6 +277,7 @@ namespace FlockAppC.データ同期
                 InitializePBar();
 
                 // xserverの社員テーブルにSQL Serverの社員情報をエクスポート
+                this.lblMessage.Text = "従業員マスターエクスポート中...";
                 ClsMstStaff clsStf = new();
                 clsStf.ExportStaffData(ref this.pgb);
                 clsStf = null;
@@ -290,6 +292,10 @@ namespace FlockAppC.データ同期
                 ClsLogger.Log(ex.Message);
                 throw;
             }
+            finally 
+            {
+                this.lblMessage.Text = "エクスポートが完了しました。";
+            }
         }
         /// <summary>
         /// 専従先マスタエクスポート
@@ -302,6 +308,7 @@ namespace FlockAppC.データ同期
                 InitializePBar();
 
                 // xserverの社員テーブルにSQL Serverの社員情報をエクスポート
+                this.lblMessage.Text = "専従先マスターエクスポート中...";
                 ClsMstLocation clsStf = new();
                 clsStf.ExportLocationData(ref this.pgb);
                 clsStf = null;
@@ -310,6 +317,10 @@ namespace FlockAppC.データ同期
             {
                 ClsLogger.Log(ex.Message);
                 throw;
+            }
+            finally
+            {
+                this.lblMessage.Text = "エクスポートが完了しました。";
             }
         }
         /// <summary>
@@ -323,6 +334,7 @@ namespace FlockAppC.データ同期
                 InitializePBar();
 
                 // xserverの社員テーブルにSQL Serverの社員情報をエクスポート
+                this.lblMessage.Text = "専従先車両マスターエクスポート中...";
                 ClsMstLocationCar clsStf = new();
                 clsStf.ExportLocationCarData(ref this.pgb);
                 clsStf = null;
@@ -331,6 +343,10 @@ namespace FlockAppC.データ同期
             {
                 ClsLogger.Log(ex.Message);
                 throw;
+            }
+            finally
+            {
+                this.lblMessage.Text = "エクスポートが完了しました。";
             }
         }
         /// <summary>
@@ -344,6 +360,7 @@ namespace FlockAppC.データ同期
                 InitializePBar();
 
                 // xserverの社員テーブルにSQL Serverの社員情報をエクスポート
+                this.lblMessage.Text = "専従先専従者マスターエクスポート中...";
                 ClsMstStaff clsStf = new();
                 clsStf.ExportLocationStaffData(ref this.pgb);
                 clsStf = null;
@@ -353,6 +370,10 @@ namespace FlockAppC.データ同期
                 ClsLogger.Log(ex.Message);
                 throw;
             }
+            finally
+            {
+                this.lblMessage.Text = "エクスポートが完了しました。";
+            }   
         }
         /// <summary>
         /// 専従先車両運転者定義マスタエクスポート
@@ -386,6 +407,7 @@ namespace FlockAppC.データ同期
                 InitializePBar();
 
                 // xserverのテーブルにSQL Serverの情報をエクスポート
+                this.lblMessage.Text = "基本契約時間マスターエクスポート中...";
                 ClsMstBasicContractTime clsBct = new();
                 clsBct.ExportBasicContractTimeData(ref this.pgb);
                 clsBct = null;
@@ -394,6 +416,10 @@ namespace FlockAppC.データ同期
             {
                 ClsLogger.Log(ex.Message);
                 throw;
+            }
+            finally
+            {
+                this.lblMessage.Text = "エクスポートが完了しました。";
             }
         }
         /// <summary>
@@ -407,6 +433,7 @@ namespace FlockAppC.データ同期
                 InitializePBar();
 
                 // xserverのテーブルにSQL Serverの情報をエクスポート
+                this.lblMessage.Text = "基本契約曜日マスターエクスポート中...";
                 ClsMstBasicContractWeek clsBct = new();
                 clsBct.ExportBasicContractWeekData(ref this.pgb);
                 clsBct = null;
@@ -415,6 +442,10 @@ namespace FlockAppC.データ同期
             {
                 ClsLogger.Log(ex.Message);
                 throw;
+            }
+            finally
+            {
+                this.lblMessage.Text = "エクスポートが完了しました。";
             }
         }
         /// <summary>
@@ -428,6 +459,7 @@ namespace FlockAppC.データ同期
                 InitializePBar();
 
                 // xserverの社員テーブルにSQL Serverの社員情報をエクスポート
+                this.lblMessage.Text = "専従先担当者マスターエクスポート中...";
                 ClsMstLocationUser clsLcf = new();
                 clsLcf.ExportLocationUserData(ref this.pgb);
                 clsLcf = null;
@@ -436,6 +468,10 @@ namespace FlockAppC.データ同期
             {
                 ClsLogger.Log(ex.Message);
                 throw;
+            }
+            finally
+            {
+                this.lblMessage.Text = "エクスポートが完了しました。";
             }
         }
         /// <summary>
@@ -524,6 +560,7 @@ namespace FlockAppC.データ同期
                 InitializePBar();
 
                 // xserverの社用車テーブルにSQL Serverの社用車情報をエクスポート
+                this.lblMessage.Text = "社用車マスターエクスポート中..."; 
                 ClsMstCar clsStf = new();
                 clsStf.ExportCarData(ref this.pgb);
                 clsStf = null;
@@ -538,6 +575,10 @@ namespace FlockAppC.データ同期
                 ClsLogger.Log(ex.Message);
                 throw;
             }
+            finally
+            {
+                this.lblMessage.Text = "エクスポートが完了しました。";
+            }
         }
         /// <summary>
         /// 区分マスタエクスポート
@@ -550,6 +591,7 @@ namespace FlockAppC.データ同期
                 InitializePBar();
 
                 // xserverの区分テーブルにSQL Serverの区分情報をエクスポート
+                this.lblMessage.Text = "区分マスターエクスポート中...";
                 ClsMstKbn clsStf = new();
                 clsStf.ExportKbnData(ref this.pgb);
                 clsStf = null;
@@ -559,7 +601,12 @@ namespace FlockAppC.データ同期
                 ClsLogger.Log(ex.Message);
                 throw;
             }
+            finally
+            {
+                this.lblMessage.Text = "エクスポートが完了しました。";
+            }
         }
+       
         /// <summary>
         /// 休日マスタエクスポート
         /// </summary>

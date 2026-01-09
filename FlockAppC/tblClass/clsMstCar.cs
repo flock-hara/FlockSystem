@@ -228,25 +228,27 @@ namespace FlockAppC.tblClass
 
             try
             {
+                // =============================================================================
+                // １．MySQLに作業用テーブルを作成
+                // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
+                // ３．SQL Serverテーブルと作業用テーブルを比較
+                // ４．本番テーブルをリネーム
+                // ５．作業用テーブルを本番テーブルにリネーム
+                // ６．不要となった旧本番テーブルを削除
+                // =============================================================================
+
+                // xserver(mySQL)接続
                 using (ClsMySqlDb clsMySqlDb = new(ClsDbConfig.MySQLNo))
                 {
-                    /////////////////////////////////////////////////////////////////////////
-                    // TRUNCATE TABLE
-                    // テーブルをクリア
-                    /////////////////////////////////////////////////////////////////////////
+                    // １．MySQLに作業用テーブルを作成
                     sb.Clear();
-                    sb.AppendLine("TRUNCATE TABLE");
-                    sb.AppendLine("Mst_社用車");
-                    
+                    sb.AppendLine("CREATE TABLE Mst_社用車_work LIKE Mst_社用車");
                     clsMySqlDb.DMLUpdate(sb.ToString());
 
-                    /////////////////////////////////////////////////////////////////////////
-                    // SQL Server → MySQL
-                    /////////////////////////////////////////////////////////////////////////
+                    // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
                     using (ClsSqlDb clsSqlDb = new(ClsDbConfig.SQLServerNo))
                     {
                         // SQL Server SELECT ALL
-                        // SQL Serverデータを読み込み、MySQLへ書き込む
                         sb.Clear();
                         sb.AppendLine("SELECT");
                         sb.AppendLine(" id");
@@ -256,17 +258,15 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(",base_no");
                         sb.AppendLine(",first_date");
                         sb.AppendLine(",get_date");
-                        sb.AppendLine(",fulldate");
+                        sb.AppendLine(",full_date");
                         sb.AppendLine(",etc");
                         sb.AppendLine(",used_user_id");
                         sb.AppendLine(",comment");
-                        // 2025/11/10↓
                         sb.AppendLine(",ins_user_id");
                         sb.AppendLine(",ins_date");
                         sb.AppendLine(",upd_user_id");
                         sb.AppendLine(",upd_date");
                         sb.AppendLine(",delete_flag");
-                        // 2025/11/10↑
                         sb.AppendLine("FROM");
                         sb.AppendLine("Mst_社用車");
 
@@ -281,7 +281,7 @@ namespace FlockAppC.tblClass
                             foreach (DataRow dr in dt_val.Rows)
                             {
                                 sb.Clear();
-                                sb.AppendLine("INSERT INTO Mst_社用車 (");
+                                sb.AppendLine("INSERT INTO Mst_社用車_work (");
                                 sb.AppendLine(" id");
                                 sb.AppendLine(",car_no");
                                 sb.AppendLine(",car_name");
@@ -293,26 +293,23 @@ namespace FlockAppC.tblClass
                                 sb.AppendLine(",etc");
                                 sb.AppendLine(",used_user_id");
                                 sb.AppendLine(",comment");
-                                // 2025/11/10↓
                                 sb.AppendLine(",ins_user_id");
                                 sb.AppendLine(",ins_date");
                                 sb.AppendLine(",upd_user_id");
                                 sb.AppendLine(",upd_date");
                                 sb.AppendLine(",delete_flag");
-                                // 2025/11/10↑
                                 sb.AppendLine(") VALUES (");
                                 sb.AppendLine(dr["id"].ToString());
                                 sb.AppendLine(",'" + dr["car_no"].ToString() + "'");
                                 sb.AppendLine(",'" + dr["car_name"].ToString() + "'");
                                 sb.AppendLine(",'" + dr["reg_no"].ToString() + "'");
                                 sb.AppendLine(",'" + dr["base_no"].ToString() + "'");
-                                sb.AppendLine(",'" + dr["firstdate"].ToString() + "'");
+                                sb.AppendLine(",'" + dr["first_date"].ToString() + "'");
                                 sb.AppendLine(",'" + dr["get_date"].ToString() + "'");
                                 sb.AppendLine(",'" + dr["full_date"].ToString() + "'");
                                 sb.AppendLine(",'" + dr["etc"].ToString() + "'");
                                 sb.AppendLine("," + dr["used_user_id"].ToString());
                                 sb.AppendLine(",'" + dr["comment"].ToString() + "'");
-                                // 2025/11/10↓
                                 if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
                                 else { sb.AppendLine(",0"); }
                                 if (dr.IsNull("ins_date") != true) { sb.AppendLine(",'" + dr["ins_date"].ToString() + "'"); }
@@ -323,9 +320,7 @@ namespace FlockAppC.tblClass
                                 else { sb.AppendLine(",null"); }
                                 if (dr.IsNull("delete_flag") != true) { sb.AppendLine("," + dr["delete_flag"].ToString()); }
                                 else { sb.AppendLine("," + ClsPublic.FLAG_OFF); }
-                                // 2025/11/10↑
                                 sb.AppendLine(")");
-
                                 clsMySqlDb.DMLUpdate(sb.ToString());
 
                                 importCnt++;
@@ -335,6 +330,31 @@ namespace FlockAppC.tblClass
                                 p_pgb.Refresh();
                             }
                         }
+                        // ３．SQL Serverテーブルと作業用テーブルを比較
+                        int cnt;
+                        sb.Clear();
+                        sb.AppendLine("SELECT COUNT(*) AS rec_cnt2 FROM Mst_社用車_work");         // MySQL側
+                        using (DataTable dt_val = clsMySqlDb.DMLSelect(sb.ToString()))
+                        {
+                            cnt = int.Parse(dt_val.Rows[0]["rec_cnt2"].ToString());
+                        }
+                        if (rec_cnt != cnt)
+                        {
+                            // レコード件数不一致エラー
+                            throw new Exception("社用車マスターのエクスポートでレコード件数不一致エラーが発生しました。");
+                        }
+                        // ４．本番テーブルをリネーム
+                        // ５．作業用テーブルを本番テーブルにリネーム
+                        sb.Clear();
+                        sb.AppendLine("RENAME TABLE");
+                        sb.AppendLine("Mst_社用車 TO Mst_社用車_old,");
+                        sb.AppendLine("Mst_社用車_work TO Mst_社用車;");
+                        clsMySqlDb.DMLUpdate(sb.ToString());
+
+                        // ６．不要となった旧本番テーブルを削除
+                        sb.Clear();
+                        sb.AppendLine("DROP TABLE Mst_社用車_old;");
+                        clsMySqlDb.DMLUpdate(sb.ToString());
                     }
                 }
             }
@@ -345,7 +365,7 @@ namespace FlockAppC.tblClass
             }
         }
         /// <summary>
-        /// SQL Serverテーブル値をXServerのmySQLに登録
+        /// SQL Serverテーブル値をXServerのmySQLに登録（ProgressBar無し、１レコード版）
         /// </summary>
         public void ExportOneCarData(int p_id, ClsSqlDb clsSqlDb, ClsMySqlDb clsMySqlDb)
         {

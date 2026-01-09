@@ -592,7 +592,7 @@ namespace FlockAppC.tblClass
                     // 2025/11/10↑
                     sb.AppendLine(")");
 
-                    clsSqlDb.DMLUpdate(sb.ToString());                                                                                                                      
+                    clsSqlDb.DMLUpdate(sb.ToString());
                 }
             }
             catch (Exception ex)
@@ -675,22 +675,18 @@ namespace FlockAppC.tblClass
         /// <param name="clsMySqlDb">MySQL</param>
         public void ExportOneStaffData(int p_staff, ClsSqlDb clsSqlDb, ClsMySqlDb clsMySqlDb)
         {
-            int upd_flag = 0; // 0:UPDATE/1:INSERT/2:DELETE
-            DateTime sql_date;
-            DateTime mysql_date;
-            string sql_str = "";
-            string mysql_str = "";
-
-            // =============================================================================
-            // 更新日付を参照し、エクスポート対象のデータのみエクスポートする
-            // 追々対応予定
-            // 社員マスターには更新日付項目は追加済み
-            // =============================================================================
-
             try
             {
+                // 対象データ削除
+                sb.Clear();
+                sb.AppendLine("DELETE");
+                sb.AppendLine("FROM");
+                sb.AppendLine("Mst_社員");
+                sb.AppendLine("WHERE");
+                sb.AppendLine("staff_id = " + p_staff);
+                clsMySqlDb.DMLUpdate(sb.ToString());
+
                 // SQL Server SELECT ALL
-                // SQL Serverデータを読み込み、MySQLへ書き込む
                 sb.Clear();
                 sb.AppendLine("SELECT");
                 sb.AppendLine(" staff_id");
@@ -706,8 +702,6 @@ namespace FlockAppC.tblClass
                 sb.AppendLine(",proxy_flag");
                 sb.AppendLine(",confirm_flag");
                 sb.AppendLine(",car_manage_flag");
-                // 2025/12/24 DEL
-                // sb.AppendLine(",attendance_flag");
                 sb.AppendLine(",master_mente_flag");
                 sb.AppendLine(",report_manage_flag");
                 sb.AppendLine(",recruit_manage_flag");
@@ -719,13 +713,8 @@ namespace FlockAppC.tblClass
                 sb.AppendLine(",sort");
                 sb.AppendLine(",kbn");
                 sb.AppendLine(",position_flag");
-                // sb.AppendLine(",zai_flag");          2026/01/08 DEL
                 sb.AppendLine(",comment");
                 sb.AppendLine(",car_id");
-                // 2025/12/24 DEL (S)
-                // sb.AppendLine(",attsubject_flag");
-                // sb.AppendLine(",task_flag");
-                // 2025/12/24 DEL (E)
                 sb.AppendLine(",col");
                 sb.AppendLine(",ins_user_id");
                 sb.AppendLine(",ins_date");
@@ -739,215 +728,82 @@ namespace FlockAppC.tblClass
 
                 using (DataTable dt_val = clsSqlDb.DMLSelect(sb.ToString()))
                 {
-                    // MySQL INSERT/UPDATE/DELETE
-                    foreach (DataRow dr in dt_val.Rows)
-                    {
-                        upd_flag = 0; // 0:UPDATE/1:INSERT/2:DELETE/3:処理なし
-
-                        // MySQLデータの更新日時を取得
-                        sb.Clear();
-                        sb.AppendLine("SELECT");
-                        sb.AppendLine(" upd_date");
-                        sb.AppendLine("FROM");
-                        sb.AppendLine("Mst_社員");
-                        sb.AppendLine("WHERE");
-                        sb.AppendLine("staff_id = " + p_staff);
-
-                        using (DataTable dt_val2 = clsMySqlDb.DMLSelect(sb.ToString()))
-                        {
-                            // 該当IDなし→INSERT
-                            if (dt_val2.Rows.Count == 0) { upd_flag = 1; }
-                            else
-                            {
-                                // 1レコード取得
-                                DataRow row = dt_val2.Rows[0];
-
-                                // 更新日時を比較
-                                if (dr.IsNull("upd_date") != true) { sql_date = DateTime.Parse(dr["upd_date"].ToString()); }
-                                else { sql_date = DateTime.Parse("1900/01/01 0:00:00"); }
-
-                                if (row.IsNull("upd_date") != true) { mysql_date = DateTime.Parse(row["upd_date"].ToString()); }
-                                else { mysql_date = DateTime.Parse("1900/01/01 0:00:00"); }
-
-                                // 文字変換
-                                sql_str = sql_date.ToString("yyyy/MM/dd HH:mm:ss");
-                                mysql_str = mysql_date.ToString("yyyy/MM/dd HH:mm:ss");
-                                if (sql_str == mysql_str)
-                                {
-                                    // 更新日時が同じ→処理なし
-                                    upd_flag = 3;
-                                }
-
-                                // 削除フラグON→DELETE
-                                if (dr.IsNull("delete_flag") != true)
-                                {
-                                    if (Convert.ToInt32(dr["delete_flag"]) == ClsPublic.FLAG_ON) { upd_flag = 2; }
-                                }
-                            }
-                        }
-
-                        // UPDATE/INSERT/DELETE振り分け
-                        if (upd_flag == 1)
-                        {
-                            // INSERT
-                            sb.Clear();
-                            sb.AppendLine("INSERT INTO Mst_社員 (");
-                            sb.AppendLine(" staff_id");
-                            sb.AppendLine(",id");
-                            sb.AppendLine(",name1");
-                            sb.AppendLine(",name2");
-                            sb.AppendLine(",fullname");
-                            sb.AppendLine(",kana1");
-                            sb.AppendLine(",kana2");
-                            sb.AppendLine(",fullkana");
-                            sb.AppendLine(",office_id");
-                            sb.AppendLine(",group_id");
-                            sb.AppendLine(",proxy_flag");
-                            sb.AppendLine(",confirm_flag");
-                            sb.AppendLine(",car_manage_flag");
-                            // 2025/12/24 DEL
-                            // sb.AppendLine(",attendance_flag");
-                            sb.AppendLine(",master_mente_flag");
-                            sb.AppendLine(",report_manage_flag");
-                            sb.AppendLine(",recruit_manage_flag");
-                            sb.AppendLine(",report_confirm_flag");
-                            sb.AppendLine(",system_control_flag");
-                            sb.AppendLine(",confirm_password");
-                            sb.AppendLine(",tanto_sort");
-                            sb.AppendLine(",reg_sort");
-                            sb.AppendLine(",sort");
-                            sb.AppendLine(",kbn");
-                            sb.AppendLine(",position_flag");
-                            // sb.AppendLine(",zai_flag");          2026/01/08 DEL
-                            sb.AppendLine(",comment");
-                            sb.AppendLine(",car_id");
-                            // 2025/12/24 DEL (S)
-                            // sb.AppendLine(",attSubject_flag");
-                            // sb.AppendLine(",task_flag");
-                            // 2025/12/24 DEL (E)
-                            sb.AppendLine(",col");
-                            // 2025/11/10 (S)
-                            sb.AppendLine(",ins_user_id");
-                            sb.AppendLine(",ins_date");
-                            sb.AppendLine(",upd_user_id");
-                            sb.AppendLine(",upd_date");
-                            sb.AppendLine(",delete_flag");
-                            // 2025/11/10 (E)
-                            sb.AppendLine(") VALUES (");
-                            sb.AppendLine(p_staff.ToString());
-                            sb.AppendLine("," + dr["id"].ToString());
-                            sb.AppendLine(",'" + dr["name1"].ToString() + "'");
-                            sb.AppendLine(",'" + dr["name2"].ToString() + "'");
-                            sb.AppendLine(",'" + dr["fullname"].ToString() + "'");
-                            sb.AppendLine(",'" + dr["kana1"].ToString() + "'");
-                            sb.AppendLine(",'" + dr["kana2"].ToString() + "'");
-                            sb.AppendLine(",'" + dr["fullkana"].ToString() + "'");
-                            sb.AppendLine("," + dr["office_id"].ToString());
-                            sb.AppendLine("," + dr["group_id"].ToString());
-                            sb.AppendLine("," + dr["proxy_flag"].ToString());
-                            sb.AppendLine("," + dr["confirm_flag"].ToString());
-                            sb.AppendLine("," + dr["car_manage_flag"].ToString());
-                            // 2025/12/24 DEL
-                            // sb.AppendLine("," + dr["attendance_flag"].ToString());
-                            sb.AppendLine("," + dr["master_mente_flag"].ToString());
-                            sb.AppendLine("," + dr["report_manage_flag"].ToString());
-                            sb.AppendLine("," + dr["recruit_manage_flag"].ToString());
-                            sb.AppendLine("," + dr["report_confirm_flag"].ToString());
-                            sb.AppendLine("," + dr["system_control_flag"].ToString());
-                            sb.AppendLine(",'" + dr["confirm_password"].ToString() + "'");
-                            sb.AppendLine("," + dr["tanto_sort"].ToString());
-                            sb.AppendLine("," + dr["reg_sort"].ToString());
-                            sb.AppendLine("," + dr["sort"].ToString());
-                            sb.AppendLine("," + dr["kbn"].ToString());
-                            sb.AppendLine("," + dr["position_flag"].ToString());
-                            // sb.AppendLine("," + dr["zai_flag"].ToString());          2026/01/08 DEL
-                            sb.AppendLine(",'" + dr["comment"].ToString() + "'");
-                            sb.AppendLine("," + dr["car_id"].ToString());
-                            // 2025/12/24 DEL (S)
-                            // sb.AppendLine("," + dr["attsubject_flag"].ToString());
-                            // sb.AppendLine("," + dr["task_flag"].ToString());
-                            // 2025/12/24 DEL (E)
-                            if (dr["col"].ToString() != "") { sb.AppendLine("," + dr["col"].ToString()); }
-                            else { sb.AppendLine(",NULL"); }
-                            // 2025/11/10 ADD (S)
-                            if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
-                            else { sb.AppendLine(",0"); }
-                            if (dr.IsNull("ins_date") != true) { sb.AppendLine(",'" + dr["ins_date"].ToString() + "'"); }
-                            else { sb.AppendLine(",null"); }
-                            if (dr.IsNull("upd_user_id") != true) { sb.AppendLine("," + dr["upd_user_id"].ToString()); }
-                            else { sb.AppendLine(",0"); }
-                            if (dr.IsNull("upd_date") != true) { sb.AppendLine(",'" + dr["upd_date"].ToString() + "'"); }
-                            else { sb.AppendLine(",null"); }
-                            if (dr.IsNull("delete_flag") != true) { sb.AppendLine("," + dr["delete_flag"].ToString()); }
-                            else { sb.AppendLine("," + ClsPublic.FLAG_OFF); }
-                            // 2025/11/10 ADD (E)
-                            sb.AppendLine(")");
-                        }
-                        else if (upd_flag == 0)
-                        {
-                            // UPDATE
-                            sb.Clear();
-                            sb.AppendLine("UPDATE Mst_社員 SET");
-                            sb.AppendLine(" name1 = '" + dr["name1"].ToString() + "'");
-                            sb.AppendLine(",name2 = '" + dr["name2"].ToString() + "'");
-                            sb.AppendLine(",fullname = '" + dr["fullname"].ToString() + "'");
-                            sb.AppendLine(",kana1 = '" + dr["kana1"].ToString() + "'");
-                            sb.AppendLine(",kana2 = '" + dr["kana2"].ToString() + "'");
-                            sb.AppendLine(",fullkana = '" + dr["fullkana"].ToString() + "'");
-                            sb.AppendLine(",office_id = " + dr["office_id"].ToString());
-                            sb.AppendLine(",group_id = " + dr["group_id"].ToString());
-                            sb.AppendLine(",proxy_flag = " + dr["proxy_flag"].ToString());
-                            sb.AppendLine(",confirm_flag = " + dr["confirm_flag"].ToString());
-                            sb.AppendLine(",car_manage_flag = " + dr["car_manage_flag"].ToString());
-                            // 2025/12/24 DEL
-                            // sb.AppendLine(",attendance_flag = " + dr["attendance_flag"].ToString());
-                            sb.AppendLine(",master_mente_flag = " + dr["master_mente_flag"].ToString());
-                            sb.AppendLine(",report_manage_flag = " + dr["report_manage_flag"].ToString());
-                            sb.AppendLine(",recruit_manage_flag = " + dr["recruit_manage_flag"].ToString());
-                            sb.AppendLine(",report_confirm_flag = " + dr["report_confirm_flag"].ToString());
-                            sb.AppendLine(",system_control_flag = " + dr["system_control_flag"].ToString());
-                            sb.AppendLine(",confirm_password = '" + dr["confirm_password"].ToString() + "'");
-                            sb.AppendLine(",tanto_sort = " + dr["tanto_sort"].ToString());
-                            sb.AppendLine(",reg_sort = " + dr["reg_sort"].ToString());
-                            sb.AppendLine(",sort = " + dr["sort"].ToString());
-                            sb.AppendLine(",kbn = " + dr["kbn"].ToString());
-                            sb.AppendLine(",position_flag = " + dr["position_flag"].ToString());
-                            // sb.AppendLine(",zai_flag = " + dr["zai_flag"].ToString());           2026/01/08 DEL
-                            sb.AppendLine(",comment = '" + dr["comment"].ToString() + "'");
-                            sb.AppendLine(",car_id = " + dr["car_id"].ToString());
-                            // 2025/12/24 DEL (S)
-                            // sb.AppendLine(",attsubject_flag = " + dr["attsubject_flag"].ToString());
-                            // sb.AppendLine(",task_flag = " + dr["task_flag"].ToString());
-                            // 2025/12/24 DEL (E)
-
-                            // 2025/11/10 ADD (S)
-                            if (dr.IsNull("ins_user_id") != true) { sb.AppendLine(",ins_user_id = " + dr["ins_user_id"].ToString()); }
-                            else { sb.AppendLine(",ins_user_id = 0"); }
-                            if (dr["ins_date"].ToString() != "") { sb.AppendLine(",ins_date = '" + dr["ins_date"].ToString() + "'"); }
-                            else { sb.AppendLine(",ins_date = NULL"); }
-                            if (dr.IsNull("upd_user_id") != true) { sb.AppendLine(",upd_user_id = " + dr["upd_user_id"].ToString()); }
-                            else { sb.AppendLine(",upd_user_id = 0"); }
-                            if (dr["upd_date"].ToString() != "") { sb.AppendLine(",upd_date = '" + dr["upd_date"].ToString() + "'"); }
-                            else { sb.AppendLine(",upd_date = NULL"); }
-                            sb.AppendLine(",delete_flag = " + dr["delete_flag"].ToString());
-                            // 2025/11/10 ADD (E)
-
-
-                            sb.AppendLine(" WHERE staff_id = " + p_staff);
-                        }
-                        else if (upd_flag == 2)
-                        {
-                            // DELETE
-                            sb.Clear();
-                            sb.AppendLine("DELETE FROM");
-                            sb.AppendLine("Mst_社員");
-                            sb.AppendLine(" WHERE staff_id = " + p_staff);
-                        }
-
-                        // upd_flag = 3 は処理なし
-
-                        clsMySqlDb.DMLUpdate(sb.ToString());
-                    }
+                    DataRow dr = dt_val.Rows[0];
+                    sb.Clear();
+                    sb.AppendLine("INSERT INTO Mst_社員 (");
+                    sb.AppendLine(" staff_id");
+                    sb.AppendLine(",id");
+                    sb.AppendLine(",name1");
+                    sb.AppendLine(",name2");
+                    sb.AppendLine(",fullname");
+                    sb.AppendLine(",kana1");
+                    sb.AppendLine(",kana2");
+                    sb.AppendLine(",fullkana");
+                    sb.AppendLine(",office_id");
+                    sb.AppendLine(",group_id");
+                    sb.AppendLine(",proxy_flag");
+                    sb.AppendLine(",confirm_flag");
+                    sb.AppendLine(",car_manage_flag");
+                    sb.AppendLine(",master_mente_flag");
+                    sb.AppendLine(",report_manage_flag");
+                    sb.AppendLine(",recruit_manage_flag");
+                    sb.AppendLine(",report_confirm_flag");
+                    sb.AppendLine(",system_control_flag");
+                    sb.AppendLine(",confirm_password");
+                    sb.AppendLine(",tanto_sort");
+                    sb.AppendLine(",reg_sort");
+                    sb.AppendLine(",sort");
+                    sb.AppendLine(",kbn");
+                    sb.AppendLine(",position_flag");
+                    sb.AppendLine(",comment");
+                    sb.AppendLine(",car_id");
+                    sb.AppendLine(",col");
+                    sb.AppendLine(",ins_user_id");
+                    sb.AppendLine(",ins_date");
+                    sb.AppendLine(",upd_user_id");
+                    sb.AppendLine(",upd_date");
+                    sb.AppendLine(",delete_flag");
+                    sb.AppendLine(") VALUES (");
+                    sb.AppendLine(p_staff.ToString());
+                    sb.AppendLine("," + dr["id"].ToString());
+                    sb.AppendLine(",'" + dr["name1"].ToString() + "'");
+                    sb.AppendLine(",'" + dr["name2"].ToString() + "'");
+                    sb.AppendLine(",'" + dr["fullname"].ToString() + "'");
+                    sb.AppendLine(",'" + dr["kana1"].ToString() + "'");
+                    sb.AppendLine(",'" + dr["kana2"].ToString() + "'");
+                    sb.AppendLine(",'" + dr["fullkana"].ToString() + "'");
+                    sb.AppendLine("," + dr["office_id"].ToString());
+                    sb.AppendLine("," + dr["group_id"].ToString());
+                    sb.AppendLine("," + dr["proxy_flag"].ToString());
+                    sb.AppendLine("," + dr["confirm_flag"].ToString());
+                    sb.AppendLine("," + dr["car_manage_flag"].ToString());
+                    sb.AppendLine("," + dr["master_mente_flag"].ToString());
+                    sb.AppendLine("," + dr["report_manage_flag"].ToString());
+                    sb.AppendLine("," + dr["recruit_manage_flag"].ToString());
+                    sb.AppendLine("," + dr["report_confirm_flag"].ToString());
+                    sb.AppendLine("," + dr["system_control_flag"].ToString());
+                    sb.AppendLine(",'" + dr["confirm_password"].ToString() + "'");
+                    sb.AppendLine("," + dr["tanto_sort"].ToString());
+                    sb.AppendLine("," + dr["reg_sort"].ToString());
+                    sb.AppendLine("," + dr["sort"].ToString());
+                    sb.AppendLine("," + dr["kbn"].ToString());
+                    sb.AppendLine("," + dr["position_flag"].ToString());
+                    sb.AppendLine(",'" + dr["comment"].ToString() + "'");
+                    sb.AppendLine("," + dr["car_id"].ToString());
+                    if (dr["col"].ToString() != "") { sb.AppendLine("," + dr["col"].ToString()); }
+                    else { sb.AppendLine(",NULL"); }
+                    if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
+                    else { sb.AppendLine(",0"); }
+                    if (dr.IsNull("ins_date") != true) { sb.AppendLine(",'" + dr["ins_date"].ToString() + "'"); }
+                    else { sb.AppendLine(",null"); }
+                    if (dr.IsNull("upd_user_id") != true) { sb.AppendLine("," + dr["upd_user_id"].ToString()); }
+                    else { sb.AppendLine(",0"); }
+                    if (dr.IsNull("upd_date") != true) { sb.AppendLine(",'" + dr["upd_date"].ToString() + "'"); }
+                    else { sb.AppendLine(",null"); }
+                    if (dr.IsNull("delete_flag") != true) { sb.AppendLine("," + dr["delete_flag"].ToString()); }
+                    else { sb.AppendLine("," + ClsPublic.FLAG_OFF); }
+                    sb.AppendLine(")");
+                    clsMySqlDb.DMLUpdate(sb.ToString());
                 }
             }
             catch (Exception ex)
@@ -964,40 +820,28 @@ namespace FlockAppC.tblClass
             int rec_cnt;                        // レコード件数
             int importCnt = 0;              // インポート件数
 
-            int upd_flag = 0;               // 0:UPDATE/1:INSERT/2:DELETE
-            DateTime sql_date;          // SQL Server更新日時
-            DateTime mysql_date;      // MySQL更新日時  
-            string sql_str = "";            // SQL Server更新日時文字列
-            string mysql_str = "";        // MySQL更新日時文字列  
-
             // =============================================================================
-            // 更新日付を参照し、エクスポート対象のデータのみエクスポートする
-            // 追々対応予定
-            // 社員マスターには更新日付項目は追加済み
+            // １．MySQLに作業用テーブルを作成
+            // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
+            // ３．SQL Serverテーブルと作業用テーブルを比較
+            // ４．本番テーブルをリネーム
+            // ５．作業用テーブルを本番テーブルにリネーム
+            // ６．不要となった旧本番テーブルを削除
             // =============================================================================
-
             try
             {
                 // xserver(mySQL)接続
                 using (ClsMySqlDb clsMySqlDb = new(ClsDbConfig.MySQLNo))
                 {
-                    /////////////////////////////////////////////////////////////////////////
-                    // TRUNCATE TABLE
-                    // 社員テーブルをクリア
-                    /////////////////////////////////////////////////////////////////////////
-                    //sb.Clear();
-                    //sb.AppendLine("TRUNCATE TABLE");
-                    //sb.AppendLine("Mst_社員");
+                    // １．MySQLに作業用テーブルを作成
+                    sb.Clear();
+                    sb.AppendLine("CREATE TABLE Mst_社員_work LIKE Mst_社員");
+                    clsMySqlDb.DMLUpdate(sb.ToString());
 
-                    //clsMySqlDb.DMLUpdate(sb.ToString());
-
-                    /////////////////////////////////////////////////////////////////////////
-                    // SQL Server → MySQL
-                    /////////////////////////////////////////////////////////////////////////
+                    // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
                     using (ClsSqlDb clsSqlDb = new(ClsDbConfig.SQLServerNo))
                     {
                         // SQL Server SELECT ALL
-                        // SQL Serverデータを読み込み、MySQLへ書き込む
                         sb.Clear();
                         sb.AppendLine("SELECT");
                         sb.AppendLine(" staff_id");
@@ -1013,8 +857,6 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(",proxy_flag");
                         sb.AppendLine(",confirm_flag");
                         sb.AppendLine(",car_manage_flag");
-                        // 2025/12/24 DEL
-                        // sb.AppendLine(",attendance_flag");
                         sb.AppendLine(",master_mente_flag");
                         sb.AppendLine(",report_manage_flag");
                         sb.AppendLine(",recruit_manage_flag");
@@ -1026,25 +868,16 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(",sort");
                         sb.AppendLine(",kbn");
                         sb.AppendLine(",position_flag");
-                        // sb.AppendLine(",zai_flag");          2026/01/08 DEL
                         sb.AppendLine(",comment");
                         sb.AppendLine(",car_id");
-                        // 2025/12/24 DEL (S)
-                        // sb.AppendLine(",attsubject_flag");
-                        // sb.AppendLine(",task_flag");
-                        // 2025/12/24 DEL (E)
                         sb.AppendLine(",col");
-                        // 2025/11/10 ADD (S)
                         sb.AppendLine(",ins_user_id");
                         sb.AppendLine(",ins_date");
                         sb.AppendLine(",upd_user_id");
                         sb.AppendLine(",upd_date");
                         sb.AppendLine(",delete_flag");
-                        // 2025/11/10 ADD (E)
                         sb.AppendLine("FROM");
                         sb.AppendLine("Mst_社員");
-                        // sb.AppendLine("WHERE");
-                        // sb.AppendLine("DeleteFlag <> 1");
                         sb.AppendLine("ORDER BY");
                         sb.AppendLine("staff_id");
 
@@ -1056,214 +889,83 @@ namespace FlockAppC.tblClass
                             p_pgb.Maximum = rec_cnt;
                             p_pgb.Refresh();
 
-                            // MySQL INSERT/UPDATE/DELETE
                             foreach (DataRow dr in dt_val.Rows)
                             {
-                                upd_flag = 0; // 0:UPDATE/1:INSERT/2:DELETE/3:処理なし
-
-                                // MySQLデータの更新日時を取得
+                                // INSERT
                                 sb.Clear();
-                                sb.AppendLine("SELECT");
-                                sb.AppendLine(" upd_date");
-                                sb.AppendLine("FROM");
-                                sb.AppendLine("Mst_社員");
-                                sb.AppendLine("WHERE");
-                                sb.AppendLine("staff_id = " + dr["staff_id"].ToString());
-
-                                using(DataTable dt_val2 = clsMySqlDb.DMLSelect(sb.ToString()))
-                                {
-                                    // 該当IDなし→INSERT
-                                    if (dt_val2.Rows.Count == 0) { upd_flag = 1; }
-                                    else
-                                    {
-                                        // 1レコード取得
-                                        DataRow row = dt_val2.Rows[0];
-
-                                        // 更新日時を比較
-                                        if (dr.IsNull("upd_date") != true) { sql_date = DateTime.Parse(dr["upd_date"].ToString()); }
-                                        else { sql_date = DateTime.Parse("1900/01/01 0:00:00"); }
-                                        // sql_date = DateTime.Parse(dr["upd_date"].ToString());
-                                        
-                                        if (row.IsNull("upd_date") != true) { mysql_date = DateTime.Parse(row["upd_date"].ToString()); }
-                                        else { mysql_date = DateTime.Parse("1900/01/01 0:00:00"); }
-                                        // mysql_date = DateTime.Parse(row["upd_date"].ToString());
-
-                                        // 文字変換
-                                        sql_str = sql_date.ToString("yyyy/MM/dd HH:mm:ss");
-                                        mysql_str = mysql_date.ToString("yyyy/MM/dd HH:mm:ss");
-                                        if (sql_str == mysql_str)
-                                        {
-                                            // 更新日時が同じ→処理なし
-                                            upd_flag = 3;
-                                        }
-
-                                        // 削除フラグON→DELETE
-                                        if (dr.IsNull("delete_flag") != true)
-                                        {
-                                            if (Convert.ToInt32(dr["delete_flag"]) == ClsPublic.FLAG_ON) { upd_flag = 2; }
-                                        }
-                                        // if (Convert.ToInt32(dr["delete_flag"]) == 1) { upd_flag = 2; }
-                                    }
-                                }
-
-                                // UPDATE/INSERT/DELETE振り分け
-                                if (upd_flag == 1)
-                                {
-                                    // INSERT
-                                    sb.Clear();
-                                    sb.AppendLine("INSERT INTO Mst_社員 (");
-                                    sb.AppendLine(" staff_id");
-                                    sb.AppendLine(",id");
-                                    sb.AppendLine(",name1");
-                                    sb.AppendLine(",name2");
-                                    sb.AppendLine(",fullname");
-                                    sb.AppendLine(",kana1");
-                                    sb.AppendLine(",kana2");
-                                    sb.AppendLine(",fullkana");
-                                    sb.AppendLine(",office_id");
-                                    sb.AppendLine(",group_id");
-                                    sb.AppendLine(",proxy_flag");
-                                    sb.AppendLine(",confirm_flag");
-                                    sb.AppendLine(",car_manage_flag");
-                                    // 2025/12/24 DEL
-                                    // sb.AppendLine(",attendance_flag");
-                                    sb.AppendLine(",master_mente_flag");
-                                    sb.AppendLine(",report_manage_flag");
-                                    sb.AppendLine(",recruit_manage_flag");
-                                    sb.AppendLine(",report_confirm_flag");
-                                    sb.AppendLine(",system_control_flag");
-                                    sb.AppendLine(",confirm_password");
-                                    sb.AppendLine(",tanto_sort");
-                                    sb.AppendLine(",reg_sort");
-                                    sb.AppendLine(",sort");
-                                    sb.AppendLine(",kbn");
-                                    sb.AppendLine(",position_flag");
-                                    // sb.AppendLine(",zai_flag");          2026/01/08 DEL
-                                    sb.AppendLine(",comment");
-                                    sb.AppendLine(",car_id");
-                                    // 2025/12/24 DEL (S)
-                                    // sb.AppendLine(",attSubject_flag");
-                                    // sb.AppendLine(",task_flag");
-                                    // 2025/12/24 DEL (E)
-                                    sb.AppendLine(",col");
-                                    // 2025/11/10 ADD (S)
-                                    sb.AppendLine(",ins_user_id");
-                                    sb.AppendLine(",ins_date");
-                                    sb.AppendLine(",upd_user_id");
-                                    sb.AppendLine(",upd_date");
-                                    sb.AppendLine(",delete_flag");
-                                    // 2025/11/10 ADD (E)
-                                    sb.AppendLine(") VALUES (");
-                                    sb.AppendLine(dr["staff_id"].ToString());
-                                    sb.AppendLine("," + dr["id"].ToString());
-                                    sb.AppendLine(",'" + dr["name1"].ToString() + "'");
-                                    sb.AppendLine(",'" + dr["name2"].ToString() + "'");
-                                    sb.AppendLine(",'" + dr["fullname"].ToString() + "'");
-                                    sb.AppendLine(",'" + dr["kana1"].ToString() + "'");
-                                    sb.AppendLine(",'" + dr["kana2"].ToString() + "'");
-                                    sb.AppendLine(",'" + dr["fullkana"].ToString() + "'");
-                                    sb.AppendLine("," + dr["office_id"].ToString());
-                                    sb.AppendLine("," + dr["group_id"].ToString());
-                                    sb.AppendLine("," + dr["proxy_flag"].ToString());
-                                    sb.AppendLine("," + dr["confirm_flag"].ToString());
-                                    sb.AppendLine("," + dr["car_manage_flag"].ToString());
-                                    // 2025/12/24 DEL
-                                    // sb.AppendLine("," + dr["attendance_flag"].ToString());
-                                    sb.AppendLine("," + dr["master_mente_flag"].ToString());
-                                    sb.AppendLine("," + dr["report_manage_flag"].ToString());
-                                    sb.AppendLine("," + dr["recruit_manage_flag"].ToString());
-                                    sb.AppendLine("," + dr["report_confirm_flag"].ToString());
-                                    sb.AppendLine("," + dr["system_control_flag"].ToString());
-                                    sb.AppendLine(",'" + dr["confirm_password"].ToString() + "'");
-                                    sb.AppendLine("," + dr["tanto_sort"].ToString());
-                                    sb.AppendLine("," + dr["reg_sort"].ToString());
-                                    sb.AppendLine("," + dr["sort"].ToString());
-                                    sb.AppendLine("," + dr["kbn"].ToString());
-                                    sb.AppendLine("," + dr["position_flag"].ToString());
-                                    // sb.AppendLine("," + dr["zai_flag"].ToString());          2026/01/08 DEL
-                                    sb.AppendLine(",'" + dr["comment"].ToString() + "'");
-                                    sb.AppendLine("," + dr["car_id"].ToString());
-                                    // 2025/12/24 DEL (S)
-                                    // sb.AppendLine("," + dr["attsubject_flag"].ToString());
-                                    // sb.AppendLine("," + dr["task_flag"].ToString());
-                                    // 2025/12/24 DEL (E)
-                                    if (dr["col"].ToString() != "") { sb.AppendLine("," + dr["col"].ToString()); }
-                                    else { sb.AppendLine(",NULL"); }
-                                    // 2025/11/10 ADD (S)
-                                    if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
-                                    else { sb.AppendLine(",0"); }
-                                    if (dr.IsNull("ins_date") != true) { sb.AppendLine(",'" + dr["ins_date"].ToString() + "'"); }
-                                    else { sb.AppendLine(",null"); }
-                                    if (dr.IsNull("upd_user_id") != true) { sb.AppendLine("," + dr["upd_user_id"].ToString()); }
-                                    else { sb.AppendLine(",0"); }
-                                    if (dr.IsNull("upd_date") != true) { sb.AppendLine(",'" + dr["upd_date"].ToString() + "'"); }
-                                    else { sb.AppendLine(",null"); }
-                                    if (dr.IsNull("delete_flag") != true) { sb.AppendLine("," + dr["delete_flag"].ToString()); }
-                                    else { sb.AppendLine("," + ClsPublic.FLAG_OFF); }
-                                    // 2025/11/10 ADD (E)
-                                    sb.AppendLine(")");
-                                }
-                                else if(upd_flag == 0)
-                                {
-                                    // UPDATE
-                                    sb.Clear();
-                                    sb.AppendLine("UPDATE Mst_社員 SET");
-                                    sb.AppendLine(" name1 = '" + dr["name1"].ToString() + "'");
-                                    sb.AppendLine(",name2 = '" + dr["name2"].ToString() + "'");
-                                    sb.AppendLine(",fullname = '" + dr["fullname"].ToString() + "'");
-                                    sb.AppendLine(",kana1 = '" + dr["kana1"].ToString() + "'");
-                                    sb.AppendLine(",kana2 = '" + dr["kana2"].ToString() + "'");
-                                    sb.AppendLine(",fullkana = '" + dr["fullkana"].ToString() + "'");
-                                    sb.AppendLine(",office_id = " + dr["office_id"].ToString());
-                                    sb.AppendLine(",group_id = " + dr["group_id"].ToString());
-                                    sb.AppendLine(",proxy_flag = " + dr["proxy_flag"].ToString());
-                                    sb.AppendLine(",confirm_flag = " + dr["confirm_flag"].ToString());
-                                    sb.AppendLine(",car_manage_flag = " + dr["car_manage_flag"].ToString());
-                                    // 2025/12/24 DEL
-                                    // sb.AppendLine(",attendance_flag = " + dr["attendance_flag"].ToString());
-                                    sb.AppendLine(",master_mente_flag = " + dr["master_mente_flag"].ToString());
-                                    sb.AppendLine(",report_manage_flag = " + dr["report_manage_flag"].ToString());
-                                    sb.AppendLine(",recruit_manage_flag = " + dr["recruit_manage_flag"].ToString());
-                                    sb.AppendLine(",report_confirm_flag = " + dr["report_confirm_flag"].ToString());
-                                    sb.AppendLine(",system_control_flag = " + dr["system_control_flag"].ToString());
-                                    sb.AppendLine(",confirm_password = '" + dr["confirm_password"].ToString() + "'");
-                                    sb.AppendLine(",tanto_sort = " + dr["tanto_sort"].ToString());
-                                    sb.AppendLine(",reg_sort = " + dr["reg_sort"].ToString());
-                                    sb.AppendLine(",sort = " + dr["sort"].ToString());
-                                    sb.AppendLine(",kbn = " + dr["kbn"].ToString());
-                                    sb.AppendLine(",position_flag = " + dr["position_flag"].ToString());
-                                    // sb.AppendLine(",zai_flag = " + dr["zai_flag"].ToString());           2026/01/08 DEL
-                                    sb.AppendLine(",comment = '" + dr["comment"].ToString() + "'");
-                                    sb.AppendLine(",car_id = " + dr["car_id"].ToString());
-                                    // 2025/12/24 DEL (S)
-                                    // sb.AppendLine(",attsubject_flag = " + dr["attsubject_flag"].ToString());
-                                    // sb.AppendLine(",task_flag = " + dr["task_flag"].ToString());
-                                    // 2025/12/24 DEL (E)
-                                    // 2025/11/10 ADD (S)
-                                    if (dr.IsNull("ins_user_id") != true) { sb.AppendLine(",ins_user_id = " + dr["ins_user_id"].ToString()); }
-                                    else { sb.AppendLine(",ins_user_id = 0"); }
-                                    if (dr["ins_date"].ToString() != "") { sb.AppendLine(",ins_date = '" + dr["ins_date"].ToString() + "'"); }
-                                    else { sb.AppendLine(",ins_date = NULL"); }
-                                    if (dr.IsNull("upd_user_id") != true) { sb.AppendLine(",upd_user_id = " + dr["upd_user_id"].ToString()); }
-                                    else { sb.AppendLine(",upd_user_id = 0"); }
-                                    if (dr["upd_date"].ToString() != "") { sb.AppendLine(",upd_date = '" + dr["upd_date"].ToString() + "'"); }
-                                    else { sb.AppendLine(",upd_date = NULL"); }
-                                    sb.AppendLine(",delete_flag = " + dr["delete_flag"].ToString());
-                                    // 2025/11/10 ADD (E)
-
-                                    sb.AppendLine(" WHERE staff_id = " + dr["staff_id"].ToString());
-                                }
-                                else if(upd_flag == 2)
-                                {
-                                    // DELETE
-                                    sb.Clear();
-                                    sb.AppendLine("DELETE FROM");
-                                    sb.AppendLine("Mst_社員");
-                                    sb.AppendLine(" WHERE staff_id = " + dr["staff_id"].ToString());
-                                }
-
-                                // upd_flag = 3 は処理なし
-
+                                sb.AppendLine("INSERT INTO Mst_社員_work (");
+                                sb.AppendLine(" staff_id");
+                                sb.AppendLine(",id");
+                                sb.AppendLine(",name1");
+                                sb.AppendLine(",name2");
+                                sb.AppendLine(",fullname");
+                                sb.AppendLine(",kana1");
+                                sb.AppendLine(",kana2");
+                                sb.AppendLine(",fullkana");
+                                sb.AppendLine(",office_id");
+                                sb.AppendLine(",group_id");
+                                sb.AppendLine(",proxy_flag");
+                                sb.AppendLine(",confirm_flag");
+                                sb.AppendLine(",car_manage_flag");
+                                sb.AppendLine(",master_mente_flag");
+                                sb.AppendLine(",report_manage_flag");
+                                sb.AppendLine(",recruit_manage_flag");
+                                sb.AppendLine(",report_confirm_flag");
+                                sb.AppendLine(",system_control_flag");
+                                sb.AppendLine(",confirm_password");
+                                sb.AppendLine(",tanto_sort");
+                                sb.AppendLine(",reg_sort");
+                                sb.AppendLine(",sort");
+                                sb.AppendLine(",kbn");
+                                sb.AppendLine(",position_flag");
+                                sb.AppendLine(",comment");
+                                sb.AppendLine(",car_id");
+                                sb.AppendLine(",col");
+                                sb.AppendLine(",ins_user_id");
+                                sb.AppendLine(",ins_date");
+                                sb.AppendLine(",upd_user_id");
+                                sb.AppendLine(",upd_date");
+                                sb.AppendLine(",delete_flag");
+                                sb.AppendLine(") VALUES (");
+                                sb.AppendLine(dr["staff_id"].ToString());
+                                sb.AppendLine("," + dr["id"].ToString());
+                                sb.AppendLine(",'" + dr["name1"].ToString() + "'");
+                                sb.AppendLine(",'" + dr["name2"].ToString() + "'");
+                                sb.AppendLine(",'" + dr["fullname"].ToString() + "'");
+                                sb.AppendLine(",'" + dr["kana1"].ToString() + "'");
+                                sb.AppendLine(",'" + dr["kana2"].ToString() + "'");
+                                sb.AppendLine(",'" + dr["fullkana"].ToString() + "'");
+                                sb.AppendLine("," + dr["office_id"].ToString());
+                                sb.AppendLine("," + dr["group_id"].ToString());
+                                sb.AppendLine("," + dr["proxy_flag"].ToString());
+                                sb.AppendLine("," + dr["confirm_flag"].ToString());
+                                sb.AppendLine("," + dr["car_manage_flag"].ToString());
+                                sb.AppendLine("," + dr["master_mente_flag"].ToString());
+                                sb.AppendLine("," + dr["report_manage_flag"].ToString());
+                                sb.AppendLine("," + dr["recruit_manage_flag"].ToString());
+                                sb.AppendLine("," + dr["report_confirm_flag"].ToString());
+                                sb.AppendLine("," + dr["system_control_flag"].ToString());
+                                sb.AppendLine(",'" + dr["confirm_password"].ToString() + "'");
+                                sb.AppendLine("," + dr["tanto_sort"].ToString());
+                                sb.AppendLine("," + dr["reg_sort"].ToString());
+                                sb.AppendLine("," + dr["sort"].ToString());
+                                sb.AppendLine("," + dr["kbn"].ToString());
+                                sb.AppendLine("," + dr["position_flag"].ToString());
+                                sb.AppendLine(",'" + dr["comment"].ToString() + "'");
+                                sb.AppendLine("," + dr["car_id"].ToString());
+                                if (dr["col"].ToString() != "") { sb.AppendLine("," + dr["col"].ToString()); }
+                                else { sb.AppendLine(",NULL"); }
+                                if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
+                                else { sb.AppendLine(",0"); }
+                                if (dr.IsNull("ins_date") != true) { sb.AppendLine(",'" + dr["ins_date"].ToString() + "'"); }
+                                else { sb.AppendLine(",null"); }
+                                if (dr.IsNull("upd_user_id") != true) { sb.AppendLine("," + dr["upd_user_id"].ToString()); }
+                                else { sb.AppendLine(",0"); }
+                                if (dr.IsNull("upd_date") != true) { sb.AppendLine(",'" + dr["upd_date"].ToString() + "'"); }
+                                else { sb.AppendLine(",null"); }
+                                if (dr.IsNull("delete_flag") != true) { sb.AppendLine("," + dr["delete_flag"].ToString()); }
+                                else { sb.AppendLine("," + ClsPublic.FLAG_OFF); }
+                                sb.AppendLine(")");
                                 clsMySqlDb.DMLUpdate(sb.ToString());
 
                                 importCnt++;
@@ -1273,6 +975,33 @@ namespace FlockAppC.tblClass
                                 p_pgb.Refresh();
                             }
                         }
+
+                        // ３．SQL Serverテーブルと作業用テーブルを比較
+                        int cnt;
+                        sb.Clear();
+                        sb.AppendLine("SELECT COUNT(*) AS rec_cnt2 FROM Mst_社員_work");         // MySQL側
+                        using (DataTable dt_val = clsMySqlDb.DMLSelect(sb.ToString()))
+                        {
+                            cnt = int.Parse(dt_val.Rows[0]["rec_cnt2"].ToString());
+                        }
+                        if (rec_cnt != cnt)
+                        {
+                            // レコード件数不一致エラー
+                            throw new Exception("従業員マスターのエクスポートでレコード件数不一致エラーが発生しました。");
+                        }
+
+                        // ４．本番テーブルをリネーム
+                        // ５．作業用テーブルを本番テーブルにリネーム
+                        sb.Clear();
+                        sb.AppendLine("RENAME TABLE");
+                        sb.AppendLine("Mst_社員 TO Mst_社員_old,");
+                        sb.AppendLine("Mst_社員_work TO Mst_社員;");
+                        clsMySqlDb.DMLUpdate(sb.ToString());
+
+                        // ６．不要となった旧本番テーブルを削除
+                        sb.Clear();
+                        sb.AppendLine("DROP TABLE Mst_社員_old;");
+                        clsMySqlDb.DMLUpdate(sb.ToString());
                     }
                 }
             }
@@ -1290,39 +1019,37 @@ namespace FlockAppC.tblClass
             int rec_cnt;
             int importCnt = 0;
 
+            // =============================================================================
+            // １．MySQLに作業用テーブルを作成
+            // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
+            // ３．SQL Serverテーブルと作業用テーブルを比較
+            // ４．本番テーブルをリネーム
+            // ５．作業用テーブルを本番テーブルにリネーム
+            // ６．不要となった旧本番テーブルを削除
+            // =============================================================================
             try
             {
                 using (ClsMySqlDb clsMySqlDb = new(ClsDbConfig.MySQLNo))
                 {
-                    /////////////////////////////////////////////////////////////////////////
-                    // TRUNCATE TABLE
-                    // 専従先テーブルをクリア
-                    /////////////////////////////////////////////////////////////////////////
+                    // １．MySQLに作業用テーブルを作成
                     sb.Clear();
-                    sb.AppendLine("TRUNCATE TABLE");
-                    sb.AppendLine("Mst_専従先専従者");
-
+                    sb.AppendLine("CREATE TABLE Mst_専従先専従者_work LIKE Mst_専従先専従者");
                     clsMySqlDb.DMLUpdate(sb.ToString());
 
-                    /////////////////////////////////////////////////////////////////////////
-                    // SQL Server → MySQL
-                    /////////////////////////////////////////////////////////////////////////
+                    // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
                     using (ClsSqlDb clsSqlDb = new(ClsDbConfig.SQLServerNo))
                     {
                         // SQL Server SELECT ALL
-                        // SQL Serverデータを読み込み、MySQLへ書き込む
                         sb.Clear();
                         sb.AppendLine("SELECT");
                         sb.AppendLine(" id");
                         sb.AppendLine(",location_id");
                         sb.AppendLine(",staff_id");
-                        // 2025/11/10↓
                         sb.AppendLine(",ins_user_id");
                         sb.AppendLine(",ins_date");
                         sb.AppendLine(",upd_user_id");
                         sb.AppendLine(",upd_date");
                         sb.AppendLine(",delete_flag");
-                        // 2025/11/10↑
                         sb.AppendLine("FROM");
                         sb.AppendLine("Mst_専従先専従者");
                         sb.AppendLine("ORDER BY");
@@ -1334,27 +1061,25 @@ namespace FlockAppC.tblClass
                             rec_cnt = dt_val.Rows.Count;
                             p_pgb.Visible = true;
                             p_pgb.Maximum = rec_cnt;
+                            p_pgb.Refresh();
 
                             // MySQL INSERT
                             foreach (DataRow dr in dt_val.Rows)
                             {
                                 sb.Length = 0;
-                                sb.AppendLine("INSERT INTO Mst_専従先専従者 (");
+                                sb.AppendLine("INSERT INTO Mst_専従先専従者_work (");
                                 sb.AppendLine(" id");
                                 sb.AppendLine(",location_id");
                                 sb.AppendLine(",staff_id");
-                                // 2025/11/10↓
                                 sb.AppendLine(",ins_user_id");
                                 sb.AppendLine(",ins_date");
                                 sb.AppendLine(",upd_user_id");
                                 sb.AppendLine(",upd_date");
                                 sb.AppendLine(",delete_flag");
-                                // 2025/11/10↑
                                 sb.AppendLine(") VALUES (");
                                 sb.AppendLine(dr["id"].ToString());
                                 sb.AppendLine("," + dr["location_id"].ToString());
                                 sb.AppendLine("," + dr["staff_id"].ToString());
-                                // 2025/11/10↓
                                 if (dr.IsNull("ins_user_id") != true) { sb.AppendLine("," + dr["ins_user_id"].ToString()); }
                                 else { sb.AppendLine(",0"); }
                                 if (dr.IsNull("ins_date") != true) { sb.AppendLine(",'" + dr["ins_date"].ToString() + "'"); }
@@ -1365,12 +1090,7 @@ namespace FlockAppC.tblClass
                                 else { sb.AppendLine(",null"); }
                                 if (dr.IsNull("delete_flag") != true) { sb.AppendLine("," + dr["delete_flag"].ToString()); }
                                 else { sb.AppendLine("," + ClsPublic.FLAG_OFF); }
-                                // 2025/11/10↑
                                 sb.AppendLine(")");
-
-                                // 2025/08/28 DEL
-                                // cls.Sql = st.ToString();
-                                // cls.DMLUpdate();
                                 clsMySqlDb.DMLUpdate(sb.ToString());
 
                                 importCnt++;
@@ -1380,6 +1100,33 @@ namespace FlockAppC.tblClass
                                 p_pgb.Refresh();
                             }
                         }
+
+                        // ３．SQL Serverテーブルと作業用テーブルを比較
+                        int cnt;
+                        sb.Clear();
+                        sb.AppendLine("SELECT COUNT(*) AS rec_cnt2 FROM Mst_専従先専従者_work");         // MySQL側
+                        using (DataTable dt_val = clsMySqlDb.DMLSelect(sb.ToString()))
+                        {
+                            cnt = int.Parse(dt_val.Rows[0]["rec_cnt2"].ToString());
+                        }
+                        if (rec_cnt != cnt)
+                        {
+                            // レコード件数不一致エラー
+                            throw new Exception("専従先専従者マスターのエクスポートでレコード件数不一致エラーが発生しました。");
+                        }
+
+                        // ４．本番テーブルをリネーム
+                        // ５．作業用テーブルを本番テーブルにリネーム
+                        sb.Clear();
+                        sb.AppendLine("RENAME TABLE");
+                        sb.AppendLine("Mst_専従先専従者 TO Mst_専従先専従者_old,");
+                        sb.AppendLine("Mst_専従先専従者_work TO Mst_専従先専従者;");
+                        clsMySqlDb.DMLUpdate(sb.ToString());
+
+                        // ６．不要となった旧本番テーブルを削除
+                        sb.Clear();
+                        sb.AppendLine("DROP TABLE Mst_専従先専従者_old;");
+                        clsMySqlDb.DMLUpdate(sb.ToString());
                     }
                 }
             }
@@ -1394,19 +1141,26 @@ namespace FlockAppC.tblClass
         /// </summary>
         public void ExportLocationStaffAllData(ClsSqlDb clsSqlDb, ClsMySqlDb clsMySqlDb)
         {
+            int rec_cnt;
+            int importCnt = 0;
+
+            // =============================================================================
+            // １．MySQLに作業用テーブルを作成
+            // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
+            // ３．SQL Serverテーブルと作業用テーブルを比較
+            // ４．本番テーブルをリネーム
+            // ５．作業用テーブルを本番テーブルにリネーム
+            // ６．不要となった旧本番テーブルを削除
+            // =============================================================================
             try
             {
-                /////////////////////////////////////////////////////////////////////////
-                // TRUNCATE TABLE
-                // 専従先テーブルをクリア
-                /////////////////////////////////////////////////////////////////////////
+                // １．MySQLに作業用テーブルを作成
                 sb.Clear();
-                sb.AppendLine("TRUNCATE TABLE");
-                sb.AppendLine("Mst_専従先専従者");
+                sb.AppendLine("CREATE TABLE Mst_専従先専従者_work LIKE Mst_専従先専従者");
                 clsMySqlDb.DMLUpdate(sb.ToString());
 
+                // ２．SQL Serverの全データをMySQLの作業用テーブルにINSERT
                 // SQL Server SELECT ALL
-                // SQL Serverデータを読み込み、MySQLへ書き込む
                 sb.Clear();
                 sb.AppendLine("SELECT");
                 sb.AppendLine(" id");
@@ -1424,11 +1178,13 @@ namespace FlockAppC.tblClass
 
                 using (DataTable dt_val = clsSqlDb.DMLSelect(sb.ToString()))
                 {
+                    rec_cnt = dt_val.Rows.Count;
+
                     // MySQL INSERT
                     foreach (DataRow dr in dt_val.Rows)
                     {
-                        sb.Clear();
-                        sb.AppendLine("INSERT INTO Mst_専従先専従者 (");
+                        sb.Length = 0;
+                        sb.AppendLine("INSERT INTO Mst_専従先専従者_work (");
                         sb.AppendLine(" id");
                         sb.AppendLine(",location_id");
                         sb.AppendLine(",staff_id");
@@ -1453,8 +1209,37 @@ namespace FlockAppC.tblClass
                         else { sb.AppendLine("," + ClsPublic.FLAG_OFF); }
                         sb.AppendLine(")");
                         clsMySqlDb.DMLUpdate(sb.ToString());
+
+                        importCnt++;
                     }
                 }
+
+                // ３．SQL Serverテーブルと作業用テーブルを比較
+                int cnt;
+                sb.Clear();
+                sb.AppendLine("SELECT COUNT(*) AS rec_cnt2 FROM Mst_専従先専従者_work");         // MySQL側
+                using (DataTable dt_val = clsMySqlDb.DMLSelect(sb.ToString()))
+                {
+                    cnt = int.Parse(dt_val.Rows[0]["rec_cnt2"].ToString());
+                }
+                if (rec_cnt != cnt)
+                {
+                    // レコード件数不一致エラー
+                    throw new Exception("専従先専従者マスターのエクスポートでレコード件数不一致エラーが発生しました。");
+                }
+
+                // ４．本番テーブルをリネーム
+                // ５．作業用テーブルを本番テーブルにリネーム
+                sb.Clear();
+                sb.AppendLine("RENAME TABLE");
+                sb.AppendLine("Mst_専従先専従者 TO Mst_専従先専従者_old,");
+                sb.AppendLine("Mst_専従先専従者_work TO Mst_専従先専従者;");
+                clsMySqlDb.DMLUpdate(sb.ToString());
+
+                // ６．不要となった旧本番テーブルを削除
+                sb.Clear();
+                sb.AppendLine("DROP TABLE Mst_専従先専従者_old;");
+                clsMySqlDb.DMLUpdate(sb.ToString());
             }
             catch (Exception ex)
             {
