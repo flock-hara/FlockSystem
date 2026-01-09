@@ -79,7 +79,6 @@
             // 
             // btnChangeDB
             // 
-            this.btnChangeDB.Enabled = false;
             this.btnChangeDB.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnChangeDB.Location = new System.Drawing.Point(22, 219);
             this.btnChangeDB.Name = "btnChangeDB";
@@ -92,7 +91,6 @@
             // dgvDBList
             // 
             this.dgvDBList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDBList.Enabled = false;
             this.dgvDBList.Location = new System.Drawing.Point(22, 90);
             this.dgvDBList.Name = "dgvDBList";
             this.dgvDBList.RowTemplate.Height = 21;
@@ -142,7 +140,6 @@
             // dgvDBList2
             // 
             this.dgvDBList2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDBList2.Enabled = false;
             this.dgvDBList2.Location = new System.Drawing.Point(285, 90);
             this.dgvDBList2.Name = "dgvDBList2";
             this.dgvDBList2.RowTemplate.Height = 21;

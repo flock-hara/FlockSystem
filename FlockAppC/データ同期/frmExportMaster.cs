@@ -102,7 +102,7 @@ namespace FlockAppC.データ同期
             if (MessageBox.Show("エクスポートを実行します。", "確認", MessageBoxButtons.OKCancel) == DialogResult.Cancel) return;
 
             // メッセージ非表示
-            this.lblMessage.Visible = false;
+            // this.lblMessage.Visible = false;
 
             // XServer接続ﾒｯｾｰｼﾞ表示
             this.lblConnect.Visible = true;
