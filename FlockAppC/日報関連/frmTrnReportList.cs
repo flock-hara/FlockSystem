@@ -34,34 +34,32 @@ namespace FlockAppC.Report
         private string List_font_type { get; set; }
 
         // DataGridViewカラム定義
-        DataGridViewTextBoxColumn col01 = new();
-        DataGridViewTextBoxColumn col02 = new();
-        DataGridViewTextBoxColumn col03 = new();
-        DataGridViewTextBoxColumn col04 = new();
-        DataGridViewTextBoxColumn col05 = new();
-        DataGridViewTextBoxColumn col06 = new();
-        DataGridViewTextBoxColumn col07 = new();
-        DataGridViewTextBoxColumn col08 = new();
-        DataGridViewTextBoxColumn col09 = new();
-        DataGridViewTextBoxColumn col10 = new();
-        DataGridViewTextBoxColumn col11 = new();
-        DataGridViewTextBoxColumn col12 = new();
-        DataGridViewTextBoxColumn col13 = new();
-        DataGridViewTextBoxColumn col14 = new();
-        DataGridViewTextBoxColumn col15 = new();
-        DataGridViewTextBoxColumn col16 = new();
-        DataGridViewTextBoxColumn col17 = new();
-        DataGridViewTextBoxColumn col18 = new();
-        DataGridViewTextBoxColumn col19 = new();
-        DataGridViewTextBoxColumn col20 = new();
-        DataGridViewTextBoxColumn col21 = new();
-        DataGridViewTextBoxColumn col22 = new();
-        DataGridViewTextBoxColumn col23 = new();
-        DataGridViewTextBoxColumn col24 = new();
-        DataGridViewTextBoxColumn col25 = new();
-        DataGridViewTextBoxColumn col26 = new();
-        DataGridViewTextBoxColumn col27 = new();
-        DataGridViewTextBoxColumn col28 = new();
+        DataGridViewTextBoxColumn col01 = new();                    // 0:編集ボタン
+        DataGridViewTextBoxColumn col02 = new();                    // 1:日報データID    
+        DataGridViewTextBoxColumn col03 = new();                    // 2:専従先ID
+        DataGridViewTextBoxColumn col04 = new();                    // 3:専従先名称
+        DataGridViewTextBoxColumn col05 = new();                    // 4:日報日付
+        DataGridViewTextBoxColumn col06 = new();                    // 5:車両番号
+        DataGridViewTextBoxColumn col07 = new();                    // 6:号車
+        DataGridViewTextBoxColumn col08 = new();                    // 7:車両ID
+        DataGridViewTextBoxColumn col09 = new();                    // 8:担当者1 ID
+
+        DataGridViewTextBoxColumn col14 = new();                    // 9:開始時間1
+        DataGridViewTextBoxColumn col15 = new();                    // 10:開始時間2
+        DataGridViewTextBoxColumn col16 = new();                    // 11:開始時間3
+        DataGridViewTextBoxColumn col17 = new();                    // 12:終了時間1
+        DataGridViewTextBoxColumn col18 = new();                    // 13:終了時間2
+        DataGridViewTextBoxColumn col19 = new();                    // 14:終了時間3
+        DataGridViewTextBoxColumn col20 = new();                    // 15:入庫時メーター
+        DataGridViewTextBoxColumn col21 = new();                    // 16:出庫時メーター
+        DataGridViewTextBoxColumn col22 = new();                    // 17:走行粁
+        DataGridViewTextBoxColumn col23 = new();                    // 18:給油量
+        DataGridViewTextBoxColumn col24 = new();                    // 19:残業有無
+        DataGridViewTextBoxColumn col25 = new();                    // 20:社内チェック
+        DataGridViewTextBoxColumn col26 = new();                    // 21:管理責任者確認
+        DataGridViewTextBoxColumn col27 = new();                    // 22:お客様確認
+        DataGridViewTextBoxColumn col28 = new();                    // 23:代車
+        DataGridViewTextBoxColumn col29 = new();                    // 24:同乗者
 
         public frmTrnReportList()
         {
@@ -147,9 +145,9 @@ namespace FlockAppC.Report
         /// </summary>
         private void LoadConfig()
         {
+            // Pathはログイン時にSysConfigファイルから取得済み
             // CSV出力パス　※本来はxmlファイルから読み込むが、とりあえず固定
-            // clsPublicReport.pub_Csv_path = @"\\Flockserver2017\共有\\共通ホルダー\個人用  ドキュメント\事務担当用\\アンタッチャブル！( ･`д･´)\\日報.xml";
-            clsPublicReport.pub_Csv_path = @"\\Flockserver2017\共有\\共通ホルダー\個人用  ドキュメント\事務担当用\\アンタッチャブル！( ･`д･´)";
+            // clsPublicReport.pub_Csv_path = @"\\Flockserver2017\共有\\共通ホルダー\個人用  ドキュメント\事務担当用\\アンタッチャブル！( ･`д･´)";
         }
         /// <summary>
         /// Initialize DataGridView
@@ -209,26 +207,6 @@ namespace FlockAppC.Report
             col09.HeaderText = "担当者";
             col09.Width = 105;
             col09.Visible = true;
-            // 担当者2 ID
-            col10.Name = "col10";
-            col10.HeaderText = "担ID";
-            col10.Width = 50;
-            col10.Visible = false;
-            // 担当者2 名
-            col11.Name = "col11";
-            col11.HeaderText = "担当者";
-            col11.Width = 80;
-            col11.Visible = false;
-            // 担当者3 ID
-            col12.Name = "col12";
-            col12.HeaderText = "担ID";
-            col12.Width = 50;
-            col12.Visible = false;
-            // 担当者3 名
-            col13.Name = "col13";
-            col13.HeaderText = "担当者";
-            col13.Width = 80;
-            col13.Visible = false;
             // 開始時間1
             col14.Name = "col14";
             col14.HeaderText = "開時1";
@@ -299,11 +277,16 @@ namespace FlockAppC.Report
             col27.HeaderText = "得";
             col27.Width = 30;
             col27.Visible = true;
-            // お客様確認
+            // 代車
             col28.Name = "col28";
-            col28.HeaderText = "代";
-            col28.Width = 30;
+            col28.HeaderText = "代車";
+            col28.Width = 50;
             col28.Visible = true;
+            // 同乗者
+            col29.Name = "col29"; 
+            col29.HeaderText = "同乗";
+            col29.Width = 50;
+            col29.Visible = true;
 
             this.dgvList.Columns.Add(col00);
             this.dgvList.Columns.Add(col01);
@@ -313,13 +296,10 @@ namespace FlockAppC.Report
             this.dgvList.Columns.Add(col05);
             this.dgvList.Columns.Add(col06);
             this.dgvList.Columns.Add(col07);
-            this.dgvList.Columns.Add(col28);
-            this.dgvList.Columns.Add(col08);
+            this.dgvList.Columns.Add(col28);            // 代車
+            this.dgvList.Columns.Add(col29);            // 同乗者
+            this.dgvList.Columns.Add(col08);            // 担当者
             this.dgvList.Columns.Add(col09);
-            this.dgvList.Columns.Add(col10);
-            this.dgvList.Columns.Add(col11);
-            this.dgvList.Columns.Add(col12);
-            this.dgvList.Columns.Add(col13);
             this.dgvList.Columns.Add(col14);
             this.dgvList.Columns.Add(col15);
             this.dgvList.Columns.Add(col16);
@@ -365,10 +345,12 @@ namespace FlockAppC.Report
             this.dgvList.Columns["col07"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
             this.dgvList.Columns["col08"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
             this.dgvList.Columns["col09"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
-            this.dgvList.Columns["col10"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
-            this.dgvList.Columns["col11"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
-            this.dgvList.Columns["col12"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
-            this.dgvList.Columns["col13"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
+            // 2026/01/13 DEL (S)
+            //this.dgvList.Columns["col10"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
+            //this.dgvList.Columns["col11"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
+            //this.dgvList.Columns["col12"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
+            //this.dgvList.Columns["col13"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
+            // 2026/01/13 DEL (E)
             this.dgvList.Columns["col14"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
             this.dgvList.Columns["col15"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
             this.dgvList.Columns["col16"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
@@ -384,6 +366,7 @@ namespace FlockAppC.Report
             this.dgvList.Columns["col26"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
             this.dgvList.Columns["col27"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
             this.dgvList.Columns["col28"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
+            this.dgvList.Columns["col29"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;         // ヘッダー文字位置
 
             //奇数行を黄色にする
             //// this.dgvList.AlternatingRowsDefaultCellStyle.BackColor = System.Drawing.Color.Moccasin;
@@ -401,10 +384,12 @@ namespace FlockAppC.Report
             this.dgvList.Columns["col07"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
             this.dgvList.Columns["col08"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
             this.dgvList.Columns["col09"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
-            this.dgvList.Columns["col10"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
-            this.dgvList.Columns["col11"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
-            this.dgvList.Columns["col12"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
-            this.dgvList.Columns["col13"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
+            // 2026/01/13 DEL (S)
+            //this.dgvList.Columns["col10"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
+            //this.dgvList.Columns["col11"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
+            //this.dgvList.Columns["col12"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
+            //this.dgvList.Columns["col13"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
+            // 2026/01/13 DEL (E)
             this.dgvList.Columns["col14"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
             this.dgvList.Columns["col15"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
             this.dgvList.Columns["col16"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
@@ -420,6 +405,7 @@ namespace FlockAppC.Report
             this.dgvList.Columns["col26"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
             this.dgvList.Columns["col27"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
             this.dgvList.Columns["col28"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
+            this.dgvList.Columns["col29"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;            //セルの文字表示位置
 
             // 一覧データフォント設定
             this.dgvList.Columns["col01"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
@@ -431,10 +417,12 @@ namespace FlockAppC.Report
             this.dgvList.Columns["col07"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
             this.dgvList.Columns["col08"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
             this.dgvList.Columns["col09"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
-            this.dgvList.Columns["col10"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
-            this.dgvList.Columns["col11"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
-            this.dgvList.Columns["col12"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
-            this.dgvList.Columns["col13"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
+            // 2026/01/13 DEL (S)
+            //this.dgvList.Columns["col10"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
+            //this.dgvList.Columns["col11"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
+            //this.dgvList.Columns["col12"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
+            //this.dgvList.Columns["col13"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
+            // 2026/01/13 DEL (E)
             this.dgvList.Columns["col14"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
             this.dgvList.Columns["col15"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
             this.dgvList.Columns["col16"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
@@ -450,6 +438,7 @@ namespace FlockAppC.Report
             this.dgvList.Columns["col26"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
             this.dgvList.Columns["col27"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
             this.dgvList.Columns["col28"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
+            this.dgvList.Columns["col29"].DefaultCellStyle.Font = new System.Drawing.Font(Header_font_type, List_font_size, FontStyle.Regular);            //フォント設定
 
             // その他設定
             //this.dgvSelect1.ScrollBars = false;                                                                                   //スクロールバー非表示
@@ -899,7 +888,7 @@ namespace FlockAppC.Report
                     // IDを配列に保持
                     clsPublicReport.pub_Id_list[i] = (int)dr["id"];
 
-                    // 残業時間
+                    // 残業時間（Nullの場合は0をセット）
                     over_time1 = dr["over_time1"] == DBNull.Value ? 0 : Convert.ToInt32(dr["over_time1"]);
                     over_time2 = dr["over_time2"] == DBNull.Value ? 0 : Convert.ToInt32(dr["over_time2"]);
                     over_time3 = dr["over_time3"] == DBNull.Value ? 0 : Convert.ToInt32(dr["over_time3"]);
@@ -914,10 +903,12 @@ namespace FlockAppC.Report
                     this.dgvList.Rows[i].Cells["col07"].Value = dr["car_id"];
                     this.dgvList.Rows[i].Cells["col08"].Value = dr["staff_id1"];
                     this.dgvList.Rows[i].Cells["col09"].Value = dr["FullNameB"];
-                    this.dgvList.Rows[i].Cells["col10"].Value = dr["staff_id2"];
-                    this.dgvList.Rows[i].Cells["col11"].Value = "";
-                    this.dgvList.Rows[i].Cells["col12"].Value = dr["staff_id3"];
-                    this.dgvList.Rows[i].Cells["col13"].Value = "";
+                    // 2026/01/13 DEL (S)
+                    //this.dgvList.Rows[i].Cells["col10"].Value = dr["staff_id2"];
+                    //this.dgvList.Rows[i].Cells["col11"].Value = "";
+                    //this.dgvList.Rows[i].Cells["col12"].Value = dr["staff_id3"];
+                    //this.dgvList.Rows[i].Cells["col13"].Value = "";
+                    // 2026/01/13 DEL (E)
 
                     // ========================================================================================================
                     // 始業/終業時間（整合性チェック用）
@@ -932,11 +923,14 @@ namespace FlockAppC.Report
                     // 開始時間
                     if (dr.IsNull("start_time1") != true)
                     {
+                        // 開始時間1をHH:MM形式で表示
                         this.dgvList.Rows[i].Cells["col14"].Value = DateTime.Parse(dr["start_time1"].ToString()).ToString("HH:mm");
+                        // 整合性チェック用にDateTime型で保持
                         st1 = DateTime.Parse(dr["start_time1"].ToString());
                     }
                     else
                     {
+                        // 開始時間1がNullの場合は空文字をセット
                         this.dgvList.Rows[i].Cells["col14"].Value = "";
                     }
                     if (dr.IsNull("start_time2") != true)
@@ -960,11 +954,14 @@ namespace FlockAppC.Report
                     // 終了時間
                     if (dr.IsNull("end_time1") != true)
                     {
+                        // 終了時間1をHH:MM形式で表示
                         this.dgvList.Rows[i].Cells["col17"].Value = DateTime.Parse(dr["end_time1"].ToString()).ToString("HH:mm");
+                        // 整合性チェック用にDateTime型で保持
                         en1 = DateTime.Parse(dr["end_time1"].ToString());
                     }
                     else
                     {
+                        // 終了時間1がNullの場合は空文字をセット
                         this.dgvList.Rows[i].Cells["col17"].Value = "";
                     }
                     if (dr.IsNull("end_time2") != true)
@@ -1018,7 +1015,10 @@ namespace FlockAppC.Report
                     else
                     {
                         // セル設定（OK）
-                        ClsPublic.SetGridViewFont(i, 16, this.dgvList.Rows[i].Cells["col15"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                        // 2026/01/13 UPD (S)
+                        //ClsPublic.SetGridViewFont(i, 16, this.dgvList.Rows[i].Cells["col15"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                        ClsPublic.SetGridViewFont(i, 13, this.dgvList.Rows[i].Cells["col15"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                        // 2026/01/13 UPD (E)
                     }
 
                     //// 始業②入力なし終業②入力あり
@@ -1042,7 +1042,10 @@ namespace FlockAppC.Report
                     else
                     {
                         // セル設定（OK）
-                        ClsPublic.SetGridViewFont(i, 17, this.dgvList.Rows[i].Cells["col16"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                        // 2026/01/13 UPD (S)
+                        //ClsPublic.SetGridViewFont(i, 17, this.dgvList.Rows[i].Cells["col16"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                        ClsPublic.SetGridViewFont(i, 14, this.dgvList.Rows[i].Cells["col16"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                        // 2026/01/13 UPD (E)
                     }
 
                     //// 始業③入力なし終業③入力あり
@@ -1054,8 +1057,10 @@ namespace FlockAppC.Report
                     else
                     {
                         // セル設定（OK）
-                        
-                        ClsPublic.SetGridViewFont(i, 20, this.dgvList.Rows[i].Cells["col19"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                        // 2026/01/13 UPD (S)
+                        //ClsPublic.SetGridViewFont(i, 20, this.dgvList.Rows[i].Cells["col19"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                        ClsPublic.SetGridViewFont(i, 17, this.dgvList.Rows[i].Cells["col19"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                        // 2026/01/13 UPD (E)
                     }
 
                     // 始業①入力あり終業①入力ありで始業①>終業①の場合
@@ -1064,14 +1069,22 @@ namespace FlockAppC.Report
                         if (st1 > en1)
                         {
                             // セル設定
-                            ClsPublic.SetGridViewFont(i, 15, this.dgvList.Rows[i].Cells["col14"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
-                            ClsPublic.SetGridViewFont(i, 18, this.dgvList.Rows[i].Cells["col17"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            // 2026/01/13 UPD (S)
+                            //ClsPublic.SetGridViewFont(i, 15, this.dgvList.Rows[i].Cells["col14"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            //ClsPublic.SetGridViewFont(i, 18, this.dgvList.Rows[i].Cells["col17"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 12, this.dgvList.Rows[i].Cells["col14"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 15, this.dgvList.Rows[i].Cells["col17"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            // 2026/01/13 UPD (E)
                         }
                         else
                         {
                             // セル設定（OK）
-                            ClsPublic.SetGridViewFont(i, 15, this.dgvList.Rows[i].Cells["col14"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
-                            ClsPublic.SetGridViewFont(i, 18, this.dgvList.Rows[i].Cells["col17"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            // 2026/01/13 UPD (S)
+                            //ClsPublic.SetGridViewFont(i, 15, this.dgvList.Rows[i].Cells["col14"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            //ClsPublic.SetGridViewFont(i, 18, this.dgvList.Rows[i].Cells["col17"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 12, this.dgvList.Rows[i].Cells["col14"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 15, this.dgvList.Rows[i].Cells["col17"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            // 2026/01/13 UPD (E)
                         }
                     }
                     //// 始業②入力あり終業②入力ありで始業②>終業②の場合
@@ -1080,14 +1093,22 @@ namespace FlockAppC.Report
                         if (st2 > en2)
                         {
                             // セル設定
-                            ClsPublic.SetGridViewFont(i, 16, this.dgvList.Rows[i].Cells["col15"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
-                            ClsPublic.SetGridViewFont(i, 19, this.dgvList.Rows[i].Cells["col18"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            // 2026/01/13 UPD (S)
+                            //ClsPublic.SetGridViewFont(i, 16, this.dgvList.Rows[i].Cells["col15"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            //ClsPublic.SetGridViewFont(i, 19, this.dgvList.Rows[i].Cells["col18"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 13, this.dgvList.Rows[i].Cells["col15"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 16, this.dgvList.Rows[i].Cells["col18"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            // 2026/01/13 UPD (E)
                         }
                         else
                         {
                             // セル設定（OK）
-                            ClsPublic.SetGridViewFont(i, 16, this.dgvList.Rows[i].Cells["col15"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
-                            ClsPublic.SetGridViewFont(i, 19, this.dgvList.Rows[i].Cells["col18"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            // 2026/01/13 UPD (S)
+                            //ClsPublic.SetGridViewFont(i, 16, this.dgvList.Rows[i].Cells["col15"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            //ClsPublic.SetGridViewFont(i, 19, this.dgvList.Rows[i].Cells["col18"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 13, this.dgvList.Rows[i].Cells["col15"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 16, this.dgvList.Rows[i].Cells["col18"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            // 2026/01/13 UPD (E)
                         }
                     }
                     //// 始業③入力あり終業③入力ありで始業③>終業③の場合
@@ -1096,14 +1117,22 @@ namespace FlockAppC.Report
                         if (st3 > en3)
                         {
                             // セル設定
-                            ClsPublic.SetGridViewFont(i, 17, this.dgvList.Rows[i].Cells["col16"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
-                            ClsPublic.SetGridViewFont(i, 20, this.dgvList.Rows[i].Cells["col19"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            // 2026/01/13 UPD (S)
+                            //ClsPublic.SetGridViewFont(i, 17, this.dgvList.Rows[i].Cells["col16"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            //ClsPublic.SetGridViewFont(i, 20, this.dgvList.Rows[i].Cells["col19"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 14, this.dgvList.Rows[i].Cells["col16"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 17, this.dgvList.Rows[i].Cells["col19"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            // 2026/01/13 UPD (E)
                         }
                         else
                         {
                             // セル設定（OK）
-                            ClsPublic.SetGridViewFont(i, 17, this.dgvList.Rows[i].Cells["col16"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
-                            ClsPublic.SetGridViewFont(i, 20, this.dgvList.Rows[i].Cells["col19"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            // 2026/01/13 UPD (S)
+                            //ClsPublic.SetGridViewFont(i, 17, this.dgvList.Rows[i].Cells["col16"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            //ClsPublic.SetGridViewFont(i, 20, this.dgvList.Rows[i].Cells["col19"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 14, this.dgvList.Rows[i].Cells["col16"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 17, this.dgvList.Rows[i].Cells["col19"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            // 2026/01/13 UPD (E)
                         }
                     }
                     //this.dgvList.Rows[i].Cells["col14"].Style.BackColor = System.Drawing.Color.RoyalBlue;
@@ -1152,18 +1181,22 @@ namespace FlockAppC.Report
                         if (aft < bfr)
                         {
                             // セル設定
-                            //ClsPublic.SetGridViewFont(i, 21, this.dgvList.Rows[i].Cells["col20"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
-                            //ClsPublic.SetGridViewFont(i, 22, this.dgvList.Rows[i].Cells["col21"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
-                            ClsPublic.SetGridViewFont(i, 22, aft.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
-                            ClsPublic.SetGridViewFont(i, 23, bfr.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            // 2026/01/13 UPD (S)
+                            //ClsPublic.SetGridViewFont(i, 22, aft.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            //ClsPublic.SetGridViewFont(i, 23, bfr.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 19, aft.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 20, bfr.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            // 2026/01/13 UPD (E)
                         }
                         else
                         {
                             // セル設定（OK）
-                            //ClsPublic.SetGridViewFont(i, 21, this.dgvList.Rows[i].Cells["col20"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
-                            //ClsPublic.SetGridViewFont(i, 22, this.dgvList.Rows[i].Cells["col21"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
-                            ClsPublic.SetGridViewFont(i, 22, aft.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
-                            ClsPublic.SetGridViewFont(i, 23, bfr.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            // 2026/01/13 UPD (S)
+                            //ClsPublic.SetGridViewFont(i, 22, aft.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            //ClsPublic.SetGridViewFont(i, 23, bfr.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 19, aft.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 20, bfr.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Black, FontStyle.Regular, this.dgvList);
+                            // 2026/01/13 UPD (E)
                         }
                     }
 
@@ -1173,8 +1206,10 @@ namespace FlockAppC.Report
                         // 前回メータと比較
                         if (after_meter != bfr)
                         {
-                            // ClsPublic.SetGridViewFont(i, 22, this.dgvList.Rows[i].Cells["col21"].Value.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
-                            ClsPublic.SetGridViewFont(i, 23, bfr.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            // 2026/01/13 UPD (S)
+                            // ClsPublic.SetGridViewFont(i, 23, bfr.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            ClsPublic.SetGridViewFont(i, 20, bfr.ToString(), ClsPublic.LIST_FONT_TYPE, ClsPublic.LIST_FONT_SIZE11, System.Drawing.Color.Red, FontStyle.Bold, this.dgvList);
+                            // 2026/01/13 UPD (E)
                         }
                         after_meter = aft;
                     }
@@ -1242,6 +1277,12 @@ namespace FlockAppC.Report
                     if (dr["subcar_flag"] != null && dr["subcar_flag"].ToString() != "" && dr["subcar_flag"].ToString() != "0")
                     {
                         this.dgvList.Rows[i].Cells["col28"].Value = "代";
+                    }
+
+                    // 同乗者
+                    if (dr["passenger_id"] != null && dr["passenger_id"].ToString() != "" && dr["passenger_id"].ToString() != "0")
+                    {
+                        this.dgvList.Rows[i].Cells["col29"].Value = "あり";
                     }
 
                     i++;
@@ -1444,6 +1485,9 @@ namespace FlockAppC.Report
             DateTime selectedYm = dtpYM.Value;                          // 指定年月
             string selected_y = selectedYm.ToString("yyyy");            // 年
             string selected_ym = selectedYm.ToString("yyyyMM");         // 年月
+            // 2026/01/16 ADD
+            // 現在時刻取得
+            string output_hhmm = DateTime.Now.ToString("HHmm");
 
             // CSV出力 パス付きフォルダ名編集
             string folder_path = clsPublicReport.pub_Csv_path + @"\" + selected_y + "年" + @"\" + selected_ym + "_日報処理" + @"\" + selected_ym + "_日報CSV";
@@ -1466,8 +1510,11 @@ namespace FlockAppC.Report
                         // ==============================================================
                         // 専従先が変わった場合、CSVファイルへ書き込み
                         // ==============================================================
-                        // パス付きCSVファイル名編集
-                        file_name = folder_path + @"\" + selected_ym + "_" + location_name + ".csv";
+                        // パス付きCSVファイル名編集(ファイル名：yyyymm_[専従先]_hhmm.csv)
+                        // 2026/01/16 UPD (S)
+                        // file_name = folder_path + @"\" + selected_ym + "_" + location_name + ".csv";
+                        file_name = folder_path + @"\" + selected_ym + "_" + location_name + "_" + output_hhmm + ".csv";
+                        // 2026/01/16 UPD (E)
                         if (File.Exists(file_name))
                         {
                             // 存在する場合は削除
@@ -1505,7 +1552,10 @@ namespace FlockAppC.Report
             // 最後の専従先をCSVファイルへ書き込み
             // ==============================================================
             // パス付きCSVファイル名編集
-            file_name = folder_path + @"\" + selected_ym + "_" + location_name + ".csv";
+            // 2026/01/16 UPD (S)
+            // file_name = folder_path + @"\" + selected_ym + "_" + location_name + ".csv";
+            file_name = folder_path + @"\" + selected_ym + "_" + location_name + "_" + output_hhmm + ".csv";
+            // 2026/01/16 UPD (E)
             if (File.Exists(file_name))
             {
                 // 存在する場合は削除

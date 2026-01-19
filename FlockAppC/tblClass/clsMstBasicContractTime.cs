@@ -259,8 +259,7 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(" Mst_基本契約時間");
                     sb.AppendLine("(");
                     sb.AppendLine(" location_id");
-                    // 2026/01/07 DEL
-                    // sb.AppendLine(",kbn");
+                    sb.AppendLine(",kbn");
                     sb.AppendLine(",car_id");
                     sb.AppendLine(",start_time1");
                     sb.AppendLine(",end_time1");
@@ -278,8 +277,11 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",delete_flag");                  // 2025/11/10
                     sb.AppendLine(") VALUES (");
                     sb.AppendLine(Location_id.ToString());
-                    // 2026/01/07 DEL
+                    // 2026/01/19 UPD
+                    // 区分は不要になったが、INSERT文の整合性を保つために1:透析をセットする
                     // sb.AppendLine("," + Kbn);
+                    sb.AppendLine(",1");
+
                     sb.AppendLine("," + Car_id);
 
                     // 1900-01-01 00:00:00 の場合は nullを設定する

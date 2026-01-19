@@ -218,10 +218,23 @@ namespace FlockAppC.マスターメンテ
                 Visible = false
             };
 
+            // 2026/01/19 ADD (S)
+            DataGridViewTextBoxColumn col05 = new()
+            {
+                Name = "identification",
+                HeaderText = "車両識別",
+                Width = 100,
+                Visible = false
+            };
+            // 2026/01/19 ADD (E)
+
             this.dgvCarList.Columns.Add(col01);
             this.dgvCarList.Columns.Add(col02);
             this.dgvCarList.Columns.Add(col03);
             this.dgvCarList.Columns.Add(col04);
+            // 2026/01/19 ADD (S)
+            this.dgvCarList.Columns.Add(col05);
+            // 2026/01/19 ADD (E)
 
             //並び替えができないようにする
             foreach (DataGridViewColumn c in this.dgvCarList.Columns)
@@ -666,6 +679,8 @@ namespace FlockAppC.マスターメンテ
                     sb.AppendLine(",fullname");
                     sb.AppendLine(",name");
                     sb.AppendLine(",car_name");
+                    // 2026/01/19 ADD
+                    sb.AppendLine(",identification");
                     sb.AppendLine("FROM");
                     sb.AppendLine(" Mst_専従先車両");
                     sb.AppendLine("WHERE");
@@ -686,6 +701,10 @@ namespace FlockAppC.マスターメンテ
                             else { this.dgvCarList.Rows[row].Cells["name"].Value = ""; }
                             if (dr.IsNull("car_name") != true) { this.dgvCarList.Rows[row].Cells["car_name"].Value = dr["car_name"].ToString(); }
                             else { this.dgvCarList.Rows[row].Cells["car_name"].Value = ""; }
+                            // 2026/01/19 ADD (S)
+                            if (dr.IsNull("identification") != true) { this.dgvCarList.Rows[row].Cells["identification"].Value = dr["identification"].ToString(); }
+                            // 2026/01/19 ADD (E)
+
                             row++;
                         }
                     }
@@ -1038,6 +1057,17 @@ namespace FlockAppC.マスターメンテ
             this.lblCarNo.Text = this.dgvCarList.Rows[e.RowIndex].Cells["no"].Value.ToString();
             this.lblCarIdent.Text = this.dgvCarList.Rows[e.RowIndex].Cells["name"].Value.ToString();
             this.lblCarName.Text = this.dgvCarList.Rows[e.RowIndex].Cells["car_name"].Value.ToString();
+            // 2026/01/19 ADD (S)
+            // 車両種別セット
+            if (this.dgvCarList.Rows[e.RowIndex].Cells["identification"].Value.ToString() == "1")
+            {
+                this.rdoKbn1.Checked = true;
+            }
+            else
+            {
+                this.rdoKbn2.Checked = true;
+            }
+            // 2026/01/19 ADD (E)
 
             this.dgvContractList.ClearSelection();
         }
@@ -1321,6 +1351,7 @@ namespace FlockAppC.マスターメンテ
             //    this.rdoKbn1.Checked = false;
             //    this.rdoKbn2.Checked = false;
             //}
+            // 車両識別（1:透析、2:バス・デイ・配送）    
             if (this.dgvContractList.Rows[row].Cells["identification"].Value.ToString() == "1")
             {
                 this.rdoKbn1.Checked = true;

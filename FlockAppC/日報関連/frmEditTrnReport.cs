@@ -650,13 +650,13 @@ namespace FlockAppC.Report
             else { this.Start_time3 = DateTime.Parse("1900/01/01 " + this.mskStart_Time3.Text + ":00"); }
 
             if (this.mskEnd_Time1.Text == "  :") { this.End_time1 = DateTime.Parse("1900/01/01 00:00:00"); }
-            else { this.Start_time1 = DateTime.Parse("1900/01/01 " + this.mskStart_Time1.Text + ":00"); }
+            else { this.End_time1 = DateTime.Parse("1900/01/01 " + this.mskEnd_Time1.Text + ":00"); }
 
             if (this.mskEnd_Time2.Text == "  :") { this.End_time2 = DateTime.Parse("1900/01/01 00:00:00"); }
-            else { this.Start_time2 = DateTime.Parse("1900/01/01 " + this.mskStart_Time2.Text + ":00"); }
+            else { this.End_time2 = DateTime.Parse("1900/01/01 " + this.mskEnd_Time2.Text + ":00"); }
 
             if (this.mskEnd_Time3.Text == "  :") { this.End_time3 = DateTime.Parse("1900/01/01 00:00:00"); }
-            else { this.Start_time3 = DateTime.Parse("1900/01/01 " + this.mskStart_Time3.Text + ":00"); }
+            else { this.End_time3 = DateTime.Parse("1900/01/01 " + this.mskEnd_Time3.Text + ":00"); }
 
             // 残業時間
             if (this.txtOver_Time1.Text != "") { this.Over_time1 = int.Parse(this.txtOver_Time1.Text); }
@@ -1327,8 +1327,10 @@ namespace FlockAppC.Report
             cls.Day = this.Day;
             cls.Instructor_id = this.Instructor_id;
             cls.Staff_id1 = this.Staff_id1;
-            cls.Staff_id2 = 0;
-            cls.Staff_id3 = 0;
+            // 2026/01/13 DEL (S)
+            //cls.Staff_id2 = 0;
+            //cls.Staff_id3 = 0;
+            // 2026/01/13 DEL (E)
             cls.After_meter = this.After_meter;
             cls.Before_meter = this.Before_meter;
             cls.Mileage = this.Mileage;
@@ -2164,15 +2166,20 @@ namespace FlockAppC.Report
             //}
 
         }
-        /// <summary>
-        /// 車両管理責任者承認
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-
-        private void chkConfirm2_CheckedChanged(object sender, EventArgs e)
+        private Boolean chkTimeFormat(string time_str)
         {
-
+            // 時刻チェック時のフォーマット
+            string[] formats = { "H:mm", "HH:mm" };
+            if (DateTime.TryParseExact(time_str, formats, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime dt))
+            {
+                // 正しい形式
+                return true;
+            }
+            else
+            {
+                // 不正な形式
+                return false;
+            }
         }
         /// <summary>
         /// １走目開始時間変更イベント
@@ -2189,10 +2196,22 @@ namespace FlockAppC.Report
             // どちらか未入力の場合は処理しない
             if (stime == "  :" || etime == "  :" || cstime == "  :" || cetime == "  :") { return; }
 
-            var zan = clsPublicReport.CalcOvertimeMinutes(DateTime.Parse(stime),DateTime.Parse(etime),DateTime.Parse(cstime),DateTime.Parse(cetime));
-            if (zan == 0) { return; }
+            // フォーマットチェック
+            if (!chkTimeFormat(stime) || !chkTimeFormat(etime) || !chkTimeFormat(cstime) || !chkTimeFormat(cetime))
+            {
+                // 時刻形式フォーマット不正
+                return;
+            }
 
-            txtOver_Time1.Text = zan.ToString();
+            var zan = clsPublicReport.CalcOvertimeMinutes(DateTime.Parse(stime),DateTime.Parse(etime),DateTime.Parse(cstime),DateTime.Parse(cetime));
+            if (zan == 0) 
+            {
+                txtOver_Time1.Text = "";
+            }
+            else
+            {
+                txtOver_Time1.Text = zan.ToString();
+            }
         }
         /// <summary>
         /// １走目終了時間変更イベント
@@ -2209,20 +2228,150 @@ namespace FlockAppC.Report
             // どちらか未入力の場合は処理しない
             if (stime == "  :" || etime == "  :" || cstime == "  :" || cetime == "  :") { return; }
 
+            // フォーマットチェック
+            if (!chkTimeFormat(stime) || !chkTimeFormat(etime) || !chkTimeFormat(cstime) || !chkTimeFormat(cetime))
+            {
+                // 時刻形式フォーマット不正
+                return;
+            }
+
             var zan = clsPublicReport.CalcOvertimeMinutes(DateTime.Parse(stime), DateTime.Parse(etime), DateTime.Parse(cstime), DateTime.Parse(cetime));
-            if (zan == 0) { return; }
-
-            txtOver_Time1.Text = zan.ToString();
+            if (zan == 0)
+            {
+                txtOver_Time1.Text = "";
+            }
+            else
+            {
+                txtOver_Time1.Text = zan.ToString();
+            }
         }
-
-        private void chkConfirm3_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// ２走目開始時間変更イベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mskStart_Time2_TextChanged(object sender, EventArgs e)
         {
+            var stime = mskStart_Time2.Text;
+            var etime = mskEnd_Time2.Text;
+            var cstime = mskBasic_Start_Time2.Text;
+            var cetime = mskBasic_End_Time2.Text;
 
+            // どちらか未入力の場合は処理しない
+            if (stime == "  :" || etime == "  :" || cstime == "  :" || cetime == "  :") { return; }
+
+            // フォーマットチェック
+            if (!chkTimeFormat(stime) || !chkTimeFormat(etime) || !chkTimeFormat(cstime) || !chkTimeFormat(cetime))
+            {
+                // 時刻形式フォーマット不正
+                return;
+            }
+
+            var zan = clsPublicReport.CalcOvertimeMinutes(DateTime.Parse(stime), DateTime.Parse(etime), DateTime.Parse(cstime), DateTime.Parse(cetime));
+            if (zan == 0)
+            {
+                txtOver_Time2.Text = "";
+            }
+            else
+            {
+                txtOver_Time2.Text = zan.ToString();
+            }
         }
-
-        private void chkSalesConfirm_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// ２走目終了時間変更イベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mskEnd_Time2_TextChanged(object sender, EventArgs e)
         {
+            var stime = mskStart_Time2.Text;
+            var etime = mskEnd_Time2.Text;
+            var cstime = mskBasic_Start_Time2.Text;
+            var cetime = mskBasic_End_Time2.Text;
 
+            // どちらか未入力の場合は処理しない
+            if (stime == "  :" || etime == "  :" || cstime == "  :" || cetime == "  :") { return; }
+
+            // フォーマットチェック
+            if (!chkTimeFormat(stime) || !chkTimeFormat(etime) || !chkTimeFormat(cstime) || !chkTimeFormat(cetime))
+            {
+                // 時刻形式フォーマット不正
+                return;
+            }
+
+            var zan = clsPublicReport.CalcOvertimeMinutes(DateTime.Parse(stime), DateTime.Parse(etime), DateTime.Parse(cstime), DateTime.Parse(cetime));
+            if (zan == 0)
+            {
+                txtOver_Time2.Text = "";
+            }
+            else
+            {
+                txtOver_Time2.Text = zan.ToString();
+            }
+        }
+        /// <summary>
+        /// ３走目開始時間変更イベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mskStart_Time3_TextChanged(object sender, EventArgs e)
+        {
+            var stime = mskStart_Time3.Text;
+            var etime = mskEnd_Time3.Text;
+            var cstime = mskBasic_Start_Time3.Text;
+            var cetime = mskBasic_End_Time3.Text;
+
+            // どちらか未入力の場合は処理しない
+            if (stime == "  :" || etime == "  :" || cstime == "  :" || cetime == "  :") { return; }
+
+            // フォーマットチェック
+            if (!chkTimeFormat(stime) || !chkTimeFormat(etime) || !chkTimeFormat(cstime) || !chkTimeFormat(cetime))
+            {
+                // 時刻形式フォーマット不正
+                return;
+            }
+
+            var zan = clsPublicReport.CalcOvertimeMinutes(DateTime.Parse(stime), DateTime.Parse(etime), DateTime.Parse(cstime), DateTime.Parse(cetime));
+            if (zan == 0)
+            {
+                txtOver_Time3.Text = "";
+            }
+            else
+            {
+                txtOver_Time3.Text = zan.ToString();
+            }
+        }
+        /// <summary>
+        /// ３走目終了時間変更イベント
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mskEnd_Time3_TextChanged(object sender, EventArgs e)
+        {
+            var stime = mskStart_Time3.Text;
+            var etime = mskEnd_Time3.Text;
+            var cstime = mskBasic_Start_Time3.Text;
+            var cetime = mskBasic_End_Time3.Text;
+
+            // どちらか未入力の場合は処理しない
+            if (stime == "  :" || etime == "  :" || cstime == "  :" || cetime == "  :") { return; }
+
+            // フォーマットチェック
+            if (!chkTimeFormat(stime) || !chkTimeFormat(etime) || !chkTimeFormat(cstime) || !chkTimeFormat(cetime))
+            {
+                // 時刻形式フォーマット不正
+                return;
+            }
+
+            var zan = clsPublicReport.CalcOvertimeMinutes(DateTime.Parse(stime), DateTime.Parse(etime), DateTime.Parse(cstime), DateTime.Parse(cetime));
+            if (zan == 0) 
+            {
+                txtOver_Time3.Text = "";
+            }
+            else
+            {
+                txtOver_Time3.Text = zan.ToString();
+            }
         }
     }
 }

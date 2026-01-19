@@ -78,7 +78,7 @@
             this.dgvList.Location = new System.Drawing.Point(12, 141);
             this.dgvList.Name = "dgvList";
             this.dgvList.RowTemplate.Height = 21;
-            this.dgvList.Size = new System.Drawing.Size(1665, 565);
+            this.dgvList.Size = new System.Drawing.Size(1735, 665);
             this.dgvList.TabIndex = 53;
             this.dgvList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvList_CellClick);
             // 
@@ -98,7 +98,7 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1689, 30);
+            this.panel1.Size = new System.Drawing.Size(1757, 30);
             this.panel1.TabIndex = 54;
             // 
             // btnSelectLocation
@@ -182,7 +182,7 @@
             // 
             this.btnCsv.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnCsv.Image = global::FlockAppC.Properties.Resources.CSV_1;
-            this.btnCsv.Location = new System.Drawing.Point(12, 715);
+            this.btnCsv.Location = new System.Drawing.Point(12, 815);
             this.btnCsv.Name = "btnCsv";
             this.btnCsv.Size = new System.Drawing.Size(100, 37);
             this.btnCsv.TabIndex = 221;
@@ -195,7 +195,7 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
-            this.btnClose.Location = new System.Drawing.Point(1597, 715);
+            this.btnClose.Location = new System.Drawing.Point(1667, 815);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(80, 37);
             this.btnClose.TabIndex = 220;
@@ -208,7 +208,7 @@
             // 
             this.btnDisplay.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnDisplay.Image = global::FlockAppC.Properties.Resources.検索_小1;
-            this.btnDisplay.Location = new System.Drawing.Point(1597, 45);
+            this.btnDisplay.Location = new System.Drawing.Point(1667, 40);
             this.btnDisplay.Name = "btnDisplay";
             this.btnDisplay.Size = new System.Drawing.Size(80, 37);
             this.btnDisplay.TabIndex = 203;
@@ -347,7 +347,7 @@
             // 
             this.btnConfirm.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnConfirm.Image = global::FlockAppC.Properties.Resources.承認5_小;
-            this.btnConfirm.Location = new System.Drawing.Point(166, 715);
+            this.btnConfirm.Location = new System.Drawing.Point(166, 815);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(140, 37);
             this.btnConfirm.TabIndex = 228;
@@ -453,7 +453,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1689, 761);
+            this.ClientSize = new System.Drawing.Size(1759, 861);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);

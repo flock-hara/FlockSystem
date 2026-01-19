@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditTrnReport));
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label51 = new System.Windows.Forms.Label();
             this.lblNew = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
@@ -298,23 +297,12 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel1.Controls.Add(this.label51);
             this.panel1.Controls.Add(this.lblNew);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1196, 30);
             this.panel1.TabIndex = 27;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("游ゴシック", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label51.Location = new System.Drawing.Point(325, 8);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(161, 14);
-            this.label51.TabIndex = 279;
-            this.label51.Text = "チェックは自動保存されます→";
             // 
             // lblNew
             // 
@@ -1937,6 +1925,7 @@
             this.mskStart_Time2.TabIndex = 9;
             this.mskStart_Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskStart_Time2.ValidatingType = typeof(System.DateTime);
+            this.mskStart_Time2.TextChanged += new System.EventHandler(this.mskStart_Time2_TextChanged);
             // 
             // mskStart_Time3
             // 
@@ -1948,6 +1937,7 @@
             this.mskStart_Time3.TabIndex = 11;
             this.mskStart_Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskStart_Time3.ValidatingType = typeof(System.DateTime);
+            this.mskStart_Time3.TextChanged += new System.EventHandler(this.mskStart_Time3_TextChanged);
             // 
             // mskEnd_Time1
             // 
@@ -1971,6 +1961,7 @@
             this.mskEnd_Time2.TabIndex = 10;
             this.mskEnd_Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskEnd_Time2.ValidatingType = typeof(System.DateTime);
+            this.mskEnd_Time2.TextChanged += new System.EventHandler(this.mskEnd_Time2_TextChanged);
             // 
             // mskEnd_Time3
             // 
@@ -1982,6 +1973,7 @@
             this.mskEnd_Time3.TabIndex = 12;
             this.mskEnd_Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskEnd_Time3.ValidatingType = typeof(System.DateTime);
+            this.mskEnd_Time3.TextChanged += new System.EventHandler(this.mskEnd_Time3_TextChanged);
             // 
             // txtOver_Time1
             // 
@@ -2553,7 +2545,6 @@
             this.chkConfirm3.TabIndex = 284;
             this.chkConfirm3.Text = "三次確認";
             this.chkConfirm3.UseVisualStyleBackColor = true;
-            this.chkConfirm3.CheckedChanged += new System.EventHandler(this.chkConfirm3_CheckedChanged);
             // 
             // lblConfirm2Name
             // 
@@ -2586,7 +2577,6 @@
             this.chkConfirm2.TabIndex = 281;
             this.chkConfirm2.Text = "二次確認";
             this.chkConfirm2.UseVisualStyleBackColor = true;
-            this.chkConfirm2.CheckedChanged += new System.EventHandler(this.chkConfirm2_CheckedChanged);
             // 
             // lblConfirm1Name
             // 
@@ -2664,7 +2654,6 @@
             this.chkSalesConfirm.TabIndex = 278;
             this.chkSalesConfirm.Text = "承認";
             this.chkSalesConfirm.UseVisualStyleBackColor = true;
-            this.chkSalesConfirm.CheckedChanged += new System.EventHandler(this.chkSalesConfirm_CheckedChanged);
             // 
             // groupBox12
             // 
@@ -3016,7 +3005,6 @@
         private System.Windows.Forms.Button btnExcel;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.CheckBox chkHikae;
-        private System.Windows.Forms.Label label51;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Label lblConfirm2Name;
         private System.Windows.Forms.Label lblConfirm2Date;

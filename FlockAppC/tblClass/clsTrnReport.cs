@@ -1,4 +1,5 @@
-﻿using FlockAppC.pubClass;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using FlockAppC.pubClass;
 using System;
 using System.Data;
 using System.Text;
@@ -39,8 +40,10 @@ namespace FlockAppC.tblClass
         public DateTime Day {  get; set; }
         public int Instructor_id { get; set; }
         public int Staff_id1 { get; set; }
-        public int Staff_id2 { get; set; }
-        public int Staff_id3 { get; set; }
+        // 2026/01/13 DEL (S)
+        // public int Staff_id2 { get; set; }
+        // public int Staff_id3 { get; set; }
+        // 2026/01/13 DEL (E)
         public int After_meter { get; set; }
         public int Before_meter { get; set; }
         public int Mileage { get; set; }
@@ -48,8 +51,10 @@ namespace FlockAppC.tblClass
         public int Fuel_meter { get; set; }
         public decimal Oil { get; set; }
         public decimal Kerosene { get; set; }
-        public string Start_location {  get; set; }
-        public string End_location { get; set; }
+        // 2026/01/13 DEL (S)
+        // public string Start_location {  get; set; }
+        // public string End_location { get; set; }
+        // 2026/01/13 DEL (E) 
         public DateTime Start_time1 { get; set; }
         public DateTime Start_time2 { get; set; }
         public DateTime Start_time3 { get; set; }
@@ -189,8 +194,10 @@ namespace FlockAppC.tblClass
                         mysql_sb.AppendLine(",day");
                         mysql_sb.AppendLine(",instructor_id");
                         mysql_sb.AppendLine(",staff_id1");
-                        mysql_sb.AppendLine(",staff_id2");
-                        mysql_sb.AppendLine(",staff_id3");
+                        // 2026/01/13 DEL (S)
+                        // mysql_sb.AppendLine(",staff_id2");
+                        // mysql_sb.AppendLine(",staff_id3");
+                        // 2026/01/13 DEL (E)
                         mysql_sb.AppendLine(",after_meter");
                         mysql_sb.AppendLine(",before_meter");
                         mysql_sb.AppendLine(",mileage");
@@ -198,8 +205,10 @@ namespace FlockAppC.tblClass
                         mysql_sb.AppendLine(",fuel_meter");
                         mysql_sb.AppendLine(",oil");
                         mysql_sb.AppendLine(",kerosene");
-                        mysql_sb.AppendLine(",start_location");
-                        mysql_sb.AppendLine(",end_location");
+                        // 2026/01/13 DEL (S)
+                        // mysql_sb.AppendLine(",start_location");
+                        // mysql_sb.AppendLine(",end_location");
+                        // 2026/01/13 DEL (E)
                         mysql_sb.AppendLine(",start_time1");
                         mysql_sb.AppendLine(",start_time2");
                         mysql_sb.AppendLine(",start_time3");
@@ -398,10 +407,12 @@ namespace FlockAppC.tblClass
                                     if (dr.IsNull("instructor_id") != true) { sql_sb.AppendLine(",instructor_id = " + dr["instructor_id"].ToString()); } else { sql_sb.AppendLine(",instructor_id = null"); }
                                     // 車両管理者1
                                     if (dr.IsNull("staff_id1") != true) { sql_sb.AppendLine(",staff_id1 = " + dr["staff_id1"].ToString()); } else { sql_sb.AppendLine(",staff_id1 = null"); }
+                                    // 2026/01/13 DEL (S)
                                     // 車両管理者2
-                                    if (dr.IsNull("staff_id2") != true) { sql_sb.AppendLine(",staff_id2 = " + dr["staff_id2"].ToString()); } else { sql_sb.AppendLine(",staff_id2 = null"); }
+                                    // if (dr.IsNull("staff_id2") != true) { sql_sb.AppendLine(",staff_id2 = " + dr["staff_id2"].ToString()); } else { sql_sb.AppendLine(",staff_id2 = null"); }
                                     // 車両管理者3
-                                    if (dr.IsNull("staff_id3") != true) { sql_sb.AppendLine(",staff_id3 = " + dr["staff_id3"].ToString()); } else { sql_sb.AppendLine(",staff_id3 = null"); }
+                                    // if (dr.IsNull("staff_id3") != true) { sql_sb.AppendLine(",staff_id3 = " + dr["staff_id3"].ToString()); } else { sql_sb.AppendLine(",staff_id3 = null"); }
+                                    // 2026/01/13 DEL (E)
                                     // 入庫時メーター
                                     if (dr.IsNull("after_meter") != true) { sql_sb.AppendLine(",after_meter = " + dr["after_meter"].ToString()); } else { sql_sb.AppendLine(",after_meter = null"); }
                                     // 出庫時メーター
@@ -416,10 +427,12 @@ namespace FlockAppC.tblClass
                                     if (dr.IsNull("oil") != true) { sql_sb.AppendLine(",oil = " + dr["oil"].ToString()); } else { sql_sb.AppendLine(",oil = null"); }
                                     // 灯油
                                     if (dr.IsNull("kerosene") != true) { sql_sb.AppendLine(",kerosene = " + dr["kerosene"].ToString()); } else { sql_sb.AppendLine(",kerosene = null"); }
+                                    // 2026/01/13 DEL (S)
                                     // 始業場所
-                                    if (dr.IsNull("start_location") != true) { sql_sb.AppendLine(",start_location = '" + dr["start_location"].ToString() + "'"); } else { sql_sb.AppendLine(",start_location = ''"); }
+                                    // if (dr.IsNull("start_location") != true) { sql_sb.AppendLine(",start_location = '" + dr["start_location"].ToString() + "'"); } else { sql_sb.AppendLine(",start_location = ''"); }
                                     // 終業場所
-                                    if (dr.IsNull("end_location") != true) { sql_sb.AppendLine(",end_location = '" + dr["end_location"].ToString() + "'"); } else { sql_sb.AppendLine(",end_location = ''"); }
+                                    // if (dr.IsNull("end_location") != true) { sql_sb.AppendLine(",end_location = '" + dr["end_location"].ToString() + "'"); } else { sql_sb.AppendLine(",end_location = ''"); }
+                                    // 2026/01/13 DEL (E)
                                     // 始業時間1～3
                                     if (dr.IsNull("start_time1") != true) { sql_sb.AppendLine(",start_time1 = '" + dr["start_time1"].ToString() + "'"); } else { sql_sb.AppendLine(",start_time1 = null"); }
                                     if (dr.IsNull("start_time2") != true) { sql_sb.AppendLine(",start_time2 = '" + dr["start_time2"].ToString() + "'"); } else { sql_sb.AppendLine(",start_time2 = null"); }
@@ -586,8 +599,10 @@ namespace FlockAppC.tblClass
                                     sql_sb.AppendLine(",day");
                                     sql_sb.AppendLine(",instructor_id");
                                     sql_sb.AppendLine(",staff_id1");
-                                    sql_sb.AppendLine(",staff_id2");
-                                    sql_sb.AppendLine(",staff_id3");
+                                    // 2026/01/13 DEL (S)
+                                    // sql_sb.AppendLine(",staff_id2");
+                                    // sql_sb.AppendLine(",staff_id3");
+                                    // 2026/01/13 DEL (E)
                                     sql_sb.AppendLine(",after_meter");
                                     sql_sb.AppendLine(",before_meter");
                                     sql_sb.AppendLine(",mileage");
@@ -595,8 +610,10 @@ namespace FlockAppC.tblClass
                                     sql_sb.AppendLine(",fuel_meter");
                                     sql_sb.AppendLine(",oil");
                                     sql_sb.AppendLine(",kerosene");
-                                    sql_sb.AppendLine(",start_location");
-                                    sql_sb.AppendLine(",end_location");
+                                    // 2026/01/13 DEL (S)
+                                    // sql_sb.AppendLine(",start_location");
+                                    // sql_sb.AppendLine(",end_location");
+                                    // 2026/01/13 DEL (E)
                                     sql_sb.AppendLine(",start_time1");
                                     sql_sb.AppendLine(",start_time2");
                                     sql_sb.AppendLine(",start_time3");
@@ -706,8 +723,10 @@ namespace FlockAppC.tblClass
                                     if (dr.IsNull("instructor_id") != true) { sql_sb.AppendLine("," + dr["instructor_id"].ToString()); } else { sql_sb.AppendLine(",null"); }
                                     // 車両管理者ID 1～3
                                     if (dr.IsNull("staff_id1") != true) { sql_sb.AppendLine("," + dr["staff_id1"].ToString()); } else { sql_sb.AppendLine(",null"); }
-                                    if (dr.IsNull("staff_id2") != true) { sql_sb.AppendLine("," + dr["staff_id2"].ToString()); } else { sql_sb.AppendLine(",null"); }
-                                    if (dr.IsNull("staff_id3") != true) { sql_sb.AppendLine("," + dr["staff_id3"].ToString()); } else { sql_sb.AppendLine(",null"); }
+                                    // 2026/01/13 DEL (S)
+                                    // if (dr.IsNull("staff_id2") != true) { sql_sb.AppendLine("," + dr["staff_id2"].ToString()); } else { sql_sb.AppendLine(",null"); }
+                                    // if (dr.IsNull("staff_id3") != true) { sql_sb.AppendLine("," + dr["staff_id3"].ToString()); } else { sql_sb.AppendLine(",null"); }
+                                    // 2026/01/13 DEL (E)
                                     // 入庫時メーター値
                                     if (dr.IsNull("after_meter") != true) { sql_sb.AppendLine("," + dr["after_meter"].ToString()); } else { sql_sb.AppendLine(",null"); }
                                     // 出庫時メーター値
@@ -722,10 +741,12 @@ namespace FlockAppC.tblClass
                                     if (dr.IsNull("oil") != true) { sql_sb.AppendLine("," + dr["oil"].ToString()); } else { sql_sb.AppendLine(",null"); }
                                     // 灯油
                                     if (dr.IsNull("kerosene") != true) { sql_sb.AppendLine("," + dr["kerosene"].ToString()); } else { sql_sb.AppendLine(",null"); }
+                                    // 2026/01/13 DEL (S)
                                     // 始業場所
-                                    if (dr.IsNull("start_location") != true) { sql_sb.AppendLine(",'" + dr["start_location"].ToString() + "'"); } else { sql_sb.AppendLine(",''"); }
+                                    // if (dr.IsNull("start_location") != true) { sql_sb.AppendLine(",'" + dr["start_location"].ToString() + "'"); } else { sql_sb.AppendLine(",''"); }
                                     // 終業場所
-                                    if (dr.IsNull("end_location") != true) { sql_sb.AppendLine(",'" + dr["end_location"].ToString() + "'"); } else { sql_sb.AppendLine(",''"); }
+                                    // if (dr.IsNull("end_location") != true) { sql_sb.AppendLine(",'" + dr["end_location"].ToString() + "'"); } else { sql_sb.AppendLine(",''"); }
+                                    // 2026/01/13 DEL (E)
                                     // 始業時間1～3
                                     if (dr.IsNull("start_time1") != true) { sql_sb.AppendLine(",'" + dr["start_time1"].ToString() + "'"); } else { sql_sb.AppendLine(",null"); }
                                     if (dr.IsNull("start_time2") != true) { sql_sb.AppendLine(",'" + dr["start_time2"].ToString() + "'"); } else { sql_sb.AppendLine(",null"); }
@@ -913,8 +934,10 @@ namespace FlockAppC.tblClass
                         sql_sb.AppendLine(",day");
                         sql_sb.AppendLine(",instructor_id");
                         sql_sb.AppendLine(",staff_id1");
-                        sql_sb.AppendLine(",staff_id2");
-                        sql_sb.AppendLine(",staff_id3");
+                        // 2026/01/13 DEL (S)
+                        // sql_sb.AppendLine(",staff_id2");
+                        // sql_sb.AppendLine(",staff_id3");
+                        // 2026/01/13 DEL (E)
                         sql_sb.AppendLine(",after_meter");
                         sql_sb.AppendLine(",before_meter");
                         sql_sb.AppendLine(",mileage");
@@ -922,8 +945,10 @@ namespace FlockAppC.tblClass
                         sql_sb.AppendLine(",fuel_meter");
                         sql_sb.AppendLine(",oil");
                         sql_sb.AppendLine(",kerosene");
-                        sql_sb.AppendLine(",start_location");
-                        sql_sb.AppendLine(",end_location");
+                        // 2026/01/13 DEL (S)
+                        // sql_sb.AppendLine(",start_location");
+                        // sql_sb.AppendLine(",end_location");
+                        // 2026/01/13 DEL (E)
                         sql_sb.AppendLine(",start_time1");
                         sql_sb.AppendLine(",start_time2");
                         sql_sb.AppendLine(",start_time3");
@@ -1122,10 +1147,12 @@ namespace FlockAppC.tblClass
                                     if (dr.IsNull("instructor_id") != true) { mysql_sb.AppendLine(",instructor_id = " + dr["instructor_id"].ToString()); } else { mysql_sb.AppendLine(",instructor_id = null"); }
                                     // 車両管理者1
                                     if (dr.IsNull("staff_id1") != true) { mysql_sb.AppendLine(",staff_id1 = " + dr["staff_id1"].ToString()); } else { mysql_sb.AppendLine(",staff_id1 = null"); }
+                                    // 2026/01/13 DEL (S)
                                     // 車両管理者2
-                                    if (dr.IsNull("staff_id2") != true) { mysql_sb.AppendLine(",staff_id2 = " + dr["staff_id2"].ToString()); } else { mysql_sb.AppendLine(",staff_id2 = null"); }
+                                    // if (dr.IsNull("staff_id2") != true) { mysql_sb.AppendLine(",staff_id2 = " + dr["staff_id2"].ToString()); } else { mysql_sb.AppendLine(",staff_id2 = null"); }
                                     // 車両管理者3
-                                    if (dr.IsNull("staff_id3") != true) { mysql_sb.AppendLine(",staff_id3 = " + dr["staff_id3"].ToString()); } else { mysql_sb.AppendLine(",staff_id3 = null"); }
+                                    // if (dr.IsNull("staff_id3") != true) { mysql_sb.AppendLine(",staff_id3 = " + dr["staff_id3"].ToString()); } else { mysql_sb.AppendLine(",staff_id3 = null"); }
+                                    // 2026/01/13 DEL (E)
                                     // 入庫時メーター
                                     if (dr.IsNull("after_meter") != true) { mysql_sb.AppendLine(",after_meter = " + dr["after_meter"].ToString()); } else { mysql_sb.AppendLine(",after_meter = null"); }
                                     // 出庫時メーター
@@ -1140,10 +1167,12 @@ namespace FlockAppC.tblClass
                                     if (dr.IsNull("oil") != true) { mysql_sb.AppendLine(",oil = " + dr["oil"].ToString()); } else { mysql_sb.AppendLine(",oil = null"); }
                                     // 灯油
                                     if (dr.IsNull("kerosene") != true) { mysql_sb.AppendLine(",kerosene = " + dr["kerosene"].ToString()); } else { mysql_sb.AppendLine(",kerosene = null"); }
+                                    // 2025/01/13 DEL (S)
                                     // 始業場所
-                                    if (dr.IsNull("start_location") != true) { mysql_sb.AppendLine(",start_location = '" + dr["start_location"].ToString() + "'"); } else { mysql_sb.AppendLine(",start_location = ''"); }
+                                    // if (dr.IsNull("start_location") != true) { mysql_sb.AppendLine(",start_location = '" + dr["start_location"].ToString() + "'"); } else { mysql_sb.AppendLine(",start_location = ''"); }
                                     // 終業場所
-                                    if (dr.IsNull("end_location") != true) { mysql_sb.AppendLine(",end_location = '" + dr["end_location"].ToString() + "'"); } else { mysql_sb.AppendLine(",end_location = ''"); }
+                                    // if (dr.IsNull("end_location") != true) { mysql_sb.AppendLine(",end_location = '" + dr["end_location"].ToString() + "'"); } else { mysql_sb.AppendLine(",end_location = ''"); }
+                                    // 2025/01/13 DEL (E)
                                     // 始業時間1～3
                                     if (dr.IsNull("start_time1") != true) { mysql_sb.AppendLine(",start_time1 = '" + dr["start_time1"].ToString() + "'"); } else { mysql_sb.AppendLine(",start_time1 = null"); }
                                     if (dr.IsNull("start_time2") != true) { mysql_sb.AppendLine(",start_time2 = '" + dr["start_time2"].ToString() + "'"); } else { mysql_sb.AppendLine(",start_time2 = null"); }
@@ -1311,8 +1340,10 @@ namespace FlockAppC.tblClass
                                     mysql_sb.AppendLine(",day");
                                     mysql_sb.AppendLine(",instructor_id");
                                     mysql_sb.AppendLine(",staff_id1");
-                                    mysql_sb.AppendLine(",staff_id2");
-                                    mysql_sb.AppendLine(",staff_id3");
+                                    // 2026/01/13 DEL (S)
+                                    // mysql_sb.AppendLine(",staff_id2");
+                                    // mysql_sb.AppendLine(",staff_id3");
+                                    // 2026/01/13 DEL (E)
                                     mysql_sb.AppendLine(",after_meter");
                                     mysql_sb.AppendLine(",before_meter");
                                     mysql_sb.AppendLine(",mileage");
@@ -1320,8 +1351,10 @@ namespace FlockAppC.tblClass
                                     mysql_sb.AppendLine(",fuel_meter");
                                     mysql_sb.AppendLine(",oil");
                                     mysql_sb.AppendLine(",kerosene");
-                                    mysql_sb.AppendLine(",start_location");
-                                    mysql_sb.AppendLine(",end_location");
+                                    // 2025/01/13 DEL (S)
+                                    // mysql_sb.AppendLine(",start_location");
+                                    // mysql_sb.AppendLine(",end_location");
+                                    // 2025/01/13 DEL (E)
                                     mysql_sb.AppendLine(",start_time1");
                                     mysql_sb.AppendLine(",start_time2");
                                     mysql_sb.AppendLine(",start_time3");
@@ -1425,8 +1458,10 @@ namespace FlockAppC.tblClass
                                     if (dr.IsNull("instructor_id") != true) { mysql_sb.AppendLine("," + dr["instructor_id"].ToString()); } else { mysql_sb.AppendLine(",null"); }
                                     // 車両管理者ID 1～3
                                     if (dr.IsNull("staff_id1") != true) { mysql_sb.AppendLine("," + dr["staff_id1"].ToString()); } else { mysql_sb.AppendLine(",null"); }
-                                    if (dr.IsNull("staff_id2") != true) { mysql_sb.AppendLine("," + dr["staff_id2"].ToString()); } else { mysql_sb.AppendLine(",null"); }
-                                    if (dr.IsNull("staff_id3") != true) { mysql_sb.AppendLine("," + dr["staff_id3"].ToString()); } else { mysql_sb.AppendLine(",null"); }
+                                    // 2026/01/13 DEL (S)
+                                    // if (dr.IsNull("staff_id2") != true) { mysql_sb.AppendLine("," + dr["staff_id2"].ToString()); } else { mysql_sb.AppendLine(",null"); }
+                                    // if (dr.IsNull("staff_id3") != true) { mysql_sb.AppendLine("," + dr["staff_id3"].ToString()); } else { mysql_sb.AppendLine(",null"); }
+                                    // 2026/01/13 DEL (E)
                                     // 入庫時メーター値
                                     if (dr.IsNull("after_meter") != true) { mysql_sb.AppendLine("," + dr["after_meter"].ToString()); } else { mysql_sb.AppendLine(",null"); }
                                     // 出庫時メーター値
@@ -1441,10 +1476,12 @@ namespace FlockAppC.tblClass
                                     if (dr.IsNull("oil") != true) { mysql_sb.AppendLine("," + dr["oil"].ToString()); } else { mysql_sb.AppendLine(",null"); }
                                     // 灯油
                                     if (dr.IsNull("kerosene") != true) { mysql_sb.AppendLine("," + dr["kerosene"].ToString()); } else { mysql_sb.AppendLine(",null"); }
+                                    // 2025/01/13 DEL (S)
                                     // 始業場所
-                                    if (dr.IsNull("start_location") != true) { mysql_sb.AppendLine(",'" + dr["start_location"].ToString() + "'"); } else { mysql_sb.AppendLine(",''"); }
+                                    // if (dr.IsNull("start_location") != true) { mysql_sb.AppendLine(",'" + dr["start_location"].ToString() + "'"); } else { mysql_sb.AppendLine(",''"); }
                                     // 終業場所
-                                    if (dr.IsNull("end_location") != true) { mysql_sb.AppendLine(",'" + dr["end_location"].ToString() + "'"); } else { mysql_sb.AppendLine(",''"); }
+                                    // if (dr.IsNull("end_location") != true) { mysql_sb.AppendLine(",'" + dr["end_location"].ToString() + "'"); } else { mysql_sb.AppendLine(",''"); }
+                                    // 2025/01/13 DEL (E)
                                     // 始業時間1～3
                                     if (dr.IsNull("start_time1") != true) { mysql_sb.AppendLine(",'" + dr["start_time1"].ToString() + "'"); } else { mysql_sb.AppendLine(",null"); }
                                     if (dr.IsNull("start_time2") != true) { mysql_sb.AppendLine(",'" + dr["start_time2"].ToString() + "'"); } else { mysql_sb.AppendLine(",null"); }
@@ -1611,8 +1648,10 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",Trn_日報.day");
                     sb.AppendLine(",Trn_日報.instructor_id");
                     sb.AppendLine(",Trn_日報.staff_id1");
-                    sb.AppendLine(",Trn_日報.staff_id2");
-                    sb.AppendLine(",Trn_日報.staff_id3");
+                    // 2026/01/13 DEL (S)
+                    // sb.AppendLine(",Trn_日報.staff_id2");
+                    // sb.AppendLine(",Trn_日報.staff_id3");
+                    // 2026/01/13 DEL (E)
                     sb.AppendLine(",Trn_日報.after_meter");
                     sb.AppendLine(",Trn_日報.before_meter");
                     sb.AppendLine(",Trn_日報.mileage");
@@ -1620,8 +1659,10 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",Trn_日報.fuel_meter");
                     sb.AppendLine(",Trn_日報.oil");
                     sb.AppendLine(",Trn_日報.kerosene");
-                    sb.AppendLine(",Trn_日報.start_location");
-                    sb.AppendLine(",Trn_日報.end_location");
+                    // 2025/01/13 DEL (S)
+                    // sb.AppendLine(",Trn_日報.start_location");
+                    // sb.AppendLine(",Trn_日報.end_location");
+                    // 2025/01/13 DEL (E)
                     sb.AppendLine(",Trn_日報.start_time1");
                     sb.AppendLine(",Trn_日報.start_time2");
                     sb.AppendLine(",Trn_日報.start_time3");
@@ -1650,7 +1691,10 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",Trn_日報.end_over_time_comment1");
                     sb.AppendLine(",Trn_日報.end_over_time_comment2");
                     sb.AppendLine(",Trn_日報.end_over_time_comment3");
+                    // 代車フラグ
                     sb.AppendLine(",Trn_日報.subcar_flag");
+                    // 同乗者有無
+                    sb.AppendLine(",Trn_日報.passenger_id");
                     // 確認・承認
                     sb.AppendLine(",Trn_日報.confirm1_id");
                     sb.AppendLine(",Trn_日報.confirm1_date");
@@ -1817,10 +1861,18 @@ namespace FlockAppC.tblClass
                         sb.AppendLine("Trn_日報.guest_id > 0");
                     }
 
+                    // 2026/01/16 UPD (S)
+                    //sb.AppendLine("ORDER BY");
+                    //sb.AppendLine(" Trn_日報.location_id");
+                    //sb.AppendLine(",Trn_日報.car_id");
+                    //sb.AppendLine(",Trn_日報.day");
                     sb.AppendLine("ORDER BY");
-                    sb.AppendLine(" Trn_日報.location_id");
-                    sb.AppendLine(",Trn_日報.car_id");
-                    sb.AppendLine(",Trn_日報.day");
+                    sb.AppendLine(" Trn_日報.location_id ASC");
+                    sb.AppendLine(",Trn_日報.car_id ASC");
+                    sb.AppendLine(",Trn_日報.day ASC");
+                    sb.AppendLine(",CASE WHEN Trn_日報.start_time1 IS NULL THEN 1 ELSE 0 END ASC");
+                    sb.AppendLine(",Trn_日報.start_time1 ASC");
+                    // 2026/01/16 UPD (E)
 
                     using (DataTable dt_val = clsSqlDb.DMLSelect(sb.ToString()))
                     {
@@ -1863,8 +1915,10 @@ namespace FlockAppC.tblClass
                 sb.AppendLine(",Trn_日報.fuel_meter");
                 sb.AppendLine(",Trn_日報.oil");
                 sb.AppendLine(",Trn_日報.kerosene");
-                sb.AppendLine(",Trn_日報.start_location");
-                sb.AppendLine(",Trn_日報.end_location");
+                // 2025/01/13 ADD (S)
+                // sb.AppendLine(",Trn_日報.start_location");
+                // sb.AppendLine(",Trn_日報.end_location");
+                // 2025/01/13 ADD (E)
                 sb.AppendLine(",Trn_日報.start_time1");
                 sb.AppendLine(",Trn_日報.start_time2");
                 sb.AppendLine(",Trn_日報.start_time3");
@@ -2149,10 +2203,19 @@ namespace FlockAppC.tblClass
                         sb.AppendLine("Mst_専従先.closing_date = " + this.Key_closing_date.ToString());
                     }
 
+                    // 2026/01/16 UPD (S)
+                    //sb.AppendLine("ORDER BY");
+                    //sb.AppendLine(" Trn_日報.location_id ASC");
+                    //sb.AppendLine(",Trn_日報.staff_id1 ASC");
+                    //sb.AppendLine(",Trn_日報.day ASC");
                     sb.AppendLine("ORDER BY");
                     sb.AppendLine(" Trn_日報.location_id ASC");
-                    sb.AppendLine(",Trn_日報.staff_id1 ASC");
+                    sb.AppendLine(",Trn_日報.staff_id1 DESC");
+                    sb.AppendLine(",Trn_日報.car_id ASC");
                     sb.AppendLine(",Trn_日報.day ASC");
+                    sb.AppendLine(",CASE WHEN Trn_日報.start_time1 IS NULL THEN 1 ELSE 0 END ASC");
+                    sb.AppendLine(",Trn_日報.start_time1 ASC");
+                    // 2026/01/16 UPD (E)
 
                     using (DataTable dt_val = clsSqlDb.DMLSelect(sb.ToString()))
                     {

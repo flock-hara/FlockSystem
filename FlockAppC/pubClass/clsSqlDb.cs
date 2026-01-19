@@ -101,29 +101,6 @@ namespace FlockAppC.pubClass
                 Console.WriteLine(ex.Message);
                 return null;
             }
-            //try
-            //{
-            //    Com = Con.CreateCommand();
-
-            //    // SQLセット
-            //    Com.CommandText = p_sql;
-
-            //    //  SELECTしてDataTableに取り込む
-            //    SqlDataAdapter dataAdapter = new(Com);
-
-            //    // DataTableへセット
-            //    dt = new DataTable();
-            //    dataAdapter.Fill(dt);
-
-            //    return dt;
-            //}
-            //catch (Exception ex)
-            //{
-            //    // エラー
-            //    ClsLogger.Log(ex.ToString());
-            //    Console.WriteLine(ex.Message);
-            //    return null;
-            //}
         }
 
         /// <summary>
@@ -260,39 +237,5 @@ namespace FlockAppC.pubClass
                 _disposed = true;
             }
         }
-        //public void Dispose()
-        //{
-        //    Dispose(true);
-        //    GC.SuppressFinalize(this);
-        //}
-
-        ///// <summary>
-        ///// Disposeパターン用 protected virtual
-        ///// </summary>
-        ///// <param name="disposing"></param>
-        //protected virtual void Dispose(bool disposing)
-        //{
-        //    if (!_disposed)
-        //    {
-        //        if (disposing)
-        //        {
-        //            // managed
-        //            try { Trn?.Dispose(); } catch { }
-        //            Trn = null;
-
-        //            DbClose();
-        //        }
-
-        //        _disposed = true;
-        //    }
-        //}
-
-        ///// <summary>
-        ///// ファイナライザ
-        ///// </summary>
-        //~ClsSqlDb()
-        //{
-        //    Dispose(false);
-        //}
     }
 }

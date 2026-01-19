@@ -45,6 +45,9 @@ namespace FlockAppC
             ClsPublic.pubServerName = root_element_.Element("ServerName").Value;
             ClsPublic.pubServerIP = root_element_.Element("ServerIP").Value;
 
+            // 日報CSV出力パス 2026/01/16 ADD
+            clsPublicReport.pub_Csv_path = root_element_.Element("ReportCsvPath").Value;
+
             // ====================================================================================
             // デフォルト担当者ID
             // ====================================================================================

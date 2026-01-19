@@ -664,10 +664,10 @@ namespace FlockAppC.tblClass
                 // DELETE TABLE (MySQL)
                 /////////////////////////////////////////////////////////////////////////
                 sb.Clear();
-                sb.AppendLine("DELETE TABLE");
+                sb.AppendLine("DELETE FROM");
                 sb.AppendLine("Mst_専従先");
                 sb.AppendLine("WHERE");
-                sb.AppendLine("location_id" + p_location);
+                sb.AppendLine("location_id = " + p_location);
                 clsMySqlDb.DMLUpdate(sb.ToString());
 
                 /////////////////////////////////////////////////////////////////////////
