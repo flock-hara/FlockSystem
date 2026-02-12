@@ -283,6 +283,14 @@ namespace FlockAppC.pubClass
 
         private static readonly StringBuilder sb = new();
 
+        // =======================================================================
+        // 日報関連
+        // =======================================================================
+        // モバイル用パスワード固定値
+        public const string MOBILE_PWD = "fl";
+        // 変更通知用メールアドレス(from)
+        // public const string MAIL_FROM = "soumu@flock.co.jp";
+        public const string MAIL_FROM = "hara@flock.co.jp";
 
         /// <summary>
         /// =======================================================================
@@ -1189,6 +1197,60 @@ namespace FlockAppC.pubClass
             p_gridview[p_col, p_row].Value = p_text;
             p_gridview[p_col, p_row].Style.Font = new System.Drawing.Font(p_font_type, p_font_size, p_style);
             p_gridview[p_col, p_row].Style.ForeColor = p_font_color;
+        }
+        /// <summary>
+        /// 比較（int 数字）
+        /// </summary>
+        /// <param name="original"></param>
+        /// <param name="text"></param>
+        /// <param name="current"></param>
+        /// <returns></returns>
+        public static bool TryGetChangedInt(
+            int? original,
+            string text,
+            out int? current)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                current = null;
+            }
+            else if (!int.TryParse(text, out int v))
+            {
+                current = null;
+                return false;
+            }
+            else
+            {
+                current = v;
+            }
+            return original != current;
+        }
+        /// <summary>
+        /// 比較（decimal 数字）
+        /// </summary>
+        /// <param name="original"></param>
+        /// <param name="text"></param>
+        /// <param name="current"></param>
+        /// <returns></returns>
+        public static bool TryGetChangeddecimal(
+            decimal? original,
+            string text,
+            out decimal? current)
+        {
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                current = null;
+            }
+            else if (!decimal.TryParse(text, out decimal v))
+            {
+                current = null;
+                return false;
+            }
+            else
+            {
+                current = v;
+            }
+            return original != current;
         }
     }
 }

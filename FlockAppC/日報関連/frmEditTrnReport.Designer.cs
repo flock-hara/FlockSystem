@@ -34,6 +34,10 @@
             this.lblNew = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.panel31 = new System.Windows.Forms.Panel();
+            this.label67 = new System.Windows.Forms.Label();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.label66 = new System.Windows.Forms.Label();
             this.panel32 = new System.Windows.Forms.Panel();
             this.label63 = new System.Windows.Forms.Label();
             this.panel29 = new System.Windows.Forms.Panel();
@@ -114,9 +118,6 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.chkPassenger = new System.Windows.Forms.CheckBox();
             this.txtComment = new System.Windows.Forms.TextBox();
-            this.btnSelectComment_Kbn = new System.Windows.Forms.Button();
-            this.panel31 = new System.Windows.Forms.Panel();
-            this.lblComment_Kbn = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtBefore_Meter = new System.Windows.Forms.TextBox();
             this.txtAfter_Meter = new System.Windows.Forms.TextBox();
@@ -140,6 +141,11 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtFuel = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.mskWork_Start_Time = new System.Windows.Forms.MaskedTextBox();
+            this.mskWork_Finish_Time = new System.Windows.Forms.MaskedTextBox();
+            this.label51 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
@@ -242,6 +248,8 @@
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            this.panel31.SuspendLayout();
+            this.panel30.SuspendLayout();
             this.panel32.SuspendLayout();
             this.panel29.SuspendLayout();
             this.panel28.SuspendLayout();
@@ -265,7 +273,6 @@
             this.panel5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
-            this.panel31.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.panel22.SuspendLayout();
@@ -343,13 +350,15 @@
             this.groupBox1.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox1.Location = new System.Drawing.Point(13, 39);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1170, 597);
+            this.groupBox1.Size = new System.Drawing.Size(1170, 638);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "入力情報";
             // 
             // groupBox9
             // 
+            this.groupBox9.Controls.Add(this.panel31);
+            this.groupBox9.Controls.Add(this.panel30);
             this.groupBox9.Controls.Add(this.panel32);
             this.groupBox9.Controls.Add(this.panel29);
             this.groupBox9.Controls.Add(this.panel28);
@@ -380,31 +389,75 @@
             this.groupBox9.Controls.Add(this.txtEnd_Over_Time_Comment2);
             this.groupBox9.Controls.Add(this.txtStart_Over_Time3);
             this.groupBox9.Controls.Add(this.txtEnd_Over_Time3);
-            this.groupBox9.Location = new System.Drawing.Point(17, 387);
+            this.groupBox9.Location = new System.Drawing.Point(17, 379);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(755, 193);
+            this.groupBox9.Size = new System.Drawing.Size(755, 253);
             this.groupBox9.TabIndex = 267;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "残業時間";
+            // 
+            // panel31
+            // 
+            this.panel31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel31.Controls.Add(this.label67);
+            this.panel31.Location = new System.Drawing.Point(380, 28);
+            this.panel31.Name = "panel31";
+            this.panel31.Size = new System.Drawing.Size(364, 28);
+            this.panel31.TabIndex = 306;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label67.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label67.Location = new System.Drawing.Point(132, 1);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(122, 21);
+            this.label67.TabIndex = 161;
+            this.label67.Text = "就業時間後残業";
+            this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel30
+            // 
+            this.panel30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel30.Controls.Add(this.label66);
+            this.panel30.Location = new System.Drawing.Point(13, 28);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(364, 28);
+            this.panel30.TabIndex = 305;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.label66.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label66.Location = new System.Drawing.Point(140, 2);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(122, 21);
+            this.label66.TabIndex = 161;
+            this.label66.Text = "始業時間前残業";
+            this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel32
             // 
             this.panel32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel32.Controls.Add(this.label63);
-            this.panel32.Location = new System.Drawing.Point(594, 22);
+            this.panel32.Location = new System.Drawing.Point(380, 57);
             this.panel32.Name = "panel32";
-            this.panel32.Size = new System.Drawing.Size(150, 18);
+            this.panel32.Size = new System.Drawing.Size(150, 24);
             this.panel32.TabIndex = 304;
             // 
             // label63
             // 
             this.label63.AutoSize = true;
             this.label63.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label63.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label63.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label63.Location = new System.Drawing.Point(46, 1);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(55, 16);
+            this.label63.Size = new System.Drawing.Size(60, 17);
             this.label63.TabIndex = 162;
             this.label63.Text = "残業理由";
             this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -414,19 +467,19 @@
             this.panel29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel29.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel29.Controls.Add(this.label62);
-            this.panel29.Location = new System.Drawing.Point(452, 22);
+            this.panel29.Location = new System.Drawing.Point(531, 57);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(141, 18);
+            this.panel29.Size = new System.Drawing.Size(141, 24);
             this.panel29.TabIndex = 303;
             // 
             // label62
             // 
             this.label62.AutoSize = true;
             this.label62.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label62.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label62.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label62.Location = new System.Drawing.Point(41, 1);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(55, 16);
+            this.label62.Size = new System.Drawing.Size(60, 17);
             this.label62.TabIndex = 162;
             this.label62.Text = "残業区分";
             this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -436,19 +489,19 @@
             this.panel28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel28.Controls.Add(this.label61);
-            this.panel28.Location = new System.Drawing.Point(380, 22);
+            this.panel28.Location = new System.Drawing.Point(674, 57);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(70, 18);
+            this.panel28.Size = new System.Drawing.Size(70, 24);
             this.panel28.TabIndex = 302;
             // 
             // label61
             // 
             this.label61.AutoSize = true;
             this.label61.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label61.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label61.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label61.Location = new System.Drawing.Point(6, 1);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(55, 16);
+            this.label61.Size = new System.Drawing.Size(60, 17);
             this.label61.TabIndex = 161;
             this.label61.Text = "残業時間";
             this.label61.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -458,19 +511,19 @@
             this.panel25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel25.Controls.Add(this.label60);
-            this.panel25.Location = new System.Drawing.Point(307, 22);
+            this.panel25.Location = new System.Drawing.Point(307, 57);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(70, 18);
+            this.panel25.Size = new System.Drawing.Size(70, 24);
             this.panel25.TabIndex = 301;
             // 
             // label60
             // 
             this.label60.AutoSize = true;
             this.label60.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label60.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label60.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label60.Location = new System.Drawing.Point(6, 1);
             this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(55, 16);
+            this.label60.Size = new System.Drawing.Size(60, 17);
             this.label60.TabIndex = 161;
             this.label60.Text = "残業時間";
             this.label60.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -480,30 +533,30 @@
             this.panel23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel23.Controls.Add(this.label55);
-            this.panel23.Location = new System.Drawing.Point(164, 22);
+            this.panel23.Location = new System.Drawing.Point(164, 57);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(141, 18);
+            this.panel23.Size = new System.Drawing.Size(141, 24);
             this.panel23.TabIndex = 295;
             // 
             // label55
             // 
             this.label55.AutoSize = true;
             this.label55.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label55.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label55.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label55.Location = new System.Drawing.Point(41, 1);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(55, 16);
+            this.label55.Size = new System.Drawing.Size(60, 17);
             this.label55.TabIndex = 162;
             this.label55.Text = "残業区分";
             this.label55.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtStart_Over_Time_Comment3
             // 
-            this.txtStart_Over_Time_Comment3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStart_Over_Time_Comment3.Location = new System.Drawing.Point(13, 158);
+            this.txtStart_Over_Time_Comment3.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtStart_Over_Time_Comment3.Location = new System.Drawing.Point(13, 216);
             this.txtStart_Over_Time_Comment3.Multiline = true;
             this.txtStart_Over_Time_Comment3.Name = "txtStart_Over_Time_Comment3";
-            this.txtStart_Over_Time_Comment3.Size = new System.Drawing.Size(150, 25);
+            this.txtStart_Over_Time_Comment3.Size = new System.Drawing.Size(150, 27);
             this.txtStart_Over_Time_Comment3.TabIndex = 53;
             // 
             // panel20
@@ -511,19 +564,19 @@
             this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.panel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel20.Controls.Add(this.label53);
-            this.panel20.Location = new System.Drawing.Point(13, 139);
+            this.panel20.Location = new System.Drawing.Point(13, 190);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(364, 18);
+            this.panel20.Size = new System.Drawing.Size(364, 24);
             this.panel20.TabIndex = 299;
             // 
             // label53
             // 
             this.label53.AutoSize = true;
             this.label53.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label53.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label53.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label53.Location = new System.Drawing.Point(147, 1);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(70, 16);
+            this.label53.Size = new System.Drawing.Size(77, 17);
             this.label53.TabIndex = 161;
             this.label53.Text = "３走 前残業";
             this.label53.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -533,19 +586,19 @@
             this.panel21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.panel21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel21.Controls.Add(this.label54);
-            this.panel21.Location = new System.Drawing.Point(380, 139);
+            this.panel21.Location = new System.Drawing.Point(380, 190);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(364, 18);
+            this.panel21.Size = new System.Drawing.Size(364, 24);
             this.panel21.TabIndex = 300;
             // 
             // label54
             // 
             this.label54.AutoSize = true;
             this.label54.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label54.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label54.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label54.Location = new System.Drawing.Point(147, 1);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(70, 16);
+            this.label54.Size = new System.Drawing.Size(77, 17);
             this.label54.TabIndex = 161;
             this.label54.Text = "３走 後残業";
             this.label54.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -555,19 +608,19 @@
             this.panel18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel18.Controls.Add(this.label12);
-            this.panel18.Location = new System.Drawing.Point(13, 90);
+            this.panel18.Location = new System.Drawing.Point(13, 136);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(364, 18);
+            this.panel18.Size = new System.Drawing.Size(364, 24);
             this.panel18.TabIndex = 297;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.label12.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label12.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label12.Location = new System.Drawing.Point(147, 1);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(70, 16);
+            this.label12.Size = new System.Drawing.Size(77, 17);
             this.label12.TabIndex = 161;
             this.label12.Text = "２走 前残業";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -577,30 +630,30 @@
             this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel19.Controls.Add(this.label52);
-            this.panel19.Location = new System.Drawing.Point(380, 90);
+            this.panel19.Location = new System.Drawing.Point(380, 136);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(364, 18);
+            this.panel19.Size = new System.Drawing.Size(364, 24);
             this.panel19.TabIndex = 298;
             // 
             // label52
             // 
             this.label52.AutoSize = true;
             this.label52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.label52.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label52.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label52.Location = new System.Drawing.Point(147, 1);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(70, 16);
+            this.label52.Size = new System.Drawing.Size(77, 17);
             this.label52.TabIndex = 161;
             this.label52.Text = "２走 後残業";
             this.label52.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtStart_Over_Time_Comment2
             // 
-            this.txtStart_Over_Time_Comment2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStart_Over_Time_Comment2.Location = new System.Drawing.Point(13, 109);
+            this.txtStart_Over_Time_Comment2.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtStart_Over_Time_Comment2.Location = new System.Drawing.Point(13, 162);
             this.txtStart_Over_Time_Comment2.Multiline = true;
             this.txtStart_Over_Time_Comment2.Name = "txtStart_Over_Time_Comment2";
-            this.txtStart_Over_Time_Comment2.Size = new System.Drawing.Size(150, 25);
+            this.txtStart_Over_Time_Comment2.Size = new System.Drawing.Size(150, 27);
             this.txtStart_Over_Time_Comment2.TabIndex = 47;
             // 
             // panel17
@@ -608,55 +661,60 @@
             this.panel17.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel17.Controls.Add(this.label7);
-            this.panel17.Location = new System.Drawing.Point(380, 42);
+            this.panel17.Location = new System.Drawing.Point(380, 82);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(364, 18);
+            this.panel17.Size = new System.Drawing.Size(364, 24);
             this.panel17.TabIndex = 296;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label7.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label7.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label7.Location = new System.Drawing.Point(147, 1);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 16);
+            this.label7.Size = new System.Drawing.Size(77, 17);
             this.label7.TabIndex = 161;
             this.label7.Text = "１走 後残業";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cmbEnd_Over_Time_Kbn3
             // 
+            this.cmbEnd_Over_Time_Kbn3.Font = new System.Drawing.Font("游ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cmbEnd_Over_Time_Kbn3.FormattingEnabled = true;
-            this.cmbEnd_Over_Time_Kbn3.Location = new System.Drawing.Point(452, 158);
+            this.cmbEnd_Over_Time_Kbn3.Location = new System.Drawing.Point(531, 215);
             this.cmbEnd_Over_Time_Kbn3.Name = "cmbEnd_Over_Time_Kbn3";
-            this.cmbEnd_Over_Time_Kbn3.Size = new System.Drawing.Size(141, 25);
+            this.cmbEnd_Over_Time_Kbn3.Size = new System.Drawing.Size(141, 28);
             this.cmbEnd_Over_Time_Kbn3.TabIndex = 57;
             // 
             // txtStart_Over_Time_Comment1
             // 
-            this.txtStart_Over_Time_Comment1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStart_Over_Time_Comment1.Location = new System.Drawing.Point(13, 61);
+            this.txtStart_Over_Time_Comment1.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtStart_Over_Time_Comment1.Location = new System.Drawing.Point(13, 108);
             this.txtStart_Over_Time_Comment1.Multiline = true;
             this.txtStart_Over_Time_Comment1.Name = "txtStart_Over_Time_Comment1";
-            this.txtStart_Over_Time_Comment1.Size = new System.Drawing.Size(150, 25);
+            this.txtStart_Over_Time_Comment1.Size = new System.Drawing.Size(150, 27);
             this.txtStart_Over_Time_Comment1.TabIndex = 41;
+            this.txtStart_Over_Time_Comment1.Text = "残業理由を記載";
             // 
             // cmbStart_Over_Time_Kbn1
             // 
+            this.cmbStart_Over_Time_Kbn1.Font = new System.Drawing.Font("游ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cmbStart_Over_Time_Kbn1.FormattingEnabled = true;
-            this.cmbStart_Over_Time_Kbn1.Location = new System.Drawing.Point(164, 61);
+            this.cmbStart_Over_Time_Kbn1.Location = new System.Drawing.Point(164, 107);
             this.cmbStart_Over_Time_Kbn1.Name = "cmbStart_Over_Time_Kbn1";
-            this.cmbStart_Over_Time_Kbn1.Size = new System.Drawing.Size(141, 25);
+            this.cmbStart_Over_Time_Kbn1.Size = new System.Drawing.Size(141, 28);
             this.cmbStart_Over_Time_Kbn1.TabIndex = 42;
             // 
             // txtStart_Over_Time1
             // 
             this.txtStart_Over_Time1.BackColor = System.Drawing.Color.White;
-            this.txtStart_Over_Time1.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtStart_Over_Time1.Location = new System.Drawing.Point(307, 61);
+            this.txtStart_Over_Time1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtStart_Over_Time1.ForeColor = System.Drawing.Color.Blue;
+            this.txtStart_Over_Time1.Location = new System.Drawing.Point(307, 108);
+            this.txtStart_Over_Time1.Multiline = true;
             this.txtStart_Over_Time1.Name = "txtStart_Over_Time1";
-            this.txtStart_Over_Time1.Size = new System.Drawing.Size(70, 28);
+            this.txtStart_Over_Time1.Size = new System.Drawing.Size(70, 27);
             this.txtStart_Over_Time1.TabIndex = 43;
             this.txtStart_Over_Time1.Text = "36.8";
             this.txtStart_Over_Time1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -664,54 +722,59 @@
             // txtEnd_Over_Time1
             // 
             this.txtEnd_Over_Time1.BackColor = System.Drawing.Color.White;
-            this.txtEnd_Over_Time1.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtEnd_Over_Time1.Location = new System.Drawing.Point(380, 61);
+            this.txtEnd_Over_Time1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtEnd_Over_Time1.ForeColor = System.Drawing.Color.Blue;
+            this.txtEnd_Over_Time1.Location = new System.Drawing.Point(672, 108);
+            this.txtEnd_Over_Time1.Multiline = true;
             this.txtEnd_Over_Time1.Name = "txtEnd_Over_Time1";
-            this.txtEnd_Over_Time1.Size = new System.Drawing.Size(70, 28);
+            this.txtEnd_Over_Time1.Size = new System.Drawing.Size(70, 27);
             this.txtEnd_Over_Time1.TabIndex = 44;
             this.txtEnd_Over_Time1.Text = "36.8";
             this.txtEnd_Over_Time1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // cmbStart_Over_Time_Kbn3
             // 
+            this.cmbStart_Over_Time_Kbn3.Font = new System.Drawing.Font("游ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cmbStart_Over_Time_Kbn3.FormattingEnabled = true;
-            this.cmbStart_Over_Time_Kbn3.Location = new System.Drawing.Point(164, 158);
+            this.cmbStart_Over_Time_Kbn3.Location = new System.Drawing.Point(164, 215);
             this.cmbStart_Over_Time_Kbn3.Name = "cmbStart_Over_Time_Kbn3";
-            this.cmbStart_Over_Time_Kbn3.Size = new System.Drawing.Size(141, 25);
+            this.cmbStart_Over_Time_Kbn3.Size = new System.Drawing.Size(141, 28);
             this.cmbStart_Over_Time_Kbn3.TabIndex = 54;
             // 
             // txtEnd_Over_Time_Comment3
             // 
-            this.txtEnd_Over_Time_Comment3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEnd_Over_Time_Comment3.Location = new System.Drawing.Point(594, 158);
+            this.txtEnd_Over_Time_Comment3.Font = new System.Drawing.Font("游ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtEnd_Over_Time_Comment3.Location = new System.Drawing.Point(380, 216);
             this.txtEnd_Over_Time_Comment3.Multiline = true;
             this.txtEnd_Over_Time_Comment3.Name = "txtEnd_Over_Time_Comment3";
-            this.txtEnd_Over_Time_Comment3.Size = new System.Drawing.Size(150, 25);
+            this.txtEnd_Over_Time_Comment3.Size = new System.Drawing.Size(150, 27);
             this.txtEnd_Over_Time_Comment3.TabIndex = 58;
             // 
             // cmbEnd_Over_Time_Kbn1
             // 
+            this.cmbEnd_Over_Time_Kbn1.Font = new System.Drawing.Font("游ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cmbEnd_Over_Time_Kbn1.FormattingEnabled = true;
-            this.cmbEnd_Over_Time_Kbn1.Location = new System.Drawing.Point(452, 61);
+            this.cmbEnd_Over_Time_Kbn1.Location = new System.Drawing.Point(531, 107);
             this.cmbEnd_Over_Time_Kbn1.Name = "cmbEnd_Over_Time_Kbn1";
-            this.cmbEnd_Over_Time_Kbn1.Size = new System.Drawing.Size(141, 25);
+            this.cmbEnd_Over_Time_Kbn1.Size = new System.Drawing.Size(141, 28);
             this.cmbEnd_Over_Time_Kbn1.TabIndex = 45;
             // 
             // txtEnd_Over_Time_Comment1
             // 
-            this.txtEnd_Over_Time_Comment1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEnd_Over_Time_Comment1.Location = new System.Drawing.Point(594, 61);
+            this.txtEnd_Over_Time_Comment1.Font = new System.Drawing.Font("游ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtEnd_Over_Time_Comment1.Location = new System.Drawing.Point(380, 108);
             this.txtEnd_Over_Time_Comment1.Multiline = true;
             this.txtEnd_Over_Time_Comment1.Name = "txtEnd_Over_Time_Comment1";
-            this.txtEnd_Over_Time_Comment1.Size = new System.Drawing.Size(150, 25);
+            this.txtEnd_Over_Time_Comment1.Size = new System.Drawing.Size(150, 27);
             this.txtEnd_Over_Time_Comment1.TabIndex = 46;
             // 
             // cmbEnd_Over_Time_Kbn2
             // 
+            this.cmbEnd_Over_Time_Kbn2.Font = new System.Drawing.Font("游ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cmbEnd_Over_Time_Kbn2.FormattingEnabled = true;
-            this.cmbEnd_Over_Time_Kbn2.Location = new System.Drawing.Point(452, 109);
+            this.cmbEnd_Over_Time_Kbn2.Location = new System.Drawing.Point(532, 161);
             this.cmbEnd_Over_Time_Kbn2.Name = "cmbEnd_Over_Time_Kbn2";
-            this.cmbEnd_Over_Time_Kbn2.Size = new System.Drawing.Size(141, 25);
+            this.cmbEnd_Over_Time_Kbn2.Size = new System.Drawing.Size(141, 28);
             this.cmbEnd_Over_Time_Kbn2.TabIndex = 51;
             // 
             // panel14
@@ -719,38 +782,41 @@
             this.panel14.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel14.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel14.Controls.Add(this.label33);
-            this.panel14.Location = new System.Drawing.Point(13, 42);
+            this.panel14.Location = new System.Drawing.Point(13, 82);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(364, 18);
+            this.panel14.Size = new System.Drawing.Size(364, 24);
             this.panel14.TabIndex = 270;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label33.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label33.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label33.Location = new System.Drawing.Point(147, 1);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(70, 16);
+            this.label33.Size = new System.Drawing.Size(77, 17);
             this.label33.TabIndex = 161;
             this.label33.Text = "１走 前残業";
             this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cmbStart_Over_Time_Kbn2
             // 
+            this.cmbStart_Over_Time_Kbn2.Font = new System.Drawing.Font("游ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.cmbStart_Over_Time_Kbn2.FormattingEnabled = true;
-            this.cmbStart_Over_Time_Kbn2.Location = new System.Drawing.Point(164, 109);
+            this.cmbStart_Over_Time_Kbn2.Location = new System.Drawing.Point(164, 161);
             this.cmbStart_Over_Time_Kbn2.Name = "cmbStart_Over_Time_Kbn2";
-            this.cmbStart_Over_Time_Kbn2.Size = new System.Drawing.Size(141, 25);
+            this.cmbStart_Over_Time_Kbn2.Size = new System.Drawing.Size(141, 28);
             this.cmbStart_Over_Time_Kbn2.TabIndex = 48;
             // 
             // txtStart_Over_Time2
             // 
             this.txtStart_Over_Time2.BackColor = System.Drawing.Color.White;
-            this.txtStart_Over_Time2.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtStart_Over_Time2.Location = new System.Drawing.Point(307, 110);
+            this.txtStart_Over_Time2.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtStart_Over_Time2.ForeColor = System.Drawing.Color.Blue;
+            this.txtStart_Over_Time2.Location = new System.Drawing.Point(307, 162);
+            this.txtStart_Over_Time2.Multiline = true;
             this.txtStart_Over_Time2.Name = "txtStart_Over_Time2";
-            this.txtStart_Over_Time2.Size = new System.Drawing.Size(70, 28);
+            this.txtStart_Over_Time2.Size = new System.Drawing.Size(70, 27);
             this.txtStart_Over_Time2.TabIndex = 49;
             this.txtStart_Over_Time2.Text = "36.8";
             this.txtStart_Over_Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -760,19 +826,19 @@
             this.panel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel26.Controls.Add(this.label44);
-            this.panel26.Location = new System.Drawing.Point(13, 22);
+            this.panel26.Location = new System.Drawing.Point(13, 57);
             this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(150, 18);
+            this.panel26.Size = new System.Drawing.Size(150, 24);
             this.panel26.TabIndex = 281;
             // 
             // label44
             // 
             this.label44.AutoSize = true;
             this.label44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label44.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label44.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label44.Location = new System.Drawing.Point(46, 1);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(55, 16);
+            this.label44.Size = new System.Drawing.Size(60, 17);
             this.label44.TabIndex = 162;
             this.label44.Text = "残業理由";
             this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -780,30 +846,34 @@
             // txtEnd_Over_Time2
             // 
             this.txtEnd_Over_Time2.BackColor = System.Drawing.Color.White;
-            this.txtEnd_Over_Time2.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtEnd_Over_Time2.Location = new System.Drawing.Point(380, 110);
+            this.txtEnd_Over_Time2.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtEnd_Over_Time2.ForeColor = System.Drawing.Color.Blue;
+            this.txtEnd_Over_Time2.Location = new System.Drawing.Point(672, 162);
+            this.txtEnd_Over_Time2.Multiline = true;
             this.txtEnd_Over_Time2.Name = "txtEnd_Over_Time2";
-            this.txtEnd_Over_Time2.Size = new System.Drawing.Size(70, 28);
+            this.txtEnd_Over_Time2.Size = new System.Drawing.Size(70, 27);
             this.txtEnd_Over_Time2.TabIndex = 50;
             this.txtEnd_Over_Time2.Text = "36.8";
             this.txtEnd_Over_Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtEnd_Over_Time_Comment2
             // 
-            this.txtEnd_Over_Time_Comment2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEnd_Over_Time_Comment2.Location = new System.Drawing.Point(594, 109);
+            this.txtEnd_Over_Time_Comment2.Font = new System.Drawing.Font("游ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtEnd_Over_Time_Comment2.Location = new System.Drawing.Point(381, 162);
             this.txtEnd_Over_Time_Comment2.Multiline = true;
             this.txtEnd_Over_Time_Comment2.Name = "txtEnd_Over_Time_Comment2";
-            this.txtEnd_Over_Time_Comment2.Size = new System.Drawing.Size(150, 25);
+            this.txtEnd_Over_Time_Comment2.Size = new System.Drawing.Size(150, 26);
             this.txtEnd_Over_Time_Comment2.TabIndex = 52;
             // 
             // txtStart_Over_Time3
             // 
             this.txtStart_Over_Time3.BackColor = System.Drawing.Color.White;
-            this.txtStart_Over_Time3.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtStart_Over_Time3.Location = new System.Drawing.Point(307, 158);
+            this.txtStart_Over_Time3.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtStart_Over_Time3.ForeColor = System.Drawing.Color.Blue;
+            this.txtStart_Over_Time3.Location = new System.Drawing.Point(307, 216);
+            this.txtStart_Over_Time3.Multiline = true;
             this.txtStart_Over_Time3.Name = "txtStart_Over_Time3";
-            this.txtStart_Over_Time3.Size = new System.Drawing.Size(70, 28);
+            this.txtStart_Over_Time3.Size = new System.Drawing.Size(70, 27);
             this.txtStart_Over_Time3.TabIndex = 55;
             this.txtStart_Over_Time3.Text = "36.8";
             this.txtStart_Over_Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -811,10 +881,12 @@
             // txtEnd_Over_Time3
             // 
             this.txtEnd_Over_Time3.BackColor = System.Drawing.Color.White;
-            this.txtEnd_Over_Time3.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtEnd_Over_Time3.Location = new System.Drawing.Point(380, 158);
+            this.txtEnd_Over_Time3.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtEnd_Over_Time3.ForeColor = System.Drawing.Color.Blue;
+            this.txtEnd_Over_Time3.Location = new System.Drawing.Point(672, 216);
+            this.txtEnd_Over_Time3.Multiline = true;
             this.txtEnd_Over_Time3.Name = "txtEnd_Over_Time3";
-            this.txtEnd_Over_Time3.Size = new System.Drawing.Size(70, 28);
+            this.txtEnd_Over_Time3.Size = new System.Drawing.Size(70, 27);
             this.txtEnd_Over_Time3.TabIndex = 56;
             this.txtEnd_Over_Time3.Text = "36.8";
             this.txtEnd_Over_Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -843,9 +915,9 @@
             this.groupBox8.Controls.Add(this.panel5);
             this.groupBox8.Controls.Add(this.txtAlcohol3);
             this.groupBox8.Controls.Add(this.groupBox6);
-            this.groupBox8.Location = new System.Drawing.Point(778, 388);
+            this.groupBox8.Location = new System.Drawing.Point(778, 380);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(375, 192);
+            this.groupBox8.Size = new System.Drawing.Size(375, 206);
             this.groupBox8.TabIndex = 266;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "アルコールチェック／検温";
@@ -857,17 +929,17 @@
             this.panel6.Controls.Add(this.label48);
             this.panel6.Location = new System.Drawing.Point(115, 42);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(100, 18);
+            this.panel6.Size = new System.Drawing.Size(100, 24);
             this.panel6.TabIndex = 180;
             // 
             // label48
             // 
             this.label48.AutoSize = true;
             this.label48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.label48.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label48.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label48.Location = new System.Drawing.Point(28, 1);
             this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(43, 16);
+            this.label48.Size = new System.Drawing.Size(47, 17);
             this.label48.TabIndex = 161;
             this.label48.Text = "２回目";
             this.label48.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -879,17 +951,17 @@
             this.panel7.Controls.Add(this.label49);
             this.panel7.Location = new System.Drawing.Point(13, 42);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(100, 18);
+            this.panel7.Size = new System.Drawing.Size(100, 24);
             this.panel7.TabIndex = 179;
             // 
             // label49
             // 
             this.label49.AutoSize = true;
             this.label49.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label49.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label49.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label49.Location = new System.Drawing.Point(30, 1);
             this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(43, 16);
+            this.label49.Size = new System.Drawing.Size(47, 17);
             this.label49.TabIndex = 161;
             this.label49.Text = "１回目";
             this.label49.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -898,7 +970,7 @@
             // 
             this.groupBox5.Controls.Add(this.rdoAlcohol_Check2_Ng);
             this.groupBox5.Controls.Add(this.rdoAlcohol_Check2_Ok);
-            this.groupBox5.Location = new System.Drawing.Point(158, 52);
+            this.groupBox5.Location = new System.Drawing.Point(160, 52);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(52, 62);
             this.groupBox5.TabIndex = 63;
@@ -907,7 +979,7 @@
             // rdoAlcohol_Check2_Ng
             // 
             this.rdoAlcohol_Check2_Ng.AutoSize = true;
-            this.rdoAlcohol_Check2_Ng.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rdoAlcohol_Check2_Ng.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.rdoAlcohol_Check2_Ng.Location = new System.Drawing.Point(6, 36);
             this.rdoAlcohol_Check2_Ng.Name = "rdoAlcohol_Check2_Ng";
             this.rdoAlcohol_Check2_Ng.Size = new System.Drawing.Size(37, 20);
@@ -919,7 +991,7 @@
             // rdoAlcohol_Check2_Ok
             // 
             this.rdoAlcohol_Check2_Ok.AutoSize = true;
-            this.rdoAlcohol_Check2_Ok.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rdoAlcohol_Check2_Ok.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.rdoAlcohol_Check2_Ok.Location = new System.Drawing.Point(6, 14);
             this.rdoAlcohol_Check2_Ok.Name = "rdoAlcohol_Check2_Ok";
             this.rdoAlcohol_Check2_Ok.Size = new System.Drawing.Size(37, 20);
@@ -931,10 +1003,10 @@
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label57.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label57.Location = new System.Drawing.Point(46, 117);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(59, 16);
+            this.label57.Size = new System.Drawing.Size(63, 17);
             this.label57.TabIndex = 195;
             this.label57.Text = "(時刻/℃)";
             this.label57.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -942,8 +1014,8 @@
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label35.Location = new System.Drawing.Point(10, 25);
+            this.label35.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label35.Location = new System.Drawing.Point(15, 24);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(124, 17);
             this.label35.TabIndex = 159;
@@ -953,7 +1025,7 @@
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label42.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label42.Location = new System.Drawing.Point(9, 116);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(34, 17);
@@ -964,21 +1036,21 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label43.Location = new System.Drawing.Point(130, 26);
+            this.label43.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label43.Location = new System.Drawing.Point(135, 25);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(47, 16);
+            this.label43.Size = new System.Drawing.Size(50, 17);
             this.label43.TabIndex = 172;
             this.label43.Text = "(mg/L)";
             this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // mskTemp_Time3
             // 
-            this.mskTemp_Time3.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskTemp_Time3.Location = new System.Drawing.Point(246, 154);
+            this.mskTemp_Time3.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskTemp_Time3.Location = new System.Drawing.Point(246, 161);
             this.mskTemp_Time3.Mask = "90:00";
             this.mskTemp_Time3.Name = "mskTemp_Time3";
-            this.mskTemp_Time3.Size = new System.Drawing.Size(70, 28);
+            this.mskTemp_Time3.Size = new System.Drawing.Size(70, 33);
             this.mskTemp_Time3.TabIndex = 74;
             this.mskTemp_Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskTemp_Time3.ValidatingType = typeof(System.DateTime);
@@ -990,28 +1062,28 @@
             this.panel8.Controls.Add(this.label56);
             this.panel8.Location = new System.Drawing.Point(12, 135);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(116, 18);
+            this.panel8.Size = new System.Drawing.Size(116, 24);
             this.panel8.TabIndex = 196;
             // 
             // label56
             // 
             this.label56.AutoSize = true;
             this.label56.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label56.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label56.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label56.Location = new System.Drawing.Point(36, 1);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(43, 16);
+            this.label56.Size = new System.Drawing.Size(47, 17);
             this.label56.TabIndex = 161;
             this.label56.Text = "１回目";
             this.label56.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mskTemp_Time2
             // 
-            this.mskTemp_Time2.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskTemp_Time2.Location = new System.Drawing.Point(129, 154);
+            this.mskTemp_Time2.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskTemp_Time2.Location = new System.Drawing.Point(129, 161);
             this.mskTemp_Time2.Mask = "90:00";
             this.mskTemp_Time2.Name = "mskTemp_Time2";
-            this.mskTemp_Time2.Size = new System.Drawing.Size(70, 28);
+            this.mskTemp_Time2.Size = new System.Drawing.Size(70, 33);
             this.mskTemp_Time2.TabIndex = 72;
             this.mskTemp_Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskTemp_Time2.ValidatingType = typeof(System.DateTime);
@@ -1023,28 +1095,28 @@
             this.panel9.Controls.Add(this.label58);
             this.panel9.Location = new System.Drawing.Point(129, 135);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(116, 18);
+            this.panel9.Size = new System.Drawing.Size(116, 24);
             this.panel9.TabIndex = 197;
             // 
             // label58
             // 
             this.label58.AutoSize = true;
             this.label58.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.label58.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label58.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label58.Location = new System.Drawing.Point(33, 1);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(43, 16);
+            this.label58.Size = new System.Drawing.Size(47, 17);
             this.label58.TabIndex = 161;
             this.label58.Text = "２回目";
             this.label58.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mskTemp_Time1
             // 
-            this.mskTemp_Time1.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskTemp_Time1.Location = new System.Drawing.Point(12, 154);
+            this.mskTemp_Time1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskTemp_Time1.Location = new System.Drawing.Point(12, 161);
             this.mskTemp_Time1.Mask = "90:00";
             this.mskTemp_Time1.Name = "mskTemp_Time1";
-            this.mskTemp_Time1.Size = new System.Drawing.Size(70, 28);
+            this.mskTemp_Time1.Size = new System.Drawing.Size(70, 33);
             this.mskTemp_Time1.TabIndex = 70;
             this.mskTemp_Time1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskTemp_Time1.ValidatingType = typeof(System.DateTime);
@@ -1056,17 +1128,17 @@
             this.panel10.Controls.Add(this.label59);
             this.panel10.Location = new System.Drawing.Point(246, 135);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(116, 18);
+            this.panel10.Size = new System.Drawing.Size(116, 24);
             this.panel10.TabIndex = 198;
             // 
             // label59
             // 
             this.label59.AutoSize = true;
             this.label59.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label59.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label59.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label59.Location = new System.Drawing.Point(35, 1);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(43, 16);
+            this.label59.Size = new System.Drawing.Size(47, 17);
             this.label59.TabIndex = 161;
             this.label59.Text = "３回目";
             this.label59.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1074,10 +1146,10 @@
             // txtTemp3
             // 
             this.txtTemp3.BackColor = System.Drawing.Color.White;
-            this.txtTemp3.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtTemp3.Location = new System.Drawing.Point(316, 154);
+            this.txtTemp3.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtTemp3.Location = new System.Drawing.Point(316, 161);
             this.txtTemp3.Name = "txtTemp3";
-            this.txtTemp3.Size = new System.Drawing.Size(46, 28);
+            this.txtTemp3.Size = new System.Drawing.Size(46, 33);
             this.txtTemp3.TabIndex = 75;
             this.txtTemp3.Text = "36.8";
             this.txtTemp3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1085,10 +1157,10 @@
             // txtAlcohol1
             // 
             this.txtAlcohol1.BackColor = System.Drawing.Color.White;
-            this.txtAlcohol1.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtAlcohol1.Location = new System.Drawing.Point(13, 73);
+            this.txtAlcohol1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtAlcohol1.Location = new System.Drawing.Point(12, 73);
             this.txtAlcohol1.Name = "txtAlcohol1";
-            this.txtAlcohol1.Size = new System.Drawing.Size(44, 28);
+            this.txtAlcohol1.Size = new System.Drawing.Size(46, 33);
             this.txtAlcohol1.TabIndex = 60;
             this.txtAlcohol1.Text = "9.9";
             this.txtAlcohol1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1096,10 +1168,10 @@
             // txtTemp2
             // 
             this.txtTemp2.BackColor = System.Drawing.Color.White;
-            this.txtTemp2.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtTemp2.Location = new System.Drawing.Point(199, 154);
+            this.txtTemp2.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtTemp2.Location = new System.Drawing.Point(199, 161);
             this.txtTemp2.Name = "txtTemp2";
-            this.txtTemp2.Size = new System.Drawing.Size(46, 28);
+            this.txtTemp2.Size = new System.Drawing.Size(46, 33);
             this.txtTemp2.TabIndex = 73;
             this.txtTemp2.Text = "36.8";
             this.txtTemp2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1108,7 +1180,7 @@
             // 
             this.groupBox4.Controls.Add(this.rdoAlcohol_Check1_Ng);
             this.groupBox4.Controls.Add(this.rdoAlcohol_Check1_Ok);
-            this.groupBox4.Location = new System.Drawing.Point(55, 52);
+            this.groupBox4.Location = new System.Drawing.Point(57, 52);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(52, 62);
             this.groupBox4.TabIndex = 61;
@@ -1117,7 +1189,7 @@
             // rdoAlcohol_Check1_Ng
             // 
             this.rdoAlcohol_Check1_Ng.AutoSize = true;
-            this.rdoAlcohol_Check1_Ng.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rdoAlcohol_Check1_Ng.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.rdoAlcohol_Check1_Ng.Location = new System.Drawing.Point(6, 37);
             this.rdoAlcohol_Check1_Ng.Name = "rdoAlcohol_Check1_Ng";
             this.rdoAlcohol_Check1_Ng.Size = new System.Drawing.Size(37, 20);
@@ -1130,7 +1202,7 @@
             // rdoAlcohol_Check1_Ok
             // 
             this.rdoAlcohol_Check1_Ok.AutoSize = true;
-            this.rdoAlcohol_Check1_Ok.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rdoAlcohol_Check1_Ok.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.rdoAlcohol_Check1_Ok.Location = new System.Drawing.Point(6, 14);
             this.rdoAlcohol_Check1_Ok.Name = "rdoAlcohol_Check1_Ok";
             this.rdoAlcohol_Check1_Ok.Size = new System.Drawing.Size(37, 20);
@@ -1143,10 +1215,10 @@
             // txtTemp1
             // 
             this.txtTemp1.BackColor = System.Drawing.Color.White;
-            this.txtTemp1.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtTemp1.Location = new System.Drawing.Point(82, 154);
+            this.txtTemp1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtTemp1.Location = new System.Drawing.Point(82, 161);
             this.txtTemp1.Name = "txtTemp1";
-            this.txtTemp1.Size = new System.Drawing.Size(46, 28);
+            this.txtTemp1.Size = new System.Drawing.Size(46, 33);
             this.txtTemp1.TabIndex = 71;
             this.txtTemp1.Text = "36.8";
             this.txtTemp1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1154,10 +1226,10 @@
             // txtAlcohol2
             // 
             this.txtAlcohol2.BackColor = System.Drawing.Color.White;
-            this.txtAlcohol2.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtAlcohol2.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.txtAlcohol2.Location = new System.Drawing.Point(115, 73);
             this.txtAlcohol2.Name = "txtAlcohol2";
-            this.txtAlcohol2.Size = new System.Drawing.Size(44, 28);
+            this.txtAlcohol2.Size = new System.Drawing.Size(44, 33);
             this.txtAlcohol2.TabIndex = 62;
             this.txtAlcohol2.Text = "9.9";
             this.txtAlcohol2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1169,17 +1241,17 @@
             this.panel5.Controls.Add(this.label47);
             this.panel5.Location = new System.Drawing.Point(217, 42);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(100, 18);
+            this.panel5.Size = new System.Drawing.Size(100, 24);
             this.panel5.TabIndex = 181;
             // 
             // label47
             // 
             this.label47.AutoSize = true;
             this.label47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label47.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label47.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label47.Location = new System.Drawing.Point(27, 1);
             this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(43, 16);
+            this.label47.Size = new System.Drawing.Size(47, 17);
             this.label47.TabIndex = 161;
             this.label47.Text = "３回目";
             this.label47.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1187,10 +1259,10 @@
             // txtAlcohol3
             // 
             this.txtAlcohol3.BackColor = System.Drawing.Color.White;
-            this.txtAlcohol3.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtAlcohol3.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.txtAlcohol3.Location = new System.Drawing.Point(217, 73);
             this.txtAlcohol3.Name = "txtAlcohol3";
-            this.txtAlcohol3.Size = new System.Drawing.Size(44, 28);
+            this.txtAlcohol3.Size = new System.Drawing.Size(44, 33);
             this.txtAlcohol3.TabIndex = 64;
             this.txtAlcohol3.Text = "9.9";
             this.txtAlcohol3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1199,7 +1271,7 @@
             // 
             this.groupBox6.Controls.Add(this.rdoAlcohol_Check3_Ng);
             this.groupBox6.Controls.Add(this.rdoAlcohol_Check3_Ok);
-            this.groupBox6.Location = new System.Drawing.Point(259, 52);
+            this.groupBox6.Location = new System.Drawing.Point(261, 52);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(52, 62);
             this.groupBox6.TabIndex = 65;
@@ -1208,7 +1280,7 @@
             // rdoAlcohol_Check3_Ng
             // 
             this.rdoAlcohol_Check3_Ng.AutoSize = true;
-            this.rdoAlcohol_Check3_Ng.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rdoAlcohol_Check3_Ng.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.rdoAlcohol_Check3_Ng.Location = new System.Drawing.Point(5, 37);
             this.rdoAlcohol_Check3_Ng.Name = "rdoAlcohol_Check3_Ng";
             this.rdoAlcohol_Check3_Ng.Size = new System.Drawing.Size(37, 20);
@@ -1220,7 +1292,7 @@
             // rdoAlcohol_Check3_Ok
             // 
             this.rdoAlcohol_Check3_Ok.AutoSize = true;
-            this.rdoAlcohol_Check3_Ok.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.rdoAlcohol_Check3_Ok.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.rdoAlcohol_Check3_Ok.Location = new System.Drawing.Point(6, 14);
             this.rdoAlcohol_Check3_Ok.Name = "rdoAlcohol_Check3_Ok";
             this.rdoAlcohol_Check3_Ok.Size = new System.Drawing.Size(37, 20);
@@ -1233,11 +1305,9 @@
             // 
             this.groupBox7.Controls.Add(this.chkPassenger);
             this.groupBox7.Controls.Add(this.txtComment);
-            this.groupBox7.Controls.Add(this.btnSelectComment_Kbn);
-            this.groupBox7.Controls.Add(this.panel31);
-            this.groupBox7.Location = new System.Drawing.Point(652, 245);
+            this.groupBox7.Location = new System.Drawing.Point(652, 248);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(501, 139);
+            this.groupBox7.Size = new System.Drawing.Size(501, 127);
             this.groupBox7.TabIndex = 265;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "備考（備品購入/同乗者等）";
@@ -1245,7 +1315,8 @@
             // chkPassenger
             // 
             this.chkPassenger.AutoSize = true;
-            this.chkPassenger.Location = new System.Drawing.Point(354, 29);
+            this.chkPassenger.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.chkPassenger.Location = new System.Drawing.Point(21, 23);
             this.chkPassenger.Name = "chkPassenger";
             this.chkPassenger.Size = new System.Drawing.Size(92, 21);
             this.chkPassenger.TabIndex = 32;
@@ -1255,42 +1326,12 @@
             // txtComment
             // 
             this.txtComment.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtComment.Location = new System.Drawing.Point(21, 56);
+            this.txtComment.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtComment.Location = new System.Drawing.Point(21, 50);
             this.txtComment.Multiline = true;
             this.txtComment.Name = "txtComment";
-            this.txtComment.Size = new System.Drawing.Size(427, 73);
+            this.txtComment.Size = new System.Drawing.Size(464, 57);
             this.txtComment.TabIndex = 33;
-            // 
-            // btnSelectComment_Kbn
-            // 
-            this.btnSelectComment_Kbn.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnSelectComment_Kbn.Location = new System.Drawing.Point(20, 26);
-            this.btnSelectComment_Kbn.Name = "btnSelectComment_Kbn";
-            this.btnSelectComment_Kbn.Size = new System.Drawing.Size(100, 28);
-            this.btnSelectComment_Kbn.TabIndex = 31;
-            this.btnSelectComment_Kbn.Text = "備考区分";
-            this.btnSelectComment_Kbn.UseVisualStyleBackColor = true;
-            this.btnSelectComment_Kbn.Click += new System.EventHandler(this.btnSelectComment_Kbn_Click_1);
-            // 
-            // panel31
-            // 
-            this.panel31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel31.Controls.Add(this.lblComment_Kbn);
-            this.panel31.Location = new System.Drawing.Point(124, 27);
-            this.panel31.Name = "panel31";
-            this.panel31.Size = new System.Drawing.Size(223, 26);
-            this.panel31.TabIndex = 263;
-            // 
-            // lblComment_Kbn
-            // 
-            this.lblComment_Kbn.BackColor = System.Drawing.SystemColors.Control;
-            this.lblComment_Kbn.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblComment_Kbn.Location = new System.Drawing.Point(2, 2);
-            this.lblComment_Kbn.Name = "lblComment_Kbn";
-            this.lblComment_Kbn.Size = new System.Drawing.Size(216, 20);
-            this.lblComment_Kbn.TabIndex = 156;
-            this.lblComment_Kbn.Text = "備考区分";
-            this.lblComment_Kbn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBox3
             // 
@@ -1315,9 +1356,9 @@
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.txtFuel);
-            this.groupBox3.Location = new System.Drawing.Point(652, 91);
+            this.groupBox3.Location = new System.Drawing.Point(652, 82);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(501, 150);
+            this.groupBox3.Size = new System.Drawing.Size(501, 160);
             this.groupBox3.TabIndex = 260;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "メーター／給油等";
@@ -1325,10 +1366,10 @@
             // txtBefore_Meter
             // 
             this.txtBefore_Meter.BackColor = System.Drawing.Color.White;
-            this.txtBefore_Meter.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtBefore_Meter.Location = new System.Drawing.Point(126, 51);
+            this.txtBefore_Meter.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtBefore_Meter.Location = new System.Drawing.Point(126, 56);
             this.txtBefore_Meter.Name = "txtBefore_Meter";
-            this.txtBefore_Meter.Size = new System.Drawing.Size(100, 28);
+            this.txtBefore_Meter.Size = new System.Drawing.Size(100, 33);
             this.txtBefore_Meter.TabIndex = 14;
             this.txtBefore_Meter.Text = "99,999";
             this.txtBefore_Meter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1337,10 +1378,10 @@
             // txtAfter_Meter
             // 
             this.txtAfter_Meter.BackColor = System.Drawing.Color.White;
-            this.txtAfter_Meter.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtAfter_Meter.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.txtAfter_Meter.Location = new System.Drawing.Point(126, 23);
             this.txtAfter_Meter.Name = "txtAfter_Meter";
-            this.txtAfter_Meter.Size = new System.Drawing.Size(100, 28);
+            this.txtAfter_Meter.Size = new System.Drawing.Size(100, 33);
             this.txtAfter_Meter.TabIndex = 13;
             this.txtAfter_Meter.Text = "99,999";
             this.txtAfter_Meter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1349,8 +1390,8 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label21.Location = new System.Drawing.Point(21, 29);
+            this.label21.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label21.Location = new System.Drawing.Point(25, 32);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(99, 17);
             this.label21.TabIndex = 134;
@@ -1359,8 +1400,8 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label18.Location = new System.Drawing.Point(21, 55);
+            this.label18.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label18.Location = new System.Drawing.Point(25, 63);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(99, 17);
             this.label18.TabIndex = 138;
@@ -1369,8 +1410,8 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label19.Location = new System.Drawing.Point(47, 84);
+            this.label19.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label19.Location = new System.Drawing.Point(50, 97);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(73, 17);
             this.label19.TabIndex = 140;
@@ -1379,11 +1420,11 @@
             // txtMileage
             // 
             this.txtMileage.BackColor = System.Drawing.SystemColors.Control;
-            this.txtMileage.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtMileage.Location = new System.Drawing.Point(126, 79);
+            this.txtMileage.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtMileage.Location = new System.Drawing.Point(126, 89);
             this.txtMileage.Name = "txtMileage";
             this.txtMileage.ReadOnly = true;
-            this.txtMileage.Size = new System.Drawing.Size(100, 28);
+            this.txtMileage.Size = new System.Drawing.Size(100, 33);
             this.txtMileage.TabIndex = 141;
             this.txtMileage.TabStop = false;
             this.txtMileage.Text = "99,999";
@@ -1403,7 +1444,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label27.Location = new System.Drawing.Point(446, 54);
+            this.label27.Location = new System.Drawing.Point(446, 64);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(21, 17);
             this.label27.TabIndex = 251;
@@ -1413,7 +1454,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label24.Location = new System.Drawing.Point(227, 56);
+            this.label24.Location = new System.Drawing.Point(227, 61);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(21, 17);
             this.label24.TabIndex = 249;
@@ -1422,10 +1463,10 @@
             // txtKerosene
             // 
             this.txtKerosene.BackColor = System.Drawing.Color.White;
-            this.txtKerosene.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtKerosene.Location = new System.Drawing.Point(354, 111);
+            this.txtKerosene.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtKerosene.Location = new System.Drawing.Point(354, 122);
             this.txtKerosene.Name = "txtKerosene";
-            this.txtKerosene.Size = new System.Drawing.Size(72, 28);
+            this.txtKerosene.Size = new System.Drawing.Size(72, 33);
             this.txtKerosene.TabIndex = 20;
             this.txtKerosene.Text = "25,5";
             this.txtKerosene.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1434,7 +1475,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label26.Location = new System.Drawing.Point(227, 84);
+            this.label26.Location = new System.Drawing.Point(227, 89);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(21, 17);
             this.label26.TabIndex = 250;
@@ -1443,8 +1484,8 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label22.Location = new System.Drawing.Point(305, 118);
+            this.label22.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label22.Location = new System.Drawing.Point(318, 129);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(34, 17);
             this.label22.TabIndex = 247;
@@ -1454,10 +1495,10 @@
             // txtOil
             // 
             this.txtOil.BackColor = System.Drawing.Color.White;
-            this.txtOil.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtOil.Location = new System.Drawing.Point(354, 81);
+            this.txtOil.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtOil.Location = new System.Drawing.Point(354, 89);
             this.txtOil.Name = "txtOil";
-            this.txtOil.Size = new System.Drawing.Size(72, 28);
+            this.txtOil.Size = new System.Drawing.Size(72, 33);
             this.txtOil.TabIndex = 19;
             this.txtOil.Text = "25,5";
             this.txtOil.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1466,7 +1507,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label23.Location = new System.Drawing.Point(427, 117);
+            this.label23.Location = new System.Drawing.Point(427, 131);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(21, 17);
             this.label23.TabIndex = 246;
@@ -1476,7 +1517,7 @@
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label30.Location = new System.Drawing.Point(427, 25);
+            this.label30.Location = new System.Drawing.Point(427, 31);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(21, 17);
             this.label30.TabIndex = 152;
@@ -1485,8 +1526,8 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label25.Location = new System.Drawing.Point(252, 54);
+            this.label25.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label25.Location = new System.Drawing.Point(253, 64);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(99, 17);
             this.label25.TabIndex = 144;
@@ -1496,8 +1537,8 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label14.Location = new System.Drawing.Point(301, 88);
+            this.label14.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label14.Location = new System.Drawing.Point(307, 97);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(45, 17);
             this.label14.TabIndex = 244;
@@ -1507,10 +1548,10 @@
             // txtFuel_Meter
             // 
             this.txtFuel_Meter.BackColor = System.Drawing.Color.White;
-            this.txtFuel_Meter.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtFuel_Meter.Location = new System.Drawing.Point(354, 48);
+            this.txtFuel_Meter.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtFuel_Meter.Location = new System.Drawing.Point(354, 56);
             this.txtFuel_Meter.Name = "txtFuel_Meter";
-            this.txtFuel_Meter.Size = new System.Drawing.Size(90, 28);
+            this.txtFuel_Meter.Size = new System.Drawing.Size(90, 33);
             this.txtFuel_Meter.TabIndex = 18;
             this.txtFuel_Meter.Text = "99,999";
             this.txtFuel_Meter.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1519,7 +1560,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label16.Location = new System.Drawing.Point(427, 87);
+            this.label16.Location = new System.Drawing.Point(427, 96);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(21, 17);
             this.label16.TabIndex = 243;
@@ -1528,8 +1569,8 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label5.Location = new System.Drawing.Point(301, 26);
+            this.label5.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label5.Location = new System.Drawing.Point(305, 31);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 17);
             this.label5.TabIndex = 227;
@@ -1539,16 +1580,21 @@
             // txtFuel
             // 
             this.txtFuel.BackColor = System.Drawing.Color.White;
-            this.txtFuel.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtFuel.Location = new System.Drawing.Point(354, 19);
+            this.txtFuel.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtFuel.Location = new System.Drawing.Point(354, 23);
             this.txtFuel.Name = "txtFuel";
-            this.txtFuel.Size = new System.Drawing.Size(72, 28);
+            this.txtFuel.Size = new System.Drawing.Size(72, 33);
             this.txtFuel.TabIndex = 16;
             this.txtFuel.Text = "25,5";
             this.txtFuel.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label64);
+            this.groupBox2.Controls.Add(this.label65);
+            this.groupBox2.Controls.Add(this.mskWork_Start_Time);
+            this.groupBox2.Controls.Add(this.mskWork_Finish_Time);
+            this.groupBox2.Controls.Add(this.label51);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.panel22);
             this.groupBox2.Controls.Add(this.label39);
@@ -1592,19 +1638,71 @@
             this.groupBox2.Controls.Add(this.mskBasic_End_Time3);
             this.groupBox2.Controls.Add(this.label29);
             this.groupBox2.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold);
-            this.groupBox2.Location = new System.Drawing.Point(17, 91);
+            this.groupBox2.Location = new System.Drawing.Point(17, 82);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(629, 293);
             this.groupBox2.TabIndex = 253;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "送迎時間";
             // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label64.Location = new System.Drawing.Point(328, 195);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(60, 17);
+            this.label64.TabIndex = 290;
+            this.label64.Text = "開始時間";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label65.Location = new System.Drawing.Point(329, 228);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(60, 17);
+            this.label65.TabIndex = 291;
+            this.label65.Text = "終了時間";
+            // 
+            // mskWork_Start_Time
+            // 
+            this.mskWork_Start_Time.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskWork_Start_Time.Location = new System.Drawing.Point(395, 190);
+            this.mskWork_Start_Time.Mask = "90:00";
+            this.mskWork_Start_Time.Name = "mskWork_Start_Time";
+            this.mskWork_Start_Time.Size = new System.Drawing.Size(70, 33);
+            this.mskWork_Start_Time.TabIndex = 288;
+            this.mskWork_Start_Time.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mskWork_Start_Time.ValidatingType = typeof(System.DateTime);
+            // 
+            // mskWork_Finish_Time
+            // 
+            this.mskWork_Finish_Time.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskWork_Finish_Time.Location = new System.Drawing.Point(395, 222);
+            this.mskWork_Finish_Time.Mask = "90:00";
+            this.mskWork_Finish_Time.Name = "mskWork_Finish_Time";
+            this.mskWork_Finish_Time.Size = new System.Drawing.Size(70, 33);
+            this.mskWork_Finish_Time.TabIndex = 289;
+            this.mskWork_Finish_Time.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mskWork_Finish_Time.ValidatingType = typeof(System.DateTime);
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label51.Location = new System.Drawing.Point(397, 172);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(99, 17);
+            this.label51.TabIndex = 287;
+            this.label51.Text = "始業前作業時間";
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label10.ForeColor = System.Drawing.Color.Red;
-            this.label10.Location = new System.Drawing.Point(8, 248);
+            this.label10.Location = new System.Drawing.Point(9, 263);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(610, 20);
             this.label10.TabIndex = 286;
@@ -1616,19 +1714,19 @@
             this.panel22.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel22.Controls.Add(this.label34);
-            this.panel22.Location = new System.Drawing.Point(535, 49);
+            this.panel22.Location = new System.Drawing.Point(535, 38);
             this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(70, 18);
+            this.panel22.Size = new System.Drawing.Size(70, 24);
             this.panel22.TabIndex = 280;
             // 
             // label34
             // 
             this.label34.AutoSize = true;
             this.label34.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label34.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label34.Location = new System.Drawing.Point(13, 0);
+            this.label34.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label34.Location = new System.Drawing.Point(11, 2);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(43, 16);
+            this.label34.Size = new System.Drawing.Size(47, 17);
             this.label34.TabIndex = 161;
             this.label34.Text = "３回目";
             this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1636,7 +1734,7 @@
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label39.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label39.Location = new System.Drawing.Point(328, 75);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(60, 17);
@@ -1646,7 +1744,7 @@
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label40.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label40.Location = new System.Drawing.Point(329, 103);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(60, 17);
@@ -1658,19 +1756,19 @@
             this.panel24.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel24.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel24.Controls.Add(this.label41);
-            this.panel24.Location = new System.Drawing.Point(395, 49);
+            this.panel24.Location = new System.Drawing.Point(395, 38);
             this.panel24.Name = "panel24";
-            this.panel24.Size = new System.Drawing.Size(70, 18);
+            this.panel24.Size = new System.Drawing.Size(70, 24);
             this.panel24.TabIndex = 278;
             // 
             // label41
             // 
             this.label41.AutoSize = true;
             this.label41.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label41.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label41.Location = new System.Drawing.Point(12, 0);
+            this.label41.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label41.Location = new System.Drawing.Point(11, 2);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(43, 16);
+            this.label41.Size = new System.Drawing.Size(47, 17);
             this.label41.TabIndex = 161;
             this.label41.Text = "１回目";
             this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1680,85 +1778,85 @@
             this.panel27.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel27.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel27.Controls.Add(this.label45);
-            this.panel27.Location = new System.Drawing.Point(465, 49);
+            this.panel27.Location = new System.Drawing.Point(465, 38);
             this.panel27.Name = "panel27";
-            this.panel27.Size = new System.Drawing.Size(70, 18);
+            this.panel27.Size = new System.Drawing.Size(70, 24);
             this.panel27.TabIndex = 279;
             // 
             // label45
             // 
             this.label45.AutoSize = true;
             this.label45.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label45.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label45.Location = new System.Drawing.Point(14, 0);
+            this.label45.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label45.Location = new System.Drawing.Point(11, 2);
             this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(43, 16);
+            this.label45.Size = new System.Drawing.Size(47, 17);
             this.label45.TabIndex = 161;
             this.label45.Text = "２回目";
             this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mskStart_Break_Time1
             // 
-            this.mskStart_Break_Time1.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskStart_Break_Time1.Location = new System.Drawing.Point(395, 70);
+            this.mskStart_Break_Time1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskStart_Break_Time1.Location = new System.Drawing.Point(395, 64);
             this.mskStart_Break_Time1.Mask = "90:00";
             this.mskStart_Break_Time1.Name = "mskStart_Break_Time1";
-            this.mskStart_Break_Time1.Size = new System.Drawing.Size(70, 28);
+            this.mskStart_Break_Time1.Size = new System.Drawing.Size(70, 33);
             this.mskStart_Break_Time1.TabIndex = 270;
             this.mskStart_Break_Time1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskStart_Break_Time1.ValidatingType = typeof(System.DateTime);
             // 
             // mskStart_Break_Time2
             // 
-            this.mskStart_Break_Time2.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskStart_Break_Time2.Location = new System.Drawing.Point(465, 70);
+            this.mskStart_Break_Time2.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskStart_Break_Time2.Location = new System.Drawing.Point(465, 64);
             this.mskStart_Break_Time2.Mask = "90:00";
             this.mskStart_Break_Time2.Name = "mskStart_Break_Time2";
-            this.mskStart_Break_Time2.Size = new System.Drawing.Size(70, 28);
+            this.mskStart_Break_Time2.Size = new System.Drawing.Size(70, 33);
             this.mskStart_Break_Time2.TabIndex = 272;
             this.mskStart_Break_Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskStart_Break_Time2.ValidatingType = typeof(System.DateTime);
             // 
             // mskStart_Break_Time3
             // 
-            this.mskStart_Break_Time3.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskStart_Break_Time3.Location = new System.Drawing.Point(535, 70);
+            this.mskStart_Break_Time3.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskStart_Break_Time3.Location = new System.Drawing.Point(535, 64);
             this.mskStart_Break_Time3.Mask = "90:00";
             this.mskStart_Break_Time3.Name = "mskStart_Break_Time3";
-            this.mskStart_Break_Time3.Size = new System.Drawing.Size(70, 28);
+            this.mskStart_Break_Time3.Size = new System.Drawing.Size(70, 33);
             this.mskStart_Break_Time3.TabIndex = 274;
             this.mskStart_Break_Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskStart_Break_Time3.ValidatingType = typeof(System.DateTime);
             // 
             // mskEnd_Break_Time1
             // 
-            this.mskEnd_Break_Time1.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskEnd_Break_Time1.Location = new System.Drawing.Point(395, 99);
+            this.mskEnd_Break_Time1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskEnd_Break_Time1.Location = new System.Drawing.Point(395, 97);
             this.mskEnd_Break_Time1.Mask = "90:00";
             this.mskEnd_Break_Time1.Name = "mskEnd_Break_Time1";
-            this.mskEnd_Break_Time1.Size = new System.Drawing.Size(70, 28);
+            this.mskEnd_Break_Time1.Size = new System.Drawing.Size(70, 33);
             this.mskEnd_Break_Time1.TabIndex = 271;
             this.mskEnd_Break_Time1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskEnd_Break_Time1.ValidatingType = typeof(System.DateTime);
             // 
             // mskEnd_Break_Time2
             // 
-            this.mskEnd_Break_Time2.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskEnd_Break_Time2.Location = new System.Drawing.Point(465, 99);
+            this.mskEnd_Break_Time2.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskEnd_Break_Time2.Location = new System.Drawing.Point(465, 97);
             this.mskEnd_Break_Time2.Mask = "90:00";
             this.mskEnd_Break_Time2.Name = "mskEnd_Break_Time2";
-            this.mskEnd_Break_Time2.Size = new System.Drawing.Size(70, 28);
+            this.mskEnd_Break_Time2.Size = new System.Drawing.Size(70, 33);
             this.mskEnd_Break_Time2.TabIndex = 273;
             this.mskEnd_Break_Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskEnd_Break_Time2.ValidatingType = typeof(System.DateTime);
             // 
             // mskEnd_Break_Time3
             // 
-            this.mskEnd_Break_Time3.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskEnd_Break_Time3.Location = new System.Drawing.Point(535, 99);
+            this.mskEnd_Break_Time3.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskEnd_Break_Time3.Location = new System.Drawing.Point(535, 97);
             this.mskEnd_Break_Time3.Mask = "90:00";
             this.mskEnd_Break_Time3.Name = "mskEnd_Break_Time3";
-            this.mskEnd_Break_Time3.Size = new System.Drawing.Size(70, 28);
+            this.mskEnd_Break_Time3.Size = new System.Drawing.Size(70, 33);
             this.mskEnd_Break_Time3.TabIndex = 275;
             this.mskEnd_Break_Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskEnd_Break_Time3.ValidatingType = typeof(System.DateTime);
@@ -1766,10 +1864,11 @@
             // txtBreak_Time1
             // 
             this.txtBreak_Time1.BackColor = System.Drawing.Color.White;
-            this.txtBreak_Time1.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtBreak_Time1.Location = new System.Drawing.Point(395, 129);
+            this.txtBreak_Time1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtBreak_Time1.ForeColor = System.Drawing.Color.Green;
+            this.txtBreak_Time1.Location = new System.Drawing.Point(395, 130);
             this.txtBreak_Time1.Name = "txtBreak_Time1";
-            this.txtBreak_Time1.Size = new System.Drawing.Size(70, 28);
+            this.txtBreak_Time1.Size = new System.Drawing.Size(70, 33);
             this.txtBreak_Time1.TabIndex = 281;
             this.txtBreak_Time1.Text = "36.8";
             this.txtBreak_Time1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1777,10 +1876,11 @@
             // txtBreak_Time2
             // 
             this.txtBreak_Time2.BackColor = System.Drawing.Color.White;
-            this.txtBreak_Time2.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtBreak_Time2.Location = new System.Drawing.Point(465, 129);
+            this.txtBreak_Time2.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtBreak_Time2.ForeColor = System.Drawing.Color.Green;
+            this.txtBreak_Time2.Location = new System.Drawing.Point(465, 130);
             this.txtBreak_Time2.Name = "txtBreak_Time2";
-            this.txtBreak_Time2.Size = new System.Drawing.Size(70, 28);
+            this.txtBreak_Time2.Size = new System.Drawing.Size(70, 33);
             this.txtBreak_Time2.TabIndex = 282;
             this.txtBreak_Time2.Text = "36.8";
             this.txtBreak_Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1788,10 +1888,11 @@
             // txtBreak_Time3
             // 
             this.txtBreak_Time3.BackColor = System.Drawing.Color.White;
-            this.txtBreak_Time3.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtBreak_Time3.Location = new System.Drawing.Point(535, 129);
+            this.txtBreak_Time3.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtBreak_Time3.ForeColor = System.Drawing.Color.Green;
+            this.txtBreak_Time3.Location = new System.Drawing.Point(535, 130);
             this.txtBreak_Time3.Name = "txtBreak_Time3";
-            this.txtBreak_Time3.Size = new System.Drawing.Size(70, 28);
+            this.txtBreak_Time3.Size = new System.Drawing.Size(70, 33);
             this.txtBreak_Time3.TabIndex = 283;
             this.txtBreak_Time3.Text = "36.8";
             this.txtBreak_Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1799,8 +1900,8 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label46.ForeColor = System.Drawing.Color.Red;
+            this.label46.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label46.ForeColor = System.Drawing.Color.Green;
             this.label46.Location = new System.Drawing.Point(329, 135);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(57, 17);
@@ -1810,8 +1911,8 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label50.Location = new System.Drawing.Point(397, 30);
+            this.label50.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label50.Location = new System.Drawing.Point(397, 19);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(60, 17);
             this.label50.TabIndex = 285;
@@ -1822,19 +1923,19 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel4.Controls.Add(this.label38);
-            this.panel4.Location = new System.Drawing.Point(227, 49);
+            this.panel4.Location = new System.Drawing.Point(227, 38);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(70, 18);
+            this.panel4.Size = new System.Drawing.Size(70, 24);
             this.panel4.TabIndex = 164;
             // 
             // label38
             // 
             this.label38.AutoSize = true;
             this.label38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.label38.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label38.Location = new System.Drawing.Point(18, 0);
+            this.label38.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label38.Location = new System.Drawing.Point(18, 2);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(31, 16);
+            this.label38.Size = new System.Drawing.Size(34, 17);
             this.label38.TabIndex = 161;
             this.label38.Text = "３走";
             this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1842,8 +1943,8 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label11.Location = new System.Drawing.Point(20, 75);
+            this.label11.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label11.Location = new System.Drawing.Point(25, 70);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(60, 17);
             this.label11.TabIndex = 43;
@@ -1852,8 +1953,8 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label17.Location = new System.Drawing.Point(21, 103);
+            this.label17.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label17.Location = new System.Drawing.Point(26, 104);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(60, 17);
             this.label17.TabIndex = 132;
@@ -1864,19 +1965,19 @@
             this.panel2.BackColor = System.Drawing.Color.CornflowerBlue;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label36);
-            this.panel2.Location = new System.Drawing.Point(87, 49);
+            this.panel2.Location = new System.Drawing.Point(87, 38);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(70, 18);
+            this.panel2.Size = new System.Drawing.Size(70, 24);
             this.panel2.TabIndex = 162;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
             this.label36.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label36.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label36.Location = new System.Drawing.Point(19, 0);
+            this.label36.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label36.Location = new System.Drawing.Point(19, 2);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(31, 16);
+            this.label36.Size = new System.Drawing.Size(34, 17);
             this.label36.TabIndex = 161;
             this.label36.Text = "１走";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1886,42 +1987,43 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.label37);
-            this.panel3.Location = new System.Drawing.Point(157, 49);
+            this.panel3.Location = new System.Drawing.Point(157, 38);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(70, 18);
+            this.panel3.Size = new System.Drawing.Size(70, 24);
             this.panel3.TabIndex = 163;
             // 
             // label37
             // 
             this.label37.AutoSize = true;
             this.label37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            this.label37.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label37.Location = new System.Drawing.Point(21, 0);
+            this.label37.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label37.Location = new System.Drawing.Point(19, 2);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(31, 16);
+            this.label37.Size = new System.Drawing.Size(34, 17);
             this.label37.TabIndex = 161;
             this.label37.Text = "２走";
             this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mskStart_Time1
             // 
-            this.mskStart_Time1.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskStart_Time1.Location = new System.Drawing.Point(87, 70);
+            this.mskStart_Time1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskStart_Time1.Location = new System.Drawing.Point(87, 64);
             this.mskStart_Time1.Mask = "90:00";
             this.mskStart_Time1.Name = "mskStart_Time1";
-            this.mskStart_Time1.Size = new System.Drawing.Size(70, 28);
+            this.mskStart_Time1.Size = new System.Drawing.Size(70, 33);
             this.mskStart_Time1.TabIndex = 7;
+            this.mskStart_Time1.Text = "0630";
             this.mskStart_Time1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskStart_Time1.ValidatingType = typeof(System.DateTime);
             this.mskStart_Time1.TextChanged += new System.EventHandler(this.mskStart_Time1_TextChanged);
             // 
             // mskStart_Time2
             // 
-            this.mskStart_Time2.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskStart_Time2.Location = new System.Drawing.Point(157, 70);
+            this.mskStart_Time2.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskStart_Time2.Location = new System.Drawing.Point(157, 64);
             this.mskStart_Time2.Mask = "90:00";
             this.mskStart_Time2.Name = "mskStart_Time2";
-            this.mskStart_Time2.Size = new System.Drawing.Size(70, 28);
+            this.mskStart_Time2.Size = new System.Drawing.Size(70, 33);
             this.mskStart_Time2.TabIndex = 9;
             this.mskStart_Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskStart_Time2.ValidatingType = typeof(System.DateTime);
@@ -1929,11 +2031,11 @@
             // 
             // mskStart_Time3
             // 
-            this.mskStart_Time3.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskStart_Time3.Location = new System.Drawing.Point(227, 70);
+            this.mskStart_Time3.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskStart_Time3.Location = new System.Drawing.Point(227, 64);
             this.mskStart_Time3.Mask = "90:00";
             this.mskStart_Time3.Name = "mskStart_Time3";
-            this.mskStart_Time3.Size = new System.Drawing.Size(70, 28);
+            this.mskStart_Time3.Size = new System.Drawing.Size(70, 33);
             this.mskStart_Time3.TabIndex = 11;
             this.mskStart_Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskStart_Time3.ValidatingType = typeof(System.DateTime);
@@ -1941,23 +2043,24 @@
             // 
             // mskEnd_Time1
             // 
-            this.mskEnd_Time1.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskEnd_Time1.Location = new System.Drawing.Point(87, 99);
+            this.mskEnd_Time1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskEnd_Time1.Location = new System.Drawing.Point(87, 97);
             this.mskEnd_Time1.Mask = "90:00";
             this.mskEnd_Time1.Name = "mskEnd_Time1";
-            this.mskEnd_Time1.Size = new System.Drawing.Size(70, 28);
+            this.mskEnd_Time1.Size = new System.Drawing.Size(70, 33);
             this.mskEnd_Time1.TabIndex = 8;
+            this.mskEnd_Time1.Text = "0845";
             this.mskEnd_Time1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskEnd_Time1.ValidatingType = typeof(System.DateTime);
             this.mskEnd_Time1.TextChanged += new System.EventHandler(this.mskEnd_Time1_TextChanged);
             // 
             // mskEnd_Time2
             // 
-            this.mskEnd_Time2.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskEnd_Time2.Location = new System.Drawing.Point(157, 99);
+            this.mskEnd_Time2.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskEnd_Time2.Location = new System.Drawing.Point(157, 97);
             this.mskEnd_Time2.Mask = "90:00";
             this.mskEnd_Time2.Name = "mskEnd_Time2";
-            this.mskEnd_Time2.Size = new System.Drawing.Size(70, 28);
+            this.mskEnd_Time2.Size = new System.Drawing.Size(70, 33);
             this.mskEnd_Time2.TabIndex = 10;
             this.mskEnd_Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskEnd_Time2.ValidatingType = typeof(System.DateTime);
@@ -1965,11 +2068,11 @@
             // 
             // mskEnd_Time3
             // 
-            this.mskEnd_Time3.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskEnd_Time3.Location = new System.Drawing.Point(227, 99);
+            this.mskEnd_Time3.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskEnd_Time3.Location = new System.Drawing.Point(227, 97);
             this.mskEnd_Time3.Mask = "90:00";
             this.mskEnd_Time3.Name = "mskEnd_Time3";
-            this.mskEnd_Time3.Size = new System.Drawing.Size(70, 28);
+            this.mskEnd_Time3.Size = new System.Drawing.Size(70, 33);
             this.mskEnd_Time3.TabIndex = 12;
             this.mskEnd_Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mskEnd_Time3.ValidatingType = typeof(System.DateTime);
@@ -1978,10 +2081,11 @@
             // txtOver_Time1
             // 
             this.txtOver_Time1.BackColor = System.Drawing.Color.White;
-            this.txtOver_Time1.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtOver_Time1.Location = new System.Drawing.Point(87, 129);
+            this.txtOver_Time1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtOver_Time1.ForeColor = System.Drawing.Color.Blue;
+            this.txtOver_Time1.Location = new System.Drawing.Point(87, 130);
             this.txtOver_Time1.Name = "txtOver_Time1";
-            this.txtOver_Time1.Size = new System.Drawing.Size(70, 28);
+            this.txtOver_Time1.Size = new System.Drawing.Size(70, 33);
             this.txtOver_Time1.TabIndex = 255;
             this.txtOver_Time1.Text = "36.8";
             this.txtOver_Time1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1989,10 +2093,11 @@
             // txtOver_Time2
             // 
             this.txtOver_Time2.BackColor = System.Drawing.Color.White;
-            this.txtOver_Time2.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtOver_Time2.Location = new System.Drawing.Point(157, 129);
+            this.txtOver_Time2.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtOver_Time2.ForeColor = System.Drawing.Color.Blue;
+            this.txtOver_Time2.Location = new System.Drawing.Point(157, 130);
             this.txtOver_Time2.Name = "txtOver_Time2";
-            this.txtOver_Time2.Size = new System.Drawing.Size(70, 28);
+            this.txtOver_Time2.Size = new System.Drawing.Size(70, 33);
             this.txtOver_Time2.TabIndex = 256;
             this.txtOver_Time2.Text = "36.8";
             this.txtOver_Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2000,10 +2105,11 @@
             // txtOver_Time3
             // 
             this.txtOver_Time3.BackColor = System.Drawing.Color.White;
-            this.txtOver_Time3.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.txtOver_Time3.Location = new System.Drawing.Point(227, 129);
+            this.txtOver_Time3.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtOver_Time3.ForeColor = System.Drawing.Color.Blue;
+            this.txtOver_Time3.Location = new System.Drawing.Point(227, 130);
             this.txtOver_Time3.Name = "txtOver_Time3";
-            this.txtOver_Time3.Size = new System.Drawing.Size(70, 28);
+            this.txtOver_Time3.Size = new System.Drawing.Size(70, 33);
             this.txtOver_Time3.TabIndex = 257;
             this.txtOver_Time3.Text = "36.8";
             this.txtOver_Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2011,9 +2117,9 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(21, 135);
+            this.label15.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label15.ForeColor = System.Drawing.Color.Blue;
+            this.label15.Location = new System.Drawing.Point(21, 137);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(70, 17);
             this.label15.TabIndex = 258;
@@ -2022,8 +2128,8 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label13.Location = new System.Drawing.Point(90, 162);
+            this.label13.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label13.Location = new System.Drawing.Point(90, 172);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(60, 17);
             this.label13.TabIndex = 260;
@@ -2032,8 +2138,8 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label28.Location = new System.Drawing.Point(89, 30);
+            this.label28.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label28.Location = new System.Drawing.Point(89, 19);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(60, 17);
             this.label28.TabIndex = 267;
@@ -2042,8 +2148,8 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label20.Location = new System.Drawing.Point(21, 184);
+            this.label20.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label20.Location = new System.Drawing.Point(21, 195);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(60, 17);
             this.label20.TabIndex = 268;
@@ -2052,11 +2158,11 @@
             // mskBasic_Start_Time1
             // 
             this.mskBasic_Start_Time1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.mskBasic_Start_Time1.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskBasic_Start_Time1.Location = new System.Drawing.Point(87, 179);
+            this.mskBasic_Start_Time1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskBasic_Start_Time1.Location = new System.Drawing.Point(87, 190);
             this.mskBasic_Start_Time1.Mask = "90:00";
             this.mskBasic_Start_Time1.Name = "mskBasic_Start_Time1";
-            this.mskBasic_Start_Time1.Size = new System.Drawing.Size(70, 28);
+            this.mskBasic_Start_Time1.Size = new System.Drawing.Size(70, 33);
             this.mskBasic_Start_Time1.TabIndex = 261;
             this.mskBasic_Start_Time1.TabStop = false;
             this.mskBasic_Start_Time1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2065,11 +2171,11 @@
             // mskBasic_Start_Time2
             // 
             this.mskBasic_Start_Time2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.mskBasic_Start_Time2.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskBasic_Start_Time2.Location = new System.Drawing.Point(157, 179);
+            this.mskBasic_Start_Time2.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskBasic_Start_Time2.Location = new System.Drawing.Point(157, 190);
             this.mskBasic_Start_Time2.Mask = "90:00";
             this.mskBasic_Start_Time2.Name = "mskBasic_Start_Time2";
-            this.mskBasic_Start_Time2.Size = new System.Drawing.Size(70, 28);
+            this.mskBasic_Start_Time2.Size = new System.Drawing.Size(70, 33);
             this.mskBasic_Start_Time2.TabIndex = 263;
             this.mskBasic_Start_Time2.TabStop = false;
             this.mskBasic_Start_Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2078,11 +2184,11 @@
             // mskBasic_Start_Time3
             // 
             this.mskBasic_Start_Time3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.mskBasic_Start_Time3.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskBasic_Start_Time3.Location = new System.Drawing.Point(227, 179);
+            this.mskBasic_Start_Time3.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskBasic_Start_Time3.Location = new System.Drawing.Point(227, 190);
             this.mskBasic_Start_Time3.Mask = "90:00";
             this.mskBasic_Start_Time3.Name = "mskBasic_Start_Time3";
-            this.mskBasic_Start_Time3.Size = new System.Drawing.Size(70, 28);
+            this.mskBasic_Start_Time3.Size = new System.Drawing.Size(70, 33);
             this.mskBasic_Start_Time3.TabIndex = 265;
             this.mskBasic_Start_Time3.TabStop = false;
             this.mskBasic_Start_Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2091,11 +2197,11 @@
             // mskBasic_End_Time1
             // 
             this.mskBasic_End_Time1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.mskBasic_End_Time1.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskBasic_End_Time1.Location = new System.Drawing.Point(87, 208);
+            this.mskBasic_End_Time1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskBasic_End_Time1.Location = new System.Drawing.Point(87, 222);
             this.mskBasic_End_Time1.Mask = "90:00";
             this.mskBasic_End_Time1.Name = "mskBasic_End_Time1";
-            this.mskBasic_End_Time1.Size = new System.Drawing.Size(70, 28);
+            this.mskBasic_End_Time1.Size = new System.Drawing.Size(70, 33);
             this.mskBasic_End_Time1.TabIndex = 262;
             this.mskBasic_End_Time1.TabStop = false;
             this.mskBasic_End_Time1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2104,11 +2210,11 @@
             // mskBasic_End_Time2
             // 
             this.mskBasic_End_Time2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.mskBasic_End_Time2.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskBasic_End_Time2.Location = new System.Drawing.Point(157, 208);
+            this.mskBasic_End_Time2.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskBasic_End_Time2.Location = new System.Drawing.Point(157, 222);
             this.mskBasic_End_Time2.Mask = "90:00";
             this.mskBasic_End_Time2.Name = "mskBasic_End_Time2";
-            this.mskBasic_End_Time2.Size = new System.Drawing.Size(70, 28);
+            this.mskBasic_End_Time2.Size = new System.Drawing.Size(70, 33);
             this.mskBasic_End_Time2.TabIndex = 264;
             this.mskBasic_End_Time2.TabStop = false;
             this.mskBasic_End_Time2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2117,11 +2223,11 @@
             // mskBasic_End_Time3
             // 
             this.mskBasic_End_Time3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.mskBasic_End_Time3.Font = new System.Drawing.Font("游ゴシック Medium", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.mskBasic_End_Time3.Location = new System.Drawing.Point(227, 208);
+            this.mskBasic_End_Time3.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.mskBasic_End_Time3.Location = new System.Drawing.Point(227, 222);
             this.mskBasic_End_Time3.Mask = "90:00";
             this.mskBasic_End_Time3.Name = "mskBasic_End_Time3";
-            this.mskBasic_End_Time3.Size = new System.Drawing.Size(70, 28);
+            this.mskBasic_End_Time3.Size = new System.Drawing.Size(70, 33);
             this.mskBasic_End_Time3.TabIndex = 266;
             this.mskBasic_End_Time3.TabStop = false;
             this.mskBasic_End_Time3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2130,8 +2236,8 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label29.Location = new System.Drawing.Point(21, 214);
+            this.label29.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label29.Location = new System.Drawing.Point(21, 228);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(60, 17);
             this.label29.TabIndex = 269;
@@ -2140,7 +2246,8 @@
             // chkSubcar
             // 
             this.chkSubcar.AutoSize = true;
-            this.chkSubcar.Location = new System.Drawing.Point(770, 17);
+            this.chkSubcar.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.chkSubcar.Location = new System.Drawing.Point(774, 17);
             this.chkSubcar.Name = "chkSubcar";
             this.chkSubcar.Size = new System.Drawing.Size(53, 21);
             this.chkSubcar.TabIndex = 259;
@@ -2170,7 +2277,7 @@
             // lblStaff_Name1
             // 
             this.lblStaff_Name1.BackColor = System.Drawing.SystemColors.Control;
-            this.lblStaff_Name1.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblStaff_Name1.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lblStaff_Name1.Location = new System.Drawing.Point(0, 2);
             this.lblStaff_Name1.Name = "lblStaff_Name1";
             this.lblStaff_Name1.Size = new System.Drawing.Size(121, 20);
@@ -2190,7 +2297,7 @@
             // lblInstructor_Name
             // 
             this.lblInstructor_Name.BackColor = System.Drawing.SystemColors.Control;
-            this.lblInstructor_Name.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblInstructor_Name.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lblInstructor_Name.Location = new System.Drawing.Point(4, 2);
             this.lblInstructor_Name.Name = "lblInstructor_Name";
             this.lblInstructor_Name.Size = new System.Drawing.Size(112, 20);
@@ -2220,7 +2327,7 @@
             // 
             // lblCar_No
             // 
-            this.lblCar_No.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblCar_No.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lblCar_No.Location = new System.Drawing.Point(7, 2);
             this.lblCar_No.Name = "lblCar_No";
             this.lblCar_No.Size = new System.Drawing.Size(194, 21);
@@ -2242,11 +2349,11 @@
             // dtptDay
             // 
             this.dtptDay.CalendarFont = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.dtptDay.Font = new System.Drawing.Font("游ゴシック", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.dtptDay.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.dtptDay.Location = new System.Drawing.Point(420, 40);
             this.dtptDay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dtptDay.Name = "dtptDay";
-            this.dtptDay.Size = new System.Drawing.Size(149, 32);
+            this.dtptDay.Size = new System.Drawing.Size(149, 33);
             this.dtptDay.TabIndex = 3;
             // 
             // btnSelectLocation
@@ -2262,7 +2369,7 @@
             // 
             // lblLocation_Name
             // 
-            this.lblLocation_Name.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblLocation_Name.Font = new System.Drawing.Font("游ゴシック", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lblLocation_Name.Location = new System.Drawing.Point(60, 44);
             this.lblLocation_Name.Name = "lblLocation_Name";
             this.lblLocation_Name.Size = new System.Drawing.Size(341, 20);
@@ -2273,7 +2380,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label32.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label32.Location = new System.Drawing.Point(882, 57);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(91, 16);
@@ -2283,7 +2390,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label31.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label31.Location = new System.Drawing.Point(842, 21);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(137, 16);
@@ -2293,40 +2400,40 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("游ゴシック", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label9.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label9.Location = new System.Drawing.Point(630, 24);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(29, 14);
+            this.label9.Size = new System.Drawing.Size(31, 16);
             this.label9.TabIndex = 40;
             this.label9.Text = "号車";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("游ゴシック", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label6.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label6.Location = new System.Drawing.Point(577, 24);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(51, 14);
+            this.label6.Size = new System.Drawing.Size(55, 16);
             this.label6.TabIndex = 38;
             this.label6.Text = "車輌番号";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("游ゴシック", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label4.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label4.Location = new System.Drawing.Point(417, 24);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 14);
+            this.label4.Size = new System.Drawing.Size(43, 16);
             this.label4.TabIndex = 36;
             this.label4.Text = "日　付";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("游ゴシック", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.Location = new System.Drawing.Point(10, 24);
+            this.label1.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.Location = new System.Drawing.Point(10, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 14);
+            this.label1.Size = new System.Drawing.Size(67, 16);
             this.label1.TabIndex = 34;
             this.label1.Text = "お得意様名";
             // 
@@ -2351,13 +2458,13 @@
             // lblReport_Id
             // 
             this.lblReport_Id.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblReport_Id.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblReport_Id.Location = new System.Drawing.Point(26, 0);
+            this.lblReport_Id.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblReport_Id.Location = new System.Drawing.Point(2, 0);
             this.lblReport_Id.Name = "lblReport_Id";
-            this.lblReport_Id.Size = new System.Drawing.Size(60, 16);
+            this.lblReport_Id.Size = new System.Drawing.Size(66, 16);
             this.lblReport_Id.TabIndex = 161;
             this.lblReport_Id.Text = "9999";
-            this.lblReport_Id.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblReport_Id.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
@@ -2373,7 +2480,7 @@
             // btnAfter
             // 
             this.btnAfter.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnAfter.Location = new System.Drawing.Point(957, 646);
+            this.btnAfter.Location = new System.Drawing.Point(957, 683);
             this.btnAfter.Name = "btnAfter";
             this.btnAfter.Size = new System.Drawing.Size(100, 37);
             this.btnAfter.TabIndex = 251;
@@ -2385,7 +2492,7 @@
             // btnBefore
             // 
             this.btnBefore.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnBefore.Location = new System.Drawing.Point(852, 646);
+            this.btnBefore.Location = new System.Drawing.Point(852, 683);
             this.btnBefore.Name = "btnBefore";
             this.btnBefore.Size = new System.Drawing.Size(100, 37);
             this.btnBefore.TabIndex = 252;
@@ -2398,7 +2505,7 @@
             // 
             this.btnPrint.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnPrint.Image = global::FlockAppC.Properties.Resources.印刷2_小;
-            this.btnPrint.Location = new System.Drawing.Point(462, 646);
+            this.btnPrint.Location = new System.Drawing.Point(462, 683);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(80, 37);
             this.btnPrint.TabIndex = 255;
@@ -2411,7 +2518,7 @@
             // 
             this.btnExcel.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnExcel.Image = global::FlockAppC.Properties.Resources.エクセル_3_小小;
-            this.btnExcel.Location = new System.Drawing.Point(361, 646);
+            this.btnExcel.Location = new System.Drawing.Point(361, 683);
             this.btnExcel.Name = "btnExcel";
             this.btnExcel.Size = new System.Drawing.Size(99, 37);
             this.btnExcel.TabIndex = 254;
@@ -2424,7 +2531,7 @@
             // 
             this.btnDelete.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnDelete.Image = global::FlockAppC.Properties.Resources.ゴミ箱_小小;
-            this.btnDelete.Location = new System.Drawing.Point(656, 646);
+            this.btnDelete.Location = new System.Drawing.Point(656, 683);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(80, 37);
             this.btnDelete.TabIndex = 253;
@@ -2437,7 +2544,7 @@
             // 
             this.button1.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.button1.Image = global::FlockAppC.Properties.Resources.ハイエース1小;
-            this.button1.Location = new System.Drawing.Point(117, 646);
+            this.button1.Location = new System.Drawing.Point(117, 683);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 37);
             this.button1.TabIndex = 249;
@@ -2450,7 +2557,7 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じるA_8p;
-            this.btnClose.Location = new System.Drawing.Point(1103, 646);
+            this.btnClose.Location = new System.Drawing.Point(1103, 683);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(80, 37);
             this.btnClose.TabIndex = 212;
@@ -2463,7 +2570,7 @@
             // 
             this.btnNew.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnNew.Image = global::FlockAppC.Properties.Resources.追加_小小;
-            this.btnNew.Location = new System.Drawing.Point(263, 646);
+            this.btnNew.Location = new System.Drawing.Point(263, 683);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(80, 37);
             this.btnNew.TabIndex = 211;
@@ -2477,7 +2584,7 @@
             // 
             this.btnReg.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnReg.Image = global::FlockAppC.Properties.Resources.FD_1_小小;
-            this.btnReg.Location = new System.Drawing.Point(13, 646);
+            this.btnReg.Location = new System.Drawing.Point(13, 683);
             this.btnReg.Name = "btnReg";
             this.btnReg.Size = new System.Drawing.Size(80, 37);
             this.btnReg.TabIndex = 210;
@@ -2489,7 +2596,7 @@
             // chkHikae
             // 
             this.chkHikae.AutoSize = true;
-            this.chkHikae.Location = new System.Drawing.Point(546, 655);
+            this.chkHikae.Location = new System.Drawing.Point(546, 692);
             this.chkHikae.Name = "chkHikae";
             this.chkHikae.Size = new System.Drawing.Size(79, 21);
             this.chkHikae.TabIndex = 260;
@@ -2507,12 +2614,12 @@
             this.groupBox10.Controls.Add(this.lblConfirm1Name);
             this.groupBox10.Controls.Add(this.lblConfirm1Date);
             this.groupBox10.Controls.Add(this.chkConfirm1);
-            this.groupBox10.Location = new System.Drawing.Point(14, 689);
+            this.groupBox10.Location = new System.Drawing.Point(221, 726);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(584, 66);
             this.groupBox10.TabIndex = 261;
             this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "社内確認(総務)";
+            this.groupBox10.Text = "社内(総務)確認";
             // 
             // lblConfirm3Name
             // 
@@ -2545,6 +2652,7 @@
             this.chkConfirm3.TabIndex = 284;
             this.chkConfirm3.Text = "三次確認";
             this.chkConfirm3.UseVisualStyleBackColor = true;
+            this.chkConfirm3.CheckedChanged += new System.EventHandler(this.chkConfirm3_CheckedChanged);
             // 
             // lblConfirm2Name
             // 
@@ -2577,6 +2685,7 @@
             this.chkConfirm2.TabIndex = 281;
             this.chkConfirm2.Text = "二次確認";
             this.chkConfirm2.UseVisualStyleBackColor = true;
+            this.chkConfirm2.CheckedChanged += new System.EventHandler(this.chkConfirm2_CheckedChanged);
             // 
             // lblConfirm1Name
             // 
@@ -2616,12 +2725,12 @@
             this.groupBox11.Controls.Add(this.lblSalesName);
             this.groupBox11.Controls.Add(this.lblSalesConfirmDate);
             this.groupBox11.Controls.Add(this.chkSalesConfirm);
-            this.groupBox11.Location = new System.Drawing.Point(601, 689);
+            this.groupBox11.Location = new System.Drawing.Point(13, 726);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(201, 66);
             this.groupBox11.TabIndex = 262;
             this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "社内確認(営業)";
+            this.groupBox11.Text = "管理者承認";
             // 
             // lblSalesName
             // 
@@ -2654,18 +2763,19 @@
             this.chkSalesConfirm.TabIndex = 278;
             this.chkSalesConfirm.Text = "承認";
             this.chkSalesConfirm.UseVisualStyleBackColor = true;
+            this.chkSalesConfirm.CheckedChanged += new System.EventHandler(this.chkSalesConfirm_CheckedChanged);
             // 
             // groupBox12
             // 
             this.groupBox12.Controls.Add(this.lblGuestConfirm);
             this.groupBox12.Controls.Add(this.lblGuestName);
             this.groupBox12.Controls.Add(this.lblGuestConfirmDate);
-            this.groupBox12.Location = new System.Drawing.Point(805, 689);
+            this.groupBox12.Location = new System.Drawing.Point(812, 726);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(201, 66);
             this.groupBox12.TabIndex = 263;
             this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "得意先";
+            this.groupBox12.Text = "得意先承認";
             // 
             // lblGuestConfirm
             // 
@@ -2703,7 +2813,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1196, 767);
+            this.ClientSize = new System.Drawing.Size(1196, 797);
             this.Controls.Add(this.groupBox12);
             this.Controls.Add(this.groupBox11);
             this.Controls.Add(this.groupBox10);
@@ -2733,6 +2843,10 @@
             this.groupBox1.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
+            this.panel31.ResumeLayout(false);
+            this.panel31.PerformLayout();
+            this.panel30.ResumeLayout(false);
+            this.panel30.PerformLayout();
             this.panel32.ResumeLayout(false);
             this.panel32.PerformLayout();
             this.panel29.ResumeLayout(false);
@@ -2779,7 +2893,6 @@
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            this.panel31.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -2950,10 +3063,7 @@
         private System.Windows.Forms.ComboBox cmbEnd_Over_Time_Kbn1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Panel panel31;
-        private System.Windows.Forms.Label lblComment_Kbn;
         private System.Windows.Forms.TextBox txtComment;
-        private System.Windows.Forms.Button btnSelectComment_Kbn;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.GroupBox groupBox9;
@@ -3023,5 +3133,14 @@
         private System.Windows.Forms.Label lblGuestConfirm;
         private System.Windows.Forms.Label lblGuestName;
         private System.Windows.Forms.Label lblGuestConfirmDate;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.MaskedTextBox mskWork_Start_Time;
+        private System.Windows.Forms.MaskedTextBox mskWork_Finish_Time;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Panel panel31;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.Label label66;
     }
 }

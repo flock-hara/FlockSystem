@@ -27,6 +27,8 @@ namespace FlockAppC.tblClass
         public int RecruitManageFlag { get; set; }
         public int ReportConfirmFlag { get; set; }
         public string ConfirmPass { get; set; }
+        public string MobilePass { get; set; }              // 2026/02/09 ADD　モバイルパスワード
+        public string LoginToken { get; set; }              // 2026/02/09 ADD　ログイントークン（ログイン済み判定用）
         public int TantoSort { get; set; }
         public int RegSort { get; set; }
         public int Sort { get; set; }
@@ -157,6 +159,8 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",Mst_社員.report_confirm_flag");
                     sb.AppendLine(",Mst_社員.system_control_flag");
                     sb.AppendLine(",Mst_社員.confirm_password");
+                    sb.AppendLine(",Mst_社員.mobile_password");       // 2026/02/09 ADD
+                    sb.AppendLine(",Mst_社員.login_token");                // 2026/02/09 ADD
                     sb.AppendLine(",Mst_社員.tanto_sort");
                     sb.AppendLine(",Mst_社員.reg_sort");
                     sb.AppendLine(",Mst_社員.sort");
@@ -206,6 +210,8 @@ namespace FlockAppC.tblClass
                             if (dr.IsNull("proxy_flag") != true) { ProxyFlag = int.Parse(dr["proxy_flag"].ToString()); }
                             if (dr.IsNull("confirm_flag") != true) { ConfirmFlag = int.Parse(dr["confirm_flag"].ToString()); }
                             if (dr.IsNull("confirm_password") != true) { ConfirmPass = dr["confirm_password"].ToString(); }
+                            if (dr.IsNull("mobile_password") != true) { MobilePass = dr["mobile_password"].ToString(); }             // 2026/02/09 ADD
+                            if (dr.IsNull("login_token") != true) { LoginToken = dr["login_token"].ToString(); }                                // 2026/02/09 ADD
                             if (dr.IsNull("tanto_sort") != true) { TantoSort = int.Parse(dr["tanto_sort"].ToString()); }
                             if (dr.IsNull("reg_sort") != true) { RegSort = int.Parse(dr["reg_sort"].ToString()); }
                             if (dr.IsNull("sort") != true) { Sort = int.Parse(dr["sort"].ToString()); }
@@ -271,6 +277,8 @@ namespace FlockAppC.tblClass
             ReportConfirmFlag = 0;
             SystemControlFlag = 0;
             ConfirmPass = "";
+            MobilePass = "";               // 2026/02/09 ADD
+            LoginToken = "";               // 2026/02/09 ADD
             TantoSort = 0;
             RegSort = 0;
             Sort = 0;
@@ -319,6 +327,8 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",report_confirm_flag = " + ReportConfirmFlag);
                     sb.AppendLine(",system_control_flag = " + SystemControlFlag);
                     sb.AppendLine(",confirm_password = '" + ConfirmPass + "'");
+                    sb.AppendLine(",mobile_password = '" + MobilePass + "'");          // 2026/02/09 ADD
+                    sb.AppendLine(",login_token = '" + LoginToken + "'");                   // 2026/02/09 ADD
                     sb.AppendLine(",tanto_sort = " + TantoSort);
                     sb.AppendLine(",reg_sort = " + RegSort);
                     sb.AppendLine(",sort = " + Sort);
@@ -348,7 +358,32 @@ namespace FlockAppC.tblClass
                 throw;
             }
         }
-
+        /// <summary>
+        /// モバイルパスワード更新
+        /// </summary>
+        public void UpdateMobilePass()
+        {
+            try
+            {
+                using (ClsSqlDb clsSqlDb = new(ClsDbConfig.SQLServerNo))
+                {
+                    sb.Clear();
+                    sb.AppendLine("UPDATE Mst_社員 SET");
+                    sb.AppendLine("mobile_password = '" + MobilePass + "'");          // 2026/02/09 ADD
+                    // 2025/11/10↓
+                    sb.AppendLine(",upd_user_id = " + ClsLoginUser.StaffID);
+                    sb.AppendLine(",upd_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
+                    // 2025/11/10↑
+                    sb.AppendLine(" WHERE staff_id = " + Id);
+                    clsSqlDb.DMLUpdate(sb.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                ClsLogger.Log(ex.Message);
+                throw;
+            }
+        }
         /// <summary>
         /// 社員データ追加
         /// </summary>
@@ -380,6 +415,8 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",report_confirm_flag");
                     sb.AppendLine(",system_control_flag");
                     sb.AppendLine(",confirm_password");
+                    sb.AppendLine(",mobile_password");                  // 2026/02/09 ADD
+                    sb.AppendLine(",login_token");                           // 2026/02/09 ADD
                     sb.AppendLine(",tanto_sort");
                     sb.AppendLine(",reg_sort");
                     sb.AppendLine(",sort");
@@ -418,6 +455,8 @@ namespace FlockAppC.tblClass
                     sb.AppendLine("," + ReportConfirmFlag);
                     sb.AppendLine("," + SystemControlFlag);
                     sb.AppendLine(",'" + ConfirmPass + "'");
+                    sb.AppendLine(",'" + MobilePass + "'");                    // 2026/02/09 ADD
+                    sb.AppendLine(",'" + LoginToken + "'");                    // 2026/02/09 ADD
                     sb.AppendLine("," + TantoSort);
                     sb.AppendLine("," + RegSort);
                     sb.AppendLine("," + Sort);
@@ -677,15 +716,45 @@ namespace FlockAppC.tblClass
         {
             try
             {
-                // 対象データ削除
+                // MySQL 対象データ存在確認
                 sb.Clear();
-                sb.AppendLine("DELETE");
+                sb.AppendLine("SELECT");
+                sb.AppendLine("staff_id");
                 sb.AppendLine("FROM");
                 sb.AppendLine("Mst_社員");
                 sb.AppendLine("WHERE");
                 sb.AppendLine("staff_id = " + p_staff);
-                clsMySqlDb.DMLUpdate(sb.ToString());
 
+                using (DataTable dt_val = clsMySqlDb.DMLSelect(sb.ToString()))
+                {
+                    if (dt_val.Rows.Count == 0)
+                    {
+                        // 対象データ無しの場合、INSERT
+                        InsertOneStaffData(p_staff, clsSqlDb, clsMySqlDb);
+                    }
+                    else
+                    {
+                        // 対象データ有りの場合、UPDATE
+                        UpdateOneStaffData(p_staff, clsSqlDb, clsMySqlDb);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ClsLogger.Log(ex.Message);
+                throw;
+            }
+        }
+        /// <summary>
+        /// 社員情報追加（１件）
+        /// </summary>
+        /// <param name="p_staff"></param>
+        /// <param name="clsSqlDb"></param>
+        /// <param name="clsMySqlDb"></param>
+        private void InsertOneStaffData(int p_staff, ClsSqlDb clsSqlDb, ClsMySqlDb clsMySqlDb)
+        {
+            try
+            {
                 // SQL Server SELECT ALL
                 sb.Clear();
                 sb.AppendLine("SELECT");
@@ -708,6 +777,8 @@ namespace FlockAppC.tblClass
                 sb.AppendLine(",report_confirm_flag");
                 sb.AppendLine(",system_control_flag");
                 sb.AppendLine(",confirm_password");
+                sb.AppendLine(",mobile_password");              // 2026/02/09 ADD
+                // sb.AppendLine(",login_token");                   // 2026/02/09   login_tokenはエクスポートしない
                 sb.AppendLine(",tanto_sort");
                 sb.AppendLine(",reg_sort");
                 sb.AppendLine(",sort");
@@ -750,6 +821,8 @@ namespace FlockAppC.tblClass
                     sb.AppendLine(",report_confirm_flag");
                     sb.AppendLine(",system_control_flag");
                     sb.AppendLine(",confirm_password");
+                    sb.AppendLine(",mobile_password");              // 2026/02/09 ADD
+                    // sb.AppendLine(",login_token");                   // 2026/02/09   login_tokenはエクスポートしない
                     sb.AppendLine(",tanto_sort");
                     sb.AppendLine(",reg_sort");
                     sb.AppendLine(",sort");
@@ -783,6 +856,8 @@ namespace FlockAppC.tblClass
                     sb.AppendLine("," + dr["report_confirm_flag"].ToString());
                     sb.AppendLine("," + dr["system_control_flag"].ToString());
                     sb.AppendLine(",'" + dr["confirm_password"].ToString() + "'");
+                    sb.AppendLine(",'" + dr["mobile_password"].ToString() + "'");              // 2026/02/09 ADD
+                    // sb.AppendLine(",'" + dr["login_token"].ToString() + "'");                   // 2026/02/09   login_tokenはエクスポートしない
                     sb.AppendLine("," + dr["tanto_sort"].ToString());
                     sb.AppendLine("," + dr["reg_sort"].ToString());
                     sb.AppendLine("," + dr["sort"].ToString());
@@ -813,6 +888,112 @@ namespace FlockAppC.tblClass
             }
         }
         /// <summary>
+        /// 社員情報更新（１件）
+        /// </summary>
+        /// <param name="p_staff"></param>
+        /// <param name="clsSqlDb"></param>
+        /// <param name="clsMySqlDb"></param>
+        private void UpdateOneStaffData(int p_staff, ClsSqlDb clsSqlDb, ClsMySqlDb clsMySqlDb)
+        {
+            try
+            {
+                // SQL Server SELECT ALL
+                sb.Clear();
+                sb.AppendLine("SELECT");
+                sb.AppendLine(" staff_id");
+                sb.AppendLine(",id");
+                sb.AppendLine(",name1");
+                sb.AppendLine(",name2");
+                sb.AppendLine(",fullname");
+                sb.AppendLine(",kana1");
+                sb.AppendLine(",kana2");
+                sb.AppendLine(",fullkana");
+                sb.AppendLine(",office_id");
+                sb.AppendLine(",group_id");
+                sb.AppendLine(",proxy_flag");
+                sb.AppendLine(",confirm_flag");
+                sb.AppendLine(",car_manage_flag");
+                sb.AppendLine(",master_mente_flag");
+                sb.AppendLine(",report_manage_flag");
+                sb.AppendLine(",recruit_manage_flag");
+                sb.AppendLine(",report_confirm_flag");
+                sb.AppendLine(",system_control_flag");
+                sb.AppendLine(",confirm_password");
+                sb.AppendLine(",mobile_password");              // 2026/02/09 ADD
+                // sb.AppendLine(",login_token");                   // 2026/02/09   login_tokenはエクスポートしない
+                sb.AppendLine(",tanto_sort");
+                sb.AppendLine(",reg_sort");
+                sb.AppendLine(",sort");
+                sb.AppendLine(",kbn");
+                sb.AppendLine(",position_flag");
+                sb.AppendLine(",comment");
+                sb.AppendLine(",car_id");
+                sb.AppendLine(",col");
+                sb.AppendLine(",ins_user_id");
+                sb.AppendLine(",ins_date");
+                sb.AppendLine(",upd_user_id");
+                sb.AppendLine(",upd_date");
+                sb.AppendLine(",delete_flag");
+                sb.AppendLine("FROM");
+                sb.AppendLine("Mst_社員");
+                sb.AppendLine("WHERE");
+                sb.AppendLine("staff_id = " + p_staff);
+
+                using (DataTable dt_val = clsSqlDb.DMLSelect(sb.ToString()))
+                {
+                    DataRow dr = dt_val.Rows[0];
+                    sb.Clear();
+                    sb.AppendLine("UPDATE Mst_社員 SET ");
+                    sb.AppendLine("id = " + dr["id"].ToString());
+                    sb.AppendLine(",name1 = '" + dr["name1"].ToString() + "'");
+                    sb.AppendLine(",name2 = '" + dr["name2"].ToString() + "'");
+                    sb.AppendLine(",fullname = '" + dr["fullname"].ToString() + "'");
+                    sb.AppendLine(",kana1 = '" + dr["kana1"].ToString() + "'");
+                    sb.AppendLine(",kana2 = '" + dr["kana2"].ToString() + "'");
+                    sb.AppendLine(",fullkana = '" + dr["fullkana"].ToString() + "'");
+                    sb.AppendLine(",office_id = " + dr["office_id"].ToString());
+                    sb.AppendLine(",group_id = " + dr["group_id"].ToString());
+                    sb.AppendLine(",proxy_flag = " + dr["proxy_flag"].ToString());
+                    sb.AppendLine(",confirm_flag = " + dr["confirm_flag"].ToString());
+                    sb.AppendLine(",car_manage_flag = " + dr["car_manage_flag"].ToString());
+                    sb.AppendLine(",master_mente_flag = " + dr["master_mente_flag"].ToString());
+                    sb.AppendLine(",report_manage_flag = " + dr["report_manage_flag"].ToString());
+                    sb.AppendLine(",recruit_manage_flag = " + dr["recruit_manage_flag"].ToString());
+                    sb.AppendLine(",report_confirm_flag = " + dr["report_confirm_flag"].ToString());
+                    sb.AppendLine(",system_control_flag = " + dr["system_control_flag"].ToString());
+                    sb.AppendLine(",confirm_password = '" + dr["confirm_password"].ToString() + "'");
+                    sb.AppendLine(",mobile_password = '" + dr["mobile_password"].ToString() + "'");              // 2026/02/09 ADD
+                    // sb.AppendLine(",login_token = '" + dr["login_token"].ToString() + "'");                   // 2026/02/09   login_tokenはエクスポートしない
+                    sb.AppendLine(",tanto_sort = " + dr["tanto_sort"].ToString());
+                    sb.AppendLine(",reg_sort = " + dr["reg_sort"].ToString());
+                    sb.AppendLine(",sort = " + dr["sort"].ToString());
+                    sb.AppendLine(",kbn = " + dr["kbn"].ToString());
+                    sb.AppendLine(",position_flag = " + dr["position_flag"].ToString());
+                    sb.AppendLine(",comment = '" + dr["comment"].ToString() + "'");
+                    sb.AppendLine(",car_id = " + dr["car_id"].ToString());
+                    if (dr["col"].ToString() != "") { sb.AppendLine(",col = " + dr["col"].ToString()); }
+                    else { sb.AppendLine(",col = NULL"); }
+                    if (dr.IsNull("ins_user_id") != true) { sb.AppendLine(",ins_user_id = " + dr["ins_user_id"].ToString()); }
+                    else { sb.AppendLine(",ins_user_id = 0"); }
+                    if (dr.IsNull("ins_date") != true) { sb.AppendLine(",ins_date = '" + dr["ins_date"].ToString() + "'"); }
+                    else { sb.AppendLine(",ins_date = null"); }
+                    if (dr.IsNull("upd_user_id") != true) { sb.AppendLine(",upd_user_id = " + dr["upd_user_id"].ToString()); }
+                    else { sb.AppendLine(",upd_user_id = 0"); }
+                    if (dr.IsNull("upd_date") != true) { sb.AppendLine(",upd_date = '" + dr["upd_date"].ToString() + "'"); }
+                    else { sb.AppendLine(",upd_date = null"); }
+                    if (dr.IsNull("delete_flag") != true) { sb.AppendLine(",delete_flag = " + dr["delete_flag"].ToString()); }
+                    else { sb.AppendLine(",delete_flag = " + ClsPublic.FLAG_OFF); }
+                    sb.AppendLine(" WHERE staff_id = " + p_staff.ToString());
+                    clsMySqlDb.DMLUpdate(sb.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                ClsLogger.Log(ex.Message);
+                throw;
+            }
+        }
+                /// <summary>
         /// 従業員情報エクスポート（全件）
         /// </summary>
         public void ExportStaffData(ref System.Windows.Forms.ProgressBar p_pgb)
@@ -863,6 +1044,8 @@ namespace FlockAppC.tblClass
                         sb.AppendLine(",report_confirm_flag");
                         sb.AppendLine(",system_control_flag");
                         sb.AppendLine(",confirm_password");
+                        sb.AppendLine(",mobile_password");              // 2026/02/09 ADD
+                        // sb.AppendLine(",login_token");                   // 2026/02/09   login_tokenはエクスポートしない
                         sb.AppendLine(",tanto_sort");
                         sb.AppendLine(",reg_sort");
                         sb.AppendLine(",sort");
@@ -913,6 +1096,8 @@ namespace FlockAppC.tblClass
                                 sb.AppendLine(",report_confirm_flag");
                                 sb.AppendLine(",system_control_flag");
                                 sb.AppendLine(",confirm_password");
+                                sb.AppendLine(",mobile_password");              // 2026/02/09 ADD
+                                // sb.AppendLine(",login_token");                   // 2026/02/09   login_tokenはエクスポートしない
                                 sb.AppendLine(",tanto_sort");
                                 sb.AppendLine(",reg_sort");
                                 sb.AppendLine(",sort");
@@ -946,6 +1131,8 @@ namespace FlockAppC.tblClass
                                 sb.AppendLine("," + dr["report_confirm_flag"].ToString());
                                 sb.AppendLine("," + dr["system_control_flag"].ToString());
                                 sb.AppendLine(",'" + dr["confirm_password"].ToString() + "'");
+                                sb.AppendLine(",'" + dr["mobile_password"].ToString() + "'");              // 2026/02/09 ADD
+                                // sb.AppendLine(",'" + dr["login_token"].ToString() + "'");                   // 2026/02/09   login_tokenはエクスポートしない
                                 sb.AppendLine("," + dr["tanto_sort"].ToString());
                                 sb.AppendLine("," + dr["reg_sort"].ToString());
                                 sb.AppendLine("," + dr["sort"].ToString());

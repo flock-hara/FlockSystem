@@ -33,22 +33,22 @@
             this.Panel1 = new System.Windows.Forms.Panel();
             this.Label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnEditReport = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnExportReport = new System.Windows.Forms.Button();
-            this.btnImportReport = new System.Windows.Forms.Button();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnBasicContractTime = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.btnLocationCarStaff = new System.Windows.Forms.Button();
             this.btnLocationStaff = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnEditReport = new System.Windows.Forms.Button();
+            this.btnListReport = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnMstLocationCar = new System.Windows.Forms.Button();
             this.btnMstLocation = new System.Windows.Forms.Button();
             this.btnStaffList = new System.Windows.Forms.Button();
             this.btnMstStaff = new System.Windows.Forms.Button();
-            this.btnListReport = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExportReport = new System.Windows.Forms.Button();
+            this.btnImportReport = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.Panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -101,101 +101,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "専従先各設定";
             // 
-            // button3
-            // 
-            this.button3.Enabled = false;
-            this.button3.Location = new System.Drawing.Point(15, 195);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(160, 50);
-            this.button3.TabIndex = 79;
-            this.button3.Text = "予備";
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.btnEditReport);
-            this.groupBox3.Controls.Add(this.btnListReport);
-            this.groupBox3.Location = new System.Drawing.Point(428, 60);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(187, 144);
-            this.groupBox3.TabIndex = 81;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "日報管理";
-            // 
-            // btnEditReport
-            // 
-            this.btnEditReport.Enabled = false;
-            this.btnEditReport.Location = new System.Drawing.Point(15, 83);
-            this.btnEditReport.Name = "btnEditReport";
-            this.btnEditReport.Size = new System.Drawing.Size(160, 50);
-            this.btnEditReport.TabIndex = 78;
-            this.btnEditReport.Text = "予備";
-            this.btnEditReport.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnEditReport.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.btnMstLocationCar);
-            this.groupBox4.Controls.Add(this.btnMstLocation);
-            this.groupBox4.Controls.Add(this.btnStaffList);
-            this.groupBox4.Controls.Add(this.btnMstStaff);
-            this.groupBox4.Location = new System.Drawing.Point(228, 60);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(187, 254);
-            this.groupBox4.TabIndex = 82;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "マスターデータ";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnExportReport);
-            this.groupBox1.Controls.Add(this.btnImportReport);
-            this.groupBox1.Location = new System.Drawing.Point(428, 206);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(187, 144);
-            this.groupBox1.TabIndex = 85;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "データ同期";
-            // 
-            // btnExportReport
-            // 
-            this.btnExportReport.Image = global::FlockAppC.Properties.Resources.エクスポート小1;
-            this.btnExportReport.Location = new System.Drawing.Point(15, 83);
-            this.btnExportReport.Name = "btnExportReport";
-            this.btnExportReport.Size = new System.Drawing.Size(160, 50);
-            this.btnExportReport.TabIndex = 85;
-            this.btnExportReport.Text = "日報データエクスポート";
-            this.btnExportReport.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnExportReport.UseVisualStyleBackColor = true;
-            this.btnExportReport.Click += new System.EventHandler(this.btnExportReport_Click);
-            // 
-            // btnImportReport
-            // 
-            this.btnImportReport.Image = global::FlockAppC.Properties.Resources.インポート1_小小;
-            this.btnImportReport.Location = new System.Drawing.Point(15, 27);
-            this.btnImportReport.Name = "btnImportReport";
-            this.btnImportReport.Size = new System.Drawing.Size(160, 50);
-            this.btnImportReport.TabIndex = 84;
-            this.btnImportReport.Text = "日報データインポート";
-            this.btnImportReport.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnImportReport.UseVisualStyleBackColor = true;
-            this.btnImportReport.Click += new System.EventHandler(this.btnImportReport_Click_1);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる;
-            this.btnClose.Location = new System.Drawing.Point(26, 319);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(97, 50);
-            this.btnClose.TabIndex = 83;
-            this.btnClose.Text = "閉じる";
-            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // btnBasicContractTime
             // 
             this.btnBasicContractTime.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
@@ -208,6 +113,17 @@
             this.btnBasicContractTime.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBasicContractTime.UseVisualStyleBackColor = true;
             this.btnBasicContractTime.Click += new System.EventHandler(this.btnBasicContractTime_Click);
+            // 
+            // button3
+            // 
+            this.button3.Enabled = false;
+            this.button3.Location = new System.Drawing.Point(15, 195);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(160, 50);
+            this.button3.TabIndex = 79;
+            this.button3.Text = "予備";
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // btnLocationCarStaff
             // 
@@ -233,6 +149,53 @@
             this.btnLocationStaff.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnLocationStaff.UseVisualStyleBackColor = true;
             this.btnLocationStaff.Click += new System.EventHandler(this.btnLocationStaff_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnEditReport);
+            this.groupBox3.Controls.Add(this.btnListReport);
+            this.groupBox3.Location = new System.Drawing.Point(428, 60);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(187, 144);
+            this.groupBox3.TabIndex = 81;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "日報管理";
+            // 
+            // btnEditReport
+            // 
+            this.btnEditReport.Enabled = false;
+            this.btnEditReport.Location = new System.Drawing.Point(15, 83);
+            this.btnEditReport.Name = "btnEditReport";
+            this.btnEditReport.Size = new System.Drawing.Size(160, 50);
+            this.btnEditReport.TabIndex = 78;
+            this.btnEditReport.Text = "日報データ(ID指定)";
+            this.btnEditReport.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnEditReport.UseVisualStyleBackColor = true;
+            // 
+            // btnListReport
+            // 
+            this.btnListReport.Image = global::FlockAppC.Properties.Resources.表1_小小;
+            this.btnListReport.Location = new System.Drawing.Point(15, 27);
+            this.btnListReport.Name = "btnListReport";
+            this.btnListReport.Size = new System.Drawing.Size(160, 50);
+            this.btnListReport.TabIndex = 77;
+            this.btnListReport.Text = "日報データ一覧";
+            this.btnListReport.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnListReport.UseVisualStyleBackColor = true;
+            this.btnListReport.Click += new System.EventHandler(this.btnListReport_Click);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnMstLocationCar);
+            this.groupBox4.Controls.Add(this.btnMstLocation);
+            this.groupBox4.Controls.Add(this.btnStaffList);
+            this.groupBox4.Controls.Add(this.btnMstStaff);
+            this.groupBox4.Location = new System.Drawing.Point(228, 60);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(187, 254);
+            this.groupBox4.TabIndex = 82;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "マスターデータ";
             // 
             // btnMstLocationCar
             // 
@@ -282,17 +245,54 @@
             this.btnMstStaff.UseVisualStyleBackColor = true;
             this.btnMstStaff.Click += new System.EventHandler(this.btnMstStaff_Click);
             // 
-            // btnListReport
+            // groupBox1
             // 
-            this.btnListReport.Image = global::FlockAppC.Properties.Resources.表1_小小;
-            this.btnListReport.Location = new System.Drawing.Point(15, 27);
-            this.btnListReport.Name = "btnListReport";
-            this.btnListReport.Size = new System.Drawing.Size(160, 50);
-            this.btnListReport.TabIndex = 77;
-            this.btnListReport.Text = "日報データ一覧";
-            this.btnListReport.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnListReport.UseVisualStyleBackColor = true;
-            this.btnListReport.Click += new System.EventHandler(this.btnListReport_Click);
+            this.groupBox1.Controls.Add(this.btnExportReport);
+            this.groupBox1.Controls.Add(this.btnImportReport);
+            this.groupBox1.Location = new System.Drawing.Point(428, 206);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(187, 144);
+            this.groupBox1.TabIndex = 85;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "データ同期";
+            // 
+            // btnExportReport
+            // 
+            this.btnExportReport.Image = global::FlockAppC.Properties.Resources.エクスポート小1;
+            this.btnExportReport.Location = new System.Drawing.Point(15, 83);
+            this.btnExportReport.Name = "btnExportReport";
+            this.btnExportReport.Size = new System.Drawing.Size(160, 50);
+            this.btnExportReport.TabIndex = 85;
+            this.btnExportReport.Text = "日報データエクスポート";
+            this.btnExportReport.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnExportReport.UseVisualStyleBackColor = true;
+            this.btnExportReport.Click += new System.EventHandler(this.btnExportReport_Click);
+            // 
+            // btnImportReport
+            // 
+            this.btnImportReport.Image = global::FlockAppC.Properties.Resources.インポート1_小小;
+            this.btnImportReport.Location = new System.Drawing.Point(15, 27);
+            this.btnImportReport.Name = "btnImportReport";
+            this.btnImportReport.Size = new System.Drawing.Size(160, 50);
+            this.btnImportReport.TabIndex = 84;
+            this.btnImportReport.Text = "日報データインポート";
+            this.btnImportReport.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnImportReport.UseVisualStyleBackColor = true;
+            this.btnImportReport.Click += new System.EventHandler(this.btnImportReport_Click_1);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる;
+            this.btnClose.Location = new System.Drawing.Point(26, 319);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(97, 50);
+            this.btnClose.TabIndex = 83;
+            this.btnClose.Text = "閉じる";
+            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmReportMenu
             // 

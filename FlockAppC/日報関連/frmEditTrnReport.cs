@@ -8,6 +8,7 @@ using System.Drawing;
 using System.IO;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace FlockAppC.Report
 {
@@ -99,6 +100,10 @@ namespace FlockAppC.Report
         private int Break_time2 { get; set; }
         private int Break_time3 { get; set; }
 
+        // 始業前作業開始・終了時間
+        private DateTime Work_Start_time { get; set; }
+        private DateTime Work_Finish_time { get; set; }
+
         // 代車フラグ
         private int Subcar_flag {  get; set; }
 
@@ -135,8 +140,8 @@ namespace FlockAppC.Report
         private int Alcohol_check3 { get; set; }
 
         // 日報　備考
-        private int Comment_kbn {  get; set; }
-        private string Comment_kbn_name {  get; set; }
+        // private int Comment_kbn {  get; set; }
+        // private string Comment_kbn_name {  get; set; }
         private string Comment {  get; set; }
         private int Passenger_id { get; set; }      // 同乗者（1:あり)
 
@@ -260,6 +265,9 @@ namespace FlockAppC.Report
             this.txtBreak_Time2.Text = "";
             this.txtBreak_Time3.Text = "";
 
+            this.mskWork_Start_Time.Text = "";
+            this.mskWork_Finish_Time.Text = "";
+
             // 基本契約情報
             this.mskBasic_Start_Time1.Text = "";
             this.mskBasic_Start_Time2.Text = "";
@@ -300,7 +308,7 @@ namespace FlockAppC.Report
             this.txtTemp2.Text = "";
             this.txtTemp3.Text = "";
 
-            this.lblComment_Kbn.Text = "";
+            // this.lblComment_Kbn.Text = "";
             this.txtComment.Text = "";
 
             // 同乗者
@@ -409,6 +417,10 @@ namespace FlockAppC.Report
             this.Break_time2 = 0;
             this.Break_time3 = 0;
 
+            // 始業前作業開始・終了時間
+            this.Work_Start_time = DateTime.Parse("1900/01/01 00:00:00");
+            this.Work_Finish_time = DateTime.Parse("1900/01/01 00:00:00");
+
             // 代車
             this.Subcar_flag = 0;
 
@@ -445,10 +457,10 @@ namespace FlockAppC.Report
             this.Alcohol_check3 = 0;
 
             // 日報　備考
-            this.Comment_kbn = -1;
-            this.Comment_kbn_name = "";
+            // this.Comment_kbn = -1;
+            // this.Comment_kbn_name = "";
             this.Comment = null;
-            this.Passenger_id = 0;
+            this.Passenger_id = ClsPublic.FLAG_OFF;
         }
         /// <summary>
         /// 日報入力データ取得
@@ -473,22 +485,22 @@ namespace FlockAppC.Report
                 foreach (DataRow dr in cls.Dt.Rows)
                 {
                     // Privateに保持
-                    if (dr.IsNull("location_id") != true) { this.Location_id = int.Parse(dr["location_id"].ToString()); }               // 専従先ID
-                    if (dr.IsNull("location_name") != true) { this.Location_name = dr["location_name"].ToString(); }                    // 専従先名称
-                    if (dr.IsNull("car_id") != true) { this.Car_id = int.Parse(dr["car_id"].ToString()); }                              // 専従先車両ID
-                    if (dr.IsNull("car_no") != true) { this.Car_no = dr["car_no"].ToString(); }                                         // 専従先車両番号
-                    if (dr.IsNull("car_fullname") != true) { this.Car_fullname = dr["car_fullname"].ToString(); }                                   // 専従先車両番号+名称
-                    if (dr.IsNull("day") != true) { this.Day = DateTime.Parse(dr["day"].ToString()); }                                  // 日付
-                    if (dr.IsNull("instructor_name") != true) { this.Instructor_name = dr["instructor_name"].ToString(); }              // 管理責任者名
-                    // if (dr.IsNull("start_location") != true) { this.Start_location = dr["start_location"].ToString(); }                 // 始業場所
-                    // if (dr.IsNull("end_location") != true) { this.End_location = dr["end_location"].ToString(); }                       // 終業場所
-                    if (dr.IsNull("staff_name1") != true) { this.Staff_name1 = dr["staff_name1"].ToString(); }                          // 担当者
-                    if (dr.IsNull("start_time1") != true) { this.Start_time1 = DateTime.Parse(dr["start_time1"].ToString()); }          // 開始時間1
-                    if (dr.IsNull("start_time2") != true) { this.Start_time2 = DateTime.Parse(dr["start_time2"].ToString()); }          // 開始時間2
-                    if (dr.IsNull("start_time3") != true) { this.Start_time3 = DateTime.Parse(dr["start_time3"].ToString()); }          // 開始時間3
-                    if (dr.IsNull("end_time1") != true) { this.End_time1 = DateTime.Parse(dr["end_time1"].ToString()); }                // 終了時間1
-                    if (dr.IsNull("end_time2") != true) { this.End_time2 = DateTime.Parse(dr["end_time2"].ToString()); }                // 終了時間2
-                    if (dr.IsNull("end_time3") != true) { this.End_time3 = DateTime.Parse(dr["end_time3"].ToString()); }                // 終了時間3
+                    if (dr.IsNull("location_id") != true) { this.Location_id = int.Parse(dr["location_id"].ToString()); }                    // 専従先ID
+                    if (dr.IsNull("location_name") != true) { this.Location_name = dr["location_name"].ToString(); }                   // 専従先名称
+                    if (dr.IsNull("car_id") != true) { this.Car_id = int.Parse(dr["car_id"].ToString()); }                                            // 専従先車両ID
+                    if (dr.IsNull("car_no") != true) { this.Car_no = dr["car_no"].ToString(); }                                                          // 専従先車両番号
+                    if (dr.IsNull("car_fullname") != true) { this.Car_fullname = dr["car_fullname"].ToString(); }                            // 専従先車両番号+名称
+                    if (dr.IsNull("day") != true) { this.Day = DateTime.Parse(dr["day"].ToString()); }                                             // 日付
+                    if (dr.IsNull("instructor_name") != true) { this.Instructor_name = dr["instructor_name"].ToString(); }            // 管理責任者名
+                    // if (dr.IsNull("start_location") != true) { this.Start_location = dr["start_location"].ToString(); }                    // 始業場所
+                    // if (dr.IsNull("end_location") != true) { this.End_location = dr["end_location"].ToString(); }                         // 終業場所
+                    if (dr.IsNull("staff_name1") != true) { this.Staff_name1 = dr["staff_name1"].ToString(); }                               // 担当者
+                    if (dr.IsNull("start_time1") != true) { this.Start_time1 = DateTime.Parse(dr["start_time1"].ToString()); }       // 開始時間1
+                    if (dr.IsNull("start_time2") != true) { this.Start_time2 = DateTime.Parse(dr["start_time2"].ToString()); }       // 開始時間2
+                    if (dr.IsNull("start_time3") != true) { this.Start_time3 = DateTime.Parse(dr["start_time3"].ToString()); }       // 開始時間3
+                    if (dr.IsNull("end_time1") != true) { this.End_time1 = DateTime.Parse(dr["end_time1"].ToString()); }            // 終了時間1
+                    if (dr.IsNull("end_time2") != true) { this.End_time2 = DateTime.Parse(dr["end_time2"].ToString()); }            // 終了時間2
+                    if (dr.IsNull("end_time3") != true) { this.End_time3 = DateTime.Parse(dr["end_time3"].ToString()); }            // 終了時間3
 
                     // 残業時間
                     if (dr.IsNull("over_time1") != true) { this.Over_time1 = int.Parse(dr["over_time1"].ToString()); }                  // 残業時間1
@@ -499,22 +511,22 @@ namespace FlockAppC.Report
                     if (dr.IsNull("start_over_time1") != true) { this.Start_over_time1 = int.Parse(dr["start_over_time1"].ToString()); }                  // 残業時間1
                     if (dr.IsNull("start_over_time2") != true) { this.Start_over_time2 = int.Parse(dr["start_over_time2"].ToString()); }                  // 残業時間1
                     if (dr.IsNull("start_over_time3") != true) { this.Start_over_time3 = int.Parse(dr["Start_over_time3"].ToString()); }                  // 残業時間1
-                    if (dr.IsNull("end_over_time1") != true) { this.End_over_time1 = int.Parse(dr["end_over_time1"].ToString()); }                  // 残業時間1
-                    if (dr.IsNull("end_over_time2") != true) { this.End_over_time2 = int.Parse(dr["end_over_time2"].ToString()); }                  // 残業時間1
-                    if (dr.IsNull("end_over_time3") != true) { this.End_over_time3 = int.Parse(dr["end_over_time3"].ToString()); }                  // 残業時間1
+                    if (dr.IsNull("end_over_time1") != true) { this.End_over_time1 = int.Parse(dr["end_over_time1"].ToString()); }                      // 残業時間1
+                    if (dr.IsNull("end_over_time2") != true) { this.End_over_time2 = int.Parse(dr["end_over_time2"].ToString()); }                      // 残業時間1
+                    if (dr.IsNull("end_over_time3") != true) { this.End_over_time3 = int.Parse(dr["end_over_time3"].ToString()); }                      // 残業時間1
 
                     // 理由区分
                     if (dr.IsNull("start_over_time_kbn1") != true) { this.Start_over_time_kbn1 = int.Parse(dr["start_over_time_kbn1"].ToString()); }                  // 残業時間1
                     if (dr.IsNull("start_over_time_kbn2") != true) { this.Start_over_time_kbn2 = int.Parse(dr["start_over_time_kbn2"].ToString()); }                  // 残業時間1
                     if (dr.IsNull("start_over_time_kbn3") != true) { this.Start_over_time_kbn3 = int.Parse(dr["start_over_time_kbn3"].ToString()); }                  // 残業時間1
-                    if (dr.IsNull("end_over_time_kbn1") != true) { this.End_over_time_kbn1 = int.Parse(dr["end_over_time_kbn1"].ToString()); }                  // 残業時間1
-                    if (dr.IsNull("end_over_time_kbn2") != true) { this.End_over_time_kbn2 = int.Parse(dr["end_over_time_kbn2"].ToString()); }                  // 残業時間1
-                    if (dr.IsNull("end_over_time_kbn3") != true) { this.End_over_time_kbn3 = int.Parse(dr["end_over_time_kbn3"].ToString()); }                  // 残業時間1
+                    if (dr.IsNull("end_over_time_kbn1") != true) { this.End_over_time_kbn1 = int.Parse(dr["end_over_time_kbn1"].ToString()); }                      // 残業時間1
+                    if (dr.IsNull("end_over_time_kbn2") != true) { this.End_over_time_kbn2 = int.Parse(dr["end_over_time_kbn2"].ToString()); }                      // 残業時間1
+                    if (dr.IsNull("end_over_time_kbn3") != true) { this.End_over_time_kbn3 = int.Parse(dr["end_over_time_kbn3"].ToString()); }                      // 残業時間1
 
                     // 理由
-                    if (dr.IsNull("start_over_time_comment1") != true) { this.Start_over_time_comment1 = dr["start_over_time_comment1"].ToString(); }                                            // 備考
-                    if (dr.IsNull("start_over_time_comment2") != true) { this.Start_over_time_comment2 = dr["start_over_time_comment2"].ToString(); }                                            // 備考
-                    if (dr.IsNull("start_over_time_comment3") != true) { this.Start_over_time_comment3 = dr["start_over_time_comment3"].ToString(); }                                            // 備考
+                    if (dr.IsNull("start_over_time_comment1") != true) { this.Start_over_time_comment1 = dr["start_over_time_comment1"].ToString(); }                                       // 備考
+                    if (dr.IsNull("start_over_time_comment2") != true) { this.Start_over_time_comment2 = dr["start_over_time_comment2"].ToString(); }                                       // 備考
+                    if (dr.IsNull("start_over_time_comment3") != true) { this.Start_over_time_comment3 = dr["start_over_time_comment3"].ToString(); }                                       // 備考
                     if (dr.IsNull("end_over_time_comment1") != true) { this.End_over_time_comment1 = dr["end_over_time_comment1"].ToString(); }                                            // 備考
                     if (dr.IsNull("end_over_time_comment2") != true) { this.End_over_time_comment2 = dr["end_over_time_comment2"].ToString(); }                                            // 備考
                     if (dr.IsNull("end_over_time_comment3") != true) { this.End_over_time_comment3 = dr["end_over_time_comment3"].ToString(); }                                            // 備考
@@ -523,23 +535,27 @@ namespace FlockAppC.Report
                     if (dr.IsNull("start_break_time1") != true) { this.Start_break_time1 = DateTime.Parse(dr["start_break_time1"].ToString()); }          // 開始時間1
                     if (dr.IsNull("start_break_time2") != true) { this.Start_break_time2 = DateTime.Parse(dr["start_break_time2"].ToString()); }          // 開始時間2
                     if (dr.IsNull("start_break_time3") != true) { this.Start_break_time3 = DateTime.Parse(dr["start_break_time3"].ToString()); }          // 開始時間3
-                    if (dr.IsNull("end_break_time1") != true) { this.End_break_time1 = DateTime.Parse(dr["end_break_time1"].ToString()); }                // 終了時間1
-                    if (dr.IsNull("end_break_time2") != true) { this.End_break_time2 = DateTime.Parse(dr["end_break_time2"].ToString()); }                // 終了時間2
-                    if (dr.IsNull("end_break_time3") != true) { this.End_break_time3 = DateTime.Parse(dr["end_break_time3"].ToString()); }                // 終了時間3
+                    if (dr.IsNull("end_break_time1") != true) { this.End_break_time1 = DateTime.Parse(dr["end_break_time1"].ToString()); }               // 終了時間1
+                    if (dr.IsNull("end_break_time2") != true) { this.End_break_time2 = DateTime.Parse(dr["end_break_time2"].ToString()); }               // 終了時間2
+                    if (dr.IsNull("end_break_time3") != true) { this.End_break_time3 = DateTime.Parse(dr["end_break_time3"].ToString()); }               // 終了時間3
                     if (dr.IsNull("break_time1") != true) { this.Break_time1 = int.Parse(dr["break_time1"].ToString()); }                  // 休憩時間1
                     if (dr.IsNull("break_time2") != true) { this.Break_time2 = int.Parse(dr["break_time2"].ToString()); }                  // 休憩時間2
                     if (dr.IsNull("break_time3") != true) { this.Break_time3 = int.Parse(dr["break_time3"].ToString()); }                  // 休憩時間3
 
-                    // 代車
-                    if (dr.IsNull("subcar_flag") != true) { this.Subcar_flag = int.Parse(dr["subcar_flag"].ToString()); }               // 代車フラグ
+                    // 始業前作業開始・終了時間
+                    if (dr.IsNull("work_start_time") != true) { this.Work_Start_time = DateTime.Parse(dr["work_start_time"].ToString()); }              // 開始時間
+                    if (dr.IsNull("work_finish_time") != true) { this.Work_Finish_time = DateTime.Parse(dr["work_finish_time"].ToString()); }          //終了始時間
 
-                    if (dr.IsNull("after_meter") != true) { this.After_meter = int.Parse(dr["after_meter"].ToString()); }               // 入庫時メーター
-                    if (dr.IsNull("before_meter") != true) { this.Before_meter = int.Parse(dr["before_meter"].ToString()); }            // 出庫時メーター
-                    if (dr.IsNull("mileage") != true) { this.Mileage = int.Parse(dr["mileage"].ToString()); }                           // 走行距離
-                    if (dr.IsNull("fuel") != true) { this.Fuel = decimal.Parse(dr["fuel"].ToString()); }                                // 給油量
-                    if (dr.IsNull("fuel_meter") != true) { this.Fuel_meter = int.Parse(dr["fuel_meter"].ToString()); }                  // 給油時メーター
-                    if (dr.IsNull("oil") != true) { this.Oil = decimal.Parse(dr["oil"].ToString()); }                                   // オイル
-                    if (dr.IsNull("kerosene") != true) { this.Kerosene = decimal.Parse(dr["kerosene"].ToString()); }                    // 灯油
+                    // 代車
+                    if (dr.IsNull("subcar_flag") != true) { this.Subcar_flag = int.Parse(dr["subcar_flag"].ToString()); }                       // 代車フラグ
+
+                    if (dr.IsNull("after_meter") != true) { this.After_meter = int.Parse(dr["after_meter"].ToString()); }                       // 入庫時メーター
+                    if (dr.IsNull("before_meter") != true) { this.Before_meter = int.Parse(dr["before_meter"].ToString()); }              // 出庫時メーター
+                    if (dr.IsNull("mileage") != true) { this.Mileage = int.Parse(dr["mileage"].ToString()); }                                         // 走行距離
+                    if (dr.IsNull("fuel") != true) { this.Fuel = decimal.Parse(dr["fuel"].ToString()); }                                                    // 給油量
+                    if (dr.IsNull("fuel_meter") != true) { this.Fuel_meter = int.Parse(dr["fuel_meter"].ToString()); }                          // 給油時メーター
+                    if (dr.IsNull("oil") != true) { this.Oil = decimal.Parse(dr["oil"].ToString()); }                                                          // オイル
+                    if (dr.IsNull("kerosene") != true) { this.Kerosene = decimal.Parse(dr["kerosene"].ToString()); }                         // 灯油
                     // ==============================================================================================================================
                     // 日報　アルコールチェック、検温
                     // ==============================================================================================================================
@@ -559,8 +575,8 @@ namespace FlockAppC.Report
                     // ==============================================================================================================================
                     // 日報　備考
                     // ==============================================================================================================================
-                    if (dr.IsNull("comment_kbn") != true) { this.Comment_kbn = int.Parse(dr["comment_kbn"].ToString()); }                     // 備考区分
-                    if (dr.IsNull("comment_kbn_name") != true) { this.Comment_kbn_name = dr["comment_kbn_name"].ToString(); }                 // 区分名称
+                    // if (dr.IsNull("comment_kbn") != true) { this.Comment_kbn = int.Parse(dr["comment_kbn"].ToString()); }                     // 備考区分
+                    // if (dr.IsNull("comment_kbn_name") != true) { this.Comment_kbn_name = dr["comment_kbn_name"].ToString(); }                 // 区分名称
                     if (dr.IsNull("comment") != true) { this.Comment = dr["comment"].ToString(); }                                            // 備考
                     if (dr.IsNull("passenger_id") != true) { this.Passenger_id = int.Parse(dr["passenger_id"].ToString()); }                  // 同乗者
 
@@ -579,8 +595,8 @@ namespace FlockAppC.Report
                     if (dr.IsNull("sales_id") != true) { this.Sales_id = int.Parse(dr["sales_id"].ToString()); }                 // 営業
                     if (dr.IsNull("sales_confirm_date") != true) { this.Sales_confirm_date = DateTime.Parse(dr["sales_confirm_date"].ToString()); }                                  // 日付
                     if (dr.IsNull("sales_name") != true) { this.Sales_name = dr["sales_name"].ToString(); }
-                    if (dr.IsNull("guest_id") != true) { this.Guest_id = int.Parse(dr["guest_id"].ToString()); }                 // 顧客
-                    if (dr.IsNull("guest_confirm_date") != true) { this.Guest_confirm_date = DateTime.Parse(dr["guest_confirm_date"].ToString()); }                                  // 日付
+                    if (dr.IsNull("guest_id") != true) { this.Guest_id = int.Parse(dr["guest_id"].ToString()); }                // 顧客
+                    if (dr.IsNull("guest_confirm_date") != true) { this.Guest_confirm_date = DateTime.Parse(dr["guest_confirm_date"].ToString()); }                                 // 日付
                     if (dr.IsNull("guest_name") != true) { this.Guest_name = dr["guest_name"].ToString(); }
                     if (dr.IsNull("confirm_status") != true) { this.Confirm_status = int.Parse(dr["confirm_status"].ToString()); }                 // 顧客
                 }
@@ -639,6 +655,8 @@ namespace FlockAppC.Report
         /// </summary>
         private void Set_ReportData()
         {
+            this.Day = this.dtptDay.Value;                                             // 日付
+
             // 時間　※未入力の場合は1900/01/01 00:00:00をセットし、DB登録時はNULLに変換
             if (this.mskStart_Time1.Text == "  :") { this.Start_time1 = DateTime.Parse("1900/01/01 00:00:00"); }
             else { this.Start_time1 = DateTime.Parse("1900/01/01 " + this.mskStart_Time1.Text + ":00"); }
@@ -724,6 +742,12 @@ namespace FlockAppC.Report
             if (this.txtBreak_Time3.Text != "") { this.Break_time3 = int.Parse(this.txtBreak_Time3.Text); }
             else { this.Break_time3 = 0; }
 
+            // 始業前作業開始・終了時間
+            // 時間　※未入力の場合は1900/01/01 00:00:00をセットし、DB登録時はNULLに変換
+            if (this.mskWork_Start_Time.Text == "  :") { this.Work_Start_time = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { this.Work_Start_time = DateTime.Parse("1900/01/01 " + this.mskWork_Start_Time.Text + ":00"); }
+            if (this.mskWork_Finish_Time.Text == "  :") { this.Work_Finish_time = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { this.Work_Finish_time = DateTime.Parse("1900/01/01 " + this.mskWork_Finish_Time.Text + ":00"); }
 
             // メーター　※未入力の場合は0をセットし、DB登録時はNULLに変換
             if (this.txtAfter_Meter.Text != "") { this.After_meter = int.Parse(this.txtAfter_Meter.Text); }
@@ -749,20 +773,43 @@ namespace FlockAppC.Report
                 this.Confirm1_id = ClsLoginUser.StaffID;
                 this.Confirm1_date = DateTime.Now;
             }
+            else if (this.chkConfirm1.Checked == false)
+            {
+                this.Confirm1_id = 0;
+                this.Confirm1_date = DateTime.Parse("1900/01/01 00:00:00");
+            }
+
             if (this.chkConfirm2.Checked == true && this.Confirm2_id == 0)
             {
                 this.Confirm2_id = ClsLoginUser.StaffID;
                 this.Confirm2_date = DateTime.Now;
             }
+            else if (this.chkConfirm2.Checked == false)
+            {
+                this.Confirm2_id = 0;
+                this.Confirm2_date = DateTime.Parse("1900/01/01 00:00:00");
+            }
+
             if (this.chkConfirm3.Checked == true && this.Confirm3_id == 0)
             {
                 this.Confirm3_id = ClsLoginUser.StaffID;
                 this.Confirm3_date = DateTime.Now;
             }
+            else if (this.chkConfirm3.Checked == false)
+            {
+                this.Confirm3_id = 0;
+                this.Confirm3_date = DateTime.Parse("1900/01/01 00:00:00");
+            }
+            
             if (this.chkSalesConfirm.Checked == true && this.Sales_id == 0)
             {
                 this.Sales_id = ClsLoginUser.StaffID;
                 this.Sales_confirm_date = DateTime.Now;
+            }
+            else if (this.chkSalesConfirm.Checked == false)
+            {
+                this.Sales_id = 0;
+                this.Sales_confirm_date = DateTime.Parse("1900/01/01 00:00:00");
             }
 
             //{
@@ -818,8 +865,8 @@ namespace FlockAppC.Report
             else { this.Comment = null; }
 
             // 同乗者
-            if (this.chkPassenger.Checked ==  true) { this.Passenger_id = 2; }
-            else { this.Passenger_id = 0; }
+            if (this.chkPassenger.Checked ==  true) { this.Passenger_id = ClsPublic.FLAG_ON; }
+            else { this.Passenger_id = ClsPublic.FLAG_OFF; }
 
         }
         /// <summary>
@@ -940,6 +987,12 @@ namespace FlockAppC.Report
             if (this.Break_time3 != 0) { this.txtBreak_Time3.Text = this.Break_time3.ToString(); }
             else { this.txtBreak_Time3.Text = ""; }
 
+            // 始業前作業開始・終了時間
+            if (this.Work_Start_time != null && this.Work_Start_time.ToString("HH:mm") != "00:00") { this.mskWork_Start_Time.Text = DateTime.Parse(this.Work_Start_time.ToString()).ToString("HH:mm"); }
+            else { this.mskWork_Start_Time.Text = ""; }
+            if (this.Work_Finish_time != null && this.Work_Finish_time.ToString("HH:mm") != "00:00") { this.mskWork_Finish_Time.Text = DateTime.Parse(this.Work_Finish_time.ToString()).ToString("HH:mm"); }
+            else { this.mskWork_Finish_Time.Text = ""; }
+
             // 代車
             if (this.Subcar_flag == 1) { this.chkSubcar.Checked = true; }
             else { this.chkSubcar.Checked = false; }
@@ -998,11 +1051,11 @@ namespace FlockAppC.Report
             // =====================================================================================
             // 日報　備考
             // =====================================================================================
-            if (this.Comment_kbn_name != null && this.Comment_kbn_name != "") { this.lblComment_Kbn.Text = this.Comment_kbn_name; }
-            else { this.lblComment_Kbn.Text = ""; }
+            // if (this.Comment_kbn_name != null && this.Comment_kbn_name != "") { this.lblComment_Kbn.Text = this.Comment_kbn_name; }
+            // else { this.lblComment_Kbn.Text = ""; }
             if (this.Comment != null && this.Comment != "") { this.txtComment.Text = this.Comment; }
             else { this.txtComment.Text = ""; }
-            if (this.Passenger_id == 2) { this.chkPassenger.Checked = true; }
+            if (this.Passenger_id == ClsPublic.FLAG_ON) { this.chkPassenger.Checked = true; }
             else { this.chkPassenger.Checked = false; }
 
             // =====================================================================================
@@ -1271,9 +1324,9 @@ namespace FlockAppC.Report
             fSelectItem.ShowDialog();
             if (fSelectItem.Value == 0) { return; }
 
-            this.Comment_kbn = fSelectItem.Value;
-            this.Comment_kbn_name = fSelectItem.StrVal;
-            this.lblComment_Kbn.Text = this.Comment_kbn_name;
+            // this.Comment_kbn = fSelectItem.Value;
+            // this.Comment_kbn_name = fSelectItem.StrVal;
+            // this.lblComment_Kbn.Text = this.Comment_kbn_name;
         }
         /// <summary>
         /// 新規ボタン
@@ -1309,6 +1362,20 @@ namespace FlockAppC.Report
                 MessageBox.Show(error_message,"エラー",MessageBoxButtons.OK);
                 return;
             }
+
+            // 変更内容確認 true:変更あり、false:変更なし
+            if (!Compare_ReportData())
+            {
+                MessageBox.Show("変更がありません。保存処理を中止します。", "通知", MessageBoxButtons.OK);
+                return;
+            }
+            // 顧客承認済みチェック
+            if (this.Guest_id > 0)
+            {
+                // 日報変更発生メール編集
+                clsSendMailData clsSendMailData = new(this.Location_id,this.Day,this.lblCar_No.Text);
+            }
+ 
 
             // 日報データセット
             Set_ReportData();
@@ -1383,6 +1450,10 @@ namespace FlockAppC.Report
             cls.Break_time2 = this.Break_time2;
             cls.Break_time3 = this.Break_time3;
 
+            // 始業前作業
+            cls.Work_Start_time = this.Work_Start_time;
+            cls.Work_Finish_time = this.Work_Finish_time;
+
             cls.Subcar_flag = this.Subcar_flag;
 
             // ==================================================================
@@ -1456,7 +1527,7 @@ namespace FlockAppC.Report
             // ==========================================================
             // Trn_日報_備考
             // ==========================================================
-            cls.Comment_kbn = this.Comment_kbn;
+            // cls.Comment_kbn = this.Comment_kbn;
             cls.Comment = this.Comment;
             cls.Passenger_id = this.Passenger_id;
 
@@ -1488,25 +1559,6 @@ namespace FlockAppC.Report
             {
                 frmResultCarCheck.Report_id = this.Report_id;
                 frmResultCarCheck.ShowDialog();
-            }
-        }
-        /// <summary>
-        /// 備考区分選択ボタン (区分：702）
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void btnSelectComment_Kbn_Click_1(object sender, EventArgs e)
-        {
-            frmSelectItem cls = new()
-            {
-                Kbn = 9
-            };
-            cls.ShowDialog();
-            if (cls.Value > 0)
-            {
-                this.lblComment_Kbn.Text = cls.StrVal;
-                this.Comment_kbn_name = cls.StrVal;
-                this.Comment_kbn = cls.Value;
             }
         }
         /// <summary>
@@ -2058,7 +2110,6 @@ namespace FlockAppC.Report
             string from_file_name = ClsPublic.pubRootPath + @"\日報\日報_原紙.xlsx";
             string to_file_name = ClsPublic.pubRootPath + @"\日報\日報_" + lblLocation_Name.Text + "_" + formattedDateTime + "_" + this.Report_id + ".xlsx";
 
-
             // 日報（エクセル）コピー
             try
             {
@@ -2085,7 +2136,7 @@ namespace FlockAppC.Report
                 clsMsExcel.PrintSheet(to_file_name, "日報指示書");
                 if (chkHikae.Checked == true)
                 {
-                    clsMsExcel.PrintSheet(to_file_name, "日報指示書_控え");
+                    clsMsExcel.PrintSheet(to_file_name, "日報指示書（控）");
                 }
                 Console.WriteLine("印刷が完了しました。");
             }
@@ -2105,66 +2156,6 @@ namespace FlockAppC.Report
                 // その他の予期せぬエラー
                 Console.WriteLine($"予期せぬエラー: {ex.Message}");
             }
-
-        }
-        /// <summary>
-        /// 一次確認チェックボックス
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void chkConfirm1_CheckedChanged(object sender, EventArgs e)
-        {
-            //StringBuilder sb = new StringBuilder();
-            //int staff_id = 0;
-            //string staff_name = "";
-            //string confirm_date = "";
-            //Boolean visible = false;
-
-            //if (chkConfirm1.Checked == true)
-            //{
-            //    staff_id = ClsLoginUser.ID;
-            //    staff_name = ClsLoginUser.FullName;
-            //    confirm_date = DateTime.Today.ToString("yyyy/MM/dd");
-            //    visible = true;
-            //}
-
-            //try
-            //{
-            //    // 日報データ更新
-            //    using (ClsSqlDb clsSqlDb = new ClsSqlDb(ClsDbConfig.SQLServerNo))
-            //    {
-            //        sb.Clear();
-            //        sb.AppendLine("UPDATE");
-            //        sb.AppendLine(" Trn_日報");
-            //        sb.AppendLine(" SET");
-            //        sb.AppendLine(" confirm1_id = " + staff_id);
-            //        if (staff_id != 0)
-            //        {
-            //            sb.AppendLine(",confirm1_date = '" + confirm_date + "'");
-            //            this.lblConfirm1Date.Text = confirm_date;
-            //        }
-            //        else
-            //        {
-            //            sb.AppendLine(",confirm1_date = null");
-            //            this.lblConfirm1Date.Text = "";
-            //        }
-            //        sb.AppendLine(" WHERE");
-            //        sb.AppendLine(" id = " + Report_id);
-            //        clsSqlDb.DMLUpdate(sb.ToString());
-
-            //        this.lblConfirm1Name.Text = staff_name;
-            //        this.lblConfirm1Date.Visible = visible;
-            //        this.lblConfirm1Name.Visible = visible;
-            //        this.lblConfirm1Date.Refresh();
-            //        this.lblConfirm1Name.Refresh();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    ClsLogger.Log(ex.Message);
-            //    throw;
-            //}
-
         }
         private Boolean chkTimeFormat(string time_str)
         {
@@ -2372,6 +2363,438 @@ namespace FlockAppC.Report
             {
                 txtOver_Time3.Text = zan.ToString();
             }
+        }
+
+        /// <summary>
+        /// 一次確認チェックボックス
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkConfirm1_CheckedChanged(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            int staff_id = 0;
+            string staff_name = "";
+            string confirm_date = "";
+            Boolean visible = false;
+
+            if (chkConfirm1.Checked == true)
+            {
+                // チェックON
+                staff_id = ClsLoginUser.StaffID;
+                staff_name = ClsLoginUser.FullName;
+                confirm_date = DateTime.Today.ToString("yyyy/MM/dd");
+                visible = true;
+            }
+            else
+            {
+                // チェックOFF
+                staff_id = 0;
+                staff_name = "";
+                confirm_date = "";
+                visible = false;
+            }
+
+            try
+            {
+                // 日報データ更新
+                using (ClsSqlDb clsSqlDb = new ClsSqlDb(ClsDbConfig.SQLServerNo))
+                {
+                    sb.Clear();
+                    sb.AppendLine("UPDATE");
+                    sb.AppendLine(" Trn_日報");
+                    sb.AppendLine(" SET");
+                    sb.AppendLine(" confirm1_id = " + staff_id);
+                    if (staff_id != 0)
+                    {
+                        sb.AppendLine(",confirm1_date = '" + confirm_date + "'");
+                        this.lblConfirm1Date.Text = confirm_date;
+                    }
+                    else
+                    {
+                        sb.AppendLine(",confirm1_date = null");
+                        this.lblConfirm1Date.Text = "";
+                    }
+                    sb.AppendLine(" WHERE");
+                    sb.AppendLine(" id = " + Report_id);
+                    clsSqlDb.DMLUpdate(sb.ToString());
+
+                    this.lblConfirm1Name.Text = staff_name;
+                    this.lblConfirm1Date.Visible = visible;
+                    this.lblConfirm1Name.Visible = visible;
+                    this.lblConfirm1Date.Refresh();
+                    this.lblConfirm1Name.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                ClsLogger.Log(ex.Message);
+                throw;
+            }
+        }
+        /// <summary>
+        /// 二次確認チェックボックス
+　    /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkConfirm2_CheckedChanged(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            int staff_id = 0;
+            string staff_name = "";
+            string confirm_date = "";
+            Boolean visible = false;
+
+            if (chkConfirm2.Checked == true)
+            {
+                // チェックON
+                staff_id = ClsLoginUser.StaffID;
+                staff_name = ClsLoginUser.FullName;
+                confirm_date = DateTime.Today.ToString("yyyy/MM/dd");
+                visible = true;
+            }
+            else
+            {
+                // チェックOFF
+                staff_id = 0;
+                staff_name = "";
+                confirm_date = "";
+                visible = false;
+            }
+
+            try
+            {
+                // 日報データ更新
+                using (ClsSqlDb clsSqlDb = new ClsSqlDb(ClsDbConfig.SQLServerNo))
+                {
+                    sb.Clear();
+                    sb.AppendLine("UPDATE");
+                    sb.AppendLine(" Trn_日報");
+                    sb.AppendLine(" SET");
+                    sb.AppendLine(" confirm2_id = " + staff_id);
+                    if (staff_id != 0)
+                    {
+                        sb.AppendLine(",confirm2_date = '" + confirm_date + "'");
+                        this.lblConfirm1Date.Text = confirm_date;
+                    }
+                    else
+                    {
+                        sb.AppendLine(",confirm2_date = null");
+                        this.lblConfirm1Date.Text = "";
+                    }
+                    sb.AppendLine(" WHERE");
+                    sb.AppendLine(" id = " + Report_id);
+                    clsSqlDb.DMLUpdate(sb.ToString());
+
+                    this.lblConfirm2Name.Text = staff_name;
+                    this.lblConfirm2Date.Visible = visible;
+                    this.lblConfirm2Name.Visible = visible;
+                    this.lblConfirm2Date.Refresh();
+                    this.lblConfirm2Name.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                ClsLogger.Log(ex.Message);
+                throw;
+            }
+        }
+        /// <summary>
+        /// 三次確認チェックボックス
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkConfirm3_CheckedChanged(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            int staff_id = 0;
+            string staff_name = "";
+            string confirm_date = "";
+            Boolean visible = false;
+
+            if (chkConfirm3.Checked == true)
+            {
+                // チェックON
+                staff_id = ClsLoginUser.StaffID;
+                staff_name = ClsLoginUser.FullName;
+                confirm_date = DateTime.Today.ToString("yyyy/MM/dd");
+                visible = true;
+            }
+            else
+            {
+                // チェックOFF
+                staff_id = 0;
+                staff_name = "";
+                confirm_date = "";
+                visible = false;
+            }
+
+            try
+            {
+                // 日報データ更新
+                using (ClsSqlDb clsSqlDb = new ClsSqlDb(ClsDbConfig.SQLServerNo))
+                {
+                    sb.Clear();
+                    sb.AppendLine("UPDATE");
+                    sb.AppendLine(" Trn_日報");
+                    sb.AppendLine(" SET");
+                    sb.AppendLine(" confirm3_id = " + staff_id);
+                    if (staff_id != 0)
+                    {
+                        sb.AppendLine(",confirm3_date = '" + confirm_date + "'");
+                        this.lblConfirm1Date.Text = confirm_date;
+                    }
+                    else
+                    {
+                        sb.AppendLine(",confirm3_date = null");
+                        this.lblConfirm1Date.Text = "";
+                    }
+                    sb.AppendLine(" WHERE");
+                    sb.AppendLine(" id = " + Report_id);
+                    clsSqlDb.DMLUpdate(sb.ToString());
+
+                    this.lblConfirm3Name.Text = staff_name;
+                    this.lblConfirm3Date.Visible = visible;
+                    this.lblConfirm3Name.Visible = visible;
+                    this.lblConfirm3Date.Refresh();
+                    this.lblConfirm3Name.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                ClsLogger.Log(ex.Message);
+                throw;
+            }
+        }
+        /// <summary>
+        /// 営業確認チェックボックス
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void chkSalesConfirm_CheckedChanged(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            int staff_id = 0;
+            string staff_name = "";
+            string confirm_date = "";
+            Boolean visible = false;
+
+            if (chkSalesConfirm.Checked == true)
+            {
+                // チェックON
+                staff_id = ClsLoginUser.StaffID;
+                staff_name = ClsLoginUser.FullName;
+                confirm_date = DateTime.Today.ToString("yyyy/MM/dd");
+                visible = true;
+            }
+            else
+            {
+                // チェックOFF
+                staff_id = 0;
+                staff_name = "";
+                confirm_date = "";
+                visible = false;
+            }
+
+            try
+            {
+                // 日報データ更新
+                using (ClsSqlDb clsSqlDb = new ClsSqlDb(ClsDbConfig.SQLServerNo))
+                {
+                    sb.Clear();
+                    sb.AppendLine("UPDATE");
+                    sb.AppendLine(" Trn_日報");
+                    sb.AppendLine(" SET");
+                    sb.AppendLine(" sales_id = " + staff_id);
+                    if (staff_id != 0)
+                    {
+                        sb.AppendLine(",sales_confirm_date = '" + confirm_date + "'");
+                        this.lblConfirm1Date.Text = confirm_date;
+                    }
+                    else
+                    {
+                        sb.AppendLine(",sales_confirm_date = null");
+                        this.lblConfirm1Date.Text = "";
+                    }
+                    sb.AppendLine(" WHERE");
+                    sb.AppendLine(" id = " + Report_id);
+                    clsSqlDb.DMLUpdate(sb.ToString());
+
+                    this.lblSalesName.Text = staff_name;
+                    this.lblSalesConfirmDate.Visible = visible;
+                    this.lblSalesName.Visible = visible;
+                    this.lblSalesConfirmDate.Refresh();
+                    this.lblSalesName.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                ClsLogger.Log(ex.Message);
+                throw;
+            }
+        }
+        /// <summary>
+        /// 日報入力データ比較
+        /// </summary>
+        private Boolean Compare_ReportData()
+        {
+            var result = false;
+
+            // 日報入力データ変更内容比較
+            // 変更あり：true、変更なし：false
+
+            // 日付
+            if (this.Day != this.dtptDay.Value)
+            {
+                return true;
+            }
+            // 入庫時メーター
+            if (ClsPublic.TryGetChangedInt(this.After_meter, this.txtAfter_Meter.Text, out int? after_meter)) {   return true; }
+            // 出庫時メーター
+            if (ClsPublic.TryGetChangedInt(this.Before_meter, this.txtBefore_Meter.Text, out int? before_meter)) { return true; }
+            // 給油量
+            if (ClsPublic.TryGetChangeddecimal(this.Fuel, this.txtFuel.Text, out decimal? fual)) {  return true;  }
+            // 給油時メーター
+            if (ClsPublic.TryGetChangedInt(this.Fuel_meter, this.txtFuel_Meter.Text, out int? fual_meter)) { return true; }
+            // オイル
+            if (ClsPublic.TryGetChangeddecimal(this.Oil, this.txtOil.Text, out decimal? oil)) { return true; }
+            // 灯油
+            if (ClsPublic.TryGetChangeddecimal(this.Kerosene, this.txtKerosene.Text, out decimal? kerosene)) { return true; }
+
+            // 検温時間1
+            // 検温　※未入力の場合は1900/01/01 00:00:00をセットし、DB登録時はNULLに変換
+            DateTime wrk;
+            if (this.mskTemp_Time1.Text == "  :") {wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskTemp_Time1.Text + ":00"); }
+            if (this.Temp_time1 != wrk)  { return true; }
+            // 検温時間2
+            if (this.mskTemp_Time2.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskTemp_Time2.Text + ":00"); }
+            if (this.Temp_time2 != wrk) { return true; }
+            // 検温時間3
+            if (this.mskTemp_Time3.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskTemp_Time3.Text + ":00"); }
+            if (this.Temp_time3 != wrk) { return true; }
+
+            // 検温１
+            if (ClsPublic.TryGetChangeddecimal(this.Temp1, this.txtTemp1.Text, out decimal? temp1)) { return true; }
+            // 検温２
+            if (ClsPublic.TryGetChangeddecimal(this.Temp2, this.txtTemp2.Text, out decimal? temp2)) { return true; }
+            // 検温３
+            if (ClsPublic.TryGetChangeddecimal(this.Temp3, this.txtTemp3.Text, out decimal? temp3)) { return true; }
+
+            // アルコール濃度値1
+            if (ClsPublic.TryGetChangeddecimal(this.Alcohol1, this.txtAlcohol1.Text, out decimal? alcohol1)) { return true; }
+            // アルコール濃度値2
+            if (ClsPublic.TryGetChangeddecimal(this.Alcohol2, this.txtAlcohol2.Text, out decimal? alcohol2)) { return true; }
+            // アルコール濃度値3
+            if (ClsPublic.TryGetChangeddecimal(this.Alcohol3, this.txtAlcohol3.Text, out decimal? alcohol3)) { return true; }
+
+            // アルコール検査結果1
+            // OK：1、NG：0
+            // RadioButtonの状態から文字列に変換して比較
+            if (ClsPublic.TryGetChangedInt(this.Alcohol_check1, (this.rdoAlcohol_Check1_Ok.Checked ? 1 : 0).ToString(), out int? alcohol_check1_ok)) { return true; }
+            // アルコール検査結果2
+            if (ClsPublic.TryGetChangedInt(this.Alcohol_check2, (this.rdoAlcohol_Check2_Ok.Checked ? 1 : 0).ToString(), out int? alcohol_check2_ok)) { return true; }
+            // アルコール検査結果3
+            if (ClsPublic.TryGetChangedInt(this.Alcohol_check3, (this.rdoAlcohol_Check3_Ok.Checked ? 1 : 0).ToString(), out int? alcohol_check3_ok)) { return true; }
+
+            // 開始時間1
+            if (this.mskStart_Time1.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskStart_Time1.Text + ":00"); }
+            if (this.Start_time1 != wrk) { return true; }
+            // 終了時間1
+            if (this.mskEnd_Time1.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskEnd_Time1.Text + ":00"); }
+            if (this.End_time1 != wrk) { return true; }
+            // 開始時間2
+            if (this.mskStart_Time2.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskStart_Time2.Text + ":00"); }
+            if (this.Start_time2 != wrk) { return true; }
+            // 終了時間2
+            if (this.mskEnd_Time2.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskEnd_Time2.Text + ":00"); }
+            if (this.End_time2 != wrk) { return true; }
+            // 開始時間3
+            if (this.mskStart_Time3.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskStart_Time3.Text + ":00"); }
+            if (this.Start_time3 != wrk) { return true; }
+            // 終了時間3
+            if (this.mskEnd_Time3.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskEnd_Time3.Text + ":00"); }
+            if (this.End_time3 != wrk) { return true; }
+
+            // 始業前残業時間1
+            if (ClsPublic.TryGetChangeddecimal(this.Start_over_time1, this.txtStart_Over_Time1.Text, out decimal? start_over_time1)) { return true; }
+            // 始業前残業時間2
+            if (ClsPublic.TryGetChangeddecimal(this.Start_over_time2, this.txtStart_Over_Time2.Text, out decimal? start_over_time2)) { return true; }
+            // 始業前残業時間3
+            if (ClsPublic.TryGetChangeddecimal(this.Start_over_time3, this.txtStart_Over_Time3.Text, out decimal? start_over_time3)) { return true; }
+
+            // 終業後残業時間1
+            if (ClsPublic.TryGetChangeddecimal(this.End_over_time1, this.txtEnd_Over_Time1.Text, out decimal? end_over_time1)) { return true; }
+            // 終業後残業時間2
+            if (ClsPublic.TryGetChangeddecimal(this.End_over_time2, this.txtEnd_Over_Time2.Text, out decimal? end_over_time2)) { return true; }
+            // 終業後残業時間3
+            if (ClsPublic.TryGetChangeddecimal(this.End_over_time3, this.txtEnd_Over_Time3.Text, out decimal? end_over_time3)) { return true; }
+
+            // 始業前残業理由区分1
+            if (this.Start_over_time_kbn1 != this.cmbStart_Over_Time_Kbn1.SelectedIndex) { return true; }
+            // 始業前残業理由区分2
+            if (this.Start_over_time_kbn2 != this.cmbStart_Over_Time_Kbn2.SelectedIndex) { return true; }
+            // 始業前残業理由区分3
+            if (this.Start_over_time_kbn3 != this.cmbStart_Over_Time_Kbn3.SelectedIndex) { return true; }
+            // 終業後残業理由区分1
+            if (this.End_over_time_kbn1 != this.cmbEnd_Over_Time_Kbn1.SelectedIndex) { return true; }
+            // 終業後残業理由区分2
+            if (this.End_over_time_kbn2 != this.cmbEnd_Over_Time_Kbn2.SelectedIndex) { return true; }
+            // 終業後残業理由区分3
+            if (this.End_over_time_kbn3 != this.cmbEnd_Over_Time_Kbn3.SelectedIndex) { return true; }
+
+            // 始業前残業理由1
+            if (this.Start_over_time_comment1 != this.txtStart_Over_Time_Comment1.Text) { return true; }
+            // 始業前残業理由2
+            if (this.Start_over_time_comment2 != this.txtStart_Over_Time_Comment2.Text) { return true; }
+            // 始業前残業理由3
+            if (this.Start_over_time_comment3 != this.txtStart_Over_Time_Comment3.Text) { return true; }
+            // 終業後残業理由1
+            if (this.End_over_time_comment1 != this.txtEnd_Over_Time_Comment1.Text) { return true; }
+            // 終業後残業理由2
+            if (this.End_over_time_comment2 != this.txtEnd_Over_Time_Comment2.Text) { return true; }
+            // 終業後残業理由3
+            if (this.End_over_time_comment3 != this.txtEnd_Over_Time_Comment3.Text) { return true; }
+
+            // 開始休憩時間1
+            if (this.mskStart_Break_Time1.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskStart_Break_Time1.Text + ":00"); }
+            if (this.Start_break_time1 != wrk) { return true; }
+            // 終了休憩時間1
+            if (this.mskEnd_Break_Time1.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskEnd_Break_Time1.Text + ":00"); }
+            if (this.End_break_time1 != wrk) { return true; }
+            // 開始休憩時間2
+            if (this.mskStart_Break_Time2.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskStart_Break_Time2.Text + ":00"); }
+            if (this.Start_break_time2 != wrk) { return true; }
+            // 終了休憩時間2
+            if (this.mskEnd_Break_Time2.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskEnd_Break_Time2.Text + ":00"); }
+            if (this.End_break_time2 != wrk) { return true; }
+            // 開始休憩時間3
+            if (this.mskStart_Break_Time3.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskStart_Break_Time3.Text + ":00"); }
+            if (this.Start_break_time3 != wrk) { return true; }
+            // 終了休憩時間3
+            if (this.mskEnd_Break_Time3.Text == "  :") { wrk = DateTime.Parse("1900/01/01 00:00:00"); }
+            else { wrk = DateTime.Parse("1900/01/01 " + this.mskEnd_Break_Time3.Text + ":00"); }
+            if (this.End_break_time3 != wrk) { return true; }
+
+            // 備考
+            if (this.Comment != this.txtComment.Text) { return true; }
+            // 同乗者
+            if (ClsPublic.TryGetChangedInt(this.Passenger_id, (this.chkPassenger.Checked ? 1 : 0).ToString(), out int? passenger_id)) { return true; }
+
+            return result;
         }
     }
 }

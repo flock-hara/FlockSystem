@@ -1587,6 +1587,8 @@ namespace FlockAppC.Report
                     // 日報データ更新
                     using (ClsSqlDb clsSqlDb = new ClsSqlDb(ClsDbConfig.SQLServerNo))
                     {
+                        // 残業時間が0またはNULLの場合のみ更新
+                        // 残業がある場合は個別に確認済みにする必要あり
                         sb.Clear();
                         sb.AppendLine("UPDATE");
                         sb.AppendLine(" Trn_日報");

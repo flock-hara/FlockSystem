@@ -97,7 +97,6 @@ namespace FlockAppC.マスターメンテ
                 this.btnNew.Enabled = false;
                 this.btnDelete.Enabled = false;
                 this.txtPassword.Visible = false;
-                this.lblPasswordComment.Visible = false;
             }
             else
             {
@@ -106,7 +105,6 @@ namespace FlockAppC.マスターメンテ
                 this.btnNew.Enabled = true;
                 this.btnDelete.Enabled = true;
                 this.txtPassword.Visible = true;
-                this.lblPasswordComment.Visible = true;
             }
         }
 
@@ -190,6 +188,7 @@ namespace FlockAppC.マスターメンテ
 
             this.chkZai.Checked = true;
             this.txtPassword.Text = "";
+            this.txtMobilePassword.Text = "";               // 2026/02/09 ADD
             this.txtLoginSort.Text = "";
             this.txtSort.Text = "";
             // this.chkAttSubjectFlag.Checked = false;      2025/12/24 DEL
@@ -296,6 +295,7 @@ namespace FlockAppC.マスターメンテ
 
             // パスワード
             this.txtPassword.Text = cMstStaff.ConfirmPass;
+            this.txtMobilePassword.Text = cMstStaff.MobilePass;               // 2026/02/09 ADD
 
             // 並び
             this.txtLoginSort.Text = cMstStaff.RegSort.ToString();
@@ -1066,9 +1066,15 @@ namespace FlockAppC.マスターメンテ
             if (this.Staff_Id == 0)
             {
                 // 新規 (INSERT)
+                // 将来的には、ID採番ロジックを変更する可能性あり
+                // また、OUTPUT句を使用して、INSERT時にIDを取得する方法も検討
                 cMstStaff.Id = cMstStaff.GetStaffId();
                 this.Staff_Id = cMstStaff.Id;
                 cMstStaff.InsertStaff();
+
+                // モバイルパスワード初期設定
+                cMstStaff.MobilePass = ClsPublic.MOBILE_PWD + this.Staff_Id.ToString("D4");
+                cMstStaff.UpdateMobilePass();
 
                 // 詳細も合わせて登録
                 cMstStaffDetail.Id = cMstStaff.Id;
@@ -1082,6 +1088,10 @@ namespace FlockAppC.マスターメンテ
                 // 更新 (UPDATE)
                 cMstStaff.Id = this.Staff_Id;
                 cMstStaff.UpdateStaff();
+
+                // モバイルパスワード再設定
+                cMstStaff.MobilePass = ClsPublic.MOBILE_PWD + this.Staff_Id.ToString("D4");
+                cMstStaff.UpdateMobilePass();
 
                 // 詳細がない場合は登録
                 if (cMstStaffDetail.Select(cMstStaff.Id) == 0)
@@ -1460,6 +1470,7 @@ namespace FlockAppC.マスターメンテ
                 ClsLoginUser.ReportConfirmFlag = ClsPublic.FLAG_OFF;
             }
             cstf.ConfirmPass = this.txtPassword.Text;
+            cstf.MobilePass = this.txtMobilePassword.Text;                  // 2026/02/09 ADD
 
             if (this.txtLoginSort.Text == "")
             {

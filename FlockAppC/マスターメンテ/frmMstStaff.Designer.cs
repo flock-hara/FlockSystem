@@ -120,12 +120,14 @@
             this.lblLocation1 = new System.Windows.Forms.Label();
             this.btnSelectLocation1 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtMobilePassword = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.chkTask = new System.Windows.Forms.CheckBox();
             this.chkAttSubjectFlag = new System.Windows.Forms.CheckBox();
             this.txtSort = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.txtLoginSort = new System.Windows.Forms.TextBox();
-            this.lblPasswordComment = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -1219,12 +1221,14 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label3);
+            this.groupBox4.Controls.Add(this.txtMobilePassword);
+            this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Controls.Add(this.chkTask);
             this.groupBox4.Controls.Add(this.chkAttSubjectFlag);
             this.groupBox4.Controls.Add(this.txtSort);
             this.groupBox4.Controls.Add(this.label28);
             this.groupBox4.Controls.Add(this.txtLoginSort);
-            this.groupBox4.Controls.Add(this.lblPasswordComment);
             this.groupBox4.Controls.Add(this.label26);
             this.groupBox4.Controls.Add(this.txtPassword);
             this.groupBox4.Controls.Add(this.label25);
@@ -1234,6 +1238,37 @@
             this.groupBox4.TabIndex = 88;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "その他";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label3.Location = new System.Drawing.Point(281, 64);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(176, 16);
+            this.label3.TabIndex = 103;
+            this.label3.Text = "※スマフォアプリ用 (自動付与)";
+            // 
+            // txtMobilePassword
+            // 
+            this.txtMobilePassword.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.txtMobilePassword.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.txtMobilePassword.Location = new System.Drawing.Point(160, 55);
+            this.txtMobilePassword.MaxLength = 20;
+            this.txtMobilePassword.Name = "txtMobilePassword";
+            this.txtMobilePassword.ReadOnly = true;
+            this.txtMobilePassword.Size = new System.Drawing.Size(115, 28);
+            this.txtMobilePassword.TabIndex = 102;
+            this.txtMobilePassword.Text = "従業員氏名";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(30, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(124, 17);
+            this.label1.TabIndex = 101;
+            this.label1.Text = "モバイルパスワード";
             // 
             // chkTask
             // 
@@ -1261,7 +1296,7 @@
             // 
             this.txtSort.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.txtSort.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.txtSort.Location = new System.Drawing.Point(118, 57);
+            this.txtSort.Location = new System.Drawing.Point(118, 94);
             this.txtSort.MaxLength = 3;
             this.txtSort.Name = "txtSort";
             this.txtSort.Size = new System.Drawing.Size(36, 28);
@@ -1272,7 +1307,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(30, 64);
+            this.label28.Location = new System.Drawing.Point(30, 101);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(86, 17);
             this.label28.TabIndex = 95;
@@ -1290,16 +1325,6 @@
             this.txtLoginSort.Text = "99";
             this.txtLoginSort.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtLoginSort.Visible = false;
-            // 
-            // lblPasswordComment
-            // 
-            this.lblPasswordComment.AutoSize = true;
-            this.lblPasswordComment.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblPasswordComment.Location = new System.Drawing.Point(282, 29);
-            this.lblPasswordComment.Name = "lblPasswordComment";
-            this.lblPasswordComment.Size = new System.Drawing.Size(139, 16);
-            this.lblPasswordComment.TabIndex = 93;
-            this.lblPasswordComment.Text = "※ログインIDは自動採番";
             // 
             // label26
             // 
@@ -1739,7 +1764,6 @@
         private System.Windows.Forms.TextBox txtSort;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox txtLoginSort;
-        private System.Windows.Forms.Label lblPasswordComment;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1798,5 +1822,8 @@
         private System.Windows.Forms.Label lblCarNo;
         private System.Windows.Forms.Button btnSelectCar;
         private System.Windows.Forms.Label lblConnect;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtMobilePassword;
+        private System.Windows.Forms.Label label1;
     }
 }

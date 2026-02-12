@@ -302,6 +302,7 @@
     <Compile Include="tblClass\clsMstOffice.cs" />
     <Compile Include="tblClass\clsMstStaff.cs" />
     <Compile Include="tblClass\clsMstStaffDetail.cs" />
+    <Compile Include="pubClass\clsSendMailData.cs" />
     <Compile Include="tblClass\clsTrnReport.cs" />
     <Compile Include="tblClass\clsTrnScheduleChangeHistory.cs" />
     <Compile Include="tblClass\clsShiftImport.cs" />
