@@ -42,6 +42,9 @@
             this.dgvList = new System.Windows.Forms.DataGridView();
             this.lblCnt = new System.Windows.Forms.Label();
             this.chkDelete = new System.Windows.Forms.CheckBox();
+            this.pgb = new System.Windows.Forms.ProgressBar();
+            this.lblMessage = new System.Windows.Forms.Label();
+            this.lblConnect = new System.Windows.Forms.Label();
             this.btnMsg = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
@@ -49,9 +52,6 @@
             this.btnMaster = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
             this.btnDisplay = new System.Windows.Forms.Button();
-            this.pgb = new System.Windows.Forms.ProgressBar();
-            this.lblMessage = new System.Windows.Forms.Label();
-            this.lblConnect = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.SuspendLayout();
@@ -184,13 +184,42 @@
             this.chkDelete.Text = "削除データ含む";
             this.chkDelete.UseVisualStyleBackColor = true;
             // 
+            // pgb
+            // 
+            this.pgb.Location = new System.Drawing.Point(23, 644);
+            this.pgb.Name = "pgb";
+            this.pgb.Size = new System.Drawing.Size(441, 14);
+            this.pgb.TabIndex = 172;
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblMessage.Location = new System.Drawing.Point(231, 661);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(227, 36);
+            this.lblMessage.TabIndex = 171;
+            this.lblMessage.Text = "インポートが完了しました。";
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblConnect
+            // 
+            this.lblConnect.AutoSize = true;
+            this.lblConnect.Font = new System.Drawing.Font("游ゴシック Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.lblConnect.ForeColor = System.Drawing.Color.Blue;
+            this.lblConnect.Location = new System.Drawing.Point(27, 665);
+            this.lblConnect.Name = "lblConnect";
+            this.lblConnect.Size = new System.Drawing.Size(136, 16);
+            this.lblConnect.TabIndex = 170;
+            this.lblConnect.Text = "データベース接続中...";
+            this.lblConnect.Visible = false;
+            // 
             // btnMsg
             // 
             this.btnMsg.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnMsg.Image = global::FlockAppC.Properties.Resources.msg1_小;
+            this.btnMsg.Image = global::FlockAppC.Properties.Resources.送信_1_1;
             this.btnMsg.Location = new System.Drawing.Point(1183, 684);
             this.btnMsg.Name = "btnMsg";
-            this.btnMsg.Size = new System.Drawing.Size(136, 40);
+            this.btnMsg.Size = new System.Drawing.Size(110, 40);
             this.btnMsg.TabIndex = 127;
             this.btnMsg.Text = "メッセージ";
             this.btnMsg.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -214,9 +243,9 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小;
-            this.btnClose.Location = new System.Drawing.Point(1340, 684);
+            this.btnClose.Location = new System.Drawing.Point(1339, 684);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(98, 40);
+            this.btnClose.Size = new System.Drawing.Size(100, 40);
             this.btnClose.TabIndex = 123;
             this.btnClose.Text = "閉じる";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -274,35 +303,6 @@
             this.btnDisplay.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnDisplay.UseVisualStyleBackColor = true;
             this.btnDisplay.Click += new System.EventHandler(this.btnDisplay_Click);
-            // 
-            // pgb
-            // 
-            this.pgb.Location = new System.Drawing.Point(23, 644);
-            this.pgb.Name = "pgb";
-            this.pgb.Size = new System.Drawing.Size(441, 14);
-            this.pgb.TabIndex = 172;
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblMessage.Location = new System.Drawing.Point(231, 661);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(227, 36);
-            this.lblMessage.TabIndex = 171;
-            this.lblMessage.Text = "インポートが完了しました。";
-            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblConnect
-            // 
-            this.lblConnect.AutoSize = true;
-            this.lblConnect.Font = new System.Drawing.Font("游ゴシック Medium", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.lblConnect.ForeColor = System.Drawing.Color.Blue;
-            this.lblConnect.Location = new System.Drawing.Point(27, 665);
-            this.lblConnect.Name = "lblConnect";
-            this.lblConnect.Size = new System.Drawing.Size(136, 16);
-            this.lblConnect.TabIndex = 170;
-            this.lblConnect.Text = "データベース接続中...";
-            this.lblConnect.Visible = false;
             // 
             // frmCar
             // 

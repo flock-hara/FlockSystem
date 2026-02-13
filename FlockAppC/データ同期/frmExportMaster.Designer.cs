@@ -32,6 +32,7 @@
             this.Panel1 = new System.Windows.Forms.Panel();
             this.Label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -74,7 +75,6 @@
             this.lblMessage = new System.Windows.Forms.Label();
             this.lblConnect = new System.Windows.Forms.Label();
             this.pgb = new System.Windows.Forms.ProgressBar();
-            this.label9 = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -146,6 +146,15 @@
             this.groupBox1.TabIndex = 79;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "マスターデータ";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(586, 31);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(99, 17);
+            this.label9.TabIndex = 146;
+            this.label9.Text = "専従先ご担当者";
             // 
             // label8
             // 
@@ -549,11 +558,11 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("メイリオ", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じるA_8p;
-            this.btnClose.Location = new System.Drawing.Point(740, 168);
+            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
+            this.btnClose.Location = new System.Drawing.Point(726, 173);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(80, 37);
+            this.btnClose.Size = new System.Drawing.Size(100, 35);
             this.btnClose.TabIndex = 84;
             this.btnClose.Text = "閉じる";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -584,19 +593,10 @@
             // 
             // pgb
             // 
-            this.pgb.Location = new System.Drawing.Point(174, 175);
+            this.pgb.Location = new System.Drawing.Point(165, 175);
             this.pgb.Name = "pgb";
             this.pgb.Size = new System.Drawing.Size(550, 14);
             this.pgb.TabIndex = 170;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(586, 31);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 17);
-            this.label9.TabIndex = 146;
-            this.label9.Text = "専従先ご担当者";
             // 
             // frmExportMaster
             // 

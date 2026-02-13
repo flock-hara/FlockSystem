@@ -64,9 +64,9 @@
             // 
             this.btnMenu10.Font = new System.Drawing.Font("メイリオ", 9.75F);
             this.btnMenu10.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
-            this.btnMenu10.Location = new System.Drawing.Point(932, 1);
+            this.btnMenu10.Location = new System.Drawing.Point(939, 1);
             this.btnMenu10.Name = "btnMenu10";
-            this.btnMenu10.Size = new System.Drawing.Size(110, 35);
+            this.btnMenu10.Size = new System.Drawing.Size(100, 35);
             this.btnMenu10.TabIndex = 6;
             this.btnMenu10.Text = "閉じる";
             this.btnMenu10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

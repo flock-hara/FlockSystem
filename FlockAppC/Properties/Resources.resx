@@ -118,9 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="病院3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\病院3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="更新1_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\更新1_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,8 +139,8 @@
   <data name="削除_1_小小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\削除_1_小小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ファイル選択１" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ファイル選択１.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="勤怠1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\勤怠1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="時間_小小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\時間_小小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -159,6 +156,9 @@
   </data>
   <data name="キャンセル１_小小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\キャンセル１_小小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="インポート_1-0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\インポート_1-0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="キャンセル１_小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\キャンセル１_小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -177,6 +177,9 @@
   </data>
   <data name="プロセス_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\プロセス_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="削除2_16p" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\削除2_16p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="コピー_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\コピー_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,9 +223,6 @@
   <data name="ダウンロード" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ダウンロード.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ハイエース5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ハイエース5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="閉じる_小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\閉じる_小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -235,6 +235,9 @@
   <data name="ゴミ箱_小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ゴミ箱_小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="FD_1_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FD_1_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="HELP_02" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HELP_02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -246,9 +249,6 @@
   </data>
   <data name="CSV_1-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CSV_1-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="編集1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\編集1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="追加_小2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\追加_小2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -268,6 +268,9 @@
   <data name="連絡４_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\連絡４_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="分類_小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\分類_小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="エクセル_3_小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\エクセル_3_小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -277,8 +280,8 @@
   <data name="日報_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\日報_01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="勤怠1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\勤怠1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="病院3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\病院3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="車と人" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\車と人.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -322,14 +325,14 @@
   <data name="予約" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\予約.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="連絡５_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\連絡５_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="クリア_1_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\クリア_1_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="連絡４_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\連絡４_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CSV_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CSV_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="HELP_1_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\HELP_1_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -340,8 +343,8 @@
   <data name="日報011" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\日報011.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="FD_1_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FD_1_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="車と時計" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\車と時計.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ファイル選択２_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ファイル選択２_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -349,8 +352,8 @@
   <data name="解除_小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\解除_小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="削除2_16p" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\削除2_16p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="編集" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\編集.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="インポート1_小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\インポート1_小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -376,8 +379,8 @@
   <data name="解除_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\解除_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="連絡５_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\連絡５_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ホワイトボード１小" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ホワイトボード１小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ログイン３_小小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ログイン３_小小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -424,8 +427,8 @@
   <data name="メモ4_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\メモ4_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="車と時計" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\車と時計.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CSV_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CSV_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="承認5_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\承認5_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -469,8 +472,8 @@
   <data name="ログイン５_小小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ログイン５_小小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="編集" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\編集.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ハイエース5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ハイエース5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FD_1_小小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FD_1_小小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -493,8 +496,8 @@
   <data name="営業所1_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\営業所1_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ホワイトボード１小" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ホワイトボード１小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ファイル選択１" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ファイル選択１.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="設定_小小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\設定_小小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -508,8 +511,8 @@
   <data name="編集_小1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\編集_小1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="分類_小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\分類_小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="編集1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\編集1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="表1_小小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\表1_小小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -517,10 +520,13 @@
   <data name="メモ7_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\メモ7_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="印刷2_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\印刷2_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="部署1_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\部署1_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="印刷2_小" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\印刷2_小.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="送信_1-1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\送信_1-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

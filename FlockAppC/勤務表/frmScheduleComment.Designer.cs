@@ -211,10 +211,10 @@
             // 
             this.btnMenu10.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnMenu10.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
-            this.btnMenu10.Location = new System.Drawing.Point(141, 312);
+            this.btnMenu10.Location = new System.Drawing.Point(141, 314);
             this.btnMenu10.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMenu10.Name = "btnMenu10";
-            this.btnMenu10.Size = new System.Drawing.Size(100, 40);
+            this.btnMenu10.Size = new System.Drawing.Size(100, 35);
             this.btnMenu10.TabIndex = 91;
             this.btnMenu10.Text = "閉じる";
             this.btnMenu10.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -225,10 +225,10 @@
             // 
             this.btnReg.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnReg.Image = global::FlockAppC.Properties.Resources.HD_小小;
-            this.btnReg.Location = new System.Drawing.Point(12, 312);
+            this.btnReg.Location = new System.Drawing.Point(12, 314);
             this.btnReg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReg.Name = "btnReg";
-            this.btnReg.Size = new System.Drawing.Size(100, 40);
+            this.btnReg.Size = new System.Drawing.Size(100, 35);
             this.btnReg.TabIndex = 92;
             this.btnReg.Text = "登録";
             this.btnReg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

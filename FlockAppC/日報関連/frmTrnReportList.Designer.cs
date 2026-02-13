@@ -182,9 +182,9 @@
             // 
             this.btnCsv.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnCsv.Image = global::FlockAppC.Properties.Resources.CSV_1;
-            this.btnCsv.Location = new System.Drawing.Point(12, 815);
+            this.btnCsv.Location = new System.Drawing.Point(12, 817);
             this.btnCsv.Name = "btnCsv";
-            this.btnCsv.Size = new System.Drawing.Size(100, 37);
+            this.btnCsv.Size = new System.Drawing.Size(100, 35);
             this.btnCsv.TabIndex = 221;
             this.btnCsv.Text = "CSV出力";
             this.btnCsv.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -195,9 +195,9 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
-            this.btnClose.Location = new System.Drawing.Point(1667, 815);
+            this.btnClose.Location = new System.Drawing.Point(1647, 817);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(80, 37);
+            this.btnClose.Size = new System.Drawing.Size(100, 35);
             this.btnClose.TabIndex = 220;
             this.btnClose.Text = "閉じる";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -347,9 +347,9 @@
             // 
             this.btnConfirm.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnConfirm.Image = global::FlockAppC.Properties.Resources.承認5_小;
-            this.btnConfirm.Location = new System.Drawing.Point(166, 815);
+            this.btnConfirm.Location = new System.Drawing.Point(127, 817);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(140, 37);
+            this.btnConfirm.Size = new System.Drawing.Size(140, 35);
             this.btnConfirm.TabIndex = 228;
             this.btnConfirm.Text = "日報一括確認";
             this.btnConfirm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

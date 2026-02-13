@@ -271,10 +271,10 @@
             // 
             this.btnReg.Font = new System.Drawing.Font("メイリオ", 9.75F);
             this.btnReg.Image = global::FlockAppC.Properties.Resources.PDF_1_小小小;
-            this.btnReg.Location = new System.Drawing.Point(16, 347);
+            this.btnReg.Location = new System.Drawing.Point(16, 349);
             this.btnReg.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnReg.Name = "btnReg";
-            this.btnReg.Size = new System.Drawing.Size(110, 40);
+            this.btnReg.Size = new System.Drawing.Size(100, 35);
             this.btnReg.TabIndex = 49;
             this.btnReg.Text = "PDF変換";
             this.btnReg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -285,10 +285,10 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("メイリオ", 9.75F);
             this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
-            this.btnClose.Location = new System.Drawing.Point(1037, 347);
+            this.btnClose.Location = new System.Drawing.Point(1047, 349);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(110, 40);
+            this.btnClose.Size = new System.Drawing.Size(100, 35);
             this.btnClose.TabIndex = 48;
             this.btnClose.Text = "閉じる";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

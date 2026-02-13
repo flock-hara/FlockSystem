@@ -253,6 +253,16 @@ namespace FlockAppC.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
+        internal static System.Drawing.Bitmap インポート_1_0 {
+            get {
+                object obj = ResourceManager.GetObject("インポート_1-0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
         internal static System.Drawing.Bitmap インポート1_小小 {
             get {
                 object obj = ResourceManager.GetObject("インポート1_小小", resourceCulture);
@@ -1236,6 +1246,16 @@ namespace FlockAppC.Properties {
         internal static System.Drawing.Bitmap 追加_小小 {
             get {
                 object obj = ResourceManager.GetObject("追加_小小", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+        /// </summary>
+        internal static System.Drawing.Bitmap 送信_1_1 {
+            get {
+                object obj = ResourceManager.GetObject("送信_1-1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

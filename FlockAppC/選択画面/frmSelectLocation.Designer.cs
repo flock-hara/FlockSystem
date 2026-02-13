@@ -43,9 +43,9 @@
             // 
             this.btnCheck.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnCheck.Image = global::FlockAppC.Properties.Resources.選択_小小小;
-            this.btnCheck.Location = new System.Drawing.Point(12, 382);
+            this.btnCheck.Location = new System.Drawing.Point(12, 384);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(80, 37);
+            this.btnCheck.Size = new System.Drawing.Size(100, 35);
             this.btnCheck.TabIndex = 11;
             this.btnCheck.Text = "決定";
             this.btnCheck.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -55,10 +55,10 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じるA_8p;
-            this.btnClose.Location = new System.Drawing.Point(650, 382);
+            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
+            this.btnClose.Location = new System.Drawing.Point(630, 384);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(80, 37);
+            this.btnClose.Size = new System.Drawing.Size(100, 35);
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = "閉じる";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -78,9 +78,9 @@
             // btnBack
             // 
             this.btnBack.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnBack.Location = new System.Drawing.Point(96, 382);
+            this.btnBack.Location = new System.Drawing.Point(118, 384);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(80, 37);
+            this.btnBack.Size = new System.Drawing.Size(100, 35);
             this.btnBack.TabIndex = 8;
             this.btnBack.Text = "戻る";
             this.btnBack.UseVisualStyleBackColor = true;

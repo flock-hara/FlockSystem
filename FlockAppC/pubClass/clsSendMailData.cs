@@ -11,8 +11,8 @@ namespace FlockAppC.pubClass
     /// </summary>
     public class MailRecipient
     {
-        public string user_name { get; set; }                // 担当者名
-        public string mailaddress { get; set; }              // メールアドレス
+        public string user_name { get; set; } = string.Empty;              // 担当者名
+        public string mailaddress { get; set; } = string.Empty;            // メールアドレス
     }
 
     /// <summary>
@@ -21,15 +21,12 @@ namespace FlockAppC.pubClass
     public class clsSendMailData
     {
         public List<MailRecipient> mail_to { get; private set; }                               // メール送信先リスト
-
-        // private string[] user_name { get; set; } = Array.Empty<string>();                // 担当者名リスト
-        // private string[] mail_to { get; set; } = Array.Empty<string>();                     // メール送信先アドレスリスト
-        private string mail_subject { get; set; } = string.Empty;                               // メール件名
-        private string mail_body { get; set; } = string.Empty;                                   // メール本文   
-        private string mail_attachment { get; set; } = string.Empty;                        // メール添付ファイルパス
-        private string mail_from { get; set; } = string.Empty;                                   // メール送信元アドレス   
-        private string report_day { get; set; } = string.Empty;                                  // 日報日付
-        private string car_no { get; set; } = string.Empty;                                        // 車両番号
+        public string mail_subject { get; set; } = string.Empty;                               // メール件名
+        public string mail_attachment { get; set; } = string.Empty;                        // メール添付ファイルパス
+        public string mail_body { get; set; } = string.Empty;                                   // メール本文   
+        public string mail_from { get; set; } = string.Empty;                                   // メール送信元アドレス   
+        public string report_day { get; set; } = string.Empty;                                  // 日報日付
+        public string car_no { get; set; } = string.Empty;                                        // 車両番号
 
         // StringBuilder
         private StringBuilder sb = new StringBuilder();
@@ -46,10 +43,17 @@ namespace FlockAppC.pubClass
             this.mail_to = new List<MailRecipient>();
 
             // 送信メール情報セット
-            this.mail_from = ClsPublic.MAIL_FROM;
-            this.mail_subject = "【Flock日報】日報変更発生通知";
+            this.mail_from = ClsPublic.REPORT_CHANGE_MAIL_FROM;
+            this.mail_subject = "【日報指示書】変更発生通知 (ﾌﾛｯｸ車両ｻｰﾋﾞｽ)";
             this.report_day = day.ToString("yyyy/MM/dd");
             this.car_no = car_no;
+            this.mail_body =
+$@"お客様「承認」済みの日報指示書に変更が発生しました。
+
+日付: {this.report_day}
+車両番号: {this.car_no}
+
+ご確認をお願いいたします。";
 
             try
             {
@@ -74,7 +78,7 @@ namespace FlockAppC.pubClass
                                 this.mail_to.Add(new MailRecipient
                                 {
                                     user_name = name,
-                                    mailaddress = mail
+                                    mailaddress = mail,
                                 });
                             }
                         }

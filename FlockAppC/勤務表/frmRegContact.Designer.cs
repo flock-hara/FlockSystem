@@ -67,10 +67,10 @@
             // 
             this.btnReg.Font = new System.Drawing.Font("メイリオ", 9.75F);
             this.btnReg.Image = global::FlockAppC.Properties.Resources.FD_1_小小;
-            this.btnReg.Location = new System.Drawing.Point(22, 716);
+            this.btnReg.Location = new System.Drawing.Point(21, 719);
             this.btnReg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReg.Name = "btnReg";
-            this.btnReg.Size = new System.Drawing.Size(80, 37);
+            this.btnReg.Size = new System.Drawing.Size(100, 35);
             this.btnReg.TabIndex = 84;
             this.btnReg.Text = "登 録";
             this.btnReg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -82,10 +82,10 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("メイリオ", 9.75F);
             this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小1;
-            this.btnClose.Location = new System.Drawing.Point(579, 716);
+            this.btnClose.Location = new System.Drawing.Point(558, 719);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(80, 37);
+            this.btnClose.Size = new System.Drawing.Size(100, 35);
             this.btnClose.TabIndex = 83;
             this.btnClose.Text = "閉じる";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmExportReport));
             this.Panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.Label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Label10 = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.lblCarNo = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,6 +59,17 @@
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(472, 37);
             this.Panel1.TabIndex = 81;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label2.Location = new System.Drawing.Point(228, 11);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(228, 20);
+            this.label2.TabIndex = 53;
+            this.label2.Text = "※日報データをXServerへ転送します";
             // 
             // Label4
             // 
@@ -205,10 +216,10 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("メイリオ", 9.75F);
             this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小1;
-            this.btnClose.Location = new System.Drawing.Point(343, 240);
+            this.btnClose.Location = new System.Drawing.Point(357, 242);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(114, 41);
+            this.btnClose.Size = new System.Drawing.Size(100, 35);
             this.btnClose.TabIndex = 173;
             this.btnClose.Text = " 閉じる";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -218,26 +229,15 @@
             // btnImport
             // 
             this.btnImport.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnImport.Image = global::FlockAppC.Properties.Resources.エクスポート小1;
-            this.btnImport.Location = new System.Drawing.Point(15, 239);
+            this.btnImport.Image = global::FlockAppC.Properties.Resources.エクスポート1_小小;
+            this.btnImport.Location = new System.Drawing.Point(12, 242);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(133, 41);
+            this.btnImport.Size = new System.Drawing.Size(120, 35);
             this.btnImport.TabIndex = 172;
             this.btnImport.Text = "エクスポート";
             this.btnImport.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.BtnImport_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("メイリオ", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label2.Location = new System.Drawing.Point(228, 11);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(228, 20);
-            this.label2.TabIndex = 53;
-            this.label2.Text = "※日報データをXServerへ転送します";
             // 
             // frmExportReport
             // 
@@ -262,7 +262,7 @@
             this.Controls.Add(this.Panel1);
             this.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmExportReport";
             this.Text = "データエクスポート";
             this.Load += new System.EventHandler(this.frmExportReport_Load);

@@ -126,11 +126,11 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("メイリオ", 9.75F);
-            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じるA_10p;
-            this.btnClose.Location = new System.Drawing.Point(270, 171);
+            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小;
+            this.btnClose.Location = new System.Drawing.Point(282, 175);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(114, 41);
+            this.btnClose.Size = new System.Drawing.Size(100, 35);
             this.btnClose.TabIndex = 171;
             this.btnClose.Text = " 閉じる";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -139,9 +139,9 @@
             // btnExec
             // 
             this.btnExec.Image = global::FlockAppC.Properties.Resources.削除1_4p;
-            this.btnExec.Location = new System.Drawing.Point(12, 170);
+            this.btnExec.Location = new System.Drawing.Point(12, 174);
             this.btnExec.Name = "btnExec";
-            this.btnExec.Size = new System.Drawing.Size(116, 41);
+            this.btnExec.Size = new System.Drawing.Size(100, 35);
             this.btnExec.TabIndex = 170;
             this.btnExec.Text = "実行";
             this.btnExec.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -164,7 +164,7 @@
             this.Controls.Add(this.Panel1);
             this.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fmrDeleteXData";
             this.Text = "XServerデータ削除";
             this.Load += new System.EventHandler(this.FmrDeleteXData_Load);

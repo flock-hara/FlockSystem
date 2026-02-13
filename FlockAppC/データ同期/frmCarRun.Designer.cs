@@ -42,9 +42,9 @@
             this.lblCnt = new System.Windows.Forms.Label();
             this.lblConnect = new System.Windows.Forms.Label();
             this.lblMessage = new System.Windows.Forms.Label();
+            this.pgb = new System.Windows.Forms.ProgressBar();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.Button();
-            this.pgb = new System.Windows.Forms.ProgressBar();
             this.Panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -178,14 +178,21 @@
             this.lblMessage.Text = "インポートが完了しました。";
             this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // pgb
+            // 
+            this.pgb.Location = new System.Drawing.Point(16, 142);
+            this.pgb.Name = "pgb";
+            this.pgb.Size = new System.Drawing.Size(441, 14);
+            this.pgb.TabIndex = 169;
+            // 
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("メイリオ", 9.75F);
-            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じるA_10p;
-            this.btnClose.Location = new System.Drawing.Point(344, 195);
+            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
+            this.btnClose.Location = new System.Drawing.Point(354, 201);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(114, 41);
+            this.btnClose.Size = new System.Drawing.Size(100, 35);
             this.btnClose.TabIndex = 110;
             this.btnClose.Text = " 閉じる";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -194,22 +201,15 @@
             // 
             // btnImport
             // 
-            this.btnImport.Image = global::FlockAppC.Properties.Resources.インポート小2;
-            this.btnImport.Location = new System.Drawing.Point(16, 194);
+            this.btnImport.Image = global::FlockAppC.Properties.Resources.インポート_1_0;
+            this.btnImport.Location = new System.Drawing.Point(12, 201);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(116, 41);
+            this.btnImport.Size = new System.Drawing.Size(110, 35);
             this.btnImport.TabIndex = 109;
             this.btnImport.Text = "インポート";
             this.btnImport.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnImport.UseVisualStyleBackColor = true;
             this.btnImport.Click += new System.EventHandler(this.BtnImport_Click);
-            // 
-            // pgb
-            // 
-            this.pgb.Location = new System.Drawing.Point(16, 142);
-            this.pgb.Name = "pgb";
-            this.pgb.Size = new System.Drawing.Size(441, 14);
-            this.pgb.TabIndex = 169;
             // 
             // frmCarRun
             // 

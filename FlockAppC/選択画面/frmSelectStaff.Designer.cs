@@ -62,7 +62,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じるA_8p;
+            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
             this.btnClose.Location = new System.Drawing.Point(650, 370);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(80, 37);
@@ -151,7 +151,7 @@
             // 
             this.btnSearch.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnSearch.Image = global::FlockAppC.Properties.Resources.検索_小1;
-            this.btnSearch.Location = new System.Drawing.Point(295, 374);
+            this.btnSearch.Location = new System.Drawing.Point(296, 374);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(29, 30);
             this.btnSearch.TabIndex = 98;
@@ -163,7 +163,7 @@
             // 
             this.txtKey.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.txtKey.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
-            this.txtKey.Location = new System.Drawing.Point(183, 375);
+            this.txtKey.Location = new System.Drawing.Point(184, 375);
             this.txtKey.Name = "txtKey";
             this.txtKey.Size = new System.Drawing.Size(113, 28);
             this.txtKey.TabIndex = 99;
@@ -173,7 +173,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label26.Location = new System.Drawing.Point(103, 381);
+            this.label26.Location = new System.Drawing.Point(104, 381);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(79, 16);
             this.label26.TabIndex = 100;

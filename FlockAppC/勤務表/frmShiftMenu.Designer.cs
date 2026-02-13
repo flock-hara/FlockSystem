@@ -111,7 +111,7 @@
             this.btnMnu02.Location = new System.Drawing.Point(26, 112);
             this.btnMnu02.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMnu02.Name = "btnMnu02";
-            this.btnMnu02.Size = new System.Drawing.Size(180, 45);
+            this.btnMnu02.Size = new System.Drawing.Size(160, 45);
             this.btnMnu02.TabIndex = 27;
             this.btnMnu02.Text = "シフト変更履歴";
             this.btnMnu02.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -125,7 +125,7 @@
             this.btnMnu04.Location = new System.Drawing.Point(25, 212);
             this.btnMnu04.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMnu04.Name = "btnMnu04";
-            this.btnMnu04.Size = new System.Drawing.Size(180, 45);
+            this.btnMnu04.Size = new System.Drawing.Size(160, 45);
             this.btnMnu04.TabIndex = 26;
             this.btnMnu04.Text = "PDF変換";
             this.btnMnu04.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -136,10 +136,10 @@
             // 
             this.btnMnu08.Font = new System.Drawing.Font("メイリオ", 9.75F);
             this.btnMnu08.Image = global::FlockAppC.Properties.Resources.設定_小小小;
-            this.btnMnu08.Location = new System.Drawing.Point(245, 161);
+            this.btnMnu08.Location = new System.Drawing.Point(259, 161);
             this.btnMnu08.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMnu08.Name = "btnMnu08";
-            this.btnMnu08.Size = new System.Drawing.Size(180, 45);
+            this.btnMnu08.Size = new System.Drawing.Size(160, 45);
             this.btnMnu08.TabIndex = 25;
             this.btnMnu08.Text = "　設定";
             this.btnMnu08.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -153,7 +153,7 @@
             this.btnMnu01.Location = new System.Drawing.Point(25, 62);
             this.btnMnu01.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMnu01.Name = "btnMnu01";
-            this.btnMnu01.Size = new System.Drawing.Size(180, 45);
+            this.btnMnu01.Size = new System.Drawing.Size(160, 45);
             this.btnMnu01.TabIndex = 24;
             this.btnMnu01.Text = "シフト変更登録";
             this.btnMnu01.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -167,7 +167,7 @@
             this.btnMnu05.Location = new System.Drawing.Point(25, 261);
             this.btnMnu05.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMnu05.Name = "btnMnu05";
-            this.btnMnu05.Size = new System.Drawing.Size(180, 45);
+            this.btnMnu05.Size = new System.Drawing.Size(160, 45);
             this.btnMnu05.TabIndex = 23;
             this.btnMnu05.Text = "勤務表表示Ⅱ";
             this.btnMnu05.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -178,10 +178,10 @@
             // 
             this.btnMnu06.Font = new System.Drawing.Font("メイリオ", 9.75F);
             this.btnMnu06.Image = global::FlockAppC.Properties.Resources.連絡４_2;
-            this.btnMnu06.Location = new System.Drawing.Point(245, 61);
+            this.btnMnu06.Location = new System.Drawing.Point(259, 61);
             this.btnMnu06.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMnu06.Name = "btnMnu06";
-            this.btnMnu06.Size = new System.Drawing.Size(180, 45);
+            this.btnMnu06.Size = new System.Drawing.Size(160, 45);
             this.btnMnu06.TabIndex = 22;
             this.btnMnu06.Text = "定時連絡登録";
             this.btnMnu06.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -192,10 +192,10 @@
             // 
             this.btnMnu07.Font = new System.Drawing.Font("メイリオ", 9.75F);
             this.btnMnu07.Image = global::FlockAppC.Properties.Resources.インポート小2;
-            this.btnMnu07.Location = new System.Drawing.Point(245, 112);
+            this.btnMnu07.Location = new System.Drawing.Point(259, 112);
             this.btnMnu07.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMnu07.Name = "btnMnu07";
-            this.btnMnu07.Size = new System.Drawing.Size(180, 45);
+            this.btnMnu07.Size = new System.Drawing.Size(160, 45);
             this.btnMnu07.TabIndex = 21;
             this.btnMnu07.Text = "勤務表取り込み";
             this.btnMnu07.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -206,10 +206,10 @@
             // 
             this.btnMnuClose.Font = new System.Drawing.Font("メイリオ", 9.75F);
             this.btnMnuClose.Image = global::FlockAppC.Properties.Resources.閉じる;
-            this.btnMnuClose.Location = new System.Drawing.Point(245, 261);
+            this.btnMnuClose.Location = new System.Drawing.Point(259, 261);
             this.btnMnuClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMnuClose.Name = "btnMnuClose";
-            this.btnMnuClose.Size = new System.Drawing.Size(180, 45);
+            this.btnMnuClose.Size = new System.Drawing.Size(160, 45);
             this.btnMnuClose.TabIndex = 20;
             this.btnMnuClose.Text = " 閉じる";
             this.btnMnuClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -223,7 +223,7 @@
             this.btnMnu03.Location = new System.Drawing.Point(25, 161);
             this.btnMnu03.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnMnu03.Name = "btnMnu03";
-            this.btnMnu03.Size = new System.Drawing.Size(180, 45);
+            this.btnMnu03.Size = new System.Drawing.Size(160, 45);
             this.btnMnu03.TabIndex = 19;
             this.btnMnu03.Text = "勤務表表示(ｴｸｾﾙ)";
             this.btnMnu03.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

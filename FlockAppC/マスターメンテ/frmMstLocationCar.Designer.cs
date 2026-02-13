@@ -67,9 +67,9 @@
             this.lblContract = new System.Windows.Forms.Label();
             this.lblConnect = new System.Windows.Forms.Label();
             this.gbox1 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.rdoKbn2 = new System.Windows.Forms.RadioButton();
             this.rdoKbn1 = new System.Windows.Forms.RadioButton();
-            this.label11 = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvList)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -390,7 +390,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じるA_8p;
+            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
             this.btnClose.Location = new System.Drawing.Point(1002, 570);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(80, 37);
@@ -489,6 +489,15 @@
             this.gbox1.TabIndex = 158;
             this.gbox1.TabStop = false;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(18, 18);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(60, 17);
+            this.label11.TabIndex = 158;
+            this.label11.Text = "車両識別";
+            // 
             // rdoKbn2
             // 
             this.rdoKbn2.AutoSize = true;
@@ -510,15 +519,6 @@
             this.rdoKbn1.TabStop = true;
             this.rdoKbn1.Text = "透析";
             this.rdoKbn1.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(18, 18);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 17);
-            this.label11.TabIndex = 158;
-            this.label11.Text = "車両識別";
             // 
             // frmMstLocationCar
             // 

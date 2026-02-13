@@ -123,9 +123,9 @@
             // 
             this.btnExcel.Font = new System.Drawing.Font("メイリオ", 9.75F);
             this.btnExcel.Image = global::FlockAppC.Properties.Resources.エクセル_3_小小;
-            this.btnExcel.Location = new System.Drawing.Point(22, 589);
+            this.btnExcel.Location = new System.Drawing.Point(22, 592);
             this.btnExcel.Name = "btnExcel";
-            this.btnExcel.Size = new System.Drawing.Size(110, 40);
+            this.btnExcel.Size = new System.Drawing.Size(110, 35);
             this.btnExcel.TabIndex = 36;
             this.btnExcel.Text = "Excel出力";
             this.btnExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -166,9 +166,9 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("メイリオ", 9.75F);
             this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
-            this.btnClose.Location = new System.Drawing.Point(914, 589);
+            this.btnClose.Location = new System.Drawing.Point(924, 592);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(110, 40);
+            this.btnClose.Size = new System.Drawing.Size(100, 35);
             this.btnClose.TabIndex = 32;
             this.btnClose.Text = "閉じる";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

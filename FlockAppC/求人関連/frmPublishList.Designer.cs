@@ -37,11 +37,11 @@
             // btnClose
             // 
             this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じるA_8p;
-            this.btnClose.Location = new System.Drawing.Point(1325, 816);
+            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
+            this.btnClose.Location = new System.Drawing.Point(1322, 819);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(97, 35);
+            this.btnClose.Size = new System.Drawing.Size(100, 35);
             this.btnClose.TabIndex = 10;
             this.btnClose.Text = " 閉じる";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

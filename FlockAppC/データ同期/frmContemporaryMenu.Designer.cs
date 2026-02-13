@@ -32,11 +32,11 @@
             this.Panel1 = new System.Windows.Forms.Panel();
             this.Label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.btnDeleteData = new System.Windows.Forms.Button();
             this.btnImportCarRun = new System.Windows.Forms.Button();
             this.btnImportReport = new System.Windows.Forms.Button();
             this.btnExportMaster = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.Panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -73,20 +73,6 @@
             this.groupBox1.TabIndex = 80;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "XServer同期";
-            // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("メイリオ", 9.75F);
-            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小1;
-            this.btnClose.Location = new System.Drawing.Point(180, 322);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(96, 41);
-            this.btnClose.TabIndex = 111;
-            this.btnClose.Text = " 閉じる";
-            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // btnDeleteData
             // 
@@ -135,6 +121,20 @@
             this.btnExportMaster.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnExportMaster.UseVisualStyleBackColor = true;
             this.btnExportMaster.Click += new System.EventHandler(this.BtnExportMaster_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("メイリオ", 9.75F);
+            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小1;
+            this.btnClose.Location = new System.Drawing.Point(180, 322);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(100, 35);
+            this.btnClose.TabIndex = 111;
+            this.btnClose.Text = " 閉じる";
+            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // frmContemporaryMenu
             // 

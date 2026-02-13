@@ -767,7 +767,7 @@ namespace FlockAppC.Report
             if (this.txtKerosene.Text != "") { this.Kerosene = decimal.Parse(this.txtKerosene.Text); }
             else { this.Kerosene = 0; }
 
-            // 社内チェック、承認
+            // 社内チェック１
             if (this.chkConfirm1.Checked == true && this.Confirm1_id == 0)
             {
                 this.Confirm1_id = ClsLoginUser.StaffID;
@@ -778,7 +778,7 @@ namespace FlockAppC.Report
                 this.Confirm1_id = 0;
                 this.Confirm1_date = DateTime.Parse("1900/01/01 00:00:00");
             }
-
+            // 社内チェック２
             if (this.chkConfirm2.Checked == true && this.Confirm2_id == 0)
             {
                 this.Confirm2_id = ClsLoginUser.StaffID;
@@ -789,7 +789,7 @@ namespace FlockAppC.Report
                 this.Confirm2_id = 0;
                 this.Confirm2_date = DateTime.Parse("1900/01/01 00:00:00");
             }
-
+            // 社内チェック３
             if (this.chkConfirm3.Checked == true && this.Confirm3_id == 0)
             {
                 this.Confirm3_id = ClsLoginUser.StaffID;
@@ -800,7 +800,7 @@ namespace FlockAppC.Report
                 this.Confirm3_id = 0;
                 this.Confirm3_date = DateTime.Parse("1900/01/01 00:00:00");
             }
-            
+            // 責任者確認
             if (this.chkSalesConfirm.Checked == true && this.Sales_id == 0)
             {
                 this.Sales_id = ClsLoginUser.StaffID;
@@ -811,6 +811,9 @@ namespace FlockAppC.Report
                 this.Sales_id = 0;
                 this.Sales_confirm_date = DateTime.Parse("1900/01/01 00:00:00");
             }
+            // 顧客確認
+            this.Guest_id = 0; // 初期化
+            this.Guest_confirm_date = DateTime.Parse("1900/01/01 00:00:00");
 
             //{
             //    this.Confirm1 = 1; 
@@ -1104,6 +1107,10 @@ namespace FlockAppC.Report
                 this.lblGuestConfirmDate.Text = this.Guest_confirm_date.ToString("yyyy/MM/dd");
                 this.lblGuestName.Text = this.Guest_name.ToString();
             }
+            else
+            {
+                this.lblGuestConfirm.Visible = false;
+            }
         }
 
         /// <summary>
@@ -1354,6 +1361,9 @@ namespace FlockAppC.Report
         /// <param name="e"></param>
         private void btnReg_Click(object sender, EventArgs e)
         {
+            // メール送信フラグ
+            bool mail_send_flag = false;
+
             // 入力チェック
             var error_message = string.Empty;
             if (!Check_ReportData(out error_message))
@@ -1370,12 +1380,11 @@ namespace FlockAppC.Report
                 return;
             }
             // 顧客承認済みチェック
-            if (this.Guest_id > 0)
-            {
+            clsSendMailData clsSendMailData = new(this.Location_id, this.Day, this.lblCar_No.Text);
+            if (this.Guest_id > 0) {
                 // 日報変更発生メール編集
-                clsSendMailData clsSendMailData = new(this.Location_id,this.Day,this.lblCar_No.Text);
+                mail_send_flag = true;
             }
- 
 
             // 日報データセット
             Set_ReportData();
@@ -1544,6 +1553,14 @@ namespace FlockAppC.Report
                 // INSERT (XServer)
                 // ==========================================================
                 cls.Insert();
+            }
+
+            // メール送信フラグがONの場合、メール送信
+            if (mail_send_flag)
+            {
+                // 日報変更発生メール送信
+                clsMailSender clsMailSender = new();
+                clsMailSender.Send(clsSendMailData);
             }
 
             MessageBox.Show("登録しました。", "結果", MessageBoxButtons.OK);
@@ -2653,13 +2670,21 @@ namespace FlockAppC.Report
             // 出庫時メーター
             if (ClsPublic.TryGetChangedInt(this.Before_meter, this.txtBefore_Meter.Text, out int? before_meter)) { return true; }
             // 給油量
+            if (this.txtFuel.Text == "") { this.txtFuel.Text = "0"; }
             if (ClsPublic.TryGetChangeddecimal(this.Fuel, this.txtFuel.Text, out decimal? fual)) {  return true;  }
+            if (this.txtFuel.Text == "0") { this.txtFuel.Text = ""; }
             // 給油時メーター
+            if (this.txtFuel_Meter.Text == "") { this.txtFuel_Meter.Text = "0"; }
             if (ClsPublic.TryGetChangedInt(this.Fuel_meter, this.txtFuel_Meter.Text, out int? fual_meter)) { return true; }
+            if (this.txtFuel_Meter.Text == "0") { this.txtFuel_Meter.Text = ""; }
             // オイル
+            if (this.txtOil.Text == "") { this.txtOil.Text = "0"; }
             if (ClsPublic.TryGetChangeddecimal(this.Oil, this.txtOil.Text, out decimal? oil)) { return true; }
+            if (this.txtOil.Text == "0") { this.txtOil.Text = ""; }
             // 灯油
+            if (this.txtKerosene.Text == "") { this.txtKerosene.Text = "0"; }
             if (ClsPublic.TryGetChangeddecimal(this.Kerosene, this.txtKerosene.Text, out decimal? kerosene)) { return true; }
+            if (this.txtKerosene.Text == "0") { this.txtKerosene.Text = ""; }
 
             // 検温時間1
             // 検温　※未入力の場合は1900/01/01 00:00:00をセットし、DB登録時はNULLに変換
@@ -2677,18 +2702,31 @@ namespace FlockAppC.Report
             if (this.Temp_time3 != wrk) { return true; }
 
             // 検温１
+            // 検温　※未入力の場合は0に変換
+            if (this.txtTemp1.Text == "") { this.txtTemp1.Text = "0"; }
             if (ClsPublic.TryGetChangeddecimal(this.Temp1, this.txtTemp1.Text, out decimal? temp1)) { return true; }
+            if (this.txtTemp1.Text == "0") { this.txtTemp1.Text = ""; }
             // 検温２
+            if (this.txtTemp2.Text == "") { this.txtTemp2.Text = "0"; }
             if (ClsPublic.TryGetChangeddecimal(this.Temp2, this.txtTemp2.Text, out decimal? temp2)) { return true; }
+            if (this.txtTemp2.Text == "0") { this.txtTemp2.Text = ""; }
             // 検温３
+            if (this.txtTemp3.Text == "") { this.txtTemp3.Text = "0"; }
             if (ClsPublic.TryGetChangeddecimal(this.Temp3, this.txtTemp3.Text, out decimal? temp3)) { return true; }
+            if (this.txtTemp3.Text == "0") { this.txtTemp3.Text = ""; }
 
             // アルコール濃度値1
+            if (this.txtAlcohol1.Text == "") { this.txtAlcohol1.Text = "-1"; }
             if (ClsPublic.TryGetChangeddecimal(this.Alcohol1, this.txtAlcohol1.Text, out decimal? alcohol1)) { return true; }
+            if (this.txtAlcohol1.Text == "-1") { this.txtAlcohol1.Text = ""; }
             // アルコール濃度値2
+            if (this.txtAlcohol2.Text == "") { this.txtAlcohol2.Text = "-1"; }
             if (ClsPublic.TryGetChangeddecimal(this.Alcohol2, this.txtAlcohol2.Text, out decimal? alcohol2)) { return true; }
+            if (this.txtAlcohol2.Text == "-1") { this.txtAlcohol2.Text = ""; }
             // アルコール濃度値3
+            if (this.txtAlcohol3.Text == "") { this.txtAlcohol3.Text = "-1"; }
             if (ClsPublic.TryGetChangeddecimal(this.Alcohol3, this.txtAlcohol3.Text, out decimal? alcohol3)) { return true; }
+            if (this.txtAlcohol3.Text == "-1") { this.txtAlcohol3.Text = ""; }
 
             // アルコール検査結果1
             // OK：1、NG：0
@@ -2725,18 +2763,30 @@ namespace FlockAppC.Report
             if (this.End_time3 != wrk) { return true; }
 
             // 始業前残業時間1
+            if (this.txtStart_Over_Time1.Text == "") { this.txtStart_Over_Time1.Text = "0"; }
             if (ClsPublic.TryGetChangeddecimal(this.Start_over_time1, this.txtStart_Over_Time1.Text, out decimal? start_over_time1)) { return true; }
+            if (this.txtStart_Over_Time1.Text == "0") { this.txtStart_Over_Time1.Text = ""; }
             // 始業前残業時間2
+            if (this.txtStart_Over_Time2.Text == "") { this.txtStart_Over_Time2.Text = "0"; }
             if (ClsPublic.TryGetChangeddecimal(this.Start_over_time2, this.txtStart_Over_Time2.Text, out decimal? start_over_time2)) { return true; }
+            if (this.txtStart_Over_Time2.Text == "0") { this.txtStart_Over_Time2.Text = ""; }
             // 始業前残業時間3
+            if (this.txtStart_Over_Time3.Text == "") { this.txtStart_Over_Time3.Text = "0"; }
             if (ClsPublic.TryGetChangeddecimal(this.Start_over_time3, this.txtStart_Over_Time3.Text, out decimal? start_over_time3)) { return true; }
+            if (this.txtStart_Over_Time3.Text == "0") { this.txtStart_Over_Time3.Text = ""; }
 
             // 終業後残業時間1
+            if (this.txtEnd_Over_Time1.Text == "") { this.txtEnd_Over_Time1.Text = "0"; }
             if (ClsPublic.TryGetChangeddecimal(this.End_over_time1, this.txtEnd_Over_Time1.Text, out decimal? end_over_time1)) { return true; }
+            if (this.txtEnd_Over_Time1.Text == "0") { this.txtEnd_Over_Time1.Text = ""; }
             // 終業後残業時間2
+            if (this.txtEnd_Over_Time2.Text == "") { this.txtEnd_Over_Time2.Text = "0"; }
             if (ClsPublic.TryGetChangeddecimal(this.End_over_time2, this.txtEnd_Over_Time2.Text, out decimal? end_over_time2)) { return true; }
+            if (this.txtEnd_Over_Time2.Text == "0") { this.txtEnd_Over_Time2.Text = ""; }
             // 終業後残業時間3
+            if (this.txtEnd_Over_Time3.Text == "") { this.txtEnd_Over_Time3.Text = "0"; }
             if (ClsPublic.TryGetChangeddecimal(this.End_over_time3, this.txtEnd_Over_Time3.Text, out decimal? end_over_time3)) { return true; }
+            if (this.txtEnd_Over_Time3.Text == "0") { this.txtEnd_Over_Time3.Text = ""; }
 
             // 始業前残業理由区分1
             if (this.Start_over_time_kbn1 != this.cmbStart_Over_Time_Kbn1.SelectedIndex) { return true; }

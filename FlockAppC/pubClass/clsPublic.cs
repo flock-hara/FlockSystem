@@ -290,7 +290,8 @@ namespace FlockAppC.pubClass
         public const string MOBILE_PWD = "fl";
         // 変更通知用メールアドレス(from)
         // public const string MAIL_FROM = "soumu@flock.co.jp";
-        public const string MAIL_FROM = "hara@flock.co.jp";
+        public const string REPORT_CHANGE_MAIL_FROM = "hara@flock.co.jp";
+
 
         /// <summary>
         /// =======================================================================
@@ -1251,6 +1252,26 @@ namespace FlockAppC.pubClass
                 current = v;
             }
             return original != current;
+        }
+        /// <summary>
+        /// ランダムな英数字文字列を生成する
+        /// 主にパスワード生成などに使用
+        /// </summary>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        public static string GenerateRandomAlphanumeric(int length)
+        {
+            // const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            const string chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+            var random = new Random();
+            var result = new char[length];
+
+            for (int i = 0; i < length; i++)
+            {
+                result[i] = chars[random.Next(chars.Length)];
+            }
+
+            return new string(result);
         }
     }
 }

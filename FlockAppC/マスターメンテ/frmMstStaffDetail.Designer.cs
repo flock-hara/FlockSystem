@@ -46,6 +46,10 @@
             this.lblStaffId = new System.Windows.Forms.Label();
             this.lblStaffName = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.mtxtLeavingCompany = new System.Windows.Forms.MaskedTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.mtxtEntryCompany = new System.Windows.Forms.MaskedTextBox();
+            this.label36 = new System.Windows.Forms.Label();
             this.txtMailAddress = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -109,10 +113,6 @@
             this.txtAppended2 = new System.Windows.Forms.TextBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnReg = new System.Windows.Forms.Button();
-            this.mtxtLeavingCompany = new System.Windows.Forms.MaskedTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.mtxtEntryCompany = new System.Windows.Forms.MaskedTextBox();
-            this.label36 = new System.Windows.Forms.Label();
             this.Panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -322,6 +322,44 @@
             this.groupBox2.TabIndex = 96;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "その他";
+            // 
+            // mtxtLeavingCompany
+            // 
+            this.mtxtLeavingCompany.Location = new System.Drawing.Point(785, 151);
+            this.mtxtLeavingCompany.Mask = "0000/00/00";
+            this.mtxtLeavingCompany.Name = "mtxtLeavingCompany";
+            this.mtxtLeavingCompany.Size = new System.Drawing.Size(89, 28);
+            this.mtxtLeavingCompany.TabIndex = 120;
+            this.mtxtLeavingCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtxtLeavingCompany.ValidatingType = typeof(System.DateTime);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(734, 157);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(47, 17);
+            this.label9.TabIndex = 119;
+            this.label9.Text = "退社日";
+            // 
+            // mtxtEntryCompany
+            // 
+            this.mtxtEntryCompany.Location = new System.Drawing.Point(639, 151);
+            this.mtxtEntryCompany.Mask = "0000/00/00";
+            this.mtxtEntryCompany.Name = "mtxtEntryCompany";
+            this.mtxtEntryCompany.Size = new System.Drawing.Size(89, 28);
+            this.mtxtEntryCompany.TabIndex = 118;
+            this.mtxtEntryCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtxtEntryCompany.ValidatingType = typeof(System.DateTime);
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(578, 157);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(47, 17);
+            this.label36.TabIndex = 117;
+            this.label36.Text = "入社日";
             // 
             // txtMailAddress
             // 
@@ -948,7 +986,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じるA_8p;
+            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
             this.btnClose.Location = new System.Drawing.Point(827, 659);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(80, 37);
@@ -970,44 +1008,6 @@
             this.btnReg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReg.UseVisualStyleBackColor = true;
             this.btnReg.Click += new System.EventHandler(this.btnReg_Click);
-            // 
-            // mtxtLeavingCompany
-            // 
-            this.mtxtLeavingCompany.Location = new System.Drawing.Point(785, 151);
-            this.mtxtLeavingCompany.Mask = "0000/00/00";
-            this.mtxtLeavingCompany.Name = "mtxtLeavingCompany";
-            this.mtxtLeavingCompany.Size = new System.Drawing.Size(89, 28);
-            this.mtxtLeavingCompany.TabIndex = 120;
-            this.mtxtLeavingCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.mtxtLeavingCompany.ValidatingType = typeof(System.DateTime);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(734, 157);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(47, 17);
-            this.label9.TabIndex = 119;
-            this.label9.Text = "退社日";
-            // 
-            // mtxtEntryCompany
-            // 
-            this.mtxtEntryCompany.Location = new System.Drawing.Point(639, 151);
-            this.mtxtEntryCompany.Mask = "0000/00/00";
-            this.mtxtEntryCompany.Name = "mtxtEntryCompany";
-            this.mtxtEntryCompany.Size = new System.Drawing.Size(89, 28);
-            this.mtxtEntryCompany.TabIndex = 118;
-            this.mtxtEntryCompany.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.mtxtEntryCompany.ValidatingType = typeof(System.DateTime);
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(578, 157);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(47, 17);
-            this.label36.TabIndex = 117;
-            this.label36.Text = "入社日";
             // 
             // frmMstStaffDetail
             // 

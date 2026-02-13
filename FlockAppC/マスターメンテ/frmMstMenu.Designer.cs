@@ -462,10 +462,10 @@
             // btnMenuClose
             // 
             this.btnMenuClose.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnMenuClose.Image = global::FlockAppC.Properties.Resources.閉じるA_10p;
-            this.btnMenuClose.Location = new System.Drawing.Point(806, 553);
+            this.btnMenuClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小;
+            this.btnMenuClose.Location = new System.Drawing.Point(810, 570);
             this.btnMenuClose.Name = "btnMenuClose";
-            this.btnMenuClose.Size = new System.Drawing.Size(94, 50);
+            this.btnMenuClose.Size = new System.Drawing.Size(100, 35);
             this.btnMenuClose.TabIndex = 84;
             this.btnMenuClose.Text = "閉じる";
             this.btnMenuClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;

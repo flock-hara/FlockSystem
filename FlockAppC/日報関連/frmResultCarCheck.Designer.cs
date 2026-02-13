@@ -247,7 +247,7 @@
             this.panel1.Controls.Add(this.label8);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1186, 30);
+            this.panel1.Size = new System.Drawing.Size(1259, 30);
             this.panel1.TabIndex = 28;
             // 
             // groupBox15
@@ -285,9 +285,9 @@
             this.groupBox15.Controls.Add(this.panel19);
             this.groupBox15.Controls.Add(this.label82);
             this.groupBox15.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.groupBox15.Location = new System.Drawing.Point(308, 54);
+            this.groupBox15.Location = new System.Drawing.Point(335, 54);
             this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(524, 332);
+            this.groupBox15.Size = new System.Drawing.Size(584, 332);
             this.groupBox15.TabIndex = 207;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "定期点検 毎月2回実施(5日・20日頃)";
@@ -296,7 +296,7 @@
             // 
             this.groupBox29.Controls.Add(this.rdoPer_Inspection_Check8_Ng);
             this.groupBox29.Controls.Add(this.rdoPer_Inspection_Check8_Ok);
-            this.groupBox29.Location = new System.Drawing.Point(409, 32);
+            this.groupBox29.Location = new System.Drawing.Point(466, 32);
             this.groupBox29.Name = "groupBox29";
             this.groupBox29.Size = new System.Drawing.Size(86, 36);
             this.groupBox29.TabIndex = 246;
@@ -330,7 +330,7 @@
             // 
             this.groupBox26.Controls.Add(this.rdoPer_Inspection_Check9_Ng);
             this.groupBox26.Controls.Add(this.rdoPer_Inspection_Check9_Ok);
-            this.groupBox26.Location = new System.Drawing.Point(409, 56);
+            this.groupBox26.Location = new System.Drawing.Point(466, 56);
             this.groupBox26.Name = "groupBox26";
             this.groupBox26.Size = new System.Drawing.Size(86, 36);
             this.groupBox26.TabIndex = 243;
@@ -364,7 +364,7 @@
             // 
             this.groupBox27.Controls.Add(this.rdoPer_Inspection_Check10_Ng);
             this.groupBox27.Controls.Add(this.rdoPer_Inspection_Check10_Ok);
-            this.groupBox27.Location = new System.Drawing.Point(409, 81);
+            this.groupBox27.Location = new System.Drawing.Point(466, 81);
             this.groupBox27.Name = "groupBox27";
             this.groupBox27.Size = new System.Drawing.Size(86, 36);
             this.groupBox27.TabIndex = 244;
@@ -398,7 +398,7 @@
             // 
             this.groupBox28.Controls.Add(this.rdoPer_Inspection_Check11_Ng);
             this.groupBox28.Controls.Add(this.rdoPer_Inspection_Check11_Ok);
-            this.groupBox28.Location = new System.Drawing.Point(409, 106);
+            this.groupBox28.Location = new System.Drawing.Point(466, 106);
             this.groupBox28.Name = "groupBox28";
             this.groupBox28.Size = new System.Drawing.Size(86, 36);
             this.groupBox28.TabIndex = 245;
@@ -432,7 +432,7 @@
             // 
             this.groupBox23.Controls.Add(this.rdoPer_Inspection_Check12_Ng);
             this.groupBox23.Controls.Add(this.rdoPer_Inspection_Check12_Ok);
-            this.groupBox23.Location = new System.Drawing.Point(409, 131);
+            this.groupBox23.Location = new System.Drawing.Point(466, 131);
             this.groupBox23.Name = "groupBox23";
             this.groupBox23.Size = new System.Drawing.Size(86, 36);
             this.groupBox23.TabIndex = 240;
@@ -466,7 +466,7 @@
             // 
             this.groupBox24.Controls.Add(this.rdoPer_Inspection_Check13_Ng);
             this.groupBox24.Controls.Add(this.rdoPer_Inspection_Check13_Ok);
-            this.groupBox24.Location = new System.Drawing.Point(409, 155);
+            this.groupBox24.Location = new System.Drawing.Point(466, 155);
             this.groupBox24.Name = "groupBox24";
             this.groupBox24.Size = new System.Drawing.Size(86, 36);
             this.groupBox24.TabIndex = 241;
@@ -500,7 +500,7 @@
             // 
             this.groupBox25.Controls.Add(this.rdoPer_Inspection_Check14_Ng);
             this.groupBox25.Controls.Add(this.rdoPer_Inspection_Check14_Ok);
-            this.groupBox25.Location = new System.Drawing.Point(409, 180);
+            this.groupBox25.Location = new System.Drawing.Point(466, 180);
             this.groupBox25.Name = "groupBox25";
             this.groupBox25.Size = new System.Drawing.Size(86, 36);
             this.groupBox25.TabIndex = 242;
@@ -534,7 +534,7 @@
             // 
             this.groupBox20.Controls.Add(this.rdoPer_Inspection_Check5_Ng);
             this.groupBox20.Controls.Add(this.rdoPer_Inspection_Check5_Ok);
-            this.groupBox20.Location = new System.Drawing.Point(166, 174);
+            this.groupBox20.Location = new System.Drawing.Point(198, 175);
             this.groupBox20.Name = "groupBox20";
             this.groupBox20.Size = new System.Drawing.Size(86, 36);
             this.groupBox20.TabIndex = 237;
@@ -568,7 +568,7 @@
             // 
             this.groupBox21.Controls.Add(this.rdoPer_Inspection_Check6_Ng);
             this.groupBox21.Controls.Add(this.rdoPer_Inspection_Check6_Ok);
-            this.groupBox21.Location = new System.Drawing.Point(166, 199);
+            this.groupBox21.Location = new System.Drawing.Point(198, 200);
             this.groupBox21.Name = "groupBox21";
             this.groupBox21.Size = new System.Drawing.Size(86, 36);
             this.groupBox21.TabIndex = 238;
@@ -602,7 +602,7 @@
             // 
             this.groupBox22.Controls.Add(this.rdoPer_Inspection_Check7_Ng);
             this.groupBox22.Controls.Add(this.rdoPer_Inspection_Check7_Ok);
-            this.groupBox22.Location = new System.Drawing.Point(166, 224);
+            this.groupBox22.Location = new System.Drawing.Point(198, 225);
             this.groupBox22.Name = "groupBox22";
             this.groupBox22.Size = new System.Drawing.Size(86, 36);
             this.groupBox22.TabIndex = 239;
@@ -636,7 +636,7 @@
             // 
             this.groupBox18.Controls.Add(this.rdoPer_Inspection_Check3_Ng);
             this.groupBox18.Controls.Add(this.rdoPer_Inspection_Check3_Ok);
-            this.groupBox18.Location = new System.Drawing.Point(166, 104);
+            this.groupBox18.Location = new System.Drawing.Point(198, 105);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Size = new System.Drawing.Size(86, 36);
             this.groupBox18.TabIndex = 236;
@@ -670,7 +670,7 @@
             // 
             this.groupBox19.Controls.Add(this.rdoPer_Inspection_Check4_Ng);
             this.groupBox19.Controls.Add(this.rdoPer_Inspection_Check4_Ok);
-            this.groupBox19.Location = new System.Drawing.Point(166, 127);
+            this.groupBox19.Location = new System.Drawing.Point(198, 128);
             this.groupBox19.Name = "groupBox19";
             this.groupBox19.Size = new System.Drawing.Size(86, 36);
             this.groupBox19.TabIndex = 235;
@@ -704,7 +704,7 @@
             // 
             this.groupBox17.Controls.Add(this.rdoPer_Inspection_Check1_Ng);
             this.groupBox17.Controls.Add(this.rdoPer_Inspection_Check1_Ok);
-            this.groupBox17.Location = new System.Drawing.Point(166, 31);
+            this.groupBox17.Location = new System.Drawing.Point(198, 32);
             this.groupBox17.Name = "groupBox17";
             this.groupBox17.Size = new System.Drawing.Size(86, 36);
             this.groupBox17.TabIndex = 234;
@@ -738,7 +738,7 @@
             // 
             this.groupBox16.Controls.Add(this.rdoPer_Inspection_Check2_Ng);
             this.groupBox16.Controls.Add(this.rdoPer_Inspection_Check2_Ok);
-            this.groupBox16.Location = new System.Drawing.Point(166, 54);
+            this.groupBox16.Location = new System.Drawing.Point(198, 55);
             this.groupBox16.Name = "groupBox16";
             this.groupBox16.Size = new System.Drawing.Size(86, 36);
             this.groupBox16.TabIndex = 233;
@@ -770,154 +770,154 @@
             // 
             // panel50
             // 
-            this.panel50.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel50.BackColor = System.Drawing.Color.SkyBlue;
             this.panel50.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel50.Controls.Add(this.label110);
-            this.panel50.Location = new System.Drawing.Point(269, 192);
+            this.panel50.Location = new System.Drawing.Point(293, 192);
             this.panel50.Name = "panel50";
-            this.panel50.Size = new System.Drawing.Size(140, 23);
+            this.panel50.Size = new System.Drawing.Size(170, 23);
             this.panel50.TabIndex = 197;
             // 
             // label110
             // 
             this.label110.AutoSize = true;
-            this.label110.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label110.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label110.BackColor = System.Drawing.Color.SkyBlue;
+            this.label110.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label110.Location = new System.Drawing.Point(0, 1);
             this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(115, 16);
+            this.label110.Size = new System.Drawing.Size(125, 17);
             this.label110.TabIndex = 245;
             this.label110.Text = "エアコンの効き具合";
             this.label110.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel51
             // 
-            this.panel51.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel51.BackColor = System.Drawing.Color.SkyBlue;
             this.panel51.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel51.Controls.Add(this.label111);
-            this.panel51.Location = new System.Drawing.Point(269, 167);
+            this.panel51.Location = new System.Drawing.Point(293, 167);
             this.panel51.Name = "panel51";
-            this.panel51.Size = new System.Drawing.Size(140, 23);
+            this.panel51.Size = new System.Drawing.Size(170, 23);
             this.panel51.TabIndex = 196;
             // 
             // label111
             // 
             this.label111.AutoSize = true;
-            this.label111.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label111.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label111.BackColor = System.Drawing.Color.SkyBlue;
+            this.label111.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label111.Location = new System.Drawing.Point(0, 1);
             this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(103, 16);
+            this.label111.Size = new System.Drawing.Size(112, 17);
             this.label111.TabIndex = 244;
             this.label111.Text = "低速・加速の状態";
             this.label111.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel53
             // 
-            this.panel53.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel53.BackColor = System.Drawing.Color.SkyBlue;
             this.panel53.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel53.Controls.Add(this.label113);
-            this.panel53.Location = new System.Drawing.Point(269, 142);
+            this.panel53.Location = new System.Drawing.Point(293, 142);
             this.panel53.Name = "panel53";
-            this.panel53.Size = new System.Drawing.Size(140, 23);
+            this.panel53.Size = new System.Drawing.Size(170, 23);
             this.panel53.TabIndex = 194;
             // 
             // label113
             // 
             this.label113.AutoSize = true;
-            this.label113.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label113.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label113.BackColor = System.Drawing.Color.SkyBlue;
+            this.label113.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label113.Location = new System.Drawing.Point(1, 2);
             this.label113.Name = "label113";
-            this.label113.Size = new System.Drawing.Size(67, 16);
+            this.label113.Size = new System.Drawing.Size(73, 17);
             this.label113.TabIndex = 243;
             this.label113.Text = "冷却水の量";
             this.label113.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel46
             // 
-            this.panel46.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel46.BackColor = System.Drawing.Color.SkyBlue;
             this.panel46.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel46.Controls.Add(this.label106);
-            this.panel46.Location = new System.Drawing.Point(269, 117);
+            this.panel46.Location = new System.Drawing.Point(293, 117);
             this.panel46.Name = "panel46";
-            this.panel46.Size = new System.Drawing.Size(140, 23);
+            this.panel46.Size = new System.Drawing.Size(170, 23);
             this.panel46.TabIndex = 191;
             // 
             // label106
             // 
             this.label106.AutoSize = true;
-            this.label106.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label106.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label106.BackColor = System.Drawing.Color.SkyBlue;
+            this.label106.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label106.Location = new System.Drawing.Point(0, 3);
             this.label106.Name = "label106";
-            this.label106.Size = new System.Drawing.Size(103, 16);
+            this.label106.Size = new System.Drawing.Size(112, 17);
             this.label106.TabIndex = 242;
             this.label106.Text = "バッテリー液の量";
             this.label106.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel47
             // 
-            this.panel47.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel47.BackColor = System.Drawing.Color.SkyBlue;
             this.panel47.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel47.Controls.Add(this.label107);
-            this.panel47.Location = new System.Drawing.Point(269, 92);
+            this.panel47.Location = new System.Drawing.Point(293, 92);
             this.panel47.Name = "panel47";
-            this.panel47.Size = new System.Drawing.Size(140, 23);
+            this.panel47.Size = new System.Drawing.Size(170, 23);
             this.panel47.TabIndex = 190;
             // 
             // label107
             // 
             this.label107.AutoSize = true;
-            this.label107.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label107.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label107.BackColor = System.Drawing.Color.SkyBlue;
+            this.label107.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label107.Location = new System.Drawing.Point(-1, 3);
             this.label107.Name = "label107";
-            this.label107.Size = new System.Drawing.Size(127, 16);
+            this.label107.Size = new System.Drawing.Size(138, 17);
             this.label107.TabIndex = 241;
             this.label107.Text = "ファン・ベルトの張り";
             this.label107.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel42
             // 
-            this.panel42.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel42.BackColor = System.Drawing.Color.SkyBlue;
             this.panel42.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel42.Controls.Add(this.label101);
-            this.panel42.Location = new System.Drawing.Point(269, 67);
+            this.panel42.Location = new System.Drawing.Point(293, 67);
             this.panel42.Name = "panel42";
-            this.panel42.Size = new System.Drawing.Size(140, 23);
+            this.panel42.Size = new System.Drawing.Size(170, 23);
             this.panel42.TabIndex = 187;
             // 
             // label101
             // 
             this.label101.AutoSize = true;
-            this.label101.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label101.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label101.BackColor = System.Drawing.Color.SkyBlue;
+            this.label101.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label101.Location = new System.Drawing.Point(0, 2);
             this.label101.Name = "label101";
-            this.label101.Size = new System.Drawing.Size(126, 16);
+            this.label101.Size = new System.Drawing.Size(136, 17);
             this.label101.TabIndex = 240;
             this.label101.Text = "エンジン・オイルの量";
             this.label101.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel43
             // 
-            this.panel43.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel43.BackColor = System.Drawing.Color.SkyBlue;
             this.panel43.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel43.Controls.Add(this.label7);
-            this.panel43.Location = new System.Drawing.Point(269, 42);
+            this.panel43.Location = new System.Drawing.Point(293, 42);
             this.panel43.Name = "panel43";
-            this.panel43.Size = new System.Drawing.Size(140, 23);
+            this.panel43.Size = new System.Drawing.Size(170, 23);
             this.panel43.TabIndex = 186;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label7.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label7.BackColor = System.Drawing.Color.SkyBlue;
+            this.label7.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label7.Location = new System.Drawing.Point(0, 3);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 16);
+            this.label7.Size = new System.Drawing.Size(125, 17);
             this.label7.TabIndex = 240;
             this.label7.Text = "原動機のかかり具合";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -925,8 +925,8 @@
             // label103
             // 
             this.label103.AutoSize = true;
-            this.label103.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label103.Location = new System.Drawing.Point(266, 24);
+            this.label103.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label103.Location = new System.Drawing.Point(290, 24);
             this.label103.Name = "label103";
             this.label103.Size = new System.Drawing.Size(73, 17);
             this.label103.TabIndex = 185;
@@ -934,66 +934,66 @@
             // 
             // panel39
             // 
-            this.panel39.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel39.BackColor = System.Drawing.Color.SkyBlue;
             this.panel39.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel39.Controls.Add(this.label94);
             this.panel39.Location = new System.Drawing.Point(26, 235);
             this.panel39.Name = "panel39";
-            this.panel39.Size = new System.Drawing.Size(140, 23);
+            this.panel39.Size = new System.Drawing.Size(170, 23);
             this.panel39.TabIndex = 183;
             // 
             // label94
             // 
             this.label94.AutoSize = true;
-            this.label94.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label94.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label94.BackColor = System.Drawing.Color.SkyBlue;
+            this.label94.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label94.Location = new System.Drawing.Point(-1, 2);
             this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(138, 16);
+            this.label94.Size = new System.Drawing.Size(149, 17);
             this.label94.TabIndex = 161;
             this.label94.Text = "ワイパーゴムの払拭状況";
             this.label94.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel36
             // 
-            this.panel36.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel36.BackColor = System.Drawing.Color.SkyBlue;
             this.panel36.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel36.Controls.Add(this.label98);
             this.panel36.Location = new System.Drawing.Point(26, 210);
             this.panel36.Name = "panel36";
-            this.panel36.Size = new System.Drawing.Size(140, 23);
+            this.panel36.Size = new System.Drawing.Size(170, 23);
             this.panel36.TabIndex = 180;
             // 
             // label98
             // 
             this.label98.AutoSize = true;
-            this.label98.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label98.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label98.BackColor = System.Drawing.Color.SkyBlue;
+            this.label98.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label98.Location = new System.Drawing.Point(-1, 2);
             this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(55, 16);
+            this.label98.Size = new System.Drawing.Size(60, 17);
             this.label98.TabIndex = 161;
             this.label98.Text = "噴射状態";
             this.label98.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel37
             // 
-            this.panel37.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel37.BackColor = System.Drawing.Color.SkyBlue;
             this.panel37.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel37.Controls.Add(this.label95);
             this.panel37.Location = new System.Drawing.Point(26, 185);
             this.panel37.Name = "panel37";
-            this.panel37.Size = new System.Drawing.Size(140, 23);
+            this.panel37.Size = new System.Drawing.Size(170, 23);
             this.panel37.TabIndex = 179;
             // 
             // label95
             // 
             this.label95.AutoSize = true;
-            this.label95.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label95.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label95.BackColor = System.Drawing.Color.SkyBlue;
+            this.label95.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label95.Location = new System.Drawing.Point(-1, 1);
             this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(115, 16);
+            this.label95.Size = new System.Drawing.Size(125, 17);
             this.label95.TabIndex = 161;
             this.label95.Text = "ウォッシャー液の量";
             this.label95.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1001,7 +1001,7 @@
             // label96
             // 
             this.label96.AutoSize = true;
-            this.label96.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label96.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label96.Location = new System.Drawing.Point(23, 168);
             this.label96.Name = "label96";
             this.label96.Size = new System.Drawing.Size(137, 17);
@@ -1010,44 +1010,44 @@
             // 
             // panel32
             // 
-            this.panel32.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel32.BackColor = System.Drawing.Color.SkyBlue;
             this.panel32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel32.Controls.Add(this.label90);
             this.panel32.Location = new System.Drawing.Point(26, 139);
             this.panel32.Name = "panel32";
-            this.panel32.Size = new System.Drawing.Size(140, 23);
+            this.panel32.Size = new System.Drawing.Size(170, 23);
             this.panel32.TabIndex = 175;
             // 
             // label90
             // 
             this.label90.AutoSize = true;
-            this.label90.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label90.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label90.BackColor = System.Drawing.Color.SkyBlue;
+            this.label90.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label90.Location = new System.Drawing.Point(-1, 3);
             this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(139, 16);
+            this.label90.Size = new System.Drawing.Size(151, 17);
             this.label90.TabIndex = 161;
             this.label90.Text = "ボルトナットの締り具合";
             this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel33
             // 
-            this.panel33.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel33.BackColor = System.Drawing.Color.SkyBlue;
             this.panel33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel33.Controls.Add(this.label91);
             this.panel33.Location = new System.Drawing.Point(26, 114);
             this.panel33.Name = "panel33";
-            this.panel33.Size = new System.Drawing.Size(140, 23);
+            this.panel33.Size = new System.Drawing.Size(170, 23);
             this.panel33.TabIndex = 174;
             // 
             // label91
             // 
             this.label91.AutoSize = true;
-            this.label91.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label91.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label91.BackColor = System.Drawing.Color.SkyBlue;
+            this.label91.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label91.Location = new System.Drawing.Point(-1, 3);
             this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(55, 16);
+            this.label91.Size = new System.Drawing.Size(60, 17);
             this.label91.TabIndex = 161;
             this.label91.Text = "溝の深さ";
             this.label91.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1055,7 +1055,7 @@
             // label87
             // 
             this.label87.AutoSize = true;
-            this.label87.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label87.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label87.Location = new System.Drawing.Point(23, 96);
             this.label87.Name = "label87";
             this.label87.Size = new System.Drawing.Size(110, 17);
@@ -1064,44 +1064,44 @@
             // 
             // panel18
             // 
-            this.panel18.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel18.BackColor = System.Drawing.Color.SkyBlue;
             this.panel18.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel18.Controls.Add(this.label85);
             this.panel18.Location = new System.Drawing.Point(26, 67);
             this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(140, 23);
+            this.panel18.Size = new System.Drawing.Size(170, 23);
             this.panel18.TabIndex = 170;
             // 
             // label85
             // 
             this.label85.AutoSize = true;
-            this.label85.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label85.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label85.BackColor = System.Drawing.Color.SkyBlue;
+            this.label85.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label85.Location = new System.Drawing.Point(0, 3);
             this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(65, 16);
+            this.label85.Size = new System.Drawing.Size(70, 17);
             this.label85.TabIndex = 161;
             this.label85.Text = "異音(鳴き)";
             this.label85.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel19
             // 
-            this.panel19.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel19.BackColor = System.Drawing.Color.SkyBlue;
             this.panel19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel19.Controls.Add(this.label86);
             this.panel19.Location = new System.Drawing.Point(26, 42);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(140, 23);
+            this.panel19.Size = new System.Drawing.Size(170, 23);
             this.panel19.TabIndex = 169;
             // 
             // label86
             // 
             this.label86.AutoSize = true;
-            this.label86.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label86.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label86.BackColor = System.Drawing.Color.SkyBlue;
+            this.label86.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label86.Location = new System.Drawing.Point(-1, 3);
             this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(126, 16);
+            this.label86.Size = new System.Drawing.Size(135, 17);
             this.label86.TabIndex = 161;
             this.label86.Text = "ブレーキ・オイルの量";
             this.label86.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1109,7 +1109,7 @@
             // label82
             // 
             this.label82.AutoSize = true;
-            this.label82.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label82.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label82.Location = new System.Drawing.Point(24, 24);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(147, 17);
@@ -1139,7 +1139,7 @@
             this.groupBox7.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.groupBox7.Location = new System.Drawing.Point(22, 54);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(280, 332);
+            this.groupBox7.Size = new System.Drawing.Size(307, 332);
             this.groupBox7.TabIndex = 206;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "運行前点検";
@@ -1148,7 +1148,7 @@
             // 
             this.groupBox14.Controls.Add(this.rdoInspection_Check7_Ng);
             this.groupBox14.Controls.Add(this.rdoInspection_Check7_Ok);
-            this.groupBox14.Location = new System.Drawing.Point(168, 261);
+            this.groupBox14.Location = new System.Drawing.Point(198, 261);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Size = new System.Drawing.Size(86, 47);
             this.groupBox14.TabIndex = 236;
@@ -1182,7 +1182,7 @@
             // 
             this.groupBox11.Controls.Add(this.rdoInspection_Check4_Ng);
             this.groupBox11.Controls.Add(this.rdoInspection_Check4_Ok);
-            this.groupBox11.Location = new System.Drawing.Point(167, 163);
+            this.groupBox11.Location = new System.Drawing.Point(198, 163);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(86, 36);
             this.groupBox11.TabIndex = 233;
@@ -1216,7 +1216,7 @@
             // 
             this.groupBox12.Controls.Add(this.rdoInspection_Check5_Ng);
             this.groupBox12.Controls.Add(this.rdoInspection_Check5_Ok);
-            this.groupBox12.Location = new System.Drawing.Point(167, 188);
+            this.groupBox12.Location = new System.Drawing.Point(198, 188);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(86, 36);
             this.groupBox12.TabIndex = 234;
@@ -1250,7 +1250,7 @@
             // 
             this.groupBox13.Controls.Add(this.rdoInspection_Check6_Ng);
             this.groupBox13.Controls.Add(this.rdoInspection_Check6_Ok);
-            this.groupBox13.Location = new System.Drawing.Point(167, 213);
+            this.groupBox13.Location = new System.Drawing.Point(198, 213);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(86, 36);
             this.groupBox13.TabIndex = 235;
@@ -1284,7 +1284,7 @@
             // 
             this.groupBox10.Controls.Add(this.rdoInspection_Check3_Ng);
             this.groupBox10.Controls.Add(this.rdoInspection_Check3_Ok);
-            this.groupBox10.Location = new System.Drawing.Point(167, 104);
+            this.groupBox10.Location = new System.Drawing.Point(198, 104);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(86, 47);
             this.groupBox10.TabIndex = 233;
@@ -1318,7 +1318,7 @@
             // 
             this.groupBox8.Controls.Add(this.rdoInspection_Check1_Ng);
             this.groupBox8.Controls.Add(this.rdoInspection_Check1_Ok);
-            this.groupBox8.Location = new System.Drawing.Point(167, 31);
+            this.groupBox8.Location = new System.Drawing.Point(198, 31);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(86, 36);
             this.groupBox8.TabIndex = 231;
@@ -1352,7 +1352,7 @@
             // 
             this.groupBox9.Controls.Add(this.rdoInspection_Check2_Ng);
             this.groupBox9.Controls.Add(this.rdoInspection_Check2_Ok);
-            this.groupBox9.Location = new System.Drawing.Point(167, 56);
+            this.groupBox9.Location = new System.Drawing.Point(198, 56);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(86, 36);
             this.groupBox9.TabIndex = 232;
@@ -1384,23 +1384,23 @@
             // 
             // panel25
             // 
-            this.panel25.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel25.BackColor = System.Drawing.Color.SkyBlue;
             this.panel25.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel25.Controls.Add(this.label79);
             this.panel25.Controls.Add(this.label80);
             this.panel25.Location = new System.Drawing.Point(28, 271);
             this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(140, 36);
+            this.panel25.Size = new System.Drawing.Size(170, 36);
             this.panel25.TabIndex = 180;
             // 
             // label79
             // 
             this.label79.AutoSize = true;
-            this.label79.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label79.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label79.BackColor = System.Drawing.Color.SkyBlue;
+            this.label79.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label79.Location = new System.Drawing.Point(0, 16);
             this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(91, 16);
+            this.label79.Size = new System.Drawing.Size(99, 17);
             this.label79.TabIndex = 162;
             this.label79.Text = "認められた箇所";
             this.label79.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1408,11 +1408,11 @@
             // label80
             // 
             this.label80.AutoSize = true;
-            this.label80.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label80.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label80.BackColor = System.Drawing.Color.SkyBlue;
+            this.label80.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label80.Location = new System.Drawing.Point(-1, 0);
             this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(115, 16);
+            this.label80.Size = new System.Drawing.Size(125, 17);
             this.label80.TabIndex = 161;
             this.label80.Text = "前日の運行で異常が";
             this.label80.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1420,7 +1420,7 @@
             // label81
             // 
             this.label81.AutoSize = true;
-            this.label81.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label81.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label81.Location = new System.Drawing.Point(25, 254);
             this.label81.Name = "label81";
             this.label81.Size = new System.Drawing.Size(60, 17);
@@ -1429,66 +1429,66 @@
             // 
             // panel23
             // 
-            this.panel23.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel23.BackColor = System.Drawing.Color.SkyBlue;
             this.panel23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel23.Controls.Add(this.label77);
             this.panel23.Location = new System.Drawing.Point(27, 224);
             this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(140, 23);
+            this.panel23.Size = new System.Drawing.Size(170, 23);
             this.panel23.TabIndex = 177;
             // 
             // label77
             // 
             this.label77.AutoSize = true;
-            this.label77.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label77.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label77.BackColor = System.Drawing.Color.SkyBlue;
+            this.label77.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label77.Location = new System.Drawing.Point(-1, 1);
             this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(67, 16);
+            this.label77.Size = new System.Drawing.Size(73, 17);
             this.label77.TabIndex = 161;
             this.label77.Text = "異常な摩耗";
             this.label77.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel20
             // 
-            this.panel20.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel20.BackColor = System.Drawing.Color.SkyBlue;
             this.panel20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel20.Controls.Add(this.label74);
             this.panel20.Location = new System.Drawing.Point(27, 199);
             this.panel20.Name = "panel20";
-            this.panel20.Size = new System.Drawing.Size(140, 23);
+            this.panel20.Size = new System.Drawing.Size(170, 23);
             this.panel20.TabIndex = 174;
             // 
             // label74
             // 
             this.label74.AutoSize = true;
-            this.label74.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label74.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label74.BackColor = System.Drawing.Color.SkyBlue;
+            this.label74.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label74.Location = new System.Drawing.Point(-1, 1);
             this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(91, 16);
+            this.label74.Size = new System.Drawing.Size(99, 17);
             this.label74.TabIndex = 161;
             this.label74.Text = "亀裂・損傷など";
             this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel21
             // 
-            this.panel21.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel21.BackColor = System.Drawing.Color.SkyBlue;
             this.panel21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel21.Controls.Add(this.label75);
             this.panel21.Location = new System.Drawing.Point(27, 174);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(140, 23);
+            this.panel21.Size = new System.Drawing.Size(170, 23);
             this.panel21.TabIndex = 173;
             // 
             // label75
             // 
             this.label75.AutoSize = true;
-            this.label75.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label75.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label75.BackColor = System.Drawing.Color.SkyBlue;
+            this.label75.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label75.Location = new System.Drawing.Point(-1, 1);
             this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(43, 16);
+            this.label75.Size = new System.Drawing.Size(47, 17);
             this.label75.TabIndex = 161;
             this.label75.Text = "空気圧";
             this.label75.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1496,7 +1496,7 @@
             // label71
             // 
             this.label71.AutoSize = true;
-            this.label71.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label71.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label71.Location = new System.Drawing.Point(24, 156);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(46, 17);
@@ -1505,23 +1505,23 @@
             // 
             // panel17
             // 
-            this.panel17.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel17.BackColor = System.Drawing.Color.SkyBlue;
             this.panel17.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel17.Controls.Add(this.label69);
             this.panel17.Controls.Add(this.label68);
             this.panel17.Location = new System.Drawing.Point(27, 114);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(140, 36);
+            this.panel17.Size = new System.Drawing.Size(170, 36);
             this.panel17.TabIndex = 170;
             // 
             // label69
             // 
             this.label69.AutoSize = true;
-            this.label69.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label69.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label69.BackColor = System.Drawing.Color.SkyBlue;
+            this.label69.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label69.Location = new System.Drawing.Point(-1, 16);
             this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(55, 16);
+            this.label69.Size = new System.Drawing.Size(60, 17);
             this.label69.TabIndex = 162;
             this.label69.Text = "汚れなど";
             this.label69.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1529,11 +1529,11 @@
             // label68
             // 
             this.label68.AutoSize = true;
-            this.label68.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label68.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label68.BackColor = System.Drawing.Color.SkyBlue;
+            this.label68.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label68.Location = new System.Drawing.Point(-1, 0);
             this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(127, 16);
+            this.label68.Size = new System.Drawing.Size(138, 17);
             this.label68.TabIndex = 161;
             this.label68.Text = "球切れ・レンズの損傷";
             this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1541,7 +1541,7 @@
             // label67
             // 
             this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label67.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label67.Location = new System.Drawing.Point(24, 96);
             this.label67.Name = "label67";
             this.label67.Size = new System.Drawing.Size(60, 17);
@@ -1550,44 +1550,44 @@
             // 
             // panel28
             // 
-            this.panel28.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel28.BackColor = System.Drawing.Color.SkyBlue;
             this.panel28.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel28.Controls.Add(this.label63);
             this.panel28.Location = new System.Drawing.Point(27, 67);
             this.panel28.Name = "panel28";
-            this.panel28.Size = new System.Drawing.Size(140, 23);
+            this.panel28.Size = new System.Drawing.Size(170, 23);
             this.panel28.TabIndex = 165;
             // 
             // label63
             // 
             this.label63.AutoSize = true;
-            this.label63.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label63.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label63.BackColor = System.Drawing.Color.SkyBlue;
+            this.label63.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label63.Location = new System.Drawing.Point(-1, 2);
             this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(139, 16);
+            this.label63.Size = new System.Drawing.Size(150, 17);
             this.label63.TabIndex = 161;
             this.label63.Text = "駐車ブレーキの引きしろ";
             this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel29
             // 
-            this.panel29.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel29.BackColor = System.Drawing.Color.SkyBlue;
             this.panel29.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel29.Controls.Add(this.label62);
             this.panel29.Location = new System.Drawing.Point(27, 42);
             this.panel29.Name = "panel29";
-            this.panel29.Size = new System.Drawing.Size(140, 23);
+            this.panel29.Size = new System.Drawing.Size(170, 23);
             this.panel29.TabIndex = 164;
             // 
             // label62
             // 
             this.label62.AutoSize = true;
-            this.label62.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label62.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label62.BackColor = System.Drawing.Color.SkyBlue;
+            this.label62.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label62.Location = new System.Drawing.Point(0, 3);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(115, 16);
+            this.label62.Size = new System.Drawing.Size(125, 17);
             this.label62.TabIndex = 161;
             this.label62.Text = "効き具合・踏みしろ";
             this.label62.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1595,7 +1595,7 @@
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label60.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label60.Location = new System.Drawing.Point(24, 24);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(147, 17);
@@ -1626,9 +1626,9 @@
             this.groupBox30.Controls.Add(this.panel57);
             this.groupBox30.Controls.Add(this.label114);
             this.groupBox30.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold);
-            this.groupBox30.Location = new System.Drawing.Point(838, 58);
+            this.groupBox30.Location = new System.Drawing.Point(927, 60);
             this.groupBox30.Name = "groupBox30";
-            this.groupBox30.Size = new System.Drawing.Size(333, 183);
+            this.groupBox30.Size = new System.Drawing.Size(316, 183);
             this.groupBox30.TabIndex = 208;
             this.groupBox30.TabStop = false;
             this.groupBox30.Text = "大型・エアサス装着車等";
@@ -1637,7 +1637,7 @@
             // 
             this.groupBox33.Controls.Add(this.rdoLarge_Inspection_Check3_Ng);
             this.groupBox33.Controls.Add(this.rdoLarge_Inspection_Check3_Ok);
-            this.groupBox33.Location = new System.Drawing.Point(186, 105);
+            this.groupBox33.Location = new System.Drawing.Point(202, 105);
             this.groupBox33.Name = "groupBox33";
             this.groupBox33.Size = new System.Drawing.Size(86, 36);
             this.groupBox33.TabIndex = 238;
@@ -1673,7 +1673,7 @@
             // 
             this.groupBox34.Controls.Add(this.rdoLarge_Inspection_Check4_Ng);
             this.groupBox34.Controls.Add(this.rdoLarge_Inspection_Check4_Ok);
-            this.groupBox34.Location = new System.Drawing.Point(186, 128);
+            this.groupBox34.Location = new System.Drawing.Point(202, 128);
             this.groupBox34.Name = "groupBox34";
             this.groupBox34.Size = new System.Drawing.Size(86, 36);
             this.groupBox34.TabIndex = 237;
@@ -1709,7 +1709,7 @@
             // 
             this.groupBox31.Controls.Add(this.rdoLarge_Inspection_Check1_Ng);
             this.groupBox31.Controls.Add(this.rdoLarge_Inspection_Check1_Ok);
-            this.groupBox31.Location = new System.Drawing.Point(186, 31);
+            this.groupBox31.Location = new System.Drawing.Point(202, 31);
             this.groupBox31.Name = "groupBox31";
             this.groupBox31.Size = new System.Drawing.Size(86, 36);
             this.groupBox31.TabIndex = 236;
@@ -1745,7 +1745,7 @@
             // 
             this.groupBox32.Controls.Add(this.rdoLarge_Inspection_Check2_Ng);
             this.groupBox32.Controls.Add(this.rdoLarge_Inspection_Check2_Ok);
-            this.groupBox32.Location = new System.Drawing.Point(186, 54);
+            this.groupBox32.Location = new System.Drawing.Point(202, 54);
             this.groupBox32.Name = "groupBox32";
             this.groupBox32.Size = new System.Drawing.Size(86, 36);
             this.groupBox32.TabIndex = 235;
@@ -1779,44 +1779,44 @@
             // 
             // panel60
             // 
-            this.panel60.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel60.BackColor = System.Drawing.Color.SkyBlue;
             this.panel60.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel60.Controls.Add(this.label121);
             this.panel60.Location = new System.Drawing.Point(31, 140);
             this.panel60.Name = "panel60";
-            this.panel60.Size = new System.Drawing.Size(155, 23);
+            this.panel60.Size = new System.Drawing.Size(170, 23);
             this.panel60.TabIndex = 179;
             // 
             // label121
             // 
             this.label121.AutoSize = true;
-            this.label121.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label121.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label121.BackColor = System.Drawing.Color.SkyBlue;
+            this.label121.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label121.Location = new System.Drawing.Point(-1, 1);
             this.label121.Name = "label121";
-            this.label121.Size = new System.Drawing.Size(151, 16);
+            this.label121.Size = new System.Drawing.Size(164, 17);
             this.label121.TabIndex = 161;
             this.label121.Text = "タンク・バルブの空気漏れ";
             this.label121.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel61
             // 
-            this.panel61.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel61.BackColor = System.Drawing.Color.SkyBlue;
             this.panel61.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel61.Controls.Add(this.label122);
             this.panel61.Location = new System.Drawing.Point(31, 115);
             this.panel61.Name = "panel61";
-            this.panel61.Size = new System.Drawing.Size(155, 23);
+            this.panel61.Size = new System.Drawing.Size(170, 23);
             this.panel61.TabIndex = 178;
             // 
             // label122
             // 
             this.label122.AutoSize = true;
-            this.label122.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label122.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label122.BackColor = System.Drawing.Color.SkyBlue;
+            this.label122.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label122.Location = new System.Drawing.Point(-1, 1);
             this.label122.Name = "label122";
-            this.label122.Size = new System.Drawing.Size(127, 16);
+            this.label122.Size = new System.Drawing.Size(138, 17);
             this.label122.TabIndex = 161;
             this.label122.Text = "エア・タンク内の凝水";
             this.label122.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1824,7 +1824,7 @@
             // label123
             // 
             this.label123.AutoSize = true;
-            this.label123.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label123.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label123.Location = new System.Drawing.Point(24, 97);
             this.label123.Name = "label123";
             this.label123.Size = new System.Drawing.Size(86, 17);
@@ -1833,44 +1833,44 @@
             // 
             // panel56
             // 
-            this.panel56.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel56.BackColor = System.Drawing.Color.SkyBlue;
             this.panel56.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel56.Controls.Add(this.label117);
             this.panel56.Location = new System.Drawing.Point(31, 67);
             this.panel56.Name = "panel56";
-            this.panel56.Size = new System.Drawing.Size(155, 23);
+            this.panel56.Size = new System.Drawing.Size(170, 23);
             this.panel56.TabIndex = 174;
             // 
             // label117
             // 
             this.label117.AutoSize = true;
-            this.label117.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label117.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label117.BackColor = System.Drawing.Color.SkyBlue;
+            this.label117.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label117.Location = new System.Drawing.Point(-1, 3);
             this.label117.Name = "label117";
-            this.label117.Size = new System.Drawing.Size(65, 16);
+            this.label117.Size = new System.Drawing.Size(70, 17);
             this.label117.TabIndex = 161;
             this.label117.Text = "異音(鳴き)";
             this.label117.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel57
             // 
-            this.panel57.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel57.BackColor = System.Drawing.Color.SkyBlue;
             this.panel57.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel57.Controls.Add(this.label118);
             this.panel57.Location = new System.Drawing.Point(31, 42);
             this.panel57.Name = "panel57";
-            this.panel57.Size = new System.Drawing.Size(155, 23);
+            this.panel57.Size = new System.Drawing.Size(170, 23);
             this.panel57.TabIndex = 173;
             // 
             // label118
             // 
             this.label118.AutoSize = true;
-            this.label118.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.label118.Font = new System.Drawing.Font("游ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label118.BackColor = System.Drawing.Color.SkyBlue;
+            this.label118.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label118.Location = new System.Drawing.Point(-1, 3);
             this.label118.Name = "label118";
-            this.label118.Size = new System.Drawing.Size(151, 16);
+            this.label118.Size = new System.Drawing.Size(164, 17);
             this.label118.TabIndex = 161;
             this.label118.Text = "空気圧の上り具合・排気音";
             this.label118.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1878,7 +1878,7 @@
             // label114
             // 
             this.label114.AutoSize = true;
-            this.label114.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label114.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.label114.Location = new System.Drawing.Point(24, 24);
             this.label114.Name = "label114";
             this.label114.Size = new System.Drawing.Size(147, 17);
@@ -1888,10 +1888,10 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じるA_8p;
-            this.btnClose.Location = new System.Drawing.Point(1091, 349);
+            this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小小1;
+            this.btnClose.Location = new System.Drawing.Point(1143, 354);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(80, 37);
+            this.btnClose.Size = new System.Drawing.Size(100, 35);
             this.btnClose.TabIndex = 213;
             this.btnClose.Text = "閉じる";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1902,9 +1902,9 @@
             // 
             this.btnReg.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnReg.Image = global::FlockAppC.Properties.Resources.FD_1_小小;
-            this.btnReg.Location = new System.Drawing.Point(846, 349);
+            this.btnReg.Location = new System.Drawing.Point(935, 354);
             this.btnReg.Name = "btnReg";
-            this.btnReg.Size = new System.Drawing.Size(80, 37);
+            this.btnReg.Size = new System.Drawing.Size(100, 35);
             this.btnReg.TabIndex = 214;
             this.btnReg.Text = "保存";
             this.btnReg.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1915,7 +1915,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1187, 402);
+            this.ClientSize = new System.Drawing.Size(1260, 401);
             this.Controls.Add(this.btnReg);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox15);

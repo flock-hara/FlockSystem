@@ -438,9 +438,9 @@
             // 
             this.btnReg.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnReg.Image = global::FlockAppC.Properties.Resources.メモ4_小小;
-            this.btnReg.Location = new System.Drawing.Point(15, 481);
+            this.btnReg.Location = new System.Drawing.Point(16, 486);
             this.btnReg.Name = "btnReg";
-            this.btnReg.Size = new System.Drawing.Size(100, 40);
+            this.btnReg.Size = new System.Drawing.Size(100, 35);
             this.btnReg.TabIndex = 217;
             this.btnReg.Text = "登録";
             this.btnReg.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
@@ -451,9 +451,9 @@
             // 
             this.btnClose.Font = new System.Drawing.Font("游ゴシック", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.btnClose.Image = global::FlockAppC.Properties.Resources.閉じる_小;
-            this.btnClose.Location = new System.Drawing.Point(586, 481);
+            this.btnClose.Location = new System.Drawing.Point(590, 486);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(100, 40);
+            this.btnClose.Size = new System.Drawing.Size(100, 35);
             this.btnClose.TabIndex = 216;
             this.btnClose.Text = "閉じる";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;

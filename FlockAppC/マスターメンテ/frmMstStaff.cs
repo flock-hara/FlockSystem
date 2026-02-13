@@ -1073,7 +1073,8 @@ namespace FlockAppC.マスターメンテ
                 cMstStaff.InsertStaff();
 
                 // モバイルパスワード初期設定
-                cMstStaff.MobilePass = ClsPublic.MOBILE_PWD + this.Staff_Id.ToString("D4");
+                // cMstStaff.MobilePass = ClsPublic.MOBILE_PWD + this.Staff_Id.ToString("D4");
+                cMstStaff.MobilePass = ClsPublic.GenerateRandomAlphanumeric(4);
                 cMstStaff.UpdateMobilePass();
 
                 // 詳細も合わせて登録
@@ -1090,7 +1091,11 @@ namespace FlockAppC.マスターメンテ
                 cMstStaff.UpdateStaff();
 
                 // モバイルパスワード再設定
-                cMstStaff.MobilePass = ClsPublic.MOBILE_PWD + this.Staff_Id.ToString("D4");
+                if (cMstStaff.MobilePass == "" || cMstStaff.MobilePass == null)
+                {
+                    // 初期設定されていない場合のみ再設定
+                    cMstStaff.MobilePass = ClsPublic.GenerateRandomAlphanumeric(4);
+                }
                 cMstStaff.UpdateMobilePass();
 
                 // 詳細がない場合は登録
@@ -1573,16 +1578,16 @@ namespace FlockAppC.マスターメンテ
                     sb.Clear();
                     // sb.AppendLine("DELETE FROM");
                     sb.AppendLine("UPDATE");
-                    sb.AppendLine("Mst_社員");
-                    sb.AppendLine("SET");
+                    sb.AppendLine(" Mst_社員");
+                    sb.AppendLine(" SET");
                     // sb.AppendLine(" zai_flag = " + ClsPublic.FLAG_OFF);          2026/01/06 DEL
                     // 2025/11/12 (S)
-                    sb.AppendLine(",upd_user_id = " + ClsLoginUser.StaffID);
-                    sb.AppendLine(",upd_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
+                    sb.AppendLine(" upd_user_id = " + ClsLoginUser.StaffID);
+                    sb.AppendLine(" ,upd_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
                     // 2025/11/12 (E)
-                    sb.AppendLine(",delete_flag = " + ClsPublic.FLAG_ON);
-                    sb.AppendLine("WHERE");
-                    sb.AppendLine("staff_id = " + Staff_Id);
+                    sb.AppendLine(" ,delete_flag = " + ClsPublic.FLAG_ON);
+                    sb.AppendLine(" WHERE");
+                    sb.AppendLine(" staff_id = " + Staff_Id);
                     clsSqlDb.DMLUpdate(sb.ToString());
 
                     // ========================================================
@@ -1590,15 +1595,15 @@ namespace FlockAppC.マスターメンテ
                     // ========================================================
                     sb.Clear();
                     sb.AppendLine("UPDATE");
-                    sb.AppendLine("Mst_社員詳細");
-                    sb.AppendLine("SET");
+                    sb.AppendLine(" Mst_社員詳細");
+                    sb.AppendLine(" SET");
                     // 2025/11/12↓
                     sb.AppendLine(" upd_user_id = " + ClsLoginUser.StaffID);
                     sb.AppendLine(",upd_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
                     // 2025/11/12↑
                     sb.AppendLine(",delete_flag = " + ClsPublic.FLAG_ON);
-                    sb.AppendLine("WHERE");
-                    sb.AppendLine("id = " + Staff_Id);
+                    sb.AppendLine(" WHERE");
+                    sb.AppendLine(" id = " + Staff_Id);
                     clsSqlDb.DMLUpdate(sb.ToString());
 
                     // ========================================================
@@ -1607,11 +1612,11 @@ namespace FlockAppC.マスターメンテ
                     sb.Clear();
                     sb.AppendLine("DELETE FROM");
                     // sb.AppendLine("UPDATE");
-                    sb.AppendLine("Mst_専従先専従者");
+                    sb.AppendLine(" Mst_専従先専従者");
                     // sb.AppendLine("SET");
                     // sb.AppendLine("Delete_Flag = 1");
-                    sb.AppendLine("WHERE");
-                    sb.AppendLine("staff_id = " + Staff_Id);
+                    sb.AppendLine(" WHERE");
+                    sb.AppendLine(" staff_id = " + Staff_Id);
                     clsSqlDb.DMLUpdate(sb.ToString());
 
                     // ========================================================
@@ -1619,15 +1624,15 @@ namespace FlockAppC.マスターメンテ
                     // ========================================================
                     sb.Clear();
                     sb.AppendLine("UPDATE");
-                    sb.AppendLine("Mst_専従先");
-                    sb.AppendLine("SET");
-                    sb.AppendLine("instructor_id = 0");
+                    sb.AppendLine(" Mst_専従先");
+                    sb.AppendLine(" SET");
+                    sb.AppendLine(" instructor_id = 0");
                     // 2025/11/12↓
                     sb.AppendLine(",upd_user_id = " + ClsLoginUser.StaffID);
                     sb.AppendLine(",upd_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
                     // 2025/11/12↑
-                    sb.AppendLine("WHERE");
-                    sb.AppendLine("instructor_id = " + Staff_Id);
+                    sb.AppendLine(" WHERE");
+                    sb.AppendLine(" instructor_id = " + Staff_Id);
                     clsSqlDb.DMLUpdate(sb.ToString());
 
                     // ========================================================
@@ -1635,15 +1640,15 @@ namespace FlockAppC.マスターメンテ
                     // ========================================================
                     sb.Clear();
                     sb.AppendLine("UPDATE");
-                    sb.AppendLine("Mst_社用車");
-                    sb.AppendLine("SET");
-                    sb.AppendLine("used_user_id = 0");
+                    sb.AppendLine(" Mst_社用車");
+                    sb.AppendLine(" SET");
+                    sb.AppendLine(" used_user_id = 0");
                     // 2025/11/12↓
                     sb.AppendLine(",upd_user_id = " + ClsLoginUser.StaffID);
                     sb.AppendLine(",upd_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
                     // 2025/11/12↑
-                    sb.AppendLine("WHERE");
-                    sb.AppendLine("used_user_id = " + Staff_Id);
+                    sb.AppendLine(" WHERE");
+                    sb.AppendLine(" used_user_id = " + Staff_Id);
                     clsSqlDb.DMLUpdate(sb.ToString());
                 }
 
@@ -1657,34 +1662,34 @@ namespace FlockAppC.マスターメンテ
                 {
                     sb.Clear();
                     sb.AppendLine("DELETE FROM");
-                    sb.AppendLine("Mst_社員");
-                    sb.AppendLine("WHERE");
-                    sb.AppendLine("staff_id = " + Staff_Id);
+                    sb.AppendLine(" Mst_社員");
+                    sb.AppendLine(" WHERE");
+                    sb.AppendLine(" staff_id = " + Staff_Id);
                     clsMySqlDb.DMLUpdate(sb.ToString());
 
                     sb.Clear();
                     sb.AppendLine("DELETE FROM");
-                    sb.AppendLine("Mst_社員詳細");
-                    sb.AppendLine("WHERE");
-                    sb.AppendLine("id = " + Staff_Id);
+                    sb.AppendLine(" Mst_社員詳細");
+                    sb.AppendLine(" WHERE");
+                    sb.AppendLine(" id = " + Staff_Id);
                     clsMySqlDb.DMLUpdate(sb.ToString());
 
                     sb.Clear();
                     sb.AppendLine("DELETE FROM");
-                    sb.AppendLine("Mst_専従先専従者");
-                    sb.AppendLine("WHERE");
-                    sb.AppendLine("staff_id = " + Staff_Id);
+                    sb.AppendLine(" Mst_専従先専従者");
+                    sb.AppendLine(" WHERE");
+                    sb.AppendLine(" staff_id = " + Staff_Id);
                     clsMySqlDb.DMLUpdate(sb.ToString());
 
                     sb.Clear();
                     sb.AppendLine("UPDATE");
-                    sb.AppendLine("Mst_専従先");
-                    sb.AppendLine("SET");
-                    sb.AppendLine("instructor_id = 0");
+                    sb.AppendLine(" Mst_専従先");
+                    sb.AppendLine(" SET");
+                    sb.AppendLine(" instructor_id = 0");
                     sb.AppendLine(",upd_user_id = " + ClsLoginUser.StaffID);
                     sb.AppendLine(",upd_date = '" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "'");
-                    sb.AppendLine("WHERE");
-                    sb.AppendLine("instructor_id = " + Staff_Id);
+                    sb.AppendLine(" WHERE");
+                    sb.AppendLine(" instructor_id = " + Staff_Id);
                     clsMySqlDb.DMLUpdate(sb.ToString());
 
                     MessageBox.Show("削除しました。", "結果", MessageBoxButtons.OK);
